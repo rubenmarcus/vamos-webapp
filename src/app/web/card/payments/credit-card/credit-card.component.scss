@@ -1,0 +1,26 @@
+card-payment-cc {
+  .payment__cc h1 {
+    text-align: left;
+    font-size: 1.8rem !important;
+    padding-top: 20px;
+  }
+  > h1:nth-child(1) {
+    margin-top: -30px;
+  }
+  p.help.has-text-danger {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .col-10 {
+    .col-6 {
+      margin-right: 30px;
+      max-width: 300px;
+    }
+    div {
+      margin-top: 0px;
+      padding-left: 0px !important;
+      margin-bottom: 0px;
+    }
+  }
+}

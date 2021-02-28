@@ -1,0 +1,71 @@
+<div class="user__content--center">
+  <h1>Chat</h1>
+  <div class="empty-list" *ngIf="users.length == 0 && !preload">
+    <img  rel=”preload” src="/assets/img/placeholders/chat.png" alt="Lista de chat vazio">
+    <p>
+      <strong>Lista vazia</strong><br>
+      Você não tem nenhuma mensagem<br> registrada aqui por enquanto.
+    </p>
+  </div>
+  <div class="chat__main" *ngIf="users.length > 0">
+    <div class="chat__user" id="chatuser" [ngClass]="{ 'd-none d-lg-block' : typeMsg }">
+      <div class="chat__user-box flex flex_wrap pos__relative" *ngFor="let user of users" (click)="goDialog(user)">
+        <div class="chat__user-box-image">
+          <img  rel=”preload” src="{{ user.to_picture ? user.to_picture : '/assets/img/avatars/blank.jpg' }}" />
+        </div>
+        <div class="chat__user-box-message flex flex_wrap">
+          <h1>{{ user.to_name }}</h1>
+          <div class="user-sent-msg">
+            <span>{{ user.message }}</span>
+          </div>
+          <span class="time"> {{ user.created_at | date:'dd/MM/yyyy HH:mm' }}
+            <!-- {{user.created_at}}-->
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat__dialog" id="chatdialog" *ngIf="messages.length > 0">
+      <div class="chat__dialog--title">
+        <div class="chat__dialog--title-content" (click)="backMenu()">
+          <app-icon-arrow></app-icon-arrow>
+          <img  rel=”preload” src="{{ messages[0].to_picture ? messages[0].to_picture : '/assets/img/avatars/blank.jpg' }}" class="chat__dialog--title-content--img" />
+          <h1>{{ messages[0].to_name }}</h1>
+          <!-- <div class="col-12 flex flex_wrap" (click)="backMenu()" *ngIf="messages.length > 0">
+            <div class="col-1"><app-icon-arrow></app-icon-arrow></div>
+            <div class="col-1"><img  rel=”preload” src="{{ messages[0].to_picture ? messages[0].to_picture : '/assets/img/avatars/blank.jpg' }}" class="chat__dialog--img" /></div>
+            <div class="col-8">
+              <h1>{{ messages[0].to_name }}</h1>
+            </div>
+          </div> -->
+        </div>
+        <div class="chat__dialog--title-offer">
+          Tenho interesse - {{ titleMessage }}
+        </div>
+      </div>
+      <ul class="dialog" id="dialog-scroll" [ngClass]="{ 'loading' : scrollLoading }" (scroll)="onScrollEvent($event)">
+        <li class="animated fadeIn" *ngFor="let message of messages" [ngClass]="checkUser(message)">
+          <h1 *ngIf="IsUser(message)">{{ message.from_name }}</h1>
+          <img  rel=”preload” src="{{ message.from_picture ? message.from_picture : '/assets/img/avatars/blank.jpg' }}" *ngIf="IsUser(message)" />
+          <span>{{ message.message }} </span>
+          <span class="time"> {{ message.created_at | date:'dd/MM/yyyy HH:mm' }} </span>
+        </li>
+      </ul>
+
+      <div class="dialog__type" *ngIf="typeMsg">
+        <div class="pos__relative">
+          <form [formGroup]="chatForm">
+            <div formGroupName="message">
+              <input type="text" placeholder="Digite uma mensagem" formControlName="message" />
+              <button class="send-message" (click)="sendMessage()" [disabled]="!chatForm.valid"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noMessages>
+    <span class="noMessages"> Você não tem mensagens. </span>
+  </ng-template>
+</div>

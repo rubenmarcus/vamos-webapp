@@ -1,0 +1,37 @@
+<img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+
+
+<app-box-content title="Dependentes">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+    <li>
+      <a routerLink="/cartao/meus-dependentes">Dependentes </a>
+    </li>
+  </ol>
+
+  <div class="card__main card__recharge-main">
+    <h1>Meus dependentes</h1>
+    <h3>Você pode incluir até 5 dependentes</h3>
+    <ul>
+      <li *ngFor="let dependent of dep">
+          <i (click)="setDependent(dependent)"></i> <a routerLink="{{dependentLink}}/{{dependent.id}}"> {{dependent.card_user.first_name}} {{dependent.card_user.last_name}} </a>
+      </li>
+      <li *ngIf="!notAdd" class="add-dependent" >
+        <span routerLink="/cartao/adicionar-dependente">Adicionar dependente</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="alert" *ngIf="modal">
+    <div class="alert-content">
+      <div class="modal__close" (click)="closeModal();"></div>
+      <img  rel=”preload” src="/assets/img/alert/error.svg" alt="">
+      <h1>Excluir Dependente</h1>
+      <h4>Tem Certeza que deseja excluir o dependente?</h4>
+      <p>{{DependentData.card_user.first_name}} {{DependentData.card_user.last_name}}</p>
+      <button (click)="removeDependent(DependentData)" class="btn btn-full btn-blue btn-md" id="alert-button" type="click">Excluir Dependente</button>
+    </div>
+  </div>
+</app-box-content>

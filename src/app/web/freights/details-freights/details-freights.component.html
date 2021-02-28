@@ -1,0 +1,189 @@
+<section class="details-freights container" *ngIf="freight">
+  <div class="details-freights-main">
+    <div class="row">
+      <div class="col-12 col-xs-12 col-md-6 col-lg-8 col-xl-8">
+        <app-details-freights-directions [freight]="freight"></app-details-freights-directions>
+      </div>
+      <div class="col-12 col-xs-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="row details-freights-heading d-flex">
+          <div class="col-3 p-2">
+            <img  rel=”preload” src="/assets/img/icon-eye-views.svg" alt="">
+            <span>{{ freight.viewers }}</span>
+          </div>
+          <div class="col-3 p-2">
+            <img  rel=”preload” src="/assets/img/icon_favorito_off.png" alt="">
+            <span>{{ freight.favorites }}</span>
+          </div>
+          <div class="col-5 ml-auto p-2">
+            <span class="date">{{ freight.load_start_at | date:'shortDate' }}</span>
+            <span>
+              <a (click)="saveFavorite()">
+                <img  rel=”preload” src="assets/img/{{ freight.favorited ? 'icon_favorito_on.png' : 'icon_favorito_off.png' }}" alt="">
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="provider-info">
+          <div class="provider-name">
+            <h2>{{ freight.source }} </h2>
+
+            <h2 *ngIf="freight.company !== null">   {{ freight.company }}</h2>
+          </div>
+          <div class="provider-payment-info">
+            <!-- <span class="badge align-self-center">Adiantamento 15%</span> -->
+            <span>Valor</span>
+            <span class="amount p-2 text-green">{{ freight.price }}</span>
+          </div>
+          <div class="actions">
+            <button
+              class="btn btn-full btn-blue btn-md"
+              (click)="showPhone($event.target, freight.phone)"
+              [ngClass]="!phoneVisible ? 'transparent' : 'blue'">
+              Tenho interesse
+            </button>
+            <a class="share-link" (click)="showSocial = !showSocial">COMPARTILHAR</a>
+            <div class="share_buttons"  [ngClass]="showSocial ? 'show-div' : 'hide-div'">
+              <share-buttons [theme]="'default'"
+              [include]="['facebook','twitter','whatsapp','email','print']"
+              [show]="7"
+              [description]="freight_desc"
+              [autoSetMeta]="false"
+            ></share-buttons>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-freights--info">
+    <div class="row">
+      <div class="details-freights--info-left col-12 col-xs-12 col-md-8">
+        <div class="row">
+          <div class="col-12">
+            <ol class="breadcrumb d-flex">
+              <li><a routerLink="/fretes">Fretes </a></li>
+              <li><a> Detalhes do frete</a></li>
+            </ol>
+          </div>
+          <div class="col-12">
+            <app-box-collapse Title="Descrição">
+              <p class="description">{{ freight.description }}</p>
+              <div class="row">
+                <div class="col-md-6 col-xs-12 box left-box">
+                  <h3>Negociação</h3>
+                  <ul>
+                    <!-- <li class="d-flex justify-content-between align-items-center">
+                      Adiantamento
+                      <span>{{freight.advance ? freight.advance : 'Não Informado'}}</span>
+                    </li> -->
+                    <li class="d-flex justify-content-between align-items-center">
+                      Frete (R$) por km:
+                      <span>{{ freight.price_per_kilometers ? freight.price_per_kilometers : 'Não Informado' }}</span>
+                    </li>
+                  </ul>
+                  <h3>Informações</h3>
+                  <ul>
+                    <li class="d-flex justify-content-between align-items-center">
+                      Data da coleta:
+                      <span>{{ freight.load_start_at ? (freight.load_start_at| date: 'dd/MM/yyyy') : 'Não Informado' }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                      Data de entrega:
+                      <span>{{ freight.unload_date ? freight.unload_date : 'Não Informado' }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                      Distância:
+                      <span>{{ freight.distance ? freight.distance : 'Não Informado' }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                      Tipo de Carregamento:
+                      <span>Palete</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                      Número da carga:
+                      <span>{{ freight.source_id ? freight.source_id : 'Não Informado' }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-xs-12 box right-box">
+                  <div *ngIf="freight.body_types.length > 0 || freight.vehicle_types.length > 0">
+                    <h3>Tipo de veículo</h3>
+                    <ul>
+                      <li *ngIf="freight.body_types.length > 0">
+                        <p>Carroceria</p>
+                        <span *ngFor="let body_type of freight.body_types; let idx = index" class="badge">
+                          {{ body_type }}
+                        </span>
+                      </li>
+                      <li *ngIf="freight.vehicle_types.length > 0">
+                        <p>Veículo</p>
+                        <span *ngFor="let vehicle_type of freight.vehicle_types; let idx = index" class="badge">
+                          {{ vehicle_type }}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- <h3>Observações</h3>
+                  <ul>
+                    <li>18 Cubicos falar com Micheli</li>
+                  </ul> -->
+                </div>
+              </div>
+            </app-box-collapse>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-12 col-xs-12 col-md-4">
+        <div class="card">
+          <div class="card-heading">
+            <img  rel=”preload” src="assets/img/mini-map-background.png" alt="">
+          </div>
+          <div class="card-body">
+            <div class="logo">
+              <img  rel=”preload” src="assets/img/icon-logo.png" alt="">
+            </div>
+            <div class="provider-name">
+              <h3>Confidencial</h3>
+            </div>
+            <div class="provider-info">
+              <div class="d-flex">
+                <img  rel=”preload” class="p-2" src="assets/img/seller-user.svg" alt="">
+                <p class="p-2 card-text">
+                  A Cofipe, está entre as primeiras concessionárias da marca Iveco no Brasil.
+                  Desde 1997, comercializa caminhões novos e seminovos
+                </p>
+              </div>
+              <div class="d-flex">
+                <img  rel=”preload” class="p-2" src="assets/img/seller-point.svg" alt="">
+                <p class="p-2 card-text">
+                  <span>Av. Pres. Castelo Branco, 3333-Canindé,</span>
+                  <span>São Paulo - SP, 03036-000</span>
+                </p>
+              </div>
+              <div class="d-flex">
+                <img  rel=”preload” class="p-2" src="assets/img/seller-clock.svg" alt="">
+                <p class="p-2 card-text">
+                  <span>seg a sex das · 08:00–18:00</span>
+                  <span>sáb e dom das 08:00 - 16:00</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-12" *ngIf="freightsSimilar.length > 0">
+        <div class="title">
+          <h1>Fretes Similares</h1>
+        </div>
+        <div class="row">
+          <app-card-freight
+            *ngFor="let item of freightsSimilar; let idx = index" [freight]="item"
+            class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+          </app-card-freight>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

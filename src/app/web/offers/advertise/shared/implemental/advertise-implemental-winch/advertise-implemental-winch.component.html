@@ -1,0 +1,126 @@
+<div [formGroup]="advertiseForm">
+  <div class="flex">
+    <div class="col-md-6" formGroupName="offer">
+      <div class="checkbox box checkbox-trade">
+        <input type="checkbox" value="true" name="trade" id="trade" formControlName="trade" autocomplete="off">
+        <label for="trade">
+          Negociação
+          <span>Aceito trocas</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="condition"> Condição do Implemento </label>
+        <select name="condition" id="condition" formControlName="condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let condition of condition" [value]="condition.id">
+            {{ condition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.year') }">
+      <div class="form-group">
+        <label for="year"> Ano* </label>
+        <input type="tel" name="year" id="year" formControlName="year" autocomplete="off" [textMask]="yearMask">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.year')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.lift_capacity') }">
+      <div class="form-group">
+        <label class="lift_capacity"> Capacidade de levantamento* (300 kg) </label>
+        <input type="tel" name="lift_capacity" id="lift_capacity" formControlName="lift_capacity" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.lift_capacity')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.shaft_distance') }">
+      <div class="form-group">
+        <label class="shaft_distance"> Distância do eixo* (240 cm) </label>
+        <input type="tel" name="shaft_distance" id="shaft_distance" formControlName="shaft_distance" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.shaft_distance')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.tower_height') }">
+      <div class="form-group">
+        <label class="tower_height"> Altura da torre* (com pneus 300 cm) </label>
+        <input type="tel" name="tower_height" id="tower_height" formControlName="tower_height" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.tower_height')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.overall_width') }">
+      <div class="form-group">
+        <label class="overall_width"> Largura total* (280 cm) </label>
+        <input type="tel" name="overall_width" id="overall_width" formControlName="overall_width" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.overall_width')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.min_lift') }">
+      <div class="form-group">
+        <label class="min_lift"> Elevação mínima* (50 cm) </label>
+        <input type="tel" name="min_lift" id="min_lift" formControlName="min_lift" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.min_lift')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.max_lift') }">
+      <div class="form-group">
+        <label class="max_lift"> Elevação máxima* (320 cm) </label>
+        <input type="tel" name="max_lift" id="max_lift" formControlName="max_lift" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.max_lift')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.angle') }">
+      <div class="form-group">
+        <label class="angle"> Ângulo de giro* (90 graus) </label>
+        <input type="tel" name="angle" id="angle" formControlName="angle" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.angle')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.weight') }">
+      <div class="form-group">
+        <label class="weight"> Peso (1.100 kg) </label>
+        <input type="tel" name="weight" id="weight" formControlName="weight" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.weight')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" formGroupName="offer">
+      <div class="form-group textarea">
+        <label class="axes"> Observação </label>
+        <textarea name="description" id="description" formControlName="description" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+app-card-details {
+  .profile-edit {
+    font-size: 16px;
+    color: #909BAF;
+    letter-spacing: -0.42px;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+    }
+    margin-left:auto;
+  }
+  .col-6 {
+    padding-right: 0px;
+  }
+  div:nth-child(1) {
+    span {
+      font-size: 1.4rem;
+      color: #909BB0;
+      letter-spacing: 0;
+    }
+  }
+  ul {
+    li {
+      width: 90%;
+      margin-left: 20px;
+      &.name {
+        span {
+          font-size: 1.8rem;
+          &:nth-child(1) {
+            color: #909BB0;
+            padding-left: 28px;
+            padding-right: 6px;
+            &:before {
+              width: 15px;
+              height: 20px;
+              background: url('/assets/img/man-user.svg');
+              display: block;
+              content: '';
+              position: absolute;
+              left: 63px;
+            }
+          }
+          &:nth-child(2) {
+            color: #5487C5;
+          }
+        }
+      }
+      &.address {
+        span {
+          font-size: 1.8rem;
+          &:nth-child(1) {
+            color: #909BB0;
+            padding-left: 28px;
+            padding-right: 6px;
+            &:before {
+              width: 14px;
+              height: 20px;
+              background: url('/assets/img/icon-place.svg');
+              display: block;
+              content: '';
+              position: absolute;
+              left: 63px;
+            }
+          }
+          &:nth-child(2) {
+            color: #5487C5;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:468px) {
+  app-card-details {
+    ul li.name span:nth-child(1):before,
+    ul li.address span:nth-child(1):before {
+      left: 0px !important;
+    }
+  }
+}

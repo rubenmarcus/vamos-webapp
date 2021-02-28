@@ -1,0 +1,66 @@
+.card {
+  background: #FFFFFF;
+  box-shadow: 0 0 8px 0 #E6E9EE;
+  border-radius: 0px 11.82px 11.82px 0px;
+  h4 {
+    // color: #000 !important;
+    // font-size: 1.8rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+}
+
+.denounce__body{
+  &-image{
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 33%;
+    max-width: 50%;
+    img{
+      // width: 365px;
+      // height: 229px;
+      width: 100%;
+      border-radius: 10px 0 0 10px;
+      float: left;
+    }
+  }
+  &-card{
+    @media (max-width: 992px){
+      border-radius: 11.82px;
+    }
+  }
+  &--form {
+    margin-top: 30px;
+    padding-left: 0px;
+    padding-right: 0;
+  }
+}
+
+// .denounce__body--form {
+//   margin-top: 30px;
+//   padding-left: 0px;
+//   padding-right: 0;
+// }
+
+.card-head {
+  font-size: 14px;
+  color: #909BAF;
+  letter-spacing: -0.34px;
+  font-weight: 300;
+  padding-top: 20px;
+  border-bottom: 1px solid #E6E9EE;
+  padding-bottom: 13px;
+}
+
+.modal__in span {
+  font-size: 2rem;
+    font-weight: 300;
+    margin-top: 160px;
+    display: block;
+    margin-bottom: 32px;
+}
+.select{
+  margin-bottom: 50px;
+}

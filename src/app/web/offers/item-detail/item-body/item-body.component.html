@@ -1,0 +1,1941 @@
+<div class="item__body">
+  <div class="row">
+    <div class="col-8 item__body--left">
+      <div class="row item__body--head">
+        <div class="col-8">
+          <ol class="breadcrumb" *ngIf="router.url != '/perfil/detalhe-oferta'" >
+            <li>
+              <a href="javascript: history.go(-1)">Classificados </a>
+            </li>
+            <!-- <li>
+              <a routerLink="/classificados/lista"> Lista </a>
+            </li> -->
+            <li>
+              <a>Detalhe</a>
+            </li>
+          </ol>
+          <ol class="breadcrumb" *ngIf="router.url == '/perfil/detalhe-oferta'">
+            <li>
+              <a routerLink="/perfil/meus-anuncios">Meus Anúncios </a>
+            </li>
+            <li>
+              <a routerLink="/perfil/detalhe-oferta"> Detalhe </a>
+            </li>
+          </ol>
+        </div>
+        <div class="col-4 align-right text-right">
+          <a routerLink="/classificados/denunciar/{{ offer.id }}" class="denounce-link" *ngIf="!isLogged()">Denúnciar anúncio</a>
+          <a *ngIf="isLogged()" class="denounce-link">Denúnciar anúncio</a>
+        </div>
+      </div>
+
+      <div class="row item__body--desc" *ngIf="offer.description">
+        <div class="item__description">
+          <h1>Descrição</h1>
+          <span>
+            {{ offer.description }}
+          </span>
+        </div>
+      </div>
+
+      <div class="row item__body--detail">
+        <div [ngClass]="offer.optionals.length > 0 ? 'col-md-6' : 'col-md-12'">
+          <div class="item__details">
+            <h1>Detalhes</h1>
+
+            <div *ngIf="offer.isVehicular() || offer.isBoth()">
+              <div *ngIf="offer.vehicle.type === 'Vehicles::Bus'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.subtype">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.subtype }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label>Condição do veículo:</label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.division">
+                  <label>Divisão:</label>
+                  <span>{{ offer.vehicle?.division }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.body_type_brand">
+                  <label>Carroceria:</label>
+                  <span>{{ offer.vehicle?.body_type_brand }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label>Ano:</label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.mileage">
+                  <label>Quilometragem:</label>
+                  <span>{{ offer.vehicle?.mileage | number }}Km</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tyre_condition">
+                  <label>Condição dos Pneus:</label>
+                  <span>{{ offer.vehicle?.tyre_condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheel_drive?.name">
+                  <label>Tração:</label>
+                  <span>{{ offer.vehicle?.wheel_drive?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.doors">
+                  <label>Portas:</label>
+                  <span>{{ offer.vehicle?.doors }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.placements">
+                  <label>Lugares:</label>
+                  <span>{{ offer.vehicle?.placements }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.fuel">
+                  <label>Combustível:</label>
+                  <span>{{ offer.vehicle?.fuel }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.plate">
+                  <label>Placa:</label>
+                  <span>{{ offer.vehicle?.plate }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.color?.name">
+                  <label>Cor:</label>
+                  <span>{{ offer.vehicle?.color?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.city && offer.vehicle?.state">
+                  <label>Local:</label>
+                  <span> {{ offer.vehicle?.city }}/{{ offer.vehicle?.state }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.vehicle.type === 'Vehicles::Harvester'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label> Condição do veículo: </label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label> Ano: </label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.harvest">
+                  <label> Tipo de colheita: </label>
+                  <span>{{ offer.vehicle?.harvest }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.usage_hours">
+                  <label> Horas de uso:</label>
+                  <span>{{ offer.vehicle?.usage_hours | number }} h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheel_type">
+                  <label> Tipo de rodado: </label>
+                  <span>{{ offer.vehicle?.wheel_type }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tyre_condition">
+                  <label> Condição dos Pneus: </label>
+                  <span>{{ offer.vehicle?.tyre_condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.cabin">
+                  <label> Cabine: </label>
+                  <span>{{ offer.vehicle?.cabin }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.rated_power">
+                  <label> Potência nominal: </label>
+                  <span>{{ offer.vehicle?.rated_power | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.harvest_speed">
+                  <label> Velocidade de colheita: </label>
+                  <span>{{ offer.vehicle?.harvest_speed | number }} m/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.bulk_tank">
+                  <label> Tanque graneleiro:</label>
+                  <span>{{ offer.vehicle?.bulk_tank | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.transmission">
+                  <label> Transmissão: </label>
+                  <span>{{ offer.vehicle?.transmission }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.pipe">
+                  <label> Tubo: </label>
+                  <span>{{ offer.vehicle?.pipe | number }} m</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.flow_rate">
+                  <label> Vazão: </label>
+                  <span>{{ offer.vehicle?.flow_rate | number }} L/s</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.cutting_platform">
+                  <label> Plataforma de corte: </label>
+                  <span>{{ offer.vehicle?.cutting_platform | number }} pés</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.precision_agriculture">
+                  <label> Agricultura de precisão: </label>
+                  <span>{{ offer.vehicle?.precision_agriculture }}</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.vehicle.type === 'Vehicles::TractorUnit'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label> Condição do veículo: </label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label> Ano </label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.mileage">
+                  <label> Quilometragem </label>
+                  <span>{{ offer.vehicle?.mileage | number }}Km</span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tyre_condition">
+                  <label> Condição dos Pneus </label>
+                  <span>{{ offer.vehicle?.tyre_condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheel_drive?.name">
+                  <label> Tração </label>
+                  <span>{{ offer.vehicle?.wheel_drive?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.doors">
+                  <label> Portas </label>
+                  <span>{{ offer.vehicle?.doors }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.doors">
+                  <label> Combustível </label>
+                  <span>{{ offer.vehicle?.fuel }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.color?.name">
+                  <label> Cor </label>
+                  <span>{{ offer.vehicle?.color?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.plate">
+                  <label> Placa </label>
+                  <span>{{ offer.vehicle?.plate }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.city && offer.vehicle?.state">
+                  <label>Local:</label>
+                  <span> {{ offer.vehicle?.city }}/{{ offer.vehicle?.state }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.vehicle.type === 'Vehicles::Sprayer'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label> Condição do veículo: </label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label> Ano: </label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.usage_hours">
+                  <label class="usage_hours"> Horas de uso: </label>
+                  <span>{{ offer.vehicle?.usage_hours | number }} h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tank_capacity">
+                  <label class="tank_capacity"> Capacidade do tanque: </label>
+                  <span>{{ offer.vehicle?.tank_capacity | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.range_application">
+                  <label class="range_application"> Faixa de aplicação: </label>
+                  <span>{{ offer.vehicle?.range_application | number }} m</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.command">
+                  <label class="command"> Comando: </label>
+                  <span>{{ offer.vehicle?.command | number }} vias</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.flow_rate">
+                  <label class="flow_rate"> Vazão: </label>
+                  <span>{{ offer.vehicle?.flow_rate | number }} L/min</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.rated_power">
+                  <label class="rated_power"> Potência nominal: </label>
+                  <span>{{ offer.vehicle?.rated_power | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheels">
+                  <label class="wheels"> Nº de rodas: </label>
+                  <span>{{ offer.vehicle?.wheels | number }}</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.vehicle.type === 'Vehicles::TractorAgricultural'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.subtype">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.subtype }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label> Condição do veículo: </label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label> Ano: </label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.usage_hours">
+                  <label> Horas de Uso: </label>
+                  <span>{{ offer.vehicle?.usage_hours | number }}h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.cabin">
+                  <label> Cabine: </label>
+                  <span>{{ offer.vehicle?.cabin ? 'Com cabine' : 'Sem cabine' }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tire_type">
+                  <label> Tipo de Pneu: </label>
+                  <span>{{ offer.vehicle?.tire_type }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tyre_condition">
+                  <label> Condição dos Pneus: </label>
+                  <span>{{ offer.vehicle?.tyre_condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheel_drive?.name">
+                  <label> Tração: </label>
+                  <span>{{ offer.vehicle?.wheel_drive?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.rated_power">
+                  <label> Potência nominal:</label>
+                  <span>{{ offer.vehicle?.rated_power | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.max_torque">
+                  <label> Torque máximo:</label>
+                  <span>{{ offer.vehicle?.max_torque | number }} Nm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.cylinders">
+                  <label> Nº de cilindros: </label>
+                  <span>{{ offer.vehicle?.cylinders }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.lift_capacity">
+                  <label> Capacidade de levante hidráulico:</label>
+                  <span>{{ offer.vehicle?.lift_capacity }} kW</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.plate">
+                  <label> Placa: </label>
+                  <span>{{ offer.vehicle?.plate }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.color?.name">
+                  <label> Cor: </label>
+                  <span>{{ offer.vehicle?.color?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.city && offer.vehicle?.state">
+                  <label>Local:</label>
+                  <span> {{ offer.vehicle?.city }}/{{ offer.vehicle?.state }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.vehicle.type === 'Vehicles::Truck'">
+                <div class="item__details--item" *ngIf="offer.vehicle?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.vehicle.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.vehicle?.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.vehicle?.model.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.condition">
+                  <label> Condição do veículo: </label>
+                  <span>{{ offer.vehicle?.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.year">
+                  <label> Ano: </label>
+                  <span>{{ offer.vehicle?.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.mileage">
+                  <label> Quilometragem: </label>
+                  <span>{{ offer.vehicle?.mileage | number }}Km</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.tyre_condition">
+                  <label> Condição dos Pneus: </label>
+                  <span>{{ offer.vehicle?.tyre_condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.wheel_drive?.name">
+                  <label> Tração: </label>
+                  <span>{{ offer.vehicle?.wheel_drive?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.body_type?.name">
+                  <label> Tipo de Carroceria: </label>
+                  <span>{{ offer.vehicle?.body_type?.name }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.doors">
+                  <label> Portas: </label>
+                  <span>{{ offer.vehicle?.doors }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.fuel">
+                  <label> Combustível: </label>
+                  <span>{{ offer.vehicle?.fuel }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.plate">
+                  <label> Placa: </label>
+                  <span>{{ offer.vehicle?.plate }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.vehicle?.color?.name">
+                  <label> Cor: </label>
+                  <span>{{ offer.vehicle?.color?.name }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="offer.isImplemental()">
+              <div *ngIf="offer.implement.type === 'Implements::Baler'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento:</label>
+                  <span>{{ offer.implement.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label for="year"> Ano:</label>
+                  <span>{{ offer.implement.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotation">
+                  <label for="rotation"> Rotação:</label>
+                  <span>{{ offer.implement.rotation | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.piston_speed">
+                  <label for="piston_speed"> Velocidade do pistão:</label>
+                  <span>{{ offer.implement.piston_speed | number }} golpes/min</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.folding_width">
+                  <label for="folding_width"> Largura de recolhimento:</label>
+                  <span>{{ offer.implement.folding_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.average_yield">
+                  <label for="average_yield"> Produção média:</label>
+                  <span>{{ offer.implement.average_yield | number }} fardos / hora</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wire_resevoir">
+                  <label for="wire_resevoir"> Reservatório de fio:</label>
+                  <span>{{ offer.implement.wire_resevoir }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bale_height">
+                  <label for="bale_height"> Altura do fardo:</label>
+                  <span>{{ offer.implement.bale_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bale_width">
+                  <label for="bale_width"> Largura do fardo:</label>
+                  <span>{{ offer.implement.bale_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bale_length">
+                  <label for="bale_length"> Comprimento do fardo:</label>
+                  <span>{{ offer.implement.bale_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label for="weight"> Peso:</label>
+                  <span>{{ offer.implement.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label for="wheel"> Nº de rodas:</label>
+                  <span>{{ offer.implement.wheel }}</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Distributor'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento:</label>
+                  <span>{{ offer.implement.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label for="year"> Ano</label>
+                  <span>{{ offer.implement.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.flow_rate">
+                  <label for="flow_rate"> Vazão:</label>
+                  <span>{{ offer.implement.flow_rate | number }} kg/ha</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.width_distribution">
+                  <label for="width_distribution"> Largura de distribuição:</label>
+                  <span>{{ offer.implement.width_distribution | number }} m</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.capacity">
+                  <label for="capacity"> Capacidade:</label>
+                  <span>{{ offer.implement.capacity | number }} m³</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.length">
+                  <label for="length"> Comprimento</label>
+                  <span>{{ offer.implement.length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.width">
+                  <label for="width"> Largura:</label>
+                  <span>{{ offer.implement.width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.height">
+                  <label for="height"> Altura:</label>
+                  <span>{{ offer.implement.height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label for="wheel"> Nº de rodas</label>
+                  <span>{{ offer.implement.wheel }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label for="weight"> Peso:</label>
+                  <span>{{ offer.implement.weight | number }} kg</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Driller'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label> Condição do Implemento:</label>
+                  <span>{{ offer.implement.condition }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano:</label>
+                  <span>{{ offer.implement.year }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.drill_diameter">
+                  <label> Diâmetro da broca:</label>
+                  <span>{{ offer.implement.drill_diameter }}</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.torque_drilling">
+                  <label> Torque máx. de perfuração:</label>
+                  <span>{{ offer.implement.torque_drilling | number }} Nm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotation_drilling">
+                  <label> Rotação máx. de perfuração:</label>
+                  <span>{{ offer.implement.rotation_drilling | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.discharge_rotation">
+                  <label> Rotação máx. de descarga:</label>
+                  <span>{{ offer.implement.discharge_rotation | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.depth_drilling">
+                  <label> Profundidade máx. de perfuração:</label>
+                  <span>{{ offer.implement.depth_drilling | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso aprox.</label>
+                  <span>{{ offer.implement.weight | number }} kg</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Forage'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label for="year"> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.average_production">
+                  <label class="average_production"> Produção média: </label>
+                  <span> {{ offer.implement?.average_production }} ton/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.chopping_sizes">
+                  <label class="chopping_sizes"> Tamanhos de picado: </label>
+                  <span> {{ offer.implement?.chopping_sizes | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotation_tdp">
+                  <label class="rotation_tdp"> Rotação na TDP: </label>
+                  <span> {{ offer.implement?.rotation_tdp | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotors">
+                  <label class="rotors"> Nº de rotores: </label>
+                  <span> {{ offer.implement?.rotors }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.knives">
+                  <label class="knives"> Nº de facas: </label>
+                  <span> {{ offer.implement?.knives }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.pickup_rollers">
+                  <label class="pickup_rollers"> Nº de rolos recolhedores: </label>
+                  <span> {{ offer.implement?.pickup_rollers }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label class="weight"> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label class="wheel"> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::ForageHarvester'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label for="year"> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.knives">
+                  <label class="knives"> Nº de facas: </label>
+                  <span> {{ offer.implement?.knives }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.average_yield">
+                  <label class="average_yield"> Produção média: </label>
+                  <span> {{ offer.implement?.average_yield | number }} kg/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.chopping_sizes">
+                  <label class="chopping_sizes"> Tamanhos de picado: </label>
+                  <span> {{ offer.implement?.chopping_sizes | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.motor_power">
+                  <label class="motor_power"> Potência do motor: </label>
+                  <span> {{ offer.implement?.motor_power | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label class="tdp"> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label class="wheel"> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::ForageWagon'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.back_discharge_time">
+                  <label> Tempo de descarga traseira: </label>
+                  <span> {{ offer.implement?.back_discharge_time | number }} min</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.front_discharge_cap">
+                  <label> Capacidade de descarga dianteira: </label>
+                  <span> {{ offer.implement?.front_discharge_cap | number }} m/min</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.storage">
+                  <label> Capacidade de armazenamento: </label>
+                  <span> {{ offer.implement?.storage | number }} m³</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.total_height">
+                  <label> Altura total: </label>
+                  <span> {{ offer.implement?.total_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.height_discharge_spout">
+                  <label> Altura da bica de descarga: </label>
+                  <span> {{ offer.implement?.height_discharge_spout | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.overall_width">
+                  <label> Largura total: </label>
+                  <span> {{ offer.implement?.overall_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_width">
+                  <label> Largura p/ transporte: </label>
+                  <span> {{ offer.implement?.transport_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.overall_length">
+                  <label> Comprimento total: </label>
+                  <span> {{ offer.implement?.overall_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_length">
+                  <label> Largura do rodado: </label>
+                  <span> {{ offer.implement?.transport_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::GraderGrade'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.discs">
+                  <label> Nº de discos: </label>
+                  <span> {{ offer.implement?.discs }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.diameter_discs">
+                  <label> Diâmetro dos discos: </label>
+                  <span> {{ offer.implement?.diameter_discs }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_depth">
+                  <label> Profundidade de trabalho: </label>
+                  <span> {{ offer.implement?.working_depth | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bearing">
+                  <label> Tipo de mancal: </label>
+                  <span> {{ offer.implement?.bearing }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_width">
+                  <label> Largura de trabalho: </label>
+                  <span> {{ offer.implement?.working_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::GrainExtractor'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.average_production">
+                  <label> Produção média: </label>
+                  <span> {{ offer.implement?.average_production }} ton/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotation">
+                  <label> Rotação: )</label>
+                  <span> {{ offer.implement?.rotation | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.thread_width">
+                  <label> Largura da rosca: </label>
+                  <span> {{ offer.implement?.thread_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bag">
+                  <label> Bolsa: </label>
+                  <span> {{ offer.implement?.bag }} pés</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.discharge_height">
+                  <label> Altura de descarga: </label>
+                  <span> {{ offer.implement?.discharge_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_length">
+                  <label> Comprimento de trabalho: </label>
+                  <span> {{ offer.implement?.working_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_height">
+                  <label> Altura de trabalho: </label>
+                  <span> {{ offer.implement?.working_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_width">
+                  <label> Largura de trabalho: </label>
+                  <span> {{ offer.implement?.working_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_length">
+                  <label> Comprimento de transporte: </label>
+                  <span> {{ offer.implement?.transport_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_height">
+                  <label> Altura de transporte: </label>
+                  <span> {{ offer.implement?.transport_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_width">
+                  <label> Largura de transporte: </label>
+                  <span> {{ offer.implement?.transport_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::GrainStuffer'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.continuous_flow">
+                  <label> Fluxo contínuo: </label>
+                  <span> {{ offer.implement?.continuous_flow }} ton/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_speed">
+                  <label> Regime de trabalho:</label>
+                  <span> {{ offer.implement?.working_speed | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_length">
+                  <label> Comprimento de trabalho: )</label>
+                  <span> {{ offer.implement?.working_length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_width">
+                  <label> Largura de transporte: </label>
+                  <span> {{ offer.implement?.transport_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_width">
+                  <label> Largura de trabalho: </label>
+                  <span> {{ offer.implement?.working_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.height_without_moega">
+                  <label> Altura sem Moega: </label>
+                  <span> {{ offer.implement?.height_without_moega | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_height">
+                  <label> Altura de trabalho: </label>
+                  <span> {{ offer.implement?.working_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bag">
+                  <label> Bolsa: </label>
+                  <span> {{ offer.implement?.bag }} pés</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Harvester'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.harvest">
+                  <label> Tipo de colheita: </label>
+                  <span> {{ offer.implement?.harvest }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.usage_hours">
+                  <label> Horas de uso: </label>
+                  <span> {{ offer.implement?.usage_hours | number }} h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel_type">
+                  <label> Tipo de rodado: </label>
+                  <span> {{ offer.implement?.wheel_type }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tyre_condition">
+                  <label> Condição dos Pneus: </label>
+                  <span> {{ offer.implement?.tyre_condition }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.cabin">
+                  <label> Cabine: </label>
+                  <span> {{ offer.implement?.cabin }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rated_power">
+                  <label> Potência nominal: </label>
+                  <span> {{ offer.implement?.rated_power | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.harvest_speed">
+                  <label> Velocidade de colheita: </label>
+                  <span> {{ offer.implement?.harvest_speed | number }} m/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bulk_tank">
+                  <label> Tanque graneleiro: </label>
+                  <span> {{ offer.implement?.bulk_tank | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transmission">
+                  <label> Transmissão: </label>
+                  <span> {{ offer.implement?.transmission }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.pipe">
+                  <label> Tubo: </label>
+                  <span> {{ offer.implement?.pipe | number }} m</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.flow_rate">
+                  <label> Vazão: </label>
+                  <span> {{ offer.implement?.flow_rate | number }} L/s</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.cutting_platform">
+                  <label> Plataforma de corte: </label>
+                  <span> {{ offer.implement?.cutting_platform }} pés</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.precision_agriculture">
+                  <label> Agricultura de precisão: </label>
+                  <span> {{ offer.implement?.precision_agriculture }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::MixerWagon'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.storage">
+                  <label> Capacidade de armazenamento: </label>
+                  <span> {{ offer.implement?.storage | number }} m³</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.width">
+                  <label> Largura: </label>
+                  <span> {{ offer.implement?.width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.height">
+                  <label> Altura: </label>
+                  <span> {{ offer.implement?.height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.length">
+                  <label> Comprimento: </label>
+                  <span> {{ offer.implement?.length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Planer'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.length">
+                  <label> Comprimento: </label>
+                  <span> {{ offer.implement?.length | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.cutting_width">
+                  <label> Largura de corte: </label>
+                  <span> {{ offer.implement?.cutting_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Plow'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rods">
+                  <label> Nº de hastes: </label>
+                  <span> {{ offer.implement?.rods }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.discs">
+                  <label> Nº de discos: </label>
+                  <span> {{ offer.implement?.discs }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.disc_diameter">
+                  <label> Diâmetro dos discos: 28" </label>
+                  <span> {{ offer.implement?.disc_diameter }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.bearing">
+                  <label> Tipo de mancal: </label>
+                  <span> {{ offer.implement?.bearing }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_width">
+                  <label> Largura de trabalho: </label>
+                  <span> {{ offer.implement?.working_width | number }} mm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_depth">
+                  <label> Profundidade de trabalho: </label>
+                  <span> {{ offer.implement?.working_depth | number }} mm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Rake'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.working_width">
+                  <label> Largura de trabalho: </label>
+                  <span> {{ offer.implement?.working_width | number }} mm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.line_width">
+                  <label> Largura de linha: </label>
+                  <span> {{ offer.implement?.line_width | number }} mm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_width">
+                  <label> Largura de transporte: </label>
+                  <span> {{ offer.implement?.transport_width | number }} mm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.transport_width">
+                  <label> Capacidade máxima: </label>
+                  <span> {{ offer.implement?.transport_width | number }} ha/h</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.h">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.h }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::SeedDrill'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.deposit_capacity">
+                  <label> Capacidade do depósito de semente: </label>
+                  <span> {{ offer.implement?.deposit_capacity | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.fertilize_tank">
+                  <label> Capacidade do depósito de adubo: </label>
+                  <span> {{ offer.implement?.fertilize_tank | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rows">
+                  <label> Nº de linhas: </label>
+                  <span> {{ offer.implement?.rows }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.system">
+                  <label> Sistema: </label>
+                  <span> {{ offer.implement?.system }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.flow_type">
+                  <label> Tipo de fluxo: </label>
+                  <span> {{ offer.implement?.flow_type }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.line_space">
+                  <label> Espaçamento entre linhas: </label>
+                  <span> {{ offer.implement?.line_space | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.overall_width">
+                  <label> Largura total: </label>
+                  <span> {{ offer.implement?.overall_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.header_width">
+                  <label> Largura do cabeçalho: </label>
+                  <span> {{ offer.implement?.header_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.depth">
+                  <label> Profundidade: </label>
+                  <span> {{ offer.implement?.depth | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Sprayer'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tank_capacity">
+                  <label> Capacidade do tanque: </label>
+                  <span> {{ offer.implement?.tank_capacity | number }} L</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.application_range">
+                  <label> Faixa de aplicação: </label>
+                  <span> {{ offer.implement?.application_range | number }} m</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.command">
+                  <label> Comando: </label>
+                  <span> {{ offer.implement?.command }} vias</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.flow_rate">
+                  <label> Vazão: </label>
+                  <span> {{ offer.implement?.flow_rate | number }} L/min</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força TDP: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Trimmer'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.knives">
+                  <label> Nº de facas: </label>
+                  <span> {{ offer.implement?.knives }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.knife_rotation">
+                  <label> Rotação das facas: </label>
+                  <span> {{ offer.implement?.knife_rotation | number }} rpm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.cutting_width">
+                  <label> Largura do corte: </label>
+                  <span> {{ offer.implement?.cutting_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.width_transport">
+                  <label> Largura do transporte: </label>
+                  <span> {{ offer.implement?.width_transport | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.cutting_height">
+                  <label> Altura do corte: </label>
+                  <span> {{ offer.implement?.cutting_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tdp">
+                  <label> Potência na tomada de força: </label>
+                  <span> {{ offer.implement?.tdp | number }} cv</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas: </label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::TruckBody'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano:</label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.body_type?.name">
+                  <label> Tipo de Carroceria:</label>
+                  <span> {{ offer.implement?.body_type?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.plate">
+                  <label> Placa:</label>
+                  <span> {{ offer.implement?.plate }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.axes">
+                  <label> Eixos:</label>
+                  <span> {{ offer.implement?.axes }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tyre_condition">
+                  <label> Condição dos Pneus:</label>
+                  <span> {{ offer.implement?.tyre_condition }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.wheel">
+                  <label> Nº de rodas:</label>
+                  <span> {{ offer.implement?.wheel }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso:</label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.city && offer.implement?.state">
+                  <label>Local:</label>
+                  <span> {{ offer.implement?.city }}/{{ offer.implement?.state }} </span>
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::WaterPump'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.flow">
+                  <label> Vazão: </label>
+                  <span> {{ offer.implement?.flow | number }} L/h</span>
+                  <input type="number" name="flow" id="flow" formControlName="flow" autocomplete="off">
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.rotation">
+                  <label> Rotação: </label>
+                  <span> {{ offer.implement?.rotation | number }} rpm</span>
+                  <input type="number" name="rotation" id="rotation" formControlName="rotation" autocomplete="off">
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.suction">
+                  <label> Sucção: </label>
+                  <span> {{ offer.implement?.suction }} </span>
+                  <input type="number" name="suction" id="suction" formControlName="suction" autocomplete="off">
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.recalque">
+                  <label> Recalque: </label>
+                  <span> {{ offer.implement?.recalque }} </span>
+                  <input type="number" name="recalque" id="recalque" formControlName="recalque" autocomplete="off">
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                  <input type="number" name="weight" id="weight" formControlName="weight" autocomplete="off">
+                </div>
+              </div>
+
+              <div *ngIf="offer.implement.type === 'Implements::Winch'">
+                <div class="item__details--item" *ngIf="offer.implement?.type">
+                  <label>Tipo:</label>
+                  <span> {{ offer.implement.translatedClassName() }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.brand?.name">
+                  <label>Marca:</label>
+                  <span> {{ offer.implement.brand.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement.model?.name">
+                  <label>Modelo:</label>
+                  <span> {{ offer.implement.model?.name }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.condition">
+                  <label for="condition"> Condição do Implemento: </label>
+                  <span> {{ offer.implement?.condition }} </span>
+                </div>
+
+
+
+                <div class="item__details--item" *ngIf="offer.implement?.year">
+                  <label> Ano: </label>
+                  <span> {{ offer.implement?.year }} </span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.lift_capacity">
+                  <label> Capacidade de levantamento: </label>
+                  <span> {{ offer.implement?.lift_capacity | number }} kg</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.shaft_distance">
+                  <label> Distância do eixo: </label>
+                  <span> {{ offer.implement?.shaft_distance | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.tower_height">
+                  <label> Altura da torre (com pneus): </label>
+                  <span> {{ offer.implement?.tower_height | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.overall_width">
+                  <label> Largura total: </label>
+                  <span> {{ offer.implement?.overall_width | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.min_lift">
+                  <label> Elevação mínima: </label>
+                  <span> {{ offer.implement?.min_lift | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.max_lift">
+                  <label> Elevação máxima: </label>
+                  <span> {{ offer.implement?.max_lift | number }} cm</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.angle">
+                  <label> Ângulo de giro: </label>
+                  <span> {{ offer.implement?.angle }} graus</span>
+                </div>
+
+                <div class="item__details--item" *ngIf="offer.implement?.weight">
+                  <label> Peso: </label>
+                  <span> {{ offer.implement?.weight | number }} kg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" *ngIf="offer.optionals.length > 0">
+          <div class="item__options">
+            <h1>Opcionais</h1>
+            <span *ngFor="let optional of offer.optionals; let i = index">{{ optional.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 item__body--right">
+      <app-offers-item-seller [offer]="offer"></app-offers-item-seller>
+      <!-- <app-offers-item-table></app-offers-item-table> -->
+    </div>
+  </div>
+</div>

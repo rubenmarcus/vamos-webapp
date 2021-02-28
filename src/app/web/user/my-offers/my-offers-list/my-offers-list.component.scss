@@ -1,0 +1,42 @@
+@import "media-queries";
+
+.modalChangePlan {
+  text-align: center;
+  color: black;
+  .modal__in {
+    max-width: 700px;
+    width: 90%;
+    height: auto;
+    padding: 30px;
+    // min-height: 260px;
+    .modal__head {
+      h1 { font-weight: 400; }
+      h1, h2 {
+        color: black;
+        padding-left: 0;
+        text-align: center;
+      }
+    }
+    .modal__buttons {
+      .btn {
+        &:first-child { margin-right: 20px; }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .modalChangePlan {
+    .modal__in {
+      .modal__buttons {
+        padding: 0 30px;
+        flex-direction: column!important;
+        .btn {
+          width: 100%;
+          margin-bottom: 30px;
+          &:first-child { margin-right: 0; }
+        }
+      }
+    }
+  }
+}

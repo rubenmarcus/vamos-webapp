@@ -1,0 +1,29 @@
+// @import "helpers";
+.dialog__subject {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  border-bottom: 1px solid #E6E9EE;
+  height: 60px;
+  &--image {
+    width: 100px;
+    border-right: 1px solid #E6E9EE;
+    text-align: center;
+    img {
+      width: 70px;
+      margin-top: 0px;
+    }
+  }
+  &--title {
+    padding-top:13px;
+    padding-left:10px;
+    // span {
+    //   @extend %chat-span;
+
+    // }
+    // h1 {
+    //   @extend %chat-h1;
+    //   margin-top:2px;
+    // }
+  }
+}

@@ -1,0 +1,14 @@
+
+<div class="user--profile-pic">
+<div class="circle circle--one"></div>
+<div class="circle circle--two"></div>
+
+<img  rel=”preload” src="{{ profilePicture ?  profilePicture : '/assets/img/user-profile-pic.png' }}"  *ngIf="user.profile_type == 'Person'" id="profile-picture" />
+<img  rel=”preload” src="{{ profilePicture ?  profilePicture : '/assets/img/foto-cnpj.png' }}"  *ngIf="user.profile_type == 'Company'" id="profile-picture" />
+</div>
+
+<div class="user--profile-greeting">
+<p>Olá,</p>
+<p *ngIf="user.profile_type == 'Person'" id="profile-username">{{user.profile.first_name}} {{user.profile.second_name}}</p>
+<p *ngIf="user.profile_type == 'Company'" id="profile-username">{{user.profile.company_name}}</p>
+</div>

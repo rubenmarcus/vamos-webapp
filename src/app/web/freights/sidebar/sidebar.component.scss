@@ -1,0 +1,41 @@
+.freights-list-filter {
+  // Generic
+  .select, .searchbar {
+    label {
+      padding: 10px 0px;
+      display: block;
+      color: #909BAF;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+  }
+
+  .select {
+    height: auto;
+    margin: auto;
+    select {
+      padding: 10px;
+    }
+    i {
+      top: 51px;
+    }
+  }
+
+  .select.vehicle_types {
+    i {
+      top: 18px;
+    }
+  }
+
+  .searchbar {
+    .input-group {
+      input {
+        border: 1px solid #E6E9EE;
+        padding: 10px;
+      }
+    }
+  }
+  .freights-list-filter-button {
+    button { margin-bottom:10px; }
+  }
+}

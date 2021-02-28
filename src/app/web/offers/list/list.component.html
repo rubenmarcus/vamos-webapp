@@ -1,0 +1,44 @@
+<div class="offers__top">
+  <div class="offers__banner full">
+    <app-banners type="header"></app-banners>
+  </div>
+
+  <nav class="item__category">
+    <ul class="row seven-cols">
+      <li class="col-1" *ngFor="let item of menu" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="/{{item.router}}" class="active">
+          <span>{{ item.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<section class="offers__list flex">
+  <aside class="offers__filter" id="offers-filters">
+    <app-offers-list-left-menu></app-offers-list-left-menu>
+  </aside>
+
+  <section class="offers__list-main">
+    <div class="offers__list-buttons flex ">
+      <a (click)="simulator()" class="btn btn-stroke btn-blue btn-sm">Simular financiamento</a>
+      <a routerLink="/classificados/anuncios" class="btn btn-full btn-blue btn-sm align-right">Anunciar meu veículo</a>
+    </div>
+
+    <div class="offers__list-content flex_wrap flex">
+      <app-card-offer *ngFor="let item of offers; let i = index" [offer]="item"></app-card-offer>
+    </div>
+    <app-pagination [pagination]="pagination"
+      [page]="pagination.current_page"
+      [count]="pagination.total_objects"
+      *ngIf="offers.length > 0"></app-pagination>
+
+    <div class="empty-list" *ngIf="offers.length == 0 && !preload">
+      <img  rel=”preload” src="/assets/img/placeholders/offers.png" alt="Lista de classificado vazio">
+      <p>
+        <strong>Lista vazia</strong><br>
+        Ops...nenhum resultado encontrado, refaça sua busca.
+      </p>
+    </div>
+  </section>
+</section>

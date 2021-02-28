@@ -1,0 +1,9 @@
+<div class="col-12 col-md-offset-1" [formGroup]="typeFilter">
+  <div class="slider">
+    <div class="slider-text flex">
+      <!-- <div>R$ {{ value_start | number }}</div> -->
+      <div class="align-right">Até R$ {{ value_end | number }}</div>
+    </div>
+    <nouislider class="slider-range" [connect]="true" [min]="0" [max]="1000000" [step]="10000" [formControl]="typeFilter.controls.value_end" (ngModelChange)="onChange($event)"></nouislider>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<section class="card__content">
+  <img  rel=”preload” src="/assets/img/banner-recharge.jpg" class="full" />
+<app-box-content title="Boleto">
+  <div class="card__main card__recharge-main">
+    <iframe  *ngIf="loaded" [src]="sanitizer.bypassSecurityTrustResourceUrl(payments[0].order.payment_link)" frameborder="0" width="90%" height="450" style="border:0px;margin:0 auto"> </iframe>
+  </div>
+</app-box-content>
+</section>

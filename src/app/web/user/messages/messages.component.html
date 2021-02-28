@@ -1,0 +1,13 @@
+<div class="user__content--center">
+  <h1>Minhas Mensagens</h1>
+  <div class="msg-card" *ngFor="let msg of msgs;">
+    <div class="msg-card--title  flex flex_wrap">
+      <h1>{{msg.title}}</h1>
+      <span class="flex-right"> {{msg.scheduled_at | date:'shortDate'}} </span>
+    </div>
+
+    <div class="msg-card--body">
+      <span>{{msg.body}}</span>
+    </div>
+  </div>
+</div>

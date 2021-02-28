@@ -1,0 +1,50 @@
+<app-box-rounded>
+  <div class="seller-data">
+    <div class="seller-data-map">
+      <!-- <img  rel=”preload” src="assets/img/seller-map.jpg" /> -->
+    </div>
+    <div class="seller-data-icon">
+      <img  rel=”preload” src="{{ offer.advertiser.thumb_url ? offer.advertiser.thumb_url : '/assets/img/user-profile-pic.png' }}" />
+    </div>
+
+    <div class="seller-data-title">
+      <h1>{{ offer.advertiser.name }}</h1>
+    </div>
+
+    <div class="seller-data-body">
+      <div class="row">
+        <div class="seller-data-body-icon">
+          <img  rel=”preload” src="assets/img/seller-user.svg" />
+        </div>
+        <span>
+          {{ about() }}
+        </span>
+      </div>
+      <div class="row" *ngIf="offer.advertiser._profile === 'company' && offer.advertiser.address">
+        <div class="seller-data-body-icon">
+          <img  rel=”preload” src="assets/img/seller-point.svg" />
+        </div>
+        <span>
+          {{ offer.advertiser.address.line1 }}, {{ offer.advertiser.address.number }} {{ offer.advertiser.address.complement }} - {{ offer.advertiser.address.district }}<br>
+          {{ offer.advertiser.address.city }} - {{ offer.advertiser.address.state }}, {{ offer.advertiser.address.zip }} <br>
+         
+        </span>
+      </div>
+      <div class="row seller__clock">
+        <div class="seller-data-body-icon">
+          <img  rel=”preload” src="assets/img/seller-clock.svg" />
+        </div>
+        <span>{{ operatingHours() }}</span>
+      </div>
+
+      <div class="row" *ngIf="offer.advertiser._profile === 'company' && offer.advertiser.address">
+          <div class="seller-data-body-icon">
+            <img  rel=”preload” src="assets/img/002-call-answer.svg" />
+          </div>
+          <span>
+            {{ offer.advertiser.phone}} 
+          </span>
+        </div>
+    </div>
+  </div>
+</app-box-rounded>

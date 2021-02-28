@@ -1,0 +1,34 @@
+<div [formGroup]="typeFilter">
+  <div class="form-group" *ngIf="type == 'implement' || type == 'agros'">
+    <label> Tipo </label>
+    <select name="type" id="type" formControlName="type">
+      <option value="">Todos</option>
+      <option *ngFor="let implement of implementsTypes" [value]="implement.type">
+        {{implement.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+
+  <div class="form-group">
+    <label> Marca </label>
+    <select name="brand_id" id="brand_id" (change)="changeOption($event)" formControlName="brand_id">
+      <option value="">Todas</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+
+  <div class="form-group" *ngIf="type !== 'implement'">
+    <label> Modelo </label>
+    <select name="model_id" id="model_id" formControlName="model_id" disabled>
+      <option value="">Todos</option>
+      <option *ngFor="let model of models" [value]="model.id">
+        {{model.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+</div>

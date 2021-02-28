@@ -1,0 +1,56 @@
+@import "media-queries";
+
+.banner-footer-rectangle {
+  app-banners {
+    flex: 1;
+    margin-top: 10px;
+    &:nth-child(even) {
+      margin-right: 12.5px;
+      margin-left: 12.5px;
+    }
+    div {
+      text-align: center;
+    }
+  }
+
+  // app-banners[type="footer_rectangle"] {
+  //   margin-top: 10px;
+  // }
+
+  // app-banners[type="footer_rectangle"]:nth-child(2), app-banners[type="footer_rectangle"]:nth-child(3) {
+  //   margin-right: 12.5px;
+  // }
+}
+
+@include tablet-init {
+  .banner-footer-rectangle {
+    app-banners {
+      flex: 1;
+      &:nth-child(even) {
+        margin-right: 0;
+        margin-left: 12.5px;
+      }
+
+      &:last-child {
+        display: none;
+      }
+      div {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .banner-footer-rectangle {
+    width: 100%;
+    flex-direction: column;
+    app-banners {
+      flex: 1;
+      &:nth-child(even) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}

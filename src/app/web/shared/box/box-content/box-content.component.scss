@@ -1,0 +1,46 @@
+.box__content {
+  box-shadow: 0px -4px 24px -8px rgba(0, 0, 0, 0.4);
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 110px;
+  border-radius: 5px;
+  padding: 40px;
+  position: relative;
+  margin-top: -20px;
+  background: #fff;
+  h1 {
+    font-size: 3rem;
+    color: #20649a;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+  h2 {
+    font-size: 1.7rem;
+    color: #909BAF;
+    letter-spacing: 0;
+    font-weight: 300;
+    margin-bottom: 120px;
+
+  }
+  h3 {
+    font-size: 1.8rem;
+    color:  #20649a;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+  .breadcrumb {
+    border-top: 1px solid #E6E9EE;
+    border-bottom: 1px solid #E6E9EE;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    padding-top: 13px;
+    padding-left: 41px;
+    position: absolute;
+    left: 0px;
+    margin-top: -90px;
+  }
+}

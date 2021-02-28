@@ -1,0 +1,21 @@
+.pagination{
+  text-align: center;
+  margin: 0 0 20px;
+  a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 0 0 8px 0 #E6E9EE;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #909BAF;
+    &.disabled{
+      cursor: not-allowed;
+    }
+  }
+}
+app-pagination{
+  width: 100%;
+  margin:0 auto;
+}

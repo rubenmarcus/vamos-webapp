@@ -1,0 +1,121 @@
+<section class="box-analysis">
+  <img  rel=”preload” src="/assets/img/banner-simulation.jpg" class="full" />
+  <app-box-content title="Pré-análise de Crédito" description="Preencha os dados abaixo para receber uma pré-análise do nosso parceiro financeiro em até 2 dias úteis.">
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/classificados">Classificados </a>
+      </li>
+      <li>
+        <a routerLink="/classificados/analise-credito"> Pré-análise de Crédito </a>
+      </li>
+    </ol>
+    <div class="row">
+      <form class="finance__body col-md-10" [formGroup]="analysisForm" *ngIf="isOpen">
+        <fieldset>
+          <div formGroupName="simulation" class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.cpf') }">
+                <label>CPF*</label>
+                <input type="tel" placeholder="CPF" formControlName="cpf" [textMask]="inputMask.cpfMask">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.cpf')">
+                  <p class="help has-text-danger">{{ messageError.cpfValidation }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.name') }">
+                <label>Nome*</label>
+                <input type="text" placeholder="Nome" formControlName="name">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.name')">
+                  <p class="help has-text-danger">{{ messageError.name }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.birth_date') }">
+                <label>Data de nascimento*</label>
+                <input type="tel" placeholder="Data de nascimento" formControlName="birth_date" [textMask]="inputMask.birthdayMask" autocomplete="new-password1">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.birth_date')">
+                  <p class="help has-text-danger">{{ messageError.birthdate }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.mother_name') }">
+                <label>Nome da mãe*</label>
+                <input type="text" placeholder="Nome da mãe" formControlName="mother_name" autocomplete="new-password1" pattern>
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.mother_name')">
+                  <p class="help has-text-danger">{{ messageError.motherName }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.gender') }">
+                <label>Sexo*</label>
+                <select formControlName="gender">
+                  <option value="">Selecione</option>
+                  <option value="1">Masculino</option>
+                  <option value="2">Feminino</option>
+                </select>
+                <i></i>
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.gender')">
+                  <p class="help has-text-danger">{{ messageError.gender }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.income') }">
+                <label>Renda*</label>
+                <input type="tel" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', align: 'left'  }" placeholder="Renda/faturamento mensal" formControlName="income">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.income')">
+                  <p class="help has-text-danger">{{ messageError.income }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.inputPhone') }">
+                <label>Telefone*</label>
+                <input type="tel" placeholder="Telefone" formControlName="inputPhone" [textMask]="maskPhone" (keypress)="changeMask($event.target.value);">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.inputPhone')">
+                  <p class="help has-text-danger">{{ messageError.phone }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(analysisForm, 'simulation.inputCell') }">
+                <label>Celular*</label>
+                <input type="tel" placeholder="Celular" formControlName="inputCell" [textMask]="inputMask.cellMask">
+                <div *ngIf="validateForm.isFieldValid(analysisForm, 'simulation.inputCell')">
+                  <p class="help has-text-danger">{{ messageError.cel }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="buttons__group">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-full btn-blue btn-lg" (click)="submitForm()">Solicitar</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </app-box-content>
+</section>
+
+<div class="modal analysis_modal" *ngIf="modal">
+  <div class="modal__in">
+    <div class="modal__msg">
+      {{ modalMsg }}
+      <!-- pv - 1470 -->
+      <!-- Transmissão concluída com sucesso. proposta nº
+      <span class="green"> {{modalMsg}}</span> -->
+    </div>
+    <a routerLink="/" class="btn btn-full btn-blue btn-md">Voltar para o Início</a>
+  </div>
+</div>

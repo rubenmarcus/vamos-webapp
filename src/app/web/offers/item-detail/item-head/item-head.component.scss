@@ -1,0 +1,312 @@
+@import "media-queries";
+
+.offer-detail{
+  .item__head {
+    padding-top: 30px;
+    &-details {
+      padding: 10px;
+      font-size: 1.4rem;
+      color: #909BAF;
+      letter-spacing: -0.34px;
+      background: #FFFFFF;
+      box-shadow: 0 0 9px 0 rgba(183, 194, 212, 0.20);
+      border-radius: 0px 11.82px 11.82px 0px;
+      &-favorite {
+        .col-3 {
+          padding-left: 0;
+        }
+        .item-my-fav {
+          padding-right: 0;
+        }
+      }
+      &-title {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .first {
+        border-bottom: 1px solid #E6E9EE;
+        line-height: 5rem;
+        .align-right{
+          text-align: right;
+        }
+        img{
+          vertical-align: middle;
+        }
+        .item-views{
+
+        }
+        .item-total-fav{
+          img{ width: 15px; margin-top: -6px; }
+        }
+        .item-my-fav{
+          img{ margin-top: -6px; cursor: pointer;width:18px }
+        }
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: #20649a;
+        letter-spacing: -0.43px;
+        font-weight: 300;
+        margin: 20px 0 5px 0;
+        // min-height: 55px;
+        height: auto;
+        // line-height: 2rem;
+      }
+      .price-code{
+        padding-left: 0;
+        padding-right: 0;
+        align-items: center;
+        p {
+          margin: 0;
+          letter-spacing: -0.29px;
+          font-weight: 300;
+          font-size: 2.2rem;
+          display: inline-block;
+          flex: 1 0;
+          align-items: center;
+          &.code{
+            font-size: 14px;
+            text-align: right;
+          }
+        }
+      }
+
+      .hide-div{
+        visibility: hidden;
+        height:0px!important
+      }
+      .show-div{
+        visibility: visible;
+        height: auto !important;
+        margin-top: 13px;
+        position: absolute;
+        background: #eae9e9;
+        padding: 10px;
+        border-radius: 5px;
+        border-bottom: 1px solid #ccc;
+        margin-left: 48px;
+        -webkit-box-shadow: 0 0 9px 0 rgba(183, 194, 212, 0.2);
+        box-shadow: 0 0 9px 0 rgba(183, 194, 212, 0.2);
+        border-right: 1px solid #ccc;
+        margin-top: 20px;
+        z-index:999;
+        &:before{
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0px 6px 9px 6px;
+          border-color: transparent transparent #eae9e9 transparent;
+          position: absolute;
+          margin-top: -19px;
+          margin-left: 123px;
+        }
+      }
+      .sb-wrapper{
+        min-width: 2.125em!important;
+        height: 1.95em!important;
+      }
+
+      .item__tags {
+        width: 100%;
+        border-top: 1px solid #E6E9EE;
+        padding-top: 14px;
+        padding-bottom: 15px;
+        app-tag-small {
+          margin-left: 10px;
+          &:first-child { margin-left: 0; }
+          .tag.small { margin-left: 0; }
+        }
+      }
+
+      .item__buttons {
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 auto;
+        margin: 20px 0;
+      }
+
+      .item__has-interest {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .item__share {
+        padding-top: 10px;
+        a {
+          font-size: 1.2rem;
+          color: #5487C5;
+          letter-spacing: -0.43px;
+          text-decoration: underline;
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      .nofavoritedetail {
+        img {
+          cursor: no-drop!important;
+        }
+      }
+    }
+  }
+}
+
+@include tablet{
+  .item__head{
+    flex-wrap: wrap;
+  }
+  .item__head-details{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__head-gallery{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@mixin tablet-init{
+  .item__head{
+    flex-wrap: wrap;
+  }
+  .item__head-details{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__head-gallery{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@include tablet-end{
+  .item__head{
+    flex-wrap: wrap;
+  }
+  .item__head-details{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__head-gallery{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (min-width:1024px)  and   (max-width:1390px) {
+  .item__head-gallery{
+    width: 40%;
+    flex: 0 0 40%;
+    max-width: 400%;
+  }
+  .item__body--right {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0  33%!important;
+    flex: 0 0  33%!important;
+    max-width: 33%!important;
+  }
+  .gallery{
+    position: relative;
+    height: 100%;
+  }
+  .item__body--left {
+    width:67%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 67%!important;
+    flex: 0 0 67%!important;
+    max-width: 67%!important;
+  }
+  .offer-detail .item__head-details .first .align-right {
+    text-align: right;
+    max-width: 40%;
+    padding: 0px;
+    flex: 0 0 40%;
+  }
+  .col-4.item-total-fav {
+    max-width: 20%;
+  }
+  .item__head-details {
+    width: 87%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 33%;
+  }
+  .offer-detail .block__list {
+    width: 97%;
+    padding: 30px 0 0px 0%;
+    margin: 0px;
+  }
+
+  // .offer-detail .item__head .gallery__photo {
+  //   width: 80%;
+  //   float: right;
+  //   // margin-left: auto!important;
+  // }
+
+  // .offer-detail .item__head .gallery__thumbs {
+  //   margin-left: 0px!important;
+  // }
+  .gallery{min-height:auto!important}
+  .item__head-gallery {
+    width: 67%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 67%;
+    flex: 0 0 67%;
+    max-width: 67%;
+  }
+  .offer-detail .item__head {
+    padding-top: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .offer-detail .item__detail{
+    max-width: 95%!important;
+  }
+  .offer-detail .block__list{ }
+}
+
+@include mobile{
+  .offer-detail {
+    .item__head{
+      flex-wrap: wrap;
+    }
+    .item__head-details{
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+      &-favorite {
+        div {
+          max-width: inherit;
+          flex: 1;
+          &.item-my-fav {
+            text-indent: -9999px;
+          }
+        }
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .price-code {
+        p {
+          font-size: 1.5rem;
+          flex: 1;
+          &.code {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    .item__head-gallery{
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

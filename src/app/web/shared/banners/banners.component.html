@@ -1,0 +1,8 @@
+<div *ngIf="banner">
+  <div *ngIf="!banner.destination_url" class="banner {{ setClass() }}" [ngStyle]="{ 'background-image': 'url(' + banner.asset_url + ')' }">
+    <img  rel=”preload” src="{{ banner.asset_url }}">
+  </div>
+  <a *ngIf="banner.destination_url" class="banner {{ setClass() }}" href="{{ banner.destination_url }}" target="_blank" [ngStyle]="{ 'background-image': 'url(' + banner.asset_url + ')' }">
+    <img  rel=”preload” src="{{ banner.asset_url }}">
+  </a>
+</div>

@@ -1,0 +1,19 @@
+<section class="my-vehicles">
+  <img  rel=”preload” src="/assets/img/banner-freights-internal.jpg" class="full" />
+  <app-box-content title="Meus Veículos" description="Adicione seus veículos para encontrar os melhores fretes personalizados!">
+    <ol class="breadcrumb">
+      <li><a routerLink="/fretes">Fretes</a></li>
+      <li><a routerLink="/fretes/adicionar-veiculo"> Meus Veículos</a></li>
+    </ol>
+    <div class="my-vehicles-empty flex align-center" *ngIf="myVehicles?.length === 0">
+      <div>
+        <img  rel=”preload” src="/assets/img/no-announce.jpg" />
+        <p>Você ainda não cadastrou nenhum veículo</p>
+        <a routerLink="/fretes/cadastrar-veiculo" class="btn btn-full btn-blue btn-md">Cadastrar Veículo</a>
+      </div>
+    </div>
+    <div *ngIf="myVehicles?.length != 0">
+      <app-list-vehicles></app-list-vehicles>
+    </div>
+  </app-box-content>
+</section>

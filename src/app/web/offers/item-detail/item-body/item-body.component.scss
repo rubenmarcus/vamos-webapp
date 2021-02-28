@@ -1,0 +1,231 @@
+@import "media-queries";
+
+.item__body{
+  .denounce-link{
+    color:#485166;
+  }
+  &--left{
+    width:800px;
+  }
+  &--head{
+    // width: 790px;
+    width: 100%;
+    // margin-left: 62px;
+    border-top: 1px solid #E6E9EE;
+    border-bottom: 1px solid #E6E9EE;
+    margin-top: 24px;
+    .text-right{ padding-top: 11px;}
+  }
+
+  &--desc{
+    // margin-left: 62px;
+    padding-bottom: 12px;
+    // width: 790px;
+    width: 100%;
+    border-bottom: 1px solid #E6E9EE;
+    .item__description {
+      span {
+        font-weight: 300;
+        font-size: 1.3rem;
+        color: #485166;
+        line-height: 2rem;
+        letter-spacing: -0.34px;
+        word-break:break-all;
+      }
+    }
+  }
+
+  &--detail{
+    // margin-left: 62px;
+    border-bottom: 1px solid #E6E9EE;
+    margin-bottom:20px;
+    width: 100%;
+
+    .item__details{
+      height:100%;
+      &--item{
+        display:flex;
+        padding-right:30px;
+        // height:30px;
+        margin-bottom: 5px;
+        label{
+          font-weight:300;
+          font-size: 1.4rem;
+          color: #909BAF;
+          letter-spacing: -0.34px;
+        }
+        span{
+          margin-left:auto;
+          font-weight:300;
+          font-size: 1.4rem;
+          color: #485166;
+          letter-spacing: -0.34px;
+          text-align: right;
+        }
+      }
+    }
+    .col-12{
+      .item__details{ border: 0;
+        &--item{
+          padding-right: 0;
+        }
+      }
+    }
+
+  }
+
+  h1{
+    font-weight:300;
+    font-size: 1.8rem;
+    color: #20649a;
+    letter-spacing: -0.43px;
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.item__options{
+  span{
+    display: block;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #485166;
+    letter-spacing: -0.34px;
+    height: 29px;
+    margin-top: 7px;
+  }
+}
+
+@include tablet{
+  .item__body--left{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__body--head{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .item__body--detail{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+    .col-6{
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .item__body--right{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@mixin tablet-init{
+  .item__body--left{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__body--head{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .item__body--detail{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+    .col-6{
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .item__body--right{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@include tablet-end{
+  .item__body--left{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__body--head{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .item__body--detail{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+    .col-6{
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .item__body--right{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@include mobile{
+  .item__body {
+    h1 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .item__body--left{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .item__body--head{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+    div {
+      padding: 0;
+    }
+  }
+  .item__body--detail{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+    .col-md-6, .col-md-12 {
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 0;
+    }
+    .item__details {
+      &--item {
+        padding-right: 0;
+      }
+    }
+  }
+  .item__body--right{
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

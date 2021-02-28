@@ -1,0 +1,322 @@
+@import "variables";
+@import "media-queries";
+.container__block {
+  max-width: 1315px;
+  margin: 0 auto;
+  padding: 30px 0 30px 0;
+}
+
+.fs {
+  &-10 {
+    font-size: 1rem;
+  }
+  &-12 {
+    font-size: 1.2rem;
+  }
+  &-14 {
+    font-size: 1.4rem;
+  }
+  &-16 {
+    font-size: 1.6rem;
+  }
+  &-18 {
+    font-size: 1.8rem;
+  }
+  &-20 {
+    font-size: 2rem;
+  }
+  &-22 {
+    font-size: 2.2rem;
+  }
+}
+
+.bg {
+  &-grey {
+    background: #E6E9EE;
+  }
+}
+
+.c {
+  &-grey {
+    color: #909BB0
+  }
+}
+
+.block {
+  max-width: 1315px;
+  margin: 0 auto;
+  padding: 30px 0 30px 0;
+  .btn--see-more {
+    position: relative;
+    top: 17px;
+  }
+  &--title {
+    h1 {
+      color: #5487C5;
+      width: auto;
+      display: inline-block;
+      padding-bottom: 10px;
+      font-weight: 300;
+      font-size: 2.2rem;
+      position: relative;
+      left: 17px;
+      &:after {
+        content: '';
+        background: #5487C5;
+        height: 4px;
+        width: 114%;
+        border-radius: 20px;
+        display: block;
+        margin-top: 7px;
+        margin-left: -5px;
+      }
+    }
+  }
+}
+
+
+.capitalize{ 
+  text-transform: capitalize;
+}   
+
+
+.d-block {
+  display: block;
+}
+
+.pos {
+  &__relative {
+    position: relative!important;
+  }
+  &__absolute {
+    position: absolute;
+  }
+  &__fixed {
+    position: fixed;
+  }
+}
+
+.align-center {
+  align-items: center;
+}
+
+.full,
+.full>img {
+  width: 100%;
+  margin-bottom: -1px;
+}
+
+.fl-right {
+  float: right;
+}
+
+.no__margin {
+  margin: 0px !important;
+}
+
+.no__padding {
+  padding: 0px !important;
+}
+
+.height__100 {
+  height: 100%;
+}
+
+.text-align {
+  &__right {
+    text-align: right;
+  }
+}
+
+.no__padding-left-child>div, 
+.no__padding-left {
+  padding-left: 0px !important
+}
+
+.link__blue {
+  color: $light-blue !important;
+}
+
+.link__grey {
+  color: #C6CCD6 !important;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.pointer{
+  cursor: pointer;
+}
+.flex {
+  display: flex;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.align-right {
+  * {
+    margin-right: 0px !important;
+  }
+  margin-left: auto;
+}
+
+.breadcrumb {
+  padding-left: 0px;
+  display: flex;
+  li {
+    font-size: 1.2rem;
+    color: #909baf;
+    letter-spacing: -0.43px;
+    text-align: center;
+    margin-right: 20px;
+    a {
+      text-decoration: none;
+      display: block;
+      color: #909baf;
+      &::after {
+        display: block;
+        content: '';
+        background: url('/assets/img/arrow-left.svg');
+        width: 9px;
+        height: 16px;
+        float: right;
+        margin-left: 12px;
+      }
+    }
+  }
+  li:last-child {
+    a,span {
+      color: #20649a;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.seven-cols {
+  width: 100%;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+
+
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  background: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  left: 0px;
+  &__in {
+    width: 800px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
+
+.align-center {
+  display: flex;
+  justify-content: center
+}
+
+.text-green {
+  color: #7ED321 !important;
+}
+
+.fav-star {
+  width: 16px;
+}
+
+.vertical-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.mv-30 {
+  margin: 30px 0px;
+}
+
+.mb-80 {
+
+  margin-bottom: 80px!important;;
+}
+
+.fw{
+
+  &-lighter{
+
+    font-weight: lighter
+
+  }
+}
+
+.mt{
+
+  &-10{
+
+    margin-top:10px;
+  }
+  &-20{
+
+    margin-top:20px;
+  }
+  &-40{
+
+    margin-top:40px;
+  }
+}
+
+
+.h{
+
+  &-300{
+    height:300px;
+    margin-bottom:20px;
+  }
+
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+
+
+%chat-h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #485166;
+  letter-spacing: -0.34px;
+  margin-bottom: 2px;
+}
+
+%chat-span {
+  font-size: 1.2rem;
+  color: #909BAF;
+  letter-spacing: -0.34px;
+  font-weight: 300;
+}
+
+@include tablet {}

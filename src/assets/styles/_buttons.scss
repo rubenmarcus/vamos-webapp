@@ -1,0 +1,119 @@
+@import "variables";
+@import "mixins";
+@import "media-queries";
+.btn {
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  display: inline-grid;
+  &[disabled] {
+    cursor: no-drop;
+    opacity: 1;
+  }
+  &.btn-full {
+    &.btn-blue {
+      border-radius: 100px;
+      color: #FFFFFF !important;
+      box-shadow: 0 3px 10px 0 rgba(46, 148, 252, 0.50);
+      background-image: linear-gradient(280deg, #0f4876, #2062b1);
+      -webkit-transition: background 2000ms linear;
+      -ms-transition: background 2000ms linear;
+      transition: background 2000ms linear;
+      &:hover {
+        background-image: linear-gradient(-129deg, #2E94FC 0%, #4F8EFA 100%);
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active {
+        background-image: linear-gradient(-129deg, #2E94FC 0%, #4F8EFA 100%);
+      }
+    }
+  }
+  &.btn-stroke {
+    border: 1px solid #E6E9EE;
+    border-radius: 100px;
+    color:#20649a;
+    &.btn-gray {
+      border-color: #20649a;
+      &:hover {
+        color: white;
+        background-color: #909BAF;
+        border-color: #909BAF;
+      }
+    }
+    &.btn-blue {
+      border-color: #5487c5;
+      color: #5487c5;
+      &:hover {
+        background-color: #5487c5;
+        border-color: #5487c5;
+        color: white;
+      }
+    }
+  }
+  &.btn-lg {
+    width: 100%;
+    height: 50px;
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+  &.btn-md {
+    max-width: 270px;
+    width: 100%;
+    height: 50px;
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+  &.btn-sm {
+    width: 181px;
+    height: 40px;
+    line-height: inherit;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  &.btn-xs {
+    font-size: 1.4rem;
+    letter-spacing: -0.34px;
+    text-align: center;
+    height: 30px;
+    padding: 0px 13px;
+  }
+}
+
+.btn-stroke {
+  background: #fff;
+}
+
+.buttons__group {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  .btn {
+    margin-right: 10px;
+  }
+}
+
+.btn-search {
+  background: url('/assets/img/search.svg');
+  width: 19px;
+  height: 19px;
+  border: 0px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    &.btn-md {
+      max-width: 100%;
+    }
+  }
+  .buttons__group {
+    flex-wrap: wrap;
+    button{
+      margin-bottom:20px;
+    }
+  }
+}

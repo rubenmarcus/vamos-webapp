@@ -1,0 +1,41 @@
+@import "media-queries";
+
+.empty-list{
+  width: 100%;
+  text-align: center;
+  &.middle {
+    img {
+      width: 45%;
+    }
+  }
+  img{
+    display: inline-block;
+    margin-bottom: 30px;
+    // max-width: 700px;
+    // width: 90%;
+  }
+  p{
+    font-size: 18px;
+    color: #A7C9EC;
+    strong{
+      font-weight: 400;
+      font-size: 3.6rem;
+    }
+  }
+}
+
+@include mobile{
+  .empty-list{
+    img{
+      width: 60%;
+    }
+    p{
+      font-size: 18px;
+      color: #A7C9EC;
+      strong{
+        font-weight: 400;
+        font-size: 2.6rem;
+      }
+    }
+  }
+}

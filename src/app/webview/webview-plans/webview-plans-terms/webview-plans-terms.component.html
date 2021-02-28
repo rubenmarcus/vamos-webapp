@@ -1,0 +1,13 @@
+<div class="webview-main">
+  <div class="webview-main-content webview-bottom" [formGroup]="termsForm">
+    <h1>Termos de Uso</h1>
+    <div class="webview-main-content-term" innerHTML="{{ term }}"></div>
+    <div class="webview-form-button">
+      <div class="checkbox box">
+        <input type="checkbox" value="true" name="term" id="term" formControlName="term" autocomplete="off" id="webview_plan_term_checkbox">
+        <label for="trade">Aceitar o termo</label>
+      </div>
+      <button class="btn btn-full btn-blue btn-md" [disabled]="!termsForm.valid" id="webview_plan_term_button" (click)="submitForm()">Próximo</button>
+    </div>
+  </div>
+</div>

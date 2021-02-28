@@ -1,0 +1,82 @@
+.search-box-container {
+  // background-image: url("/assets/img/hero-search-box.png");
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+  box-shadow: 0px -4px 24px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 99;
+  width: 350px;
+  top: 0;
+  filter: alpha(opacity=90);
+  color: #FFFFFF;
+  /*extra stuff you need*/
+  max-height: 600px;
+  top: 19%;
+  left: 5%;
+
+  /*or if you want to go to the edges switch from 16px to 0*/
+  .search-box {
+    overflow: hidden;
+    border-radius: 10px;
+
+    .hero {
+      position: relative;
+      margin-top: -60px;
+    }
+
+    .search-box__header {
+
+      h2 {
+        padding: 10px 0px;
+        margin: 0;
+        font-weight: 300;
+        font-size: 1.6rem;
+      }
+
+      .search {
+        position: relative;
+        margin-bottom: 10px;
+
+      }
+    }
+  }
+}
+
+
+.network-search-input {
+  margin-top: -27px;
+  width: 95%;
+  margin-left: 9px;
+  input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #E6E9EE;
+    border-radius: 100px;
+    font-size: 1.4rem;
+    padding-left: 3.5%;
+  }
+
+  button {
+    position: absolute;
+    top: 82px;
+    right: 25px;
+    cursor:pointer;
+    outline: none;
+  }
+}
+
+.network-search {
+   .hero {
+     position: relative;
+     margin-top: -83px;
+     top: -45px;
+  }
+  
+  .search-box-container .search-box__header h2 {
+    padding: 10px 0px;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.6rem;
+  }
+}

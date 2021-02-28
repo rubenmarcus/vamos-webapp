@@ -1,0 +1,19 @@
+        <div class="fixed" *ngIf="openContact">
+                <input type="hidden" id="whatsapp_number" value="5511997911727">
+                <input type="hidden" id="whatsapp_default_msg" value="">
+                <img  rel=”preload” id="face" (click)="open('face')" src="/assets/img/flexcontact/contact_05.png" />
+                <img  rel=”preload” id="whats" (click)="open('whats')" src="/assets/img/flexcontact/contact_04.png" />
+                <img  rel=”preload” id="mail" (click)="open('mail')" src="/assets/img/flexcontact/contact_03.png" />
+                <img  rel=”preload” id="fone" (click)="open('fone')" src="/assets/img/flexcontact/contact_02.png" />
+                <img  rel=”preload” id="chat" (click)="open('chat')" src="/assets/img/flexcontact/contact_01.png" />
+       </div>
+ <div class="divmenu">
+        <div id="cf2" onclick="ga('send', 'event', 'Clicks', 'Botão de Canais')" class="shadow btmenu">
+                               <img  rel=”preload” *ngIf="openContact" class="top imagembotao" src="/assets/img/flexcontact/btFechar.png"
+        (click)="openMenu()" />
+                               <img  rel=”preload” *ngIf="!openContact" class="top imagembotao" src="/assets/img/flexcontact/btAbrir.png"
+        (click)="openMenu()" />
+            </div>
+  </div>
+  <div class="chat-modal"></div>
+  <div class="phone-modal"></div>

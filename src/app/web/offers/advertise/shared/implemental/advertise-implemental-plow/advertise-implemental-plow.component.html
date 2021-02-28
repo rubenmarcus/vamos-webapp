@@ -1,0 +1,137 @@
+<div [formGroup]="advertiseForm">
+  <div class="flex">
+    <div class="col-md-6" formGroupName="offer">
+      <div class="checkbox box checkbox-trade">
+        <input type="checkbox" value="true" name="trade" id="trade" formControlName="trade" autocomplete="off">
+        <label for="trade">
+          Negociação
+          <span>Aceito trocas</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="condition"> Condição do Implemento </label>
+        <select name="condition" id="condition" formControlName="condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let condition of condition" [value]="condition.id">
+            {{ condition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="year"> Ano* </label>
+        <input type="tel" name="year" id="year" formControlName="year" autocomplete="off" [textMask]="yearMask">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="weight"> Peso (1.100 kg) </label>
+        <input type="tel" name="weight" id="weight" formControlName="weight" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="rods"> Nº de hastes* </label>
+        <input type="tel" name="rods" id="rods" formControlName="rods" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="discs"> Nº de discos* </label>
+        <input type="tel" name="discs" id="discs" formControlName="discs" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="disc_diameter"> Diâmetro dos discos* 28" </label>
+        <input type="tel" name="disc_diameter" id="disc_diameter" formControlName="disc_diameter" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="bearing"> Tipo de mancal* </label>
+        <input type="text" name="bearing" id="bearing" formControlName="bearing" autocomplete="off">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="working_width"> Largura de trabalho* (750 mm) </label>
+        <input type="tel" name="working_width" id="working_width" formControlName="working_width" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="working_depth"> Profundidade de trabalho* (450 mm) </label>
+        <input type="tel" name="working_depth" id="working_depth" formControlName="working_depth" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="wheel"> Nº de rodas </label>
+        <input type="tel" name="wheel" id="wheel" formControlName="wheel" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="tdp"> Potência na tomada de força TDP (70 cv) </label>
+        <input type="tel" name="tdp" id="tdp" formControlName="tdp" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex" formGroupName="offer">
+    <div class="col-md-12">
+      <div class="form-group textarea">
+        <label for="description"> Observação </label>
+        <textarea name="description" id="description" formControlName="description" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

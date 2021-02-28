@@ -1,0 +1,11 @@
+@import "media-queries";
+
+.not-found {
+  width: 100%;
+  text-align: center;
+  img {
+    margin: 60px 0;
+    max-width: 480px;
+    width: 90%;
+  }
+}

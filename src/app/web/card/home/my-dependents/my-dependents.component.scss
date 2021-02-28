@@ -1,0 +1,81 @@
+app-my-dependents {
+  .alert-content{ position: relative;
+    h4{
+      font-size: 1.5rem;
+      color: #485166;
+      margin: 10px 0 0;
+      padding-bottom: 20px;
+    }
+  }
+  .modal__close {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    background: url('/assets/img/close-2.svg');
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .card__main {
+    h3 {
+      color: #909BAF;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #1F222A;
+      letter-spacing: -0.51px;
+    }
+  }
+  ul {
+    padding: 0px !important;
+    li {
+      border-bottom: 1px solid #E6E9EE;
+      height: 60px;
+      padding-top: 18px;
+      margin-right: 10px;
+      top: 4px;
+      cursor: pointer;
+      &:nth-child(1) {
+        border-top: 1px solid #E6E9EE;
+      }
+      &:not(.add-dependent) {
+        i {
+          content: '';
+          display: inline-block;
+          width: 23px;
+          height: 22px;
+          background: url('/assets/img/icon-remove.png');
+          position: relative;
+          margin-right: 10px;
+          cursor: pointer;
+          top: 4px;
+        }
+      }
+      &.add-dependent {
+        color: #909BAF;
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: url('/assets/img/icon-add.png');
+          position: relative;
+          margin-top: 0px;
+          top: 5px;
+          margin-right: 20px;
+          cursor: pointer;
+          position: relative;
+          margin-right: 10px;
+          top: 4px;
+        }
+      }
+      a , span {
+        font-size: 1.6rem;
+        font-weight: lighter;
+        color:#000;
+        text-decoration:none;
+      
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+app-schedule {
+  .radio-2.box {
+    color: #909baf;
+    margin-right: 37px;
+    display: flex;
+
+    label {
+      font-size: 1.9rem;
+      width: 172px;
+    }
+
+   
+    input {
+      width: 18px;
+    }
+  }
+
+  .fileUploaded {
+    font-size: 1.4rem;
+    padding-right: 10px;
+    padding-left: 13px;
+    font-weight: bold;
+}
+  img.pictureIcon {
+    position: relative;
+    left: -42px;
+    top: 7px;
+  }
+  .img-remove {
+    position: absolute;
+    right: 18px;
+    top: 28px;
+}
+  .best_hour{
+
+    label {
+      width: 80px!important;
+    }
+  }
+  .has-text-danger {
+    font-size: 1.2rem;
+    margin-top: 0px;
+    font-weight: lighter !important;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .photo-add {
+    background: url("/assets/img/icon-upload.png");
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 31px;
+    height: 31px;
+    top: 6px;
+  }
+
+  .checkbox.box {
+    width: 79% !important;
+    margin-top: 11px !important;
+    margin-right: 29px;
+
+    input {
+      border: 0px !important;
+    }
+
+    label {
+      margin-top: -8px;
+    }
+  }
+
+  .profile-picture {
+    border: solid 1px #e6e9ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 306px;
+    height: 79px;
+    border-radius: 8px;
+    border: 1px solid #E6E9EE;
+  }
+}

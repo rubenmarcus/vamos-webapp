@@ -1,0 +1,30 @@
+.dialog__type {
+  position: absolute;
+  bottom: 0px;
+  height: 45px;
+  border-top: 1px solid #E6E9EE;
+  width: 100%;
+  input {
+    width: 100%;
+    border: 0px;
+    height: 43px;
+    padding-left: 15px;
+    padding-right: 43px;
+    &::placeholder {
+      font-size: 1.5rem;
+      color: #909BAF;
+      letter-spacing: -0.34px;
+      font-weight:300;
+    }
+  }
+  button {
+    background: url('/assets/img/chat-send-message.png');
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    position: absolute;
+    right: 7px;
+    bottom: 6px;
+    cursor: pointer;
+  }
+}

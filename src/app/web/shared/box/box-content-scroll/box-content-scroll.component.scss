@@ -1,0 +1,96 @@
+@import "media-queries";
+
+.box-content {
+  &-scroll {
+    // max-width: 1315px;
+    width: 100%;
+    margin: 0 auto;
+    &-title {
+      max-width: 1315px;
+      width: 95%;
+      margin: 0 auto;
+      h1 {
+        color: #5487C5;
+        width: auto;
+        display: inline-block;
+        padding-bottom: 10px;
+        font-weight: 300;
+        font-size: 2.2rem;
+        position: relative;
+        margin-left: 12px;
+        // left: 17px;
+        &:after {
+          content: '';
+          background: #5487C5;
+          height: 4px;
+          width: 114%;
+          border-radius: 20px;
+          display: block;
+          margin-top: 7px;
+          margin-left: -5px;
+        }
+      }
+      .btn {
+        margin-left: auto;
+        .button-xs {
+          margin: 0;
+        }
+      }
+    }
+    .row__tablet {
+      width: 100%;
+      max-width: 1315px;
+      margin: auto;
+    }
+    &-overflow {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      app-card-vehicle{
+        margin: 0 1% 0 0;
+        flex: 1;
+        max-width: 320px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      app-card-freight {
+        width: 336px;
+        width: 336px;
+        border-radius: 6px;
+        margin: 0 1% 0 0;
+        // -webkit-box-flex: 0;
+        // -ms-flex: 0 0 25%;
+        // flex: 0 0 25%;
+        flex: 1;
+        max-width: 24%;
+        max-width: 320px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1389px) {
+  .box-content {
+    &-scroll {
+      &-overflow {
+        margin-left: 1.5%!important;
+        padding-right: 1.5%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .box-content {
+    &-scroll {
+      &-overflow {
+        margin-left: 2.5%!important;
+        padding-right: 2.5%;
+      }
+    }
+  }
+}

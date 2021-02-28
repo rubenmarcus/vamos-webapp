@@ -1,0 +1,106 @@
+<div [formGroup]="advertiseForm">
+  <div class="flex">
+    <div class="col-md-6" formGroupName="offer">
+      <div class="checkbox box checkbox-trade">
+        <input type="checkbox" value="true" name="trade" id="trade" formControlName="trade" autocomplete="off">
+        <label for="trade">
+          Negociação
+          <span>Aceito trocas</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="condition"> Condição do Implemento </label>
+        <select name="condition" id="condition" formControlName="condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let condition of condition" [value]="condition.id">
+            {{ condition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.year') }">
+      <div class="form-group">
+        <label for="year"> Ano* </label>
+        <input type="tel" name="year" id="year" formControlName="year" autocomplete="off" [textMask]="yearMask">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.year')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.drill_diameter') }">
+      <div class="form-group">
+        <label class="drill_diameter"> Diâmetro da broca* </label>
+        <input type="tel" name="drill_diameter" id="drill_diameter" formControlName="drill_diameter" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.drill_diameter')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.torque_drilling') }">
+      <div class="form-group">
+        <label class="torque_drilling"> Torque máx. de perfuração* (4.230 Nm) </label>
+        <input type="tel" name="torque_drilling" id="torque_drilling" formControlName="torque_drilling" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.torque_drilling')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.rotation_drilling') }">
+      <div class="form-group">
+        <label class="rotation_drilling"> Rotação máx. de perfuração* (100 rpm) </label>
+        <input type="tel" name="rotation_drilling" id="rotation_drilling" formControlName="rotation_drilling" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.rotation_drilling')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.discharge_rotation') }">
+      <div class="form-group">
+        <label class="discharge_rotation"> Rotação máx. de descarga* (100 rpm) </label>
+        <input type="tel" name="discharge_rotation" id="discharge_rotation" formControlName="discharge_rotation" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.discharge_rotation')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.depth_drilling') }">
+      <div class="form-group">
+        <label class="depth_drilling"> Profundidade máx. de perfuração* (600 cm) </label>
+        <input type="tel" name="depth_drilling" id="depth_drilling" formControlName="depth_drilling" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.depth_drilling')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.weight') }">
+      <div class="form-group">
+        <label class="weight"> Peso aprox. (450 kg) </label>
+        <input type="tel" name="weight" id="weight" formControlName="weight" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.weight')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" formGroupName="offer">
+      <div class="form-group textarea">
+        <label class="axes"> Observação </label>
+        <textarea name="description" id="description" formControlName="description" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

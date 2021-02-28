@@ -1,0 +1,210 @@
+@mixin hr {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #E6E9EE;
+  border: 0px solid #E6E9EE;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  left: 0px;
+}
+
+app-card-benefits {
+  .mt--10 {
+    margin-top: -10px !important;
+  }
+  .card__benefits {
+    margin-bottom: 60px !important;
+    margin-top: 100px !important;
+    &.center-items {
+      justify-content: center;
+      align-items: center;
+      li {
+        margin-top: 20px;
+      }
+    }
+    &--terms {
+      background: #E6E9EE;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      width: 780px;
+      margin: 0 auto;
+      cursor: pointer;
+      .terms {
+        background: #fff;
+        border-radius: 100px;
+        p {
+          font-size: 1.4rem;
+          padding: 0px !important;
+          margin: 11px !important;
+        }
+        &:after {
+          content: '';
+          width: 8.18px;
+          height: 15px;
+          background: url('/assets/img/arrow-grey.svg');
+          display: block;
+          position: absolute;
+          right: 11px;
+          top: 11px;
+        }
+      }
+      div:nth-child(2) {
+        padding-left: 40px;
+      }
+    }
+    hr {
+      @include hr;
+    }
+    li {
+      text-align: center;
+      margin-right: 28px;
+      width: 84px;
+      &:nth-child(3) {
+        margin-left: 10px;
+      }
+    }
+    h3 {
+      font-size: 2.5rem !important;
+      letter-spacing: 0;
+      .no-bg {
+        padding-top: 20px !important;
+      }
+    }
+    p {
+      width: 90%;
+      font-family: Helvetica;
+      font-size: 1.2rem;
+      font-weight: lighter;
+      color: #909BB0;
+      letter-spacing: -0.39px;
+      text-align: center;
+      img {
+        margin: 0 auto;
+      }
+    }
+    &--footer {
+      hr {
+        @include hr;
+      }
+      width: 100%;
+      .btn{
+        position: relative;
+        top: 9px;
+      }
+      p{
+        color: #5487C5;
+        letter-spacing: -0.48px;
+        font-weight: lighter;
+      }
+      div {
+        height: 80px;
+        justify-content: left;
+        align-items: left;
+        padding-top: 20px;
+        display: flex;
+        img.have-card {
+          height: 35px;
+          margin-right: 8px;
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+  .app-download{
+    img {
+      height: 35px;
+      margin-right: 4px;
+    }
+  }
+  .modal {
+    &__in {
+      padding: 40px;
+      text-align: left;
+      height: auto;
+      position: relative;
+    }
+    &__close {
+      position: absolute;
+      right: 20px;
+      top: 30px;
+      background: url('/assets/img/close-2.svg');
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 99999 !important;
+    }
+    &__msg {
+      h1 {
+        padding-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      span {
+        padding-bottom: 33px;
+        display: block;
+        line-height: 2rem;
+      }
+    }
+  }
+  .benefits-bg {
+    background: url(/assets/img/card-benefits.jpg);
+    width: 780px !important;
+    height: 111px;
+    color: #fff !important;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px !important;
+  }
+  .card__dependents {
+    margin-top: 0px !important;
+    padding-bottom: 102px;
+    padding-left: 0px;
+  } // Subscribing Box Content H2
+  .card__content h2 {
+    margin-bottom: 38px !important;
+  }
+  .step1-have-card {
+    .btn {
+      margin-top: 33px;
+      margin-bottom: 10px;
+    }
+  }
+  .step-2-have-card {
+    p {
+      margin-top: -13px;
+      margin-bottom: 23px;
+      color: #909BAF;
+    }
+    >img {
+      position: relative;
+      left: -40px;
+      top: -40px;
+      border-radius: 8px 5px 0px 0px;
+    }
+    .btn {
+      margin-top: 39px;
+    }
+    .flex>img {
+      margin-right: 18px;
+    }
+  }
+}
+
+
+@media (max-width:468px) {
+  app-card-benefits .card__benefits li{
+    margin-left: 0px!important;
+    margin-bottom:20px;
+    width:100%;
+  }
+  app-card-benefits .card__benefits p{
+    margin-top: 11px;
+    margin: 0 auto;
+  }
+}

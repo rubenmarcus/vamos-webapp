@@ -1,0 +1,142 @@
+@import "media-queries";
+.vehicle-type {
+  margin: 60px 0px;
+
+  &-category {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    &-item {
+      margin: 0 10px 20px 0;
+      input[type="radio"] {
+        display: none;
+        &:checked {
+          & + label {
+            &:before {
+              background-color: #7ED321;
+            }
+          }
+        }
+      }
+      label {
+        font-size: 1.4rem;
+        color: #000;
+        cursor: pointer;
+        position: relative;
+        width: 100px;
+        text-align: center;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        &:before {
+          content: "";
+          position: relative;
+          background: #E6E9EE;
+          width: 100px;
+          height: 100px;
+          border-radius: 100px;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          width: 100px;
+          height: 100px;
+        }
+      }
+      &-truck {
+        label {
+          &:after {
+            background: url(/assets/img/icon-truck.svg);
+            left: -16px;
+            top: -5px;
+          }
+        }
+      }
+      &-bodywork {
+        label {
+          &:after {
+            background: url(/assets/img/icon-bodywork.svg);
+            left: -16px;
+            top: -5px;
+          }
+        }
+      }
+      &-truck3 {
+        label {
+          &:after {
+            background: url(/assets/img/icon-truck3.svg);
+            left: -16px;
+            top: -5px;
+          }
+        }
+      }
+      &-cavalo {
+        label {
+          &:after {
+            background: url(/assets/img/icon-cavalo.svg);
+            left: -9px;
+            top: -5px;
+          }
+        }
+      }
+      &-bus {
+        label {
+          &:after {
+            background: url(/assets/img/icon-bus.svg);
+            left: -18px;
+            top: -6px;
+          }
+        }
+      }
+      &-tractor {
+        label {
+          &:after {
+            background: url(/assets/img/icon-tractor.svg);
+            left: -6px;
+            top: -5px;
+          }
+        }
+      }
+      &-machine {
+        label {
+          &:after {
+            background: url(/assets/img/icon-machine.svg);
+            left: 3px;
+            top: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #909BAF;
+  letter-spacing: 0;
+}
+
+@media (max-width: 767px) {
+  .vehicle-type {
+    &-category {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  .vehicle-type {
+    &-category {
+      justify-content: center;
+      align-items: center;
+      &-item {
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

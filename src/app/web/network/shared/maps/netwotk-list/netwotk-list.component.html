@@ -1,0 +1,55 @@
+<div class="search-box__body">
+  <ul class="list" (scroll)="onScrollEvent($event)">
+    <li *ngFor="let establishment of establishments; let i = index" [ngClass]="{'active': establishment.active}" aria-controls="collapseExample" class="btn" type="button" aria-expanded="false">
+      <div class="search-box__body-title" (click)="activateClass(establishment, i)">
+        <div collapse-title="">
+          <div class="d-flex title">
+            <h3>{{establishment.company_name || establishment.fantasy_name}}</h3>
+            <!-- <p class="ml-auto" *ngIf="coords">{{ distance(establishment.address, 'K') | number }}Km</p> -->
+            <!-- <p class="ml-auto" *ngIf="coords">{{ getDistanceFromLatLonInKm( establishment.address ) | number }}Km</p> -->
+          </div>
+          <div class="d-flex address">
+            <!-- <img  rel=”preload” src="assets/img/seller-point.svg" alt=""> -->
+            <i class="seller-point"></i>
+            <span *ngIf="establishment.address">
+              {{establishment.address.line1}}, {{establishment.address.number}} <br>
+              {{establishment.address.city}} - {{establishment.address.state}} <br>
+            </span>
+            <span *ngIf="!establishment.address">
+              Não informado
+            </span>
+          </div>
+        </div>
+        <span class="network-arrow">
+          <i><app-icon-arrow><svg xmlns:xlink="http://www.w3.org/1999/xlink" height="9px" version="1.1" viewBox="0 0 16 9" width="16px" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+            <g fill-rule="nonzero" id="4.0.0_Classificados" transform="translate(-320.000000, -949.000000)">
+              <g id="Filtro" transform="translate(90.000000, 443.000000)">
+                <g id="Localização" transform="translate(0.000000, 490.000000)">
+                  <g id="Titulo">
+                    <path d="M241.642502,28 C241.787197,28 241.918737,27.9482759 242.02397,27.8448276 C242.234434,27.637931 242.234434,27.3017241 242.02397,27.0948276 L235.315405,20.5 L242.02397,13.9051724 C242.234434,13.6982759 242.234434,13.362069 242.02397,13.1551724 C241.813505,12.9482759 241.4715,12.9482759 241.261035,13.1551724 L234.157849,20.125 C233.947384,20.3318966 233.947384,20.6681034 234.157849,20.875 L241.261035,27.8448276 C241.366267,27.9482759 241.497808,28 241.642502,28 Z" id="btn-" transform="translate(238.090909, 20.500000) scale(-1, 1) rotate(-270.000000) translate(-238.090909, -20.500000) "></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg></app-icon-arrow></i>
+        </span>
+      </div>
+      <div ng-reflect-collapsed="true" class="search-box__body-description collapse" [ngClass]="{'show': establishment.active}">
+        <div id="collapse">
+          <div collapse-body="">
+            <div class="d-flex" *ngIf="establishment.description">
+              <i class="seller-user"></i>
+              <p>{{ establishment.description }}</p>
+            </div>
+            <div class="d-flex network-phone-route">
+              <p class="network-phone">tel: <a href="tel:{{ establishment.phone }}">{{ establishment.phone }}</a></p>
+              <a class="link text-right network-route" (click)="sendRoute(establishment)" *ngIf="coords">Traçar rota</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

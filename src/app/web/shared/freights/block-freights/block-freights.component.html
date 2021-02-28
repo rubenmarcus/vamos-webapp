@@ -1,0 +1,91 @@
+<div class="freights">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 freights__boxfreight">
+      <div class="card-deck">
+        <div class="card">
+            <div class="row">
+              <div class="col-sm-12 col-md-4 no__padding no__margin">
+                <a routerLink="/fretes/{{ freight.id }}" class="itinerary">
+                  <div class="teste">
+                    <div class="col-md-2 opa">
+                      <strong></strong>
+                      <div class="line"></div>
+                      <img  rel=”preload” src="assets/img/icon-geolocation.png" alt="">
+                    </div>
+                    <div class="col-md-8 from-to">
+                      <div class="from">
+                        <span><small>Origem:</small></span>
+                        <span>{{freight.load_city}}/{{freight.load_state}}</span>
+                      </div>
+                      <div class="to">
+                        <span><small>Destino:</small></span>
+                        <span>{{freight.unload_city}}/{{freight.unload_state}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overlay">
+                    <span>Ver Detalhes</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-12 col-md-8">
+                <div class="item">
+                  <div class="item-heading">
+                    <div class="row">
+                      <div class="col-6 col-sm-8 col-md-8">
+                        <span>{{freight.source}}</span>
+                      </div>
+                      <div class="col-6 col-sm-4 col-md-4 text-right">
+                        <span class="date">
+                          {{ freight.load_start_at | date:'shortDate' }}
+                        </span>
+                        <div class="item--favorited fav-item"  *ngIf="freight.favorited "  (click)="deleteFavorite()" ></div>
+                        <div class="item--not-favorited fav-item"  *ngIf="freight.favorited  == false;"  (click)="saveFavorite()" ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="item-body">
+                    <div class="row cargo-info justify-content-between">
+                      <div class="col-12 col-sm-3 col-md-3 tag">
+                        <!-- <i class="fa fa-balance-scale"></i> -->
+                        <img  rel=”preload” src="assets/img/icon-weight-grey.svg" alt="">
+                        <span> {{ freight.weight ? freight.weight : 'Não Informado' }}</span>
+                      </div>
+                      <div class="col-12 col-sm-3 col-md-3 tag">
+                        <img  rel=”preload” src="assets/img/icon-road.png" alt="">
+                        <span>{{ freight.distance ? freight.distance : 'Não Informado' }}</span>
+                      </div>
+                      <div class="col-12 col-sm-3 col-md-3">
+                        <!-- <img  rel=”preload” src="assets/img/icon-geolocation-grey.png" alt="">
+                        <span>{{ freight.price_per_kilometers ? freight.price_per_kilometers : 'Não Informado' }}</span> -->
+                      </div>
+                    </div>
+                    <div class="row justify-content-between payment-info">
+                      <div class="col-md-12">
+                        <div class="row align-payment">
+                          <div class="col-12 col-sm-6 advance" *ngIf="freight.advance">
+                            <p>Adiantamento {{ freight.advance }}
+                              <span *ngIf="!freight.advance">Não Informado</span>
+                            </p>
+                          </div>
+                          <div class="col-12  amount" [ngClass]="{ 'col-sm-6' : freight.advance }">
+                            <div class="content">
+                              <span>Valor</span>
+                              <p>{{freight.price}}</p>
+                              <!-- <p>R$ {{ freight.price | number : '1.2-2' }}</p> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,192 @@
+card-network-list .list svg * {
+  color: #74adf2 !important;
+}
+
+.search-box-container {
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+  box-shadow: 0px -4px 24px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 99;
+  width: 350px;
+  top: 0;
+  filter: alpha(opacity=90);
+  color: #FFFFFF;
+  max-height: 727px;
+  top: 10%;
+  left: 5%;
+}
+
+.new-place {
+  label {
+    color: #fff;
+    font-size: 1.2rem;
+    position: relative;
+    left: 15px;
+  }
+}
+
+.select {
+  background: #fff;
+}
+
+.has-local {
+  transition: .1s ease all;
+  height: 210px !important;
+
+  .bg-search {
+    height: 100%;
+  }
+
+  .search {
+    top: 64px;
+  }
+
+  span {
+    top: 17px;
+  }
+  .select {
+    position: relative;
+    top: 12px;
+    height: 40px;
+}
+#bt-search{
+  top: 102px !important;
+}
+  input {
+
+    width: 94%;
+    height: 40px;
+    border: 1px solid #E6E9EE;
+    border-radius: 100px;
+    font-size: 1.4rem;
+    padding-left: 3.5%;
+    z-index: 999999;
+    position: relative;
+    top: 8px;
+  }
+
+}
+
+
+.place-change {
+  position: absolute;
+  right: 22px;
+  top: 16px;
+  font-size: 1.2rem;
+  background: #fff;
+  border-radius: 10px;
+  color: #20649a;
+  padding: 5px 0px !important;
+  /* padding-left: 5px!important; */
+  width: 86px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999999999;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+.bg-search {
+  background: url('/assets/img/hero-search-box.png');
+}
+
+.search-box {
+  overflow: hidden;
+  border-radius: 10px;
+
+  &__header {
+    height: 122px;
+
+    .btn-search {
+      background: url(/assets/img/btn-right.png) no-repeat !important;
+      width: 7px !important;
+      display: block;
+      right: 9px !important;
+      top: 91px !important;
+    }
+
+    .search {
+      position: relative;
+      margin-bottom: 10px;
+      padding-top: 81px;
+
+      input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #E6E9EE;
+        border-radius: 100px;
+        font-size: 1.4rem;
+        padding-left: 3.5%;
+      }
+
+      button {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        outline: none;
+      }
+    }
+
+    &-in {
+      position: absolute;
+      width: 103%;
+      padding-left: 24px;
+      margin-left: -20px;
+      padding-top: 7px;
+      padding-bottom: 29px;
+
+      div {
+        padding-left: 0px !important;
+      }
+    }
+
+    .bt-net-1{
+      color: #fff;
+      background: transparent;
+      border: 0px;
+      height: 27px;
+      border-radius: 3px;
+      padding: 0px 12px;
+      cursor: pointer;
+      &.active {
+        background: rgba(22, 98, 190, 0.60);
+        border: 1px solid #4F8EFA;
+        border-radius: 100px;
+      }
+
+    }
+
+    .new-place {
+      margin-bottom: 16px;
+  }
+    span {
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 15px;
+      z-index: 9999;
+      position: relative;
+      display:block;
+      color: #fff!important;
+      &::selection{
+
+        color: #fff!important;
+
+      }
+  
+
+      h2 {
+        padding: 10px 0px;
+        margin: 0;
+        font-weight: 300;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

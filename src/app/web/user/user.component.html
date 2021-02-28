@@ -1,0 +1,23 @@
+<div *ngIf="router.url != '/perfil/detalhe-oferta'"><app-header></app-header></div>
+<div *ngIf="router.url == '/perfil/detalhe-oferta'"><app-header typeHeader="my-advert"></app-header></div>
+
+<main id="user">
+  <div *ngIf="router.url != '/perfil/detalhe-oferta'">
+    <div class="flex">
+      <user-header></user-header>
+    </div>
+    <section class="flex user__main">
+      <div class="user__menu" id="user__menu">
+        <user-left-menu ></user-left-menu>
+      </div>
+      <div class="user__content">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </div>
+
+  <div *ngIf="router.url == '/perfil/detalhe-oferta'">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<app-footer></app-footer>

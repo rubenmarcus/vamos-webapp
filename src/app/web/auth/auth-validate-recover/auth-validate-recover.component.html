@@ -1,0 +1,58 @@
+<ng-content></ng-content>
+<section id="register" class="register" *ngIf="user">
+  <div class="box--shadow">
+    <div class="register__mobile">
+      <div class="row mobile__sms" *ngIf="isPerson()">
+        <div class="col-md-2">
+          <img  rel=”preload” src="./assets/img/mobile.svg">
+        </div>
+        <div class="col-md-7">
+          <div class="mobile__code">
+            <p>
+              Foi enviado um código para o seu celular {{ formatNumber() }}.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <a (click)="resendActivationToken('sms')">Enviar novamente o código</a>
+        </div>
+      </div>
+      <div class="row mobile__sms" *ngIf="!isPerson()">
+        <div class="col-2">
+          <img  rel=”preload” src="./assets/img/letter.svg">
+        </div>
+        <div class="col-8 col-md-7">
+          <div class="mobile__code">
+            <p class="e-mail">
+              Foi enviado um código para o seu e-mail {{ formatEmail() }}
+            </p>
+          </div>
+        </div>
+        <div class="col-3">
+          <a (click)="resendActivationToken('email')">Enviar código por E-Mail</a>
+        </div>
+      </div>
+
+      <form class="row" [formGroup]="codeForm">
+        <div class="col-md-6" formGroupName="user">
+          <div class="form-group" [ngClass]="{ 'error' : codeForm.get('user').get('recover_code').touched && !codeForm.get('user').get('recover_code').valid }">
+            <label>Código enviado via SMS</label>
+            <input type="tel" formControlName="recover_code" placeholder="Código" [textMask]="codeMask" autocomplete="new-password">
+            <div *ngIf="codeForm.get('user').get('recover_code').touched && !codeForm.get('user').get('recover_code').valid">
+              <p class="help has-text-danger">{{messageError.codeValidation}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex register__buttons">
+          <div class="col-md-4">
+            <a (click)="backtoLogin();" class="btn btn-stroke btn-gray btn-lg">Voltar</a>
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-full btn-blue btn-lg" [disabled]='!codeForm.valid' (click)="validateRecover()">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

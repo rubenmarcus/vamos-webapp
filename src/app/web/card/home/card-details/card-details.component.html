@@ -1,0 +1,52 @@
+<ul class="card__options" *ngIf="UserData">
+  <li class="name">
+  <span>Nome:</span> <span>{{UserData.first_name}} {{UserData.last_name}}</span>
+  <a *ngIf="!isDependent" routerLink="/cartao/editar-perfil" class="profile-edit">Editar</a>
+  <a *ngIf="isDependent" routerLink="/cartao/meus-dependentes/{{dependentId}}" class="profile-edit">Editar</a>
+  </li>
+  <li>
+    <div><span>CPF</span></div>
+    <div>{{mCPF(UserData.cpf)}} </div>
+  </li>
+  <li>
+    <div><span>RG</span></div>
+    <div><span>{{mRG(UserData.rg)}}</span></div>
+  </li>
+  <li>
+    <div><span>Data de nascimento</span> </div>
+    <div><span>{{UserData.birthdate |  date:'shortDate'}}</span></div>
+  </li>
+  <li>
+    <div><span>E-Mail</span> </div>
+    <div><span>{{UserData.email}}</span></div>
+  </li>
+  <li>
+    <div><span>Fixo</span></div>
+    <div> <span >{{mTel(UserData.phone)}}</span></div>
+  </li>
+  <li>
+    <div><span>Celular</span> </div>
+    <div><span >{{mTel(UserData.cellphone)}}</span></div>
+  </li>
+  <li>
+    <div><span>Gênero</span>  </div>
+    <div><span *ngIf="UserData.gender === 'male'"> Masculino</span> 
+      <span *ngIf="UserData.gender === 'female'"> Feminino</span></div>
+  </li>
+  <li>
+    <div><span>Estado Civil</span></div>
+    <div> 
+      <span *ngIf="UserData.marital_status === 'unmarried'">Solteiro</span>
+      <span *ngIf="UserData.marital_status === 'married'">Casado</span>
+      <span *ngIf="UserData.marital_status === 'widowed'">Viúvo (a)</span>
+      <span *ngIf="UserData.marital_status === 'divorced'">Divorciado</span>
+    </div>
+  </li>
+  <li class="address">
+      <div><span>Endereço:</span> </div>
+      <a *ngIf="!isDependent" routerLink="/cartao/editar-perfil" class="profile-edit">Editar</a>
+      <a *ngIf="isDependent" routerLink="/cartao/meus-dependentes/{{dependentId}}" class="profile-edit">Editar</a>
+    </li>
+    <li>  <span> {{UserData.address.line1}} , {{UserData.address.number}}  - {{UserData.address.district}} , {{UserData.address.city}} - {{UserData.state}}
+      CEP: {{mCEP(UserData.address.zip)}}</span></li>
+</ul>

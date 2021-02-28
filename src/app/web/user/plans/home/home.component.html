@@ -1,0 +1,78 @@
+<div class="plans">
+  <div class="plans-title">
+    <h1>Planos</h1>
+    <ul role="tablist" class="nav nav-tabs justify-content-start">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/perfil/planos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Anúncios de veículos</a>
+      </li>
+    </ul>
+  </div>
+  <div class="carouselPlan">
+    <!-- <owl-carousel *ngIf="plans.length > 0" [options]="{nav: false, lazyLoad:true, startPosition: 0, slideBy: 2, margin :14, autoWidth:true,
+      responsive: {
+        '0': {  items: 1, margin: 10 },
+        '640': { items: 2, margin: 30 },
+        '980': { items: 3, margin: 30 },
+        '1220': { items: 4, margin: 30 }
+      }}" [items]="plans" [carouselClasses]="['owl-theme', 'slider-plan-web']"> -->
+      <!-- <owl-carousel *ngIf="plans.length > 0" [options]="{nav: false, lazyLoad:true, items: 1, margin: 0, slideBy : 0, startPosition: 0, dots: false}" [items]="plans" [carouselClasses]="['owl-theme', 'slider-home']"></owl-carousel> -->
+    <owl-carousel *ngIf="plans.length > 0" [options]="{nav: false, lazyLoad:true, startPosition: 0, slideBy: 2, margin :14, autoWidth:true}" [items]="plans" [carouselClasses]="['owl-theme', 'slider-plan-web']">
+        <app-plan-card-free *ngIf="freePlanPlaceholder" [expiration]="planExpiration"></app-plan-card-free>
+
+      <app-plan-card *ngFor="let plan of plans; let i = index" (enableFreeSubscription)="getPlans()" (deletePlan)="getPlanSelected($event)" (proposal)="getProposal()" [plan]="plan"></app-plan-card>
+    </owl-carousel>
+  </div>
+</div>
+
+<div class="modal modalPlan" *ngIf="modalDeletePlan">
+  <div class="modal__in">
+    <div class="modal__head">
+      <h1>Cancelar meu Plano</h1>
+      <h2>Tem certeza que deseja<br> cancelar seu plano?</h2>
+      <img  rel=”preload” (click)="closeModal()" src="/assets/img/close-icon.svg" />
+    </div>
+    <div class="modal__buttons d-flex justify-content-center align-items-center">
+      <a class="btn big btn--grey" (click)="closeModal()">Não</a>
+      <a class="btn big btn--grey" (click)="deletePlan()">Sim</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalExclusive" *ngIf="modalPropostal">
+  <div class="modal__in {{modalClass}}">
+    <div class="modal__head">
+      <div class="modal__head-content">
+        <h1>Plano Exclusivo</h1>
+        <h2>Entre em contato conosco e ajudaremos você a criar um plano exclusivo.</h2>
+        <img  rel=”preload” (click)="closeModal()" src="/assets/img/close-icon.svg" />
+      </div>
+    </div>
+    <div class="modal__body">
+      <form [formGroup]="planRequestsForm" autocomplete="off">
+        <div class="row flex flex__wrap" formGroupName="request">
+          <div class="col-md-6">
+            <div class="form-group" [ngClass]="{ 'error' : isFieldValid('offers') }">
+              <label> Quantidade de veículos* </label>
+              <input type="tel" placeholder="Quantidade de veículos" autocomplete="nope" autocorrect="off" formControlName="offers" maxlength="9" currencyMask [options]="inputMask.number" />
+              <div *ngIf="isFieldValid('offers')">
+                <p class="help has-text-danger">{{ error.requestOffers }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group" [ngClass]="{ 'error' : isFieldValid('observation') }">
+              <label> Observações </label>
+              <input type="text" placeholder="Observações" autocomplete="nope" autocorrect="off" formControlName="observation" />
+              <div *ngIf="isFieldValid('observation')">
+                <p class="help has-text-danger">{{ error.requestObservation }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons__group">
+          <button class="btn btn-full btn-blue btn-md" (click)="planRequests()" [disabled]="!planRequestsForm.valid">Enviar proposta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

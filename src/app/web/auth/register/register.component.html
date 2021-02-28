@@ -1,0 +1,28 @@
+<section id="register" class="register">
+  <div class="box--shadow">
+    <h1>BEM-VINDO!</h1>
+    <p>Faça parte do maior ecossistema de pesados do Brasil.</p>
+    <br>
+    <div class="row register__select" *ngIf="hideRadioButton">
+      <div class="col-md-5 col-lg-3">
+        <div class="radio box">
+          <input type="radio" name="registerButton" id="pf" [checked]="hidePerson" value="Pessoa Física" (change)="showPF()">
+          <label for="pf">Pessoa Física</label>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-3">
+        <div class="radio box">
+          <input type="radio" name="registerButton" id="pj" [checked]="hideCompany" value="Pessoa Jurídica" (change)="showPJ()">
+          <label for="pj">Pessoa Jurídica</label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="hidePerson">
+      <app-register-person [hidePerson]="hidePerson" (hideRadioRegister)="hideRadio($event);"></app-register-person>
+    </div>
+    <div *ngIf="hideCompany">
+      <app-register-company [hideCompany]="hideCompany" (hideRadioRegister)="hideRadio($event);"></app-register-company>
+    </div>
+  </div>
+</section>

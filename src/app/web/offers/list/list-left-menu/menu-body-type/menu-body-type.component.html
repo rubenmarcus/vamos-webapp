@@ -1,0 +1,23 @@
+<div [formGroup]="typeFilter">
+  <div class="form-group" *ngIf="type == 'truck_bodies'">
+    <label> Marca </label>
+    <select name="has_truck_body" id="has_truck_body" formControlName="has_truck_body">
+      <option value="">Todas</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+
+  <div class="form-group">
+    <label> Tipo da Carroceria </label>
+    <select name="body_type_id" id="body_type_id" formControlName="body_type_id">
+      <option value="">Todas</option>
+      <option *ngFor="let bodyType of bodyTypes" [value]="bodyType.id">
+        {{bodyType.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+</div>

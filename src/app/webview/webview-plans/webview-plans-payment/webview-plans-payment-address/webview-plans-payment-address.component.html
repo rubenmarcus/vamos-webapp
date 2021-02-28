@@ -1,0 +1,77 @@
+<div class="webview-main">
+  <div class="webview-main-content" [formGroup]="dataForm" autocomplete="off">
+    <h1>Endereço</h1>
+    <p>Insira o endereço utilizado para a cobrança do cartão de crédito</p>
+    <div class="webview-form-group" *ngIf="user.address">
+      <div class="webview-form-group-checkbox box">
+        <input type="checkbox" value="true" name="billingAddress" id="billingAddress" formControlName="billingAddress" (change)="isAddressEqual($event)">
+        <label for="billingAddress">
+          <span>Endereço de cobrança<br> é o mesmo cadastrado</span>
+        </label>
+      </div>
+    </div>
+
+    <div formGroupName="pre_approval">
+      <div formGroupName="payment_method">
+        <div formGroupName="credit_card">
+          <div formGroupName="holder">
+            <div formGroupName="address">
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('postal_code') }">
+                <label for="postal_code">CEP</label>
+                <input type="tel" formControlName="postal_code" placeholder="CEP" [textMask]="cepMask" (focusout)="focusCep($event)" id="webview_plan_address_postal_code" autocomplete="nope" autocorrect="off">
+                <div *ngIf="isFieldValid('postal_code')">
+                  <p class="help has-text-danger">{{ message.addressZip }}</p>
+                </div>
+              </div>
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('street') }">
+                <label for="street">Endereço</label>
+                <input type="text" formControlName="street" placeholder="Endereço" id="webview_plan_address_street" autocomplete="nope" autocorrect="off">
+                <div *ngIf="isFieldValid('street')">
+                  <p class="help has-text-danger">{{ message.addressLine1 }}</p>
+                </div>
+              </div>
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('number') }">
+                <label for="number">Número</label>
+                <input type="number" formControlName="number" placeholder="Número" id="webview_plan_address_number" autocomplete="nope" autocorrect="off">
+                <div *ngIf="isFieldValid('number')">
+                  <p class="help has-text-danger">{{ message.addressNumber }}</p>
+                </div>
+              </div>
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('district') }">
+                <label for="district">Bairro</label>
+                <input type="text" formControlName="district" placeholder="Bairro" id="webview_plan_address_district" autocomplete="nope" autocorrect="off">
+                <div *ngIf="isFieldValid('district')">
+                  <p class="help has-text-danger">{{ message.addressDistrict }}</p>
+                </div>
+              </div>
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('state') }">
+                <label for="state">Estado</label>
+                <select name="state" id="state" formControlName="state" id="webview_plan_address_state">
+                  <option value="">Selecione</option>
+                  <option *ngFor="let state of states" [value]="state.id">
+                    {{ state.name }}
+                  </option>
+                </select>
+                <i></i>
+                <div *ngIf="isFieldValid('state')">
+                  <p class="help has-text-danger">{{ message.addressState }}</p>
+                </div>
+              </div>
+              <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('city') }">
+                <label for="city">Cidade</label>
+                <input type="text" formControlName="city" placeholder="Cidade" id="webview_plan_address_city" autocomplete="nope" autocorrect="off">
+                <div *ngIf="isFieldValid('city')">
+                  <p class="help has-text-danger">{{ message.addressCity }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="webview-form-button">
+      <button class="btn btn-full btn-blue btn-lg" [disabled]="!dataForm.valid" (click)="submitForm()" id="webview_plan_address_button">Próximo</button>
+    </div>
+  </div>
+</div>

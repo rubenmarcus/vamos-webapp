@@ -1,0 +1,32 @@
+<section class="card__home">
+  <img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+  <app-box-content title="Cartão">
+    <div class="card__main"  *ngIf="loaded">
+      <ul class="card__dependents flex flex_wrap">
+          <li [ngClass]="{active: isMain}" (click)="showMainUser()">    {{mainUser.first_name}}
+          </li>
+          <li *ngFor="let dependent of dependents" (click)="showDependent(dependent)" [ngClass]="{active: isActive(dependent)}">
+             <span *ngIf="dependent.status === 'active'"> {{dependent.card_user.first_name}} </span>
+          </li>
+      </ul>
+
+        <ol class="breadcrumb">
+            <li>
+              <a routerLink="/cartao">Cartão Acesso Saúde </a>
+            </li>
+          </ol>
+      <div class="col-12 flex flex_wrap no__padding">
+        <div class="col-12 col-sm-12 col-md-6 card__home-first right-border">
+
+          <app-card-info [expired]="hasExpired" [cardStatus]="cardStatus" [expire]="expire" [cardDetails]="cardDetails" [cardn]="cardNumber" [ownerData]="ownerId" [DependentId]="dependentId" (reload)="reloadPage()" [isDependent]="seeIfDependent" [UserData]="userInfo"></app-card-info>
+
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 card__home-second no-padding-right" *ngIf="loaded">
+          <app-card-details  [isDependent]="seeIfDependent" [dependentId]="dependentId" [UserData]="userInfo" *ngIf="userInfo != '' "></app-card-details>
+        </div>
+      </div>
+    </div>
+  </app-box-content>
+</section>
+
+

@@ -1,0 +1,63 @@
+<div class="box__plan-card" [ngClass]="{ 'box__plan-card--exclusive' : isExclusive(), 'show' : show }">
+  <div class="box__plan-card--header">
+    <!-- plano gratis -->
+    <div *ngIf="isFree()">
+      <div class="box__plan-card--header-degrade" [ngStyle]="{'background': planColors.free.gradient}"></div>
+      <h1>Plano Grátis</h1>
+      <!-- <h2 [ngStyle]="{'color': 'rgba(66, 147, 33, 1)'}">30 Dias Grátis</h2>
+      <p>Anuncie por 30 dias, sem custo.</p> -->
+      <h2 [ngStyle]="{'color': 'rgba(66, 147, 33, 1)'}">R$ {{ plan.value | number: '1.2-2' }}</h2>
+      <p>Anuncie sem custo.</p>
+    </div>
+    <!-- outros planos -->
+    <div *ngIf="!isFree() && !isExclusive()">
+      <div class="box__plan-card--header-degrade" [ngStyle]="{'background': setColor()}"></div>
+      <h1>{{ plan.name }}</h1>
+      <h2 [ngStyle]="{'color': plan.color_end}">
+        R$ {{ plan.value | number: '1.2-2' }}
+        <small>Plano válido por um mês</small>
+      </h2>
+      <p>{{ plan.details }}</p>
+    </div>
+    <div class="box__plan-card--header-degrade" [ngStyle]="{'background': planColors.exclusive.gradient}" *ngIf="isExclusive()">
+      <h1>Plano Exclusivo<br><strong>Solicite um Orçamento</strong></h1>
+    </div>
+  </div>
+
+  <div class="box__plan-card--content d-flex justify-content-center align-items-center flex-column">
+    <div *ngIf="!isExclusive()">
+      <span> {{ getOffer() }} </span>
+      <span> {{ getPhotos() }} </span>
+      <!-- <span *ngIf="!isFree()"> Mais Exposição </span> -->
+    </div>
+    <div *ngIf="isExclusive()">
+      <span>Envie sua proposta</span>
+      <span> Você escolhe a melhor opção! </span>
+      <!-- <span> Seu anúncio no ar até vender </span>
+      <span> Vende tão rápido quanto o Gold </span>
+      <span> Prioridade Máxima na lista de busca</span>
+      <span> Até 8 fotos </span>
+      <span> Mais Exposição </span> -->
+    </div>
+  </div>
+
+  <div class="box__plan-card--button" *ngIf="!show">
+    <div *ngIf="isFree()">
+      <a class="btn btn-full btn-blue btn-lg" (click)="signFreePlan()" *ngIf="!isPlanFree()">Testar Plano</a>
+      <button class="btn btn-full btn-blue btn-lg" disabled *ngIf="isPlanFree()">Plano assinado</button>
+    </div>
+
+    <div *ngIf="isPlan() && !isExclusive()">
+      <a class="btn btn-full btn-blue btn-lg" routerLink="/perfil/planos/pagamento/{{ plan.id }}" *ngIf="!isFree()">Assinar</a>
+    </div>
+
+    <div *ngIf="!isFree() && !isPlan() && !isExclusive()">
+      <button class="btn btn-full btn-blue btn-lg" disabled *ngIf="!isUpdate()">Assinar</button>
+      <button class="btn btn-full btn-blue btn-lg" (click)="confirmPlanDeletion()" *ngIf="isUpdate() && isCancel()">Cancelar Plano</button>
+      <button class="btn btn-full btn-blue btn-lg" disabled (click)="confirmPlanDeletion()" *ngIf="isUpdate() && !isCancel()">Plano Cancelado</button>
+    </div>
+    <div *ngIf="isExclusive()">
+      <a class="btn btn-full btn-blue btn-lg" (click)="requestProposal()">Solicitar Proposta</a>
+    </div>
+  </div>
+</div>

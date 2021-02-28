@@ -1,0 +1,137 @@
+<div [formGroup]="advertiseForm">
+  <div class="flex" formGroupName="implement">
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label> Condição do Implemento </label>
+        <select name="condition" id="condition" formControlName="condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let condition of condition" [value]="condition.id">
+            {{ condition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.year') }">
+      <div class="form-group">
+        <label> Ano* </label>
+        <input type="tel" name="year" id="year" formControlName="year" autocomplete="off" [textMask]="yearMask">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.year')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.body_type_id') }">
+      <div class="form-group">
+        <label> Tipo de Carroceria* </label>
+        <select name="body_type_id" id="body_type_id" formControlName="body_type_id">
+          <option value="">Selecione</option>
+          <option *ngFor="let bodyTipe of bodyTipes" [value]="bodyTipe.id">
+            {{ bodyTipe.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.body_type_id')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.plate') }">
+      <div class="form-group">
+        <label> Placa* </label>
+        <input type="text" name="plate" id="plate" formControlName="plate" autocomplete="off" maxlength="7" [textMask]="plateMask" *ngIf="!isPlate()">
+        <input type="text" name="plate" id="plate" formControlName="plate" autocomplete="off" maxlength="7" *ngIf="isPlate()">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.plate')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.axes') }">
+      <div class="form-group">
+        <label> Eixos </label>
+        <input type="tel" name="axes" id="axes" formControlName="axes" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.axes')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.tyre_condition') }">
+      <div class="form-group">
+        <label> Condição dos Pneus </label>
+        <select name="tyre_condition" id="tyre_condition" formControlName="tyre_condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let tyreCondition of tyreConditions" [value]="tyreCondition.id">
+              {{ tyreCondition.name }}
+            </option>
+          </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.tyre_condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.wheel') }">
+      <div class="form-group">
+        <label> Nº de rodas </label>
+        <input type="tel" name="wheel" id="wheel" formControlName="wheel" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.wheel')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.weight') }">
+      <div class="form-group">
+        <label> Peso (1.100 kg) </label>
+        <input type="tel" name="weight" id="weight" formControlName="weight" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.weight')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.state') }">
+      <div class="form-group">
+        <label> Estado </label>
+        <select name="state" id="state" formControlName="state">
+          <option value="">Selecione</option>
+          <option *ngFor="let state of states" [value]="state.id">
+            {{ state.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.state')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.city') }">
+      <div class="form-group">
+        <label> Cidade </label>
+        <input type="text" name="city" id="city" formControlName="city" autocomplete="off">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.city')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex" formGroupName="offer">
+    <div class="col-12">
+      <div class="form-group textarea">
+        <label> Observação </label>
+        <textarea name="description" id="description" formControlName="description" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+app-edit-profile {
+    .card__main {
+      h1 {
+        font-size: 1.8rem;
+        padding: 20px 0px;
+      }
+      > h1:first-child {margin-top: -30px;}
+      .select label {
+        padding:0px!important;
+        padding-bottom: 19px!important;
+        left: 10px;
+        position: relative;
+        top: 9px;
+      }
+      .select i {
+        top: 51px;
+      }
+    
+    }
+    .col-10{
+      .col-6, .col-5{
+        max-width:300px;
+  
+      }
+      div:nth-child(1){
+        padding-left: 0px!important;
+      }
+    }
+
+    input:disabled {
+      background: #f7f7f7;
+  }
+  
+  }
+  
+   

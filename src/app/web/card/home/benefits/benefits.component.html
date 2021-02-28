@@ -1,0 +1,288 @@
+<section class="card__content">
+  <img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+  <app-box-content title="Cartão clicCA" description="O cartão clicCA é um cartão pré-pago com bandeira MasterCard e que possui convênio com 
+  uma rede de Acesso Saúde e oferece também descontos em consultas médicas e odontológicas, exames, medicamentos, entre outros benefícios." *ngIf="userType === 'no-card' || userType === 'not-logged' || userType === 'pre-register' || userType === 'incomplete' ">
+
+
+    <ul class="card__benefits flex flex_wrap no__padding no__margin">
+      <hr />
+      <h3 class="col-12 no-bg">Benefícios</h3>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-2.png" />
+        <p>Cartão Mastercard Pré-pago</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-1.png" />
+        <p>Transferência entre cartões.
+          Mais facilidade
+          para sua familia</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-3.png" />
+        <p>Aceito em 
+          milhões de estabelecimentos em todo Brasil</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-4.png" />
+        <p>Recarga simples e fácil pela WEB e APP</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-5.png" />
+        <p>Descontos com parceiros</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-6.png" />
+        <p>Saque nos bancos 24 horas</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-7.png" />
+        <p>Você mais conectado com o mundo digital</p>
+      </li>
+
+
+      <h3 class="col-12 no-bg">Vantagens</h3>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-8.png" />
+        <p>Acesso saúde para toda a
+          família</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-9.png" />
+        <p>Consultas e exames 
+          com preços reduzidos</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-14.png" />
+        <p>Atendimento
+          e exames
+          odontológicos</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-10.png" />
+        <p>30% de desconto
+          em remédios nas farmácias
+          credenciadas</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-11.png" />
+        <p>Orientação Médica de saúde 24 horas
+          por telefone</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-12.png" />
+        <p>Capitalização,
+          Concorra a prêmios
+          de R$20 mil todo mês com um número da sorte</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-13.png" />
+        <p>Parcelamento de recarga em até 12x no cartão</p>
+      </li>
+    </ul>
+
+    <div class="card__benefits--footer flex flex_wrap no__padding no__margin">
+      <hr />
+      <div class="col-12 col-sm-8 align-left">
+        <img  rel=”preload”  *ngIf="userType === 'no-card' || userType === 'not-logged'" src="/assets/img/havecard.jpg" class="have-card"/>
+        <p *ngIf="userType === 'no-card' || userType === 'not-logged'" class="fs-20"> Adquira seu cartão Acesso Saúde</p>
+        <p  *ngIf="userType === 'pre-register' || userType === 'incomplete'"  class="fs-16">Iniciamos o processo de solicitação do seu cartão clicCA! Para finalizar o pedido, baixe nosso app nas lojas
+          Play Store ou App Store. É rápido e fácil.</p>
+      </div>
+      <div class="col-12 col-sm-4">
+        <button *ngIf="userType === 'no-card'" class="btn btn-full btn-blue btn-md" (click)="openModalPreRegister();">Pedir meu cartão</button>
+        <button *ngIf="userType === 'not-logged'" class="btn btn-full btn-blue btn-md" (click)="goLogin();">Pedir meu cartão</button>
+        <div class="flex flex_wrap app-download"  *ngIf="userType === 'pre-register' ||userType === 'incomplete'  ">
+          <img  rel=”preload” src="/assets/img/btn-android.jpg" />
+          <img  rel=”preload” src="/assets/img/btn-ios.jpg" /> </div>
+      </div>
+      </div>
+
+
+
+    <div class="modal analysis_modal" *ngIf="modalgetPreRegister">
+      <div class="modal__in" >
+        <div class="modal__close" (click)="closeModalPreRegister();"></div>
+        <div class="modal__msg fs-14"  >
+<div *ngIf="loaded">
+          <div class="step1-have-card" *ngIf="step1card" [formGroup]="preRegisterForm">
+            <h1>Pedir meu cartão</h1>
+            <div formGroupName="card_user">
+              <div class="col-10 flex flex_wrap">
+                <div class="col-12 col-sm-6">
+                  <div class="form--text" [ngClass]="{ 'error' : isFieldValid('first_name') }">
+                    <label>Nome*</label>
+                    <input userType="text" placeholder="Nome" formControlName="first_name">
+                    <div *ngIf="isFieldValid('first_name')">
+                      <p class="help has-text-danger">{{messageError.first_name}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form--text" [ngClass]="{ 'error' : isFieldValid('cpf') }">
+                    <label>CPF*</label>
+                    <input userType="text" placeholder="CPF" formControlName="cpf" [textMask]="cpfMask">
+                    <div *ngIf="isFieldValid('cpf')">
+                      <p class="help has-text-danger">{{messageError.cpf}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10 flex flex_wrap">
+                <div class="col-12 col-sm-6">
+                  <div class="form--text" [ngClass]="{ 'error' : isFieldValid('email') }">
+                    <label>E-mail*</label>
+                    <input userType="text" placeholder="E-mail" formControlName="email">
+                    <div *ngIf="isFieldValid('email')">
+                      <p class="help has-text-danger">{{messageError.email}}</p>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form--text" [ngClass]="{ 'error' : isFieldValid('cellphone') }">
+                    <label>Celular*</label>
+                    <input userType="text" [textMask]="inputMask.cellMask" placeholder="Celular" formControlName="cellphone">
+                    <div *ngIf="isFieldValid('cellphone')">
+                      <p class="help has-text-danger">{{messageError.cel}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <button  (click)="submitForm()" class="btn btn-full btn-blue btn-md">Enviar</button>
+              </div>
+            </div>
+          </div>
+          <div class="step-2-have-card" *ngIf="step2card">
+            <img  rel=”preload” src="/assets/img/banner-cartao-min.jpg" />
+            <p>Iniciamos o processo de solicitação do seu cartão clicCA! Para finalizar o pedido, baixe nosso app nas lojas
+              Play Store ou App Store. É rápido e fácil.</p>
+            <div class="flex flex_wrap">
+              <img  rel=”preload” src="/assets/img/btn-android.jpg" />
+              <img  rel=”preload” src="/assets/img/btn-ios.jpg" /> </div>
+
+            <a (click)="closeModalPreRegister();" class="btn btn-full btn-blue btn-md">OK</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </app-box-content>
+
+
+  <app-box-content title="Cartão" *ngIf="userType === 'logged'">
+    <ol class="breadcrumb mt--10">
+      <li>
+        <a routerLink="/cartao">Cartão clicCA </a>
+      </li>
+    </ol>
+
+   
+    <ul class="card__benefits flex flex_wrap no__padding no__margin">
+      <hr />
+      <h3 class="col-12 no-bg">Benefícios</h3>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-2.png" />
+        <p>Cartão Mastercard Pré-pago</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-1.png" />
+        <p>Transferência entre cartões.
+          Mais facilidade
+          para sua familia</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-3.png" />
+        <p>Aceito em 
+          milhões de estabelecimentos em todo Brasil</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-4.png" />
+        <p>Recarga simples e fácil pela WEB e APP</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-5.png" />
+        <p>Descontos com parceiros</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-6.png" />
+        <p>Saque nos bancos 24 horas</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-7.png" />
+        <p>Você mais conectado com o mundo digital</p>
+      </li>
+
+
+      <h3 class="col-12 no-bg">Vantagens</h3>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-8.png" />
+        <p>Acesso saúde para toda a
+          família</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-9.png" />
+        <p>Consultas e exames 
+          com preços reduzidos</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-14.png" />
+        <p>Atendimento
+          e exames
+          odontológicos</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-10.png" />
+        <p>30% de desconto
+          em remédios nas farmácias
+          credenciadas</p>
+      </li>
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-11.png" />
+        <p>Orientação Médica de saúde 24 horas
+          por telefone</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-12.png" />
+        <p>Capitalização,
+          Concorra a prêmios
+          de R$20 mil todo mês com um número da sorte</p>
+      </li>
+
+      <li>
+        <img  rel=”preload” src="/assets/img/card-benefits-13.png" />
+        <p>Parcelamento de recarga em até 12x no cartão</p>
+      </li>
+    </ul>
+
+    <div class="card__benefits--terms flex flex_wrap" >
+      <div class="col-4 terms" (click)="openModal();">
+        <p>Termos de Uso</p>
+      </div>
+      <div class="col-4 fs-18">
+        Valor Mensal
+      </div>
+      <div class="col-4 text-green fs-18 text-right">
+        R$ 19,90
+      </div>
+    </div>
+
+    <div class="modal analysis_modal" *ngIf="modal">
+      <div class="modal__in">
+        <div class="modal__close" (click)="closeModal();"></div>
+        <div class="modal__msg fs-14" id="terms_number"> </div>
+        <a (click)="closeModal();" class="btn btn-full btn-blue btn-md">OK</a>
+      </div>
+    </div>
+
+  </app-box-content>
+</section>

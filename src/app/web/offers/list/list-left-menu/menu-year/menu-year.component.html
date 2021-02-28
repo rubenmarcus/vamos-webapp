@@ -1,0 +1,22 @@
+<!-- <div class="form-group">
+  <label> Ano de modelo </label>
+  <select>
+    <option selected>Estado</option>
+    <option *ngFor="let year of years" [value]="year">
+      {{year}}
+    </option>
+  </select>
+  <i></i>
+</div> -->
+
+<div class="form-group unlabeled" [formGroup]="typeFilter">
+  <!-- <label> Ano de fabricação </label> -->
+  <select name="year" id="year" formControlName="year">
+    <option value="">Todos</option>
+    <option *ngFor="let year of years" [value]="year">
+      {{year}}
+    </option>
+  </select>
+  <i></i>
+</div>
+

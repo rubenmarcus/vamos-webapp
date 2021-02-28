@@ -1,0 +1,76 @@
+<div class="btn-mobile-filter show__mobile show__tablet-init show__tablet-mid">
+  <img  rel=”preload” src="/assets/img/button-filter.svg" (click)="showFilters()">
+</div>
+
+<form [formGroup]="filterForm" autocomplete="off" [ngClass]="{ 'active' : openFilter }">
+  <div class="freights-list-filter-header">
+    <div class="btn-mobile-filter-back show__mobile show__tablet-init show__tablet-mid">
+      <img  rel=”preload” src="/assets/img/button-filter-back.svg" (click)="showFilters()">
+    </div>
+    <h3>Filtro</h3>
+    <div class="btn-mobile-filter show__mobile show__tablet-init show__tablet-mid">
+      <a routerLink="/fretes"><img  rel=”preload” src="/assets/img/button-filter-close.svg" (click)="reset()"></a>
+    </div>
+  </div>
+  <div class="row" formGroupName="search">
+    <div class="col-12">
+      <app-box-collapse Title="Tipo da Carroceria">
+        <div class="form-group vehicle_types">
+          <select formControlName="vehicle_type">
+            <option value="">Selecione uma carroceria</option>
+            <option *ngFor="let option of vehicle_types" [value]="option">
+              {{option}}
+            </option>
+          </select>
+        </div>
+      </app-box-collapse>
+      <div class="searchbar">
+        <app-box-collapse Title="Localização">
+          <div class="form-group">
+            <label> Estado de origem </label>
+            <select formControlName="load_state" (change)="loadCities($event.target.value)">
+              <option value="">Selecione um estado</option>
+              <option *ngFor="let option of load_states" [value]="option">
+                {{option}}
+              </option>
+            </select>
+          </div>
+     
+          <div class="form-group">
+              <label>Cidade de Origem</label>
+              <select formControlName="load_city">
+                  <option value="">Selecione uma cidade</option>
+                  <option *ngFor="let option of load_cities" [value]="option">
+                    {{option}}
+                  </option>
+                </select>
+           
+          </div>
+          <div class="form-group">
+            <label>Estado Destino</label>
+            <select formControlName="unload_state" (change)="unloadCities($event.target.value)">
+              <option value="">Selecione um estado</option>
+              <option *ngFor="let option of unload_states" [value]="option">
+                {{option}}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+              <label>Cidade de Destino</label>
+              <select formControlName="unload_city">
+                  <option value="">Selecione uma cidade</option>
+                  <option *ngFor="let option of unload_cities" [value]="option">
+                    {{option}}
+                  </option>
+                </select>
+          </div>
+        </app-box-collapse>
+      </div>
+      <div class="freights-list-filter-button">
+        <button (click)="reset()" type="button" class="btn btn-stroke btn-gray btn-lg button-reset">Limpar</button>
+        <button class="btn btn-full btn-blue btn-lg" type="submit" (click)="clickEventHandler($event)" >Filtrar</button>
+      </div>
+    </div>
+  </div>
+</form>

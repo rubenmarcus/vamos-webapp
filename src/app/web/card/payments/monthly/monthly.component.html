@@ -1,0 +1,39 @@
+<img  rel=”preload” src="/assets/img/banner-recharge.jpg" class="full" />
+
+
+<app-box-content title="Mensalidade" *ngIf="loaded">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+    <li>
+      <a (click)="CheckifBoleto()">Mensalidade </a>
+    </li>
+  </ol>
+
+  <div class="card__main card__recharge-main" *ngIf="!openBoleto">
+    <img  rel=”preload” src="/assets/img/card-recharge.jpg" />
+    <h1>Mensalidade</h1>
+    <div class="flex flex_wrap bg-grey recharge-pay">
+      <div class="col-6 fs-16">Total a pagar:</div>
+      <div class="col-6 text-green fs-22"> R$ {{plans.amount |  number : '1.2-2'}}</div>
+    </div>
+
+    <div class="buttons__group mt-108">
+      <button class="btn btn-stroke btn-blue btn-sm" (click)="Pay(type='cc')">Cartão de Crédito</button>
+      <button class="btn btn-stroke btn-blue btn-sm" (click)="Pay(type='boleto')">Boleto</button>
+    </div>
+
+  </div>
+
+  <div class="card__main card__recharge-main" *ngIf="openBoleto">
+      <h1>Boleto</h1>
+      <iframe  [src]="sanitizer.bypassSecurityTrustResourceUrl(boleto_url)" frameborder="0" width="90%" height="450" style="border:0px;margin:0 auto"> </iframe>
+
+    </div>
+
+</app-box-content>
+
+<div class="card__main card__recharge-main" *ngIf="openCard">
+  <card-payment-cc (goRecharge)="noOpenCard()" [PaymentDetails]="PaymentDetails"></card-payment-cc>
+</div>

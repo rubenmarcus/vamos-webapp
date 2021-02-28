@@ -1,0 +1,74 @@
+<img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+
+<app-box-content title="Cartão" >
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+  </ol>
+<div *ngIf="loaded">
+  <div class="flex flex-wrap ">
+    <div class="col-12 col-sm-12 col-md-6 right-border">
+      <div [className]="cardBg ? 'card__details-card-back titular card-area' : 'card__details-card card-area titular'" (click)="clickCard()">
+        <div class="card__details-card-number">
+          <span>{{mcc(dependents.number)}}</span>
+        </div>
+        <div class="card__details-card-info">
+          <span>{{dependents.card_user.first_name}} {{dependents.card_user.last_name}}</span>
+        </div>
+        <div class="card__details-card-cvv">
+          <span>{{dependents.cvv}}</span>
+        </div>
+        <div class="card__details-card-product">
+          <span>{{dependents.product}}</span>
+        </div>
+        <div class="card__details-card-emitter">
+          <span>{{dependents.emitter}}</span>
+        </div>
+        <div class="card__details-card-way">
+          <span>{{dependents.way}}</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 col-sm-12 col-md-6 no-padding-right">
+
+      <ul>
+        <li class="name no-arrow">
+          <span>Nome:</span>
+          <span >{{dependents.card_user.first_name}} {{dependents.card_user.last_name}}</span>
+        </li>
+        <li class="no-arrow ">
+          <div>
+            <span>Acesso Saúde</span>
+          </div>
+          <div class="inactive ml-auto" *ngIf="dependents.status === 'inactive'">
+            <span class="text-grey">Inativo</span>
+          </div>
+          <div class="ml-auto" *ngIf="dependents.status === 'active'">
+            <span class="text-green">Liberado</span>
+          </div>
+        </li>
+        <li routerLink="/cartao/beneficios">
+          <div>
+            <span>Benefícios</span>
+          </div>
+        </li>
+        <li routerLink="/cartao/rede-credenciada">
+          <div>
+            <span>Redes credenciadas</span>
+          </div>
+        </li>
+        <li (click)="openConsultas()">
+          <div>
+            <span>Agendamento de consultas e exames</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+</app-box-content>

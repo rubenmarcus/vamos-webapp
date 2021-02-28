@@ -1,0 +1,337 @@
+@mixin span {
+  span {
+    font-size: 1.4rem !important;
+  }
+}
+
+@mixin pos-card-info($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+app-card-info {
+  .modal__close--dependent {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    background: url('/assets/img/close-2.svg');
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .alert-content {
+    position: relative;
+
+    h4 {
+      font-size: 1.5rem;
+      color: #485166;
+      margin: 10px 0 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  .card-area {
+    width: 342px;
+    height: 216px;
+    cursor: pointer;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .card__details-card {
+    background: url('/assets/img/card-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    &-back {
+      background: url('/assets/img/card-bg-back.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+
+      span,
+      label {
+        display: none;
+      }
+    }
+
+    &-cvv {
+      @include pos-card-info(157px,
+      231px);
+
+      @include span 
+      label {
+        width: 150px;
+        margin-left: -47px;
+        margin-top: 1px;
+      }
+    }
+
+    &-product {
+      @include pos-card-info(179px,
+      143px);
+
+      @include span 
+      label {
+        margin-left: -35px;
+        margin-top: 2px;
+      }
+    }
+
+    &-emitter {
+      @include pos-card-info(179px,
+      50px);
+
+      @include span 
+      label {
+        margin-left: -34px;
+        margin-top: 2px;
+      }
+    }
+
+    &-way {
+      @include pos-card-info(179px,
+      212px);
+
+      @include span 
+      label {
+        margin-left: -22px;
+        margin-top: 2px;
+      }
+    }
+
+    span,
+    label {
+      /* 1234: */
+      font-family: Helvetica;
+      font-weight: lighter;
+      color: #fff;
+      position: absolute;
+      text-align: left;
+      line-height: 28px;
+    }
+
+    span {
+      font-size: 1.8rem;
+      text-transform:uppercase;
+    }
+
+    label {
+      font-size: .9rem;
+    }
+
+    &-number {
+      span {
+        top: 156px;
+        left: 16px;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+      }
+    }
+
+    &-info {
+      span {
+        &:nth-child(1) {
+          top: 132px;
+          left: 16px;
+        }
+      }
+    }
+  }
+
+  ul.user-card-info {
+    .no-arrow {
+      &:after {
+        display: none !important;
+      }
+    }
+
+    .no-arrow.icon-ok {
+      .text-green {
+        padding-right: 18px;
+
+        &:after {
+          content: '';
+          width: 20px;
+          height: 20px;
+          background: url('/assets/img/check.svg');
+          display: block;
+          position: absolute;
+          top: 14px;
+          right: 7px;
+        }
+      }
+    }
+
+    .expire-date {
+      span:nth-child(2) {
+        margin-left: auto;
+      }
+    }
+
+    li:not(.end) {
+      position: relative;
+
+      &:nth-child(1) {
+        padding: 3px 8px 3px 13px;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #E6E9EE;
+        cursor: default;
+      }
+
+      &:after {
+        content: '';
+        width: 8.18px;
+        height: 15px;
+        background: url('/assets/img/arrow-grey.svg');
+        display: block;
+        position: absolute;
+        right: 10px;
+      }
+    }
+
+    li.end {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 0px;
+      margin-top: 10px;
+
+      button {
+        width: 145px !important;
+        height: 50px !important;
+        font-size: 1.7rem !important;
+      }
+
+      * {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      a {
+        font-size: 16px;
+        color: #909BAF;
+        letter-spacing: -0.42px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .month_modal {
+    .modal__msg {
+      >h1 {
+        text-align: left;
+        padding-left: 36px;
+      }
+    }
+
+    .modal__in {
+      padding: 19px;
+      height: auto;
+    }
+
+    .btn {
+      margin: 20px 0px;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 0px;
+
+      li {
+        width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        height: 74px;
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #E6E9EE;
+        padding-top: 15px;
+        padding-bottom: 34px;
+        margin-bottom: 6px;
+
+        >div {
+          width: 100%;
+          display: flex;
+        }
+
+        &:nth-child(1) {
+          border-top: 1px solid #E6E9EE;
+        }
+
+        span {
+          padding-left: 29px;
+          margin-top: 1px;
+          display: block;
+        }
+
+        div:nth-child(2) {
+          margin-left: auto;
+          color: #7ED321 !important;
+          padding-top: 18px;
+        }
+
+        &:after {
+          display: none !important;
+        }
+
+        h1 {
+          color: #485067;
+          letter-spacing: -0.51px;
+          font-size: 2rem;
+          margin-bottom: 0px;
+        }
+
+        &.awaiting {
+          h1 {
+            &:before {
+              content: '';
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              background: url('/assets/img/not-paid.png');
+              position: relative;
+              margin-right: 5px;
+              top: 3px;
+            }
+          }
+
+          span,
+          div:nth-child(2) {
+            color: #F7A700 !important;
+          }
+        }
+
+        &:not(.awaiting) {
+          h1 {
+            &:before {
+              content: '';
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              background: url('/assets/img/check.svg');
+              position: relative;
+              margin-right: 5px;
+              top: 3px;
+            }
+
+            span {
+              padding-left: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

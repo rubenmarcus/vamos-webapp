@@ -1,0 +1,126 @@
+<div [className]="cardBg ? 'card__details-card-back titular card-area' : 'card__details-card card-area titular'" (click)="clickCard()">
+  <div class="card__details-card-number">
+    <span>{{mcc(cardn)}}</span>
+  </div>
+  <div class="card__details-card-info">
+    <span>{{UserData.first_name}} {{UserData.last_name}}</span>
+  </div>
+  <div class="card__details-card-cvv">
+      <label>Cód. Seg.</label>
+    <span>{{cardDetails.cvv}}</span>
+  </div>
+  <div class="card__details-card-product">
+      <label>Produto</label>
+    <span>{{cardDetails.product}}</span>
+  </div>
+  <div class="card__details-card-emitter">
+      <label>Emissor</label>
+    <span>{{cardDetails.emitter}}</span>
+  </div>
+  <div class="card__details-card-way">
+    <label>Via</label>
+    <span>{{cardDetails.way}}</span>
+  </div>
+</div>
+
+<ul class="card__options user-card-info">
+  <li class="no-arrow">
+    <div>
+      <span>Parceiro</span>
+    </div>
+    <div>
+      <img  rel=”preload” src="/assets/img/logo-vidalink.jpg" />
+    </div>
+  </li>
+  <li class="no-arrow icon-ok" >
+    <div>
+      <span>Acesso Saúde</span>
+    </div>
+    <div>
+      <span class="text-green " *ngIf="cardStatus === 'active'">Liberado</span>
+      <span class="c-grey" *ngIf="cardStatus === 'suspended'">Suspenso</span>
+    </div>
+  </li>
+  <li routerLink="/cartao/beneficios" class="pointer">
+    <div>
+      <span>Benefícios</span>
+    </div>
+  </li>
+
+      <li routerLink="/cartao/rede-credenciada"  class="pointer">
+    <div>
+      <span>Redes credenciada</span>
+    </div>
+  </li>
+  <li routerLink="/cartao/agendamento"  class="pointer">
+    <div>
+      <span>Agendamento de consultas e exames</span>
+    </div>
+  </li>
+  <li routerLink="/cartao/meus-dependentes" class="pointer">
+    <div>
+      <span>Dependentes</span>
+    </div>
+  </li>
+  <li class="no-arrow expire-date">
+    <span>Data de validade:</span>
+    <span [ngClass]="{'text-green': cardStatus === 'active' ,'c-grey': cardStatus === 'suspend' }">{{expire | date:'shortDate' }}</span>
+  </li>
+  <li class="end" *ngIf="!isDependent">
+    <div class="buttons__group">
+      <button class="btn btn-full btn-blue btn-sm" *ngIf="cardStatus === 'active' && !hasExpired && !free" (click)="openModal();">Mensalidade</button>
+      <button routerLink="/cartao/recarga" *ngIf="cardStatus === 'active' " class="btn btn-stroke btn-blue btn-sm">Recarga</button>
+    </div>
+  </li>
+  <li class="end" *ngIf="isDependent">
+    <!-- <div><a  *ngIf="!isDependent">Cancelar meu Acesso Saúde </a></div> -->
+    <div>
+      <a (click)="openDependent()">Excluir Dependente</a>
+    </div>
+  </li>
+</ul>
+<div class="modal month_modal" *ngIf="modal">
+  <div class="modal__in">
+    <div class="modal__close" (click)="closeModal();"></div>
+    <div class="modal__msg fs-16">
+      <h1>Mensalidades</h1>
+      <div class="overflow-x-hidden h-300">
+        <ul>
+          <li *ngFor="let payment of payments" class="{{payment.order.status}}">
+            <div *ngIf="payment.order.status !== 'paid'" routerLink="{{payment_link}}{{payment.id}}">
+              <div>
+                <h1>
+                  {{payment.order.created_at | date:'shortDate' }}
+                </h1>
+                <span class="text-yellow">A vencer</span>
+              </div>
+              <div> R$ {{payment.order.amount | number : '1.2-2'}}</div>
+            </div>
+            <div *ngIf="payment.order.status === 'paid'">
+              <div>
+                <h1>
+                  {{payment.order.created_at | date:'shortDate' }}
+                </h1>
+                <span class="text-green">Pago</span>
+              </div>
+              <div> R$ {{payment.order.amount | number : '1.2-2'}}</div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a (click)="closeModal();" class="btn btn-stroke btn-blue btn-md"> Voltar</a>
+    <a routerLink="/cartao/pagar" class="btn btn-full btn-blue btn-md"> Pagar Mensalidade</a>
+  </div>
+</div>
+<div class="alert" *ngIf="modalDependent">
+  <div class="alert-content">
+    <div class="modal__close--dependent" (click)="closeModalDependent();"></div>
+    <img  rel=”preload” src="/assets/img/alert/error.svg" alt="">
+    <h1>Excluir Dependente</h1>
+    <h4>Tem Certeza que deseja excluir o dependente?</h4>
+    <p>{{UserData.first_name}} {{UserData.last_name}}</p>
+    <button (click)="removeDependent()" class="btn btn-full btn-blue btn-md" id="alert-button" type="click">Excluir Dependente</button>
+  </div>
+</div>

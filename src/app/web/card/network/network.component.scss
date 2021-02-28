@@ -1,0 +1,67 @@
+.map-container {
+  height: 100%;
+  position: relative;
+
+  agm-map {
+    height: 100vh;
+  }
+
+  .agm-map-content {
+    display: block !important;
+  }
+
+  .location-info {
+    position: absolute;
+    top: 41%;
+    background: #fff;
+    z-index: 99999;
+    left: 52%;
+    height: auto;
+    padding:12px;
+span{
+
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #909BAF;
+  text-align: left;
+  padding: 0 10px;
+  margin: 0;
+  word-wrap: break-word;
+  display: block;
+  max-width: 312px;
+  position: relative;
+  white-space: normal;
+  line-height: 23px;
+  display: block;
+}
+h1{
+  color: #7ED321;
+  padding-left: 10px;
+}
+    &:before{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 20.6px 10px 0;
+      border-color: transparent #ffffff transparent transparent;
+      display: block;
+      content: '';
+      position: absolute;
+      margin-left: -21px;
+      margin-top: 45px;
+
+    }
+    &:after{
+      content: '';
+      display: block;
+      width: 47px;
+      height: 59px;
+      background: url(/assets/img/pin-green.png);
+      position: absolute;
+      margin-left: -64px;
+      margin-top: -96px;
+      z-index: 99999999;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<app-header typeHeader="home"></app-header>
+<main id="network">
+  <section class="network-container">
+    <div class="network__top">
+      <div class="network__banner full">
+        <img  rel=”preload” src="assets/img/banner-has-interest.jpg" />
+      </div>
+    </div>
+    <div class="container-fluid">
+      <ol class="breadcrumb d-flex">
+        <li><a routerLink="/servicos">Serviços </a></li>
+        <li><a routerLink="/network"> Rede Credenciada</a></li>
+      </ol>
+    </div>
+    <div class="map-container">
+      <!-- (idle)="idle()"
+      (centerChange)="centerChange($event)" -->
+      <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        [gestureHandling]="'coopeative'"
+        [usePanning]="true"
+        [streetViewControl]="false"
+        >
+        <div *ngIf="markers.length > 0">
+          <agm-marker
+            *ngFor="let m of markers; let i = index"
+            (markerClick)="clickedMarker(m.label, i)"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [iconUrl]="m.iconUrl"
+            ></agm-marker>
+        </div>
+        <agm-direction
+          *ngIf="dir"
+          [origin]="dir.origin"
+          [destination]="dir.destination"
+          [visible]="dir.visible"
+        ></agm-direction>
+      </agm-map>
+      <div class="search-box-container">
+        <app-search-box (search)="reciverSearch($event)"></app-search-box>
+        <app-netwotk-list (traceRoute)="reciverRoute($event)" [search]="search" [isSearch]="isSearch" (points)="reciverPoints($event)" (position)="reciverPosition($event)" [coords]="geolocationPosition"  *ngIf="newload"></app-netwotk-list>
+
+        <app-netwotk-list (traceRoute)="reciverRoute($event)" [isSearch]="isSearch" (points)="reciverPoints($event)" (position)="reciverPosition($event)" [coords]="geolocationPosition" [search]="search" *ngIf="loading"></app-netwotk-list>
+      </div>
+    </div>
+    <div id="myPanel"></div>
+  </section>
+</main>
+<app-footer></app-footer>

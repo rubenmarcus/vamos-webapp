@@ -1,0 +1,145 @@
+<div [formGroup]="CCForm" *ngIf="loaded">
+  <div class="webview-main" formGroupName="credit_card_data">
+    <div *ngIf="step1" formGroupName="billing_address">
+      <h1>Endereço</h1>
+      <p>Insira o endereço utilizado para a cobrança do cartão de crédito.</p>
+      <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('postal_code', 'billing_address') }">
+        <label for="name">CEP</label>
+        <input type="tel" placeholder="CEP" inputMode="numeric" formControlName="postal_code" pattern="\d{5}-?\d{3}" (focusout)="CheckZip($event)" [textMask]="inputMask.cepMask"
+          autocomplete="nope" autocorrect="off">
+        <div *ngIf="ceperro" class="has-text-danger"> CEP Inexistente</div>
+        <div *ngIf="isFieldValid('postal_code', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressZip}}</p>
+        </div>
+      </div>
+      <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('street', 'billing_address') }">
+        <label for="name">Endereço</label>
+        <input type="text" placeholder="Endereço" autocomplete="nope" autocorrect="off" formControlName="street">
+        <div *ngIf="isFieldValid('street', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressLine1}}</p>
+        </div>
+      </div>
+      <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('number', 'billing_address') }">
+        <label for="number">Número</label>
+        <input type="tel" placeholder="Número" formControlName="number" autocomplete="nope" autocorrect="off">
+        <div *ngIf="isFieldValid('number', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressNumber}}</p>
+        </div>
+      </div>
+      <div class="webview-form-group">
+        <label for="complement">Complemento</label>
+        <input type="text" formControlName="complement" placeholder="Complemento" autocomplete="nope" autocorrect="off">
+      </div>
+      <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('district', 'billing_address') }">
+        <label for="value">Bairro</label>
+        <input type="text" placeholder="Bairro" formControlName="district" autocomplete="nope" autocorrect="off">
+        <div *ngIf="isFieldValid('district', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressDistrict}}</p>
+        </div>
+      </div>
+      <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('city', 'billing_address') }">
+        <label for="card_number">Cidade</label>
+        <input type="text" placeholder="Cidade" formControlName="city" autocomplete="nope" autocorrect="off">
+        <div *ngIf="isFieldValid('city', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressCity}}</p>
+        </div>
+      </div>
+      <div class="webview-form-group select mb-80" [ngClass]="{ 'error' : isFieldValid('state', 'billing_address') }">
+        <label for="estados-brasil">Estado</label>
+        <select name="estados-brasil" formControlName="state">
+          <option value="">selecionar</option>
+          <option *ngFor="let state of states" [value]="state.id">
+            {{ state.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="isFieldValid('state', 'billing_address')">
+          <p class="help has-text-danger">{{messageError.addressState}}</p>
+        </div>
+      </div>
+
+      <div class="webview-form-button">
+        <button class="btn-webview  height-50" [disabled]="!CCForm.get('credit_card_data').get('billing_address').valid" (click)="goStep2()">Próximo</button>
+      </div>
+    </div>
+  
+  <div class="webview-main-content" autocomplete="off" *ngIf="step2">
+    <h1>Cartão de crédito</h1>
+    <p>Digite os dados do cartão de crédito para realizar o pagamento.</p>
+
+    <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('number') }">
+      <label for="number">Número do cartão</label>
+      <input type="text" placeholder="Número do cartão" autocomplete="nope" formControlName="number" [textMask]="inputMask.cardNumberMask"
+        autocorrect="off">
+      <div *ngIf="isFieldValid('number')">
+        <p class="help has-text-danger">{{ messageError.cardNumber }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" formGroupName="holder" [ngClass]="{ 'error' : isFieldValid('name', 'holder') }">
+      <label for="name">Nome do titular</label>
+      <input type="text" formControlName="name" placeholder="Nome do titular" formControlName="name" autocomplete="nope" autocorrect="off">
+      <div *ngIf="isFieldValid('name', 'holder')">
+        <p class="help has-text-danger">{{ messageError.name }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" formGroupName="document" [ngClass]="{ 'error' : isFieldValid('value', 'document') }">
+      <label for="value">CPF</label>
+      <input type="tel" placeholder="CPF" [textMask]="inputMask.cpfMask" formControlName="value" autocomplete="nope" autocorrect="off">
+      <div *ngIf="isFieldValid('value', 'document')">
+        <p class="help has-text-danger">{{ messageError.cpf }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" formGroupName="holder" [ngClass]="{ 'error' : isFieldValid('birth_date', 'holder') }">
+      <label for="birth_date">Data de nascimento (dd/mm/aaaa)</label>
+      <input type="tel" placeholder="Data de nascimento (dd/mm/aaaa)" formControlName="birth_date" [textMask]="inputMask.birthdayMask"
+        autocomplete="nope" autocorrect="off">
+      <div *ngIf="isFieldValid('birth_date', 'holder')">
+        <p class="help has-text-danger">{{ messageError.birthdate }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('expiration_date') }">
+      <label for="expiration_date">Data de vencimento (mm/aaaa)</label>
+      <input type="tel" placeholder="Data de vencimento (mm/aaaa)" formControlName="expiration_date" [textMask]="inputMask.expirationDateMask"
+        autocomplete="nope" autocorrect="off">
+      <div *ngIf="isFieldValid('expiration_date')">
+        <p class="help has-text-danger">{{ messageError.cardExpirationDate }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('cvv') }">
+      <label for="cvv">CVV</label>
+      <input type="tel" placeholder="CVV" formControlName="cvv" [textMask]="inputMask.cvvMask" autocomplete="nope" autocorrect="off">
+      <div *ngIf="isFieldValid('cvv')">
+        <p class="help has-text-danger">{{ messageError.cardCvv }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-group" formGroupName="phone" [ngClass]="{ 'error' : phonerro }">
+      <label for="phone">Telefone</label>
+      <input type="tel" placeholder="telefone" id="telefone" (focusout)="CheckPhone($event)" [textMask]="inputMask.cellMask" autocomplete="nope"
+        autocorrect="off">
+      <div *ngIf="phonerro">
+        <p class="help has-text-danger">{{ messageError.phone }}</p>
+      </div>
+
+    </div>
+    <div class="webview-form-button">
+      <button class="btn-webview  height-50" [disabled]="!CCForm.valid" (click)="setToken()">Salvar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="webview-dialog show" *ngIf="showDialog">
+  <div class="webview-dialog-content">
+    <h3>Ocorreu um erro</h3>
+    <p>
+      {{ showDialog }}
+    </p>
+    <a href="javascript: history.go(-1)" class="btn big blue height-50">ok, tentar novamente</a>
+  </div>
+</div>

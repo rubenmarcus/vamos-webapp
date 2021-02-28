@@ -1,0 +1,11 @@
+<div class="form-group unlabeled" [formGroup]="typeFilter">
+  <!-- <label> Cor </label> -->
+  <select name="color_id" id="color_id" formControlName="color_id">
+    <option value="">Todas</option>
+    <option *ngFor="let color of colors" [value]="color.id">
+      {{color.name}}
+    </option>
+  </select>
+  <i></i>
+</div>
+

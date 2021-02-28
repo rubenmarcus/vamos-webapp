@@ -1,0 +1,54 @@
+<section class="add-vehicle">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/classificados">Classificados </a>
+    </li>
+    <li>
+      <a routerLink="/classificados/anuncios">Anunciar </a>
+    </li>
+    <li>
+      <a> Categoria </a>
+    </li>
+  </ol>
+  <div class="advert-main">
+    <h3>O que você está vendendo?</h3>
+    <h4>Escolha a categoria de produto que mais combina com o que você está anunciando</h4>
+    <form [formGroup]="vehicleTypeForm">
+      <div class="flex seven-cols vehicle-type" formGroupName="offer">
+        <div class="vehicle-type-category">
+          <div class="vehicle-type-category-item vehicle-type-category-item-truck no__padding">
+            <input type="radio" id="vehicleTypeTruck" name="kind" formControlName="kind" value="truck">
+            <label for="vehicleTypeTruck">
+              <span>Caminhão</span>
+            </label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-bodywork no__padding">
+            <input type="radio" id="vehicleTypeTruckBody" name="kind" formControlName="kind" value="truckBody">
+            <label for="vehicleTypeTruckBody">Carroceria</label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-truck3 no__padding">
+            <input type="radio" id="vehicleTypeTractorsAndImplements" name="kind" formControlName="kind" value="tractorsAndImplements">
+            <label for="vehicleTypeTractorsAndImplements">Conjunto</label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-cavalo no__padding">
+            <input type="radio" id="vehicleTypeTractorUnit" name="kind" formControlName="kind" value="tractorUnit">
+            <label for="vehicleTypeTractorUnit">Cavalo</label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-bus no__padding">
+            <input type="radio" id="vehicleTypeBus" name="kind" formControlName="kind" value="bus">
+            <label for="vehicleTypeBus">Ônibus & Microônibus</label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-tractor no__padding">
+            <input type="radio" id="vehicleTypeTractorAgricultural" name="kind" formControlName="kind" value="tractorAgricultural">
+            <label for="vehicleTypeTractorAgricultural">Tratores agrícolas</label>
+          </div>
+          <div class="vehicle-type-category-item vehicle-type-category-item-machine no__padding">
+            <input type="radio" id="vehicleTypeAgros" name="kind" formControlName="kind" value="agros">
+            <label for="vehicleTypeAgros">Máquinas & Implementos</label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-full btn-blue btn-md" [disabled]='!vehicleTypeForm.valid' (click)="submitSaveOffer()">Próximo</button>
+    </form>
+  </div>
+</section>

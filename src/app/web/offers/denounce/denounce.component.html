@@ -1,0 +1,104 @@
+<section id="denounce">
+  <img  rel=”preload” src="/assets/img/banner-has-interest.jpg" class="full" />
+  <app-box-content title="Denunciar anúncio" description="Por que você quer denunciar esse anúncio?">
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/classificados">Classificados </a>
+      </li>
+      <li>
+        <a href="javascript: history.go(-1)"> Detalhe </a>
+      </li>
+      <li>
+        <a> Denúncia </a>
+      </li>
+    </ol>
+    <div class="denounce__body" *ngIf="offer">
+      <div class="flex">
+        <div class="denounce__body-image col-md-3 reserve__body--img d-none d-lg-block">
+          <img  rel=”preload” src="{{ offer.images[0].thumb_url }}" *ngIf="offer.images.length > 0" />
+          <img  rel=”preload” src="/assets/img/placeholders/truck.jpg" *ngIf="offer.images.length == 0" />
+        </div>
+        <div class="col-md-8 denounce__body-card card">
+          <div class="card-head flex">
+            <div class="col-6">{{ offer.advertiser.profile }}</div>
+            <div class="col-6 text-right">{{ offer.created_at | date:'shortDate' }}</div>
+          </div>
+          <h1>{{ offer.title | truncate : 30 }}</h1>
+          <h4 class="text-green">R$ {{ offer.value | number : '1.2-2' }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-10">
+        <form [formGroup]="denounceForm">
+          <div class="denounce__body--form">
+            <div class="row">
+              <div class="col-md-6" *ngIf="!session">
+                <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(denounceForm, 'name') }">
+                  <label> Nome* </label>
+                  <input type="text" placeholder="Nome" formControlName="name" autocomplete="new-password">
+                  <div *ngIf="validateForm.isFieldValid(denounceForm, 'name')">
+                    <p class="help has-text-danger">{{ message.name }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(denounceForm, 'denunciation_type_id') }">
+                  <label>Tipo de Denúncia*</label>
+                  <select formControlName="denunciation_type_id">
+                    <option selected="selected" value="">Selecione o tipo de denuncia</option>
+                    <option *ngFor="let object of objects;" [value]="object.id">{{object.name}}</option>
+                  </select>
+                  <div *ngIf="validateForm.isFieldValid(denounceForm, 'denunciation_type_id')">
+                    <p class="help has-text-danger">{{ message.denunciation_type }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6" *ngIf="!session">
+                <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(denounceForm, 'email') }">
+                  <label> E-mail* </label>
+                  <input type="text" placeholder="E-mail" formControlName="email" autocomplete="new-password">
+                  <div *ngIf="validateForm.isFieldValid(denounceForm, 'email')">
+                    <p class="help has-text-danger">{{ message.email }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group" [ngClass]="{ 'error' : validateForm.isFieldValid(denounceForm, 'message') }">
+                  <label>Mensagem*</label>
+                  <textarea formControlName="message" placeholder="Digite sua mensagem..."></textarea>
+                  <div *ngIf="validateForm.isFieldValid(denounceForm, 'message')">
+                    <p class="help has-text-danger">{{ message.message }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="buttons__group">
+            <div class="row">
+              <div class="col-md-6">
+                <a href="javascript: history.go(-1)" class="btn btn-stroke btn-gray btn-lg">Cancelar</a>
+              </div>
+              <div class="col-md-6">
+                <button (click)="sendMessage()" type="submit" class="btn btn-full btn-blue btn-lg">Denunciar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </app-box-content>
+</section>
+
+<div class="modal" *ngIf="modal">
+  <div class="modal__in">
+    <span>
+      Denuncia enviada com sucesso!
+    </span>
+    <a href="javascript: history.go(-1)" class="btn btn-full btn-blue btn-md">Voltar para Ítem</a>
+  </div>
+</div>

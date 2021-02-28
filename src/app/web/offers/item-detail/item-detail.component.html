@@ -1,0 +1,56 @@
+<section id="item__detail" class="offer-detail">
+  <div class="item__detail animated fadeIn" *ngIf="offer">
+    <offers-item-head [offer]="offer"></offers-item-head>
+    <offers-item-body [offer]="offer"></offers-item-body>
+
+    <!-- <section class="block__list" *ngIf="OffersUser.length > 0 && !isLogged()">
+      <div class="row">
+        <div class="col-md-8 home__block--title">
+          <h1>Veículos similares</h1>
+        </div>
+      </div>
+      <div class=" row__tablet">
+        <div class="row">
+          <app-card-vehicle *ngFor="let offerUser of OffersUser; let i = index" [offer]="offerUser"></app-card-vehicle>
+        </div>
+      </div>
+    </section>
+
+    <section class="block__list" *ngIf="OffersSimilar.length > 0 && !isLogged()">
+      <div class="row">
+        <div class="col-md-8 home__block--title">
+          <h1>Mais anúncios desse vendedor</h1>
+        </div>
+      </div>
+      <div class=" row__tablet">
+        <div class="row">
+          <app-card-vehicle *ngFor="let offerSimilar of OffersSimilar; let i = index" [offer]="offerSimilar"></app-card-vehicle>
+        </div>
+      </div>
+    </section> -->
+  </div>
+</section>
+
+<div class="offer-detail-similar">
+  <section class="offer-detail-similar-item" *ngIf="OffersSimilar.length > 0 && !isLogged()">
+    <div class="offer-detail-similar-item-title">
+      <h1>Veículos similares</h1>
+    </div>
+    <div class="row__tablet">
+      <div class="offer-detail-similar-item-overflow row no__margin">
+        <app-card-vehicle *ngFor="let offerSimilar of OffersSimilar; let i = index" [offer]="offerSimilar"></app-card-vehicle>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer-detail-similar-item" *ngIf="OffersUser.length > 0 && !isLogged()">
+    <div class="offer-detail-similar-item-title">
+      <h1>Mais anúncios desse vendedor</h1>
+    </div>
+    <div class="row__tablet">
+      <div class="offer-detail-similar-item-overflow row no__margin">
+        <app-card-vehicle *ngFor="let offerUser of OffersUser; let i = index" [offer]="offerUser"></app-card-vehicle>
+      </div>
+    </div>
+  </section>
+</div>

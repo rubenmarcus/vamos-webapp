@@ -1,0 +1,38 @@
+.box__collapse {
+  box-shadow: 0 0 10px 0 #E6E9EE;
+  border-radius: 5px;
+  padding:15px;
+  margin:20px 0px;
+  .collapse__title {
+    cursor:pointer;
+    span{
+      font-weight: 300;
+      font-size:1.6rem;
+      color:#20649a;
+      padding-left:9px;
+      width: 100%;
+      text-align: left;
+      display: inherit;
+    }
+    i {
+      float:right;
+      margin-right: 12px;
+      svg * {
+        color: #909BAF;
+        fill: currentColor;
+      }
+    }
+  }
+}
+
+.collapse {
+  svg{ transform: rotate(180deg);}
+  .collapse__body {display: none;}
+}
+
+.collapse.show {
+  svg{ transform: rotate(0deg);}
+  .collapse__body {
+    display: block;
+  }
+}

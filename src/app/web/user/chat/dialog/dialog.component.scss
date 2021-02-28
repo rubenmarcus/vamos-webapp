@@ -1,0 +1,74 @@
+.dialog {
+  position: relative;
+  padding: 0px 15px;
+  padding-top: 11px;
+  height: 423px;
+  overflow-y: scroll;
+  li{
+
+    margin-bottom:17px;
+  }
+  img {
+    width: 22px;
+    border-radius: 100%;
+    position: relative;
+    top: 7px;
+    margin-right: 4px;
+  }
+  h1 {
+    font-size: 1.2rem;
+    color: #909BAF;
+    letter-spacing: -0.34px;
+    font-weight: 300;
+  }
+  &__message {
+    &--received {
+
+      h1{
+        margin-bottom: 0px;
+        padding-left: 29px;
+
+      }
+      span:nth-child(3) {
+        background: #E6E9EE;
+        border-radius: 10px;
+        width: auto;
+        max-width:450px;
+        padding: 5px;
+        display:inline-block;
+        font-size: 1.2rem;
+        color: #485166;
+        letter-spacing: -0.34px;
+        font-weight:300;
+      }
+      .time{
+
+        color: #909BAF;
+        padding-top: 5px;
+        width: 461px;
+        display: block;
+        text-align: right;
+
+      }
+    }
+    &--sent {
+      span:nth-child(1) {
+        display:block;
+        font-size: 1.2rem;
+        color: #FFFFFF;
+        letter-spacing: -0.34px;
+        border-radius: 10px;
+        max-width:450px;
+        margin-left:auto;
+        padding: 5px;
+        font-weight:300;
+        background: #0f4876;
+      }
+      .time{
+        float: right;
+        color:#909BAF;
+        padding-top:5px;
+      }
+    }
+  }
+}

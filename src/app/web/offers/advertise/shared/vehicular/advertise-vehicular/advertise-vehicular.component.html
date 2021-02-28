@@ -1,0 +1,123 @@
+<div class="flex" [formGroup]="advertiseForm">
+  <div class="col-md-6" formGroupName="vehicle" *ngIf="isImplement()" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.typeImplement') }">
+    <div class="form-group">
+      <label> Tipo do Implemento*</label>
+      <select name="typeImplement" id="typeImplement" formControlName="typeImplement" (change)="onChangeType($event);">
+        <option value="">Selecione</option>
+        <option *ngFor="let implementsType of implementsTypes" [value]="implementsType.id">
+          {{ implementsType.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.typeImplement')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="!isTruck() && !isBus() && !isImplement()">
+    <div class="form-group">
+      <label> Tipo do Veículo </label>
+      <input type="text" value="teste" value="{{ translatedName() }}" disabled autocomplete="off">
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="isTruck()" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.kind_id') }">
+    <div class="form-group" formGroupName="vehicle">
+      <label> Tipo do Veículo </label>
+      <select name="kind_id" id="kind_id" formControlName="kind_id">
+        <option value="">Selecione</option>
+        <option *ngFor="let kind of kinds" [value]="kind.id">
+          {{ kind.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.kind_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="vehicle" *ngIf="offerSelected.type === 'bus'" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.subtype') }">
+    <div class="form-group">
+      <label> Tipo </label>
+      <select name="type" id="subtype" formControlName="subtype">
+        <option value="">Selecione</option>
+        <option value="bus">Onibus</option>
+        <option value="microbus">MicroOnibus</option>
+        <option value="van">Van</option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.subtype')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="offer" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'offer.value') }">
+    <div class="form-group">
+      <label>Valor*</label>
+      <input type="tel" formControlName="value" currencyMask [options]="priceMask" autocomplete="off">
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'offer.value')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="vehicle" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.brand_id') }">
+    <div class="form-group">
+      <label> Marca* </label>
+      <select name="brand_id" id="brand_id" formControlName="brand_id" (change)="changeBrand($event);">
+        <option value="">Selecione</option>
+        <option *ngFor="let brand of brands" [value]="brand.id">
+          {{ brand.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.brand_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="vehicle" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.model_id') && !advertiseForm.get('vehicle').get('model_id').disabled }">
+    <div class="form-group">
+      <label> Modelo* </label>
+      <select name="model_id" id="model_id" formControlName="model_id">
+        <option value="">Selecione</option>
+        <option *ngFor="let model of models" [value]="model.id">
+          {{ model.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.model_id') && !advertiseForm.get('vehicle').get('model_id').disabled">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="offerSelected.type === 'truck' && firstAccess" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'vehicle.body_type_id') }">
+    <div class="form-group" formGroupName="vehicle">
+      <label> Tipo do Carroceria* </label>
+      <select name="body_type_id" id="body_type_id" formControlName="body_type_id">
+        <option value="">Selecione</option>
+        <option *ngFor="let bodyType of bodyTypes" [value]="bodyType.id">
+          {{ bodyType.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'vehicle.body_type_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!firstAccess">
+    <app-advertise-vehicular-bus [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'bus'"></app-advertise-vehicular-bus>
+    <app-advertise-vehicular-harvester [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'harvesterVehicle'"></app-advertise-vehicular-harvester>
+    <app-advertise-vehicular-heavy-vehicle [advertiseForm]="advertiseForm" [offerSelected]="offerSelected" *ngIf="offerSelected.type === 'tractorUnit' || offerSelected.type === 'tractorsAndImplements'"></app-advertise-vehicular-heavy-vehicle>
+    <app-advertise-vehicular-sprayer [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'sprayerVehicle'"></app-advertise-vehicular-sprayer>
+    <app-advertise-vehicular-tractor-agricultural [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'tractorAgricultural'"></app-advertise-vehicular-tractor-agricultural>
+    <app-advertise-vehicular-truck [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'truck'"></app-advertise-vehicular-truck>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+
+<svg width="9px" height="15px" viewBox="0 0 9 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Cartão" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24.1.0_Cartão" transform="translate(-646.000000, -905.000000)" fill="#909BAF" fill-rule="nonzero">
+            <g id="Conteúdo" transform="translate(269.000000, 297.000000)">
+                <g id="info-cartão" transform="translate(46.000000, 243.000000)">
+                    <g id="menu" transform="translate(7.000000, 239.000000)">
+                        <g id="item" transform="translate(0.000000, 106.000000)">
+                            <path d="M331.642502,35 C331.787197,35 331.918737,34.9482759 332.02397,34.8448276 C332.234434,34.637931 332.234434,34.3017241 332.02397,34.0948276 L325.315405,27.5 L332.02397,20.9051724 C332.234434,20.6982759 332.234434,20.362069 332.02397,20.1551724 C331.813505,19.9482759 331.4715,19.9482759 331.261035,20.1551724 L324.157849,27.125 C323.947384,27.3318966 323.947384,27.6681034 324.157849,27.875 L331.261035,34.8448276 C331.366267,34.9482759 331.497808,35 331.642502,35 Z" id="btn-" transform="translate(328.090909, 27.500000) scale(-1, 1) translate(-328.090909, -27.500000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<div class="flex_wrap flex">
+  <app-card-offer *ngFor="let item of offers; let i = index" [offer]="item" (refreshFavList)="refreshFavList()"></app-card-offer>
+  <div class="row col-12">
+    <app-pagination [pagination]="paginationOffers" [page]="paginationOffers.current_page" [count]="paginationOffers.total_objects"
+      *ngIf="offers.length > 0"></app-pagination>
+  </div>
+  <div class="empty-list" *ngIf="offers.length == 0 && !preload">
+    <img  rel=”preload” src="/assets/img/placeholders/favorites.png" alt="">
+    <p>
+      <strong>Lista vazia</strong>
+      <br> Selecione alguns ítens do seu interesse e deixe o seu clicCA com a sua cara :)
+    </p>
+  </div>
+</div>

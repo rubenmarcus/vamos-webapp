@@ -1,0 +1,104 @@
+<form name="profile-PF" class="flex flex_wrap profile__data" [formGroup]="personForm" *ngIf="loaded" novalidate>
+  <fieldset class="profileForm">
+    <div class="row">
+      <div class="col-12 profile-picture">
+        <img  rel=”preload” src="{{ profilePicture ?  profilePicture : '/assets/img/user-profile-pic.png' }}" />
+        <label for="file-upload" class="photo-add">
+        </label>
+        <input type="file"  id="file-upload" (change)="fileChange($event)" accept="image/x-png,image/gif,image/jpeg" autocomplete="new-password1" />
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="person" [ngClass]="{ 'error' : isFieldValid('person', 'first_name') }">
+          <label>Nome*</label>
+          <input type="text" formControlName="first_name" autocomplete="new-password1" />
+          <div *ngIf="isFieldValid('person', 'first_name')">
+            <p class="help has-text-danger">{{messageError.first_name}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="person" [ngClass]="{ 'error' : isFieldValid('person', 'last_name') }">
+          <label>Sobrenome*</label>
+          <input type="email" formControlName="last_name" autocomplete="new-password1" />
+          <div *ngIf="isFieldValid('person', 'last_name')">
+            <p class="help has-text-danger">{{messageError.last_name}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="person" [ngClass]="{ 'error' : isFieldValid('person', 'cpf') }">
+          <label>CPF*</label>
+          <input type="text" formControlName="cpf" [textMask]="inputMask.cpfMask" autocomplete="new-password1" />
+          <div *ngIf="isFieldValid('person', 'cpf')">
+            <p class="help has-text-danger">{{messageError.cpf}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="user" [ngClass]="{ 'error' : isFieldValid('user', 'email') }">
+          <label>E-mail</label>
+          <input type="email" formControlName="email" autocomplete="new-password1" />
+          <div *ngIf="isFieldValid('user', 'email')">
+            <p class="help has-text-danger">{{messageError.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="user" [ngClass]="{ 'error' : isFieldValid('user', 'phone') }">
+          <label>Celular*</label>
+          <input type="tel" [textMask]="inputMask.cellMask" formControlName="phone" autocomplete="new-password1" />
+
+          <div *ngIf="isFieldValid('user', 'phone')">
+            <p class="help has-text-danger">{{messageError.phone}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="user" [ngClass]="{ 'error' : isFieldValid('user', 'second_phone') }">
+          <label>Telefone</label>
+          <input type="tel" [textMask]="maskPhone" formControlName="second_phone" autocomplete="new-password1" (keypress)="changeMask($event);" />
+          <div *ngIf="isFieldValid('user', 'second_phone')">
+            <p class="help has-text-danger">{{messageError.phone}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="person" [ngClass]="{ 'error' : isFieldValid('person', 'cnh') }">
+          <label> Tipo de CNH </label>
+          <select formControlName="cnh">
+            <option value="">selecionar</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+          <i></i>
+          <div *ngIf="isFieldValid('person', 'cnh')">
+            <p class="help has-text-danger">{{messageError.cnh}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group" formGroupName="person" [ngClass]="{ 'error' : isFieldValid('person', 'birth_date') }">
+          <label>Data de Nascimento*</label>
+          <input type="tel" placeholder="Data de nascimento" formControlName="birth_date" [textMask]="inputMask.birthdayMask" autocomplete="new-password1" />
+          <div *ngIf="isFieldValid('person', 'birth_date')">
+            <p class="help has-text-danger">Data de nascimento Inválida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons__group">
+      <div class="row">
+        <div class="col-lg-6">
+          <a routerLink="/perfil/alterar-senha" class="btn btn-stroke btn-gray btn-lg">Mudar Senha</a>
+        </div>
+        <div class="col-lg-6">
+          <button type="submit" class="btn btn-full btn-blue btn-lg" [disabled]='!personForm.valid' (click)="submitForm()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,34 @@
+<section class="add-vehicle">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/classificados">Classificados </a>
+    </li>
+    <li>
+      <a routerLink="/classificados/anuncios"> Anunciar </a>
+    </li>
+    <li>
+      <a *ngIf="offer_id"> Categoria </a>
+      <a routerLink="/classificados/anuncios/categoria/{{ advertiser_id }}" *ngIf="!offer_id"> Categoria </a>
+    </li>
+    <li>
+      <a> Veículo </a>
+    </li>
+  </ol>
+  <div class="advert-main">
+    <h3>Fale mais sobre o seu anúncio</h3>
+
+    <div class="advertise-about row">
+      <form action="" [formGroup]="advertiseForm" novalidate *ngIf="uploaded">
+        <fieldset>
+          <app-advertise-vehicular [advertiseForm]="advertiseForm" (implementalSelected)="getImplementalSelected($event)" [offerSelected]="offerFromCache" *ngIf="isVehicle()"></app-advertise-vehicular>
+
+          <app-advertise-implemental [advertiseForm]="advertiseForm" (implementalSelected)="getImplementalSelected($event)" [offerSelected]="offerFromCache" *ngIf="isImplement()"></app-advertise-implemental>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-full btn-blue btn-md" id="button-save-offer" (click)="submitSaveOffer()">Próximo</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

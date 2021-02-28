@@ -1,0 +1,257 @@
+<img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+
+
+<app-box-content title="{{pageTitle}}">
+
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+    <li>
+      <a routerLink="/cartao/meus-dependentes">Dependentes </a>
+    </li>
+    <li>
+      <a routerLink="/cartao/adicionar-dependente" *ngIf="!edit">Adicionar Dependente </a>
+      <a routerLink="/cartao/meus-dependentes/{{dependentId}}" *ngIf="edit">Editar Dependente </a>
+    </li>
+  </ol>
+
+  <div class="card__main" [formGroup]="personForm" *ngIf="formloaded">
+    <h1>Dados do dependente</h1>
+    <div class="col-12 col-sm-5 kinship no__padding-left">
+      <div class="select">
+        <label>Grau de Parentesco*</label>
+        <select name="relation" formControlName="kinship" *ngIf="edit" disabled (change)="clearField()">
+                <option value="">Selecionar Grau de Parentesco</option>
+                <option value="spouse" *ngIf="!hasSpouse">Cônjuge </option>
+                <option value="child">Filho (a) </option>
+              </select>
+            <select name="relation" formControlName="kinship" *ngIf="!edit"  (change)="clearField()">
+          <option value="">Selecionar Grau de Parentesco</option>
+          <option value="spouse" *ngIf="!hasSpouse">Cônjuge </option>
+          <option value="child">Filho (a) </option>
+        </select>
+        <i></i>
+      </div>
+
+    </div>
+    <div formGroupName="card_user" >
+      <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('first_name') }">
+            <label>Nome*</label>
+            <input type="text" placeholder="Nome"   class="capitalize" formControlName="first_name">
+            <div *ngIf="isFieldValid('first_name')">
+              <p class="help has-text-danger">{{messageError.first_name}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('last_name') }">
+            <label>Sobrenome*</label>
+            <input type="text" placeholder="Sobrenome"  (focusout)="getLength()" class="capitalize" formControlName="last_name">
+            <div *ngIf="isFieldValid('last_name')">
+              <p class="help has-text-danger">{{messageError.last_name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('email') }">
+            <label>E-mail*</label>
+            <input type="text" placeholder="E-mail" formControlName="email">
+            <div *ngIf="isFieldValid('email')">
+              <p class="help has-text-danger">{{messageError.email}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('birthdate') }">
+            <label>Data de nascimento*</label>
+            <input type="text" placeholder="Data de nascimento" (keydown)="checkKinship()" [textMask]="inputMask.birthdayMask" (keyup)="checkKinship()"
+              formControlName="birthdate" [disabled]="edit">
+            <div *ngIf="isFieldValid('birthdate')">
+              <p class="help has-text-danger">Data de nascimento Inválida.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('cpf') }">
+            <label>CPF*</label>
+            <input type="text" disabled *ngIf="edit" placeholder="CPF" [textMask]="inputMask.cpfMask" formControlName="cpf">
+            <input type="text"*ngIf="!edit" placeholder="CPF" [textMask]="inputMask.cpfMask" formControlName="cpf">
+
+            <div *ngIf="isFieldValid('cpf')">
+              <p class="help has-text-danger">{{messageError.cpf}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('rg') }">
+            <label>RG*</label>
+            <input type="text" placeholder="RG" maxlength="14" formControlName="rg">
+            <div *ngIf="isFieldValid('rg')">
+              <p class="help has-text-danger">{{messageError.rg}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('phone') }">
+            <label>Telefone</label>
+            <input type="tel" placeholder="Telefone" [textMask]="inputMask.phoneMask" formControlName="phone">
+            <div *ngIf="isFieldValid('phone')">
+              <p class="help has-text-danger">{{messageError.phone}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('cellphone') }">
+            <label>Celular*</label>
+            <input type="tel" placeholder="Celular" [textMask]="inputMask.cellMask" formControlName="cellphone">
+            <div *ngIf="isFieldValid('cellphone')">
+              <p class="help has-text-danger">{{messageError.cel}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+
+        <div class="col-12 col-sm-6">
+          <div class="select" [ngClass]="{ 'error' : isFieldValid('gender') }">
+            <label>Gênero*</label>
+            <select name="gender" formControlName="gender">
+              <option value="">Selecionar Gênero</option>
+              <option value="female">Feminino </option>
+              <option value="male">Masculino </option>
+            </select>
+            <i></i>
+            <div *ngIf="isFieldValid('gender')">
+              <p class="help has-text-danger">{{messageError.gender}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="select" [ngClass]="{ 'error' : isFieldValid('marital_status') }">
+            <label>Estado Civil*</label>
+            <select name="civilstate" formControlName="marital_status">
+              <option value="">Selecionar Estado Civil</option>
+              <option value="unmarried" *ngIf="!isMarried">Solteiro (a) </option>
+              <option value="married">Casado (a) </option>
+              <option value="divorced" *ngIf="!isMarried">Divorciado</option>
+              <option value="widowed" *ngIf="!isMarried">Viúvo (a)</option>
+            </select>
+            <i></i>
+            <div *ngIf="isFieldValid('marital_status')">
+              <p class="help has-text-danger">{{messageError.marital_status}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <h1>Endereço</h1>
+      <div formGroupName="address_attributes">
+        <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+          <div class="col-12 col-sm-6 ">
+            <div class="form--text" [ngClass]="{ 'error' : isFieldValid('zip', 'address_attributes')}">
+              <label>CEP*</label>
+              <input type="tel" placeholder="CEP" [textMask]="maskCEP" (focusout)="cepService.loadCep($event,personForm.get('card_user').get('address_attributes'))"  formControlName="zip">
+              <div *ngIf="personForm.get('card_user').get('address_attributes').get('zip').touched && personForm.get('card_user').get('address_attributes').get('zip').hasError('required')">
+                <p class="help has-text-danger">CEP Obrigatório</p>
+              </div>
+              <div *ngIf="personForm.get('card_user').get('address_attributes').get('zip').hasError('incorrect')" class="has-text-danger"> CEP Inexistente</div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6">
+            <div class="form--text" [ngClass]="{ 'error' : isFieldValid('line1', 'address_attributes') }">
+              <label>Endereço*</label>
+              <input type="text" placeholder="Endereço" formControlName="line1">
+              <div *ngIf="isFieldValid('line1', 'address_attributes')">
+                <p class="help has-text-danger">{{messageError.addressLine1}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+          <div class="col-12 col-sm-6">
+            <div class="form--text" [ngClass]="{ 'error' : isFieldValid('number', 'address_attributes') }">
+              <label>Número*</label>
+              <input type="text" placeholder="Número" formControlName="number">
+              <div *ngIf="isFieldValid('number', 'address_attributes')">
+                <p class="help has-text-danger">{{messageError.addressNumber}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="form--text">
+              <label>Complemento</label>
+              <input type="text" placeholder="Complemento" formControlName="complement">
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+          <div class="col-12 col-sm-6">
+            <div class="form--text" [ngClass]="{ 'error' : isFieldValid('district', 'address_attributes') }">
+              <label>Bairro*</label>
+              <input type="text" placeholder="Bairro" formControlName="district">
+              <div *ngIf="isFieldValid('district', 'address_attributes')">
+                <p class="help has-text-danger">{{messageError.addressDistrict}}</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="select" [ngClass]="{ 'error' : isFieldValid('state', 'address_attributes') }">
+              <label>Estado*</label>
+              <select name="estados-brasil" formControlName="state">
+                <option value="">Selecionar Estado</option>
+                <option *ngFor="let state of states" [value]="state.id">
+                  {{ state.name }}
+                </option>
+              </select>
+              <i></i>
+              <div *ngIf="isFieldValid('state', 'address_attributes')">
+                <p class="help has-text-danger">{{messageError.addressState}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-10 no__padding flex flex_wrap">
+          <div class="col-12 col-sm-6">
+            <div class="form--text" [ngClass]="{ 'error' : isFieldValid('city', 'address_attributes') }">
+              <label>Cidade*</label>
+              <input type="text" placeholder="Cidade" formControlName="city">
+              <div *ngIf="isFieldValid('city', 'address_attributes')">
+                <p class="help has-text-danger">{{messageError.addressCity}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="buttons__group flex col-12 col-sm-10 no__padding">
+      <div class="col-12 col-sm-6">
+        <button routerLink="/cartao" class="btn btn-stroke btn-gray btn-lg">
+          Voltar
+        </button>
+      </div>
+      <div class="col-12 col-sm-6">
+        <button class="btn btn-full btn-blue btn-lg"  (click)="submitForm()">
+         {{pageTitle}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</app-box-content>

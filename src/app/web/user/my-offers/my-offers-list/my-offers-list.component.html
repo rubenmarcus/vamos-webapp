@@ -1,0 +1,30 @@
+<div class="user-myoffers--all flex flex_wrap">
+  <app-card-offer *ngFor="let item of offers; let i = index" [offer]="item" [byUser]="true" (changedStatus)="changedStatus()" (openModal)="reciverModal()"></app-card-offer>
+</div>
+
+<app-pagination [pagination]="pagination"
+[page]="pagination.current_page"
+[count]="pagination.total_objects"
+*ngIf="offers.length > 0"></app-pagination>
+
+<div class="empty-list middle" *ngIf="offers.length == 0 && !preload">
+  <img  rel=”preload” src="/assets/img/placeholders/offers.png" alt="Lista de classificado vazio">
+  <p>
+    <strong>Lista vazia</strong><br>
+    Infelizmente não encotramos nenhum item.<br> Tente novamente mais tarde.
+  </p>
+</div>
+
+<div class="modal modalChangePlan" *ngIf="modalChangePlan">
+  <div class="modal__in">
+    <div class="modal__head">
+      <h1>Desculpe!</h1>
+      <h2>Você excedeu o seu limite de publicações de ofertas.</h2>
+      <img  rel=”preload” (click)="closeModal()" src="/assets/img/close-icon.svg" />
+    </div>
+    <div class="modal__buttons d-flex justify-content-center align-items-center">
+      <a class="btn big btn--grey" (click)="closeModal()">Fechar</a>
+      <a class="btn big btn--grey" routerLink="/perfil/planos">Mudar de Plano</a>
+    </div>
+  </div>
+</div>

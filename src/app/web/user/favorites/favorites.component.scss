@@ -1,0 +1,14 @@
+app-favorites {
+  app-block-freights {
+    // width: 83% !important;
+    position: relative;
+    // width: 96.5%;
+    width: calc(100% - 32px);
+    left: 16px;
+    margin-bottom: 22px;
+  }
+  app-card-offer {
+    // width: 86.5%;
+    margin-bottom: 5px;
+  }
+}

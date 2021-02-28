@@ -1,0 +1,207 @@
+<img  rel=”preload” src="/assets/img/banner-card.png" class="full" />
+<app-box-content title="Agendamento">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+    <li>
+      <a routerLink="/cartao/agendamento">Agendamento</a>
+    </li>
+  </ol>
+  <div class="card__main" *ngIf="formLoaded">
+    <h3>Dados do paciente</h3>
+    <div class="col-12 col-sm-5 kinship no__padding-left">
+      <div class="select">
+        <label>Paciente*</label>
+        <select (change)="setAccount($event)">
+          <option value="{{owner.id}}">{{owner.owner.card_user.first_name}} {{owner.owner.card_user.last_name}} (Titular) </option>
+          <option *ngFor="let dependent of dep" value="{{dependent.id}}">{{dependent.card_user.first_name}}
+            {{dependent.card_user.last_name}} (Dependente) </option>
+        </select>
+        <i></i>
+      </div>
+      <div *ngIf="isFieldValid('account_id')">
+          <p class="help has-text-danger">Paciente Obrigatório</p>
+        </div>
+    </div>
+    <h3>Dados do agendamento</h3>
+    <div [formGroup]="scheduleForm" >
+    <div class="col-12 col-sm-5 form-group no__padding-left"  >
+        <label>Motivo do contato*</label>
+        <div class="flex">
+          <div class="radio-2 box">
+            <input type="radio" (click)="setForm('appointment')" name="scheduleRadio" checked="checked">
+            <label>Agendar Consulta</label>
+          </div>
+          <div class="radio-2 box">
+            <input type="radio" (click)="setForm('exam')" name="scheduleRadio">
+            <label for="pf">Agendar exame</label>
+          </div>
+        </div>
+     
+      </div>
+    <div class="col-12 col-sm-5 kinship no__padding-left"  *ngIf="formType === 'appointment'" >
+      <div class="select">
+        <label>Especialidade*</label>
+        <select formControlName="speciality">
+          <option value="">Selecione uma especialidade </option>
+          <option *ngFor="let spe of specialities"  value="{{spe.name}}"> {{spe.name}}</option>
+        </select>
+        <i></i>
+      </div>
+      <div *ngIf="isFieldValid('speciality')">
+          <p class="help has-text-danger">Especialidade Obrigatória</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-5 kinship no__padding-left" *ngIf="formType === 'exam'" >
+        <div class="select">
+          <label>Grupo*</label>
+          <select formControlName="exam_group">
+            <option value="">Selecione um grupo</option>
+            <option value="AC">Análises Clínicas</option>
+            <option value="EC">Exames/Cardiológicos</option>
+            <option value="EG">Exames/Ginecológicos</option>
+            <option value="EI">Exames/Imagem</option>
+            <option value="EP">Exames/Patológico</option>
+            <option value="NI">Não Informado</option>
+          </select>
+          <i></i>
+        </div>
+        <div *ngIf="isFieldValid('exam_group')">
+            <p class="help has-text-danger">Grupo Obrigatório</p>
+          </div>
+      </div>
+    <div class="col-12 col-sm-5 kinship no__padding-left">
+      <div class="select">
+        <label>Estado*</label>
+        <select formControlName="state">
+            <option value="">Selecionar Estado</option>
+            <option *ngFor="let state of states" [value]="state.id">
+                {{ state.name }}
+              </option>
+        </select>
+        <i></i>
+      </div>
+      <div *ngIf="isFieldValid('state')">
+          <p class="help has-text-danger">Estado Obrigatório</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-5 form-group kinship no__padding-left">
+      <div class="select">
+        <label>Cidade*</label>
+        <input type="text" formControlName="city" />
+      </div>
+      <div *ngIf="isFieldValid('city')">
+          <p class="help has-text-danger">Cidade Obrigatória</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-5 form-group kinship no__padding-left">
+        <div class="select">
+          <label>Região / Bairro</label>
+          <input type="zone" formControlName="zone" />
+        </div>
+      </div>
+    <div class="col-12 col-sm-5 form-group no__padding-left  best_hour">
+      <label>Período*</label>
+      <div class="flex">
+        <div class="radio-2 box">
+          <input type="radio" id="morning" name="best_hour" value="m" formControlName="best_hour">
+          <label for="pf">Manhã</label>
+        </div>
+        <div class="radio-2 box">
+          <input type="radio" id="afternoon" name="best_hour" value="t" formControlName="best_hour">
+          <label for="pf">Tarde</label>
+        </div>
+        <div class="radio-2 box">
+          <input type="radio"  id="night" name="best_hour" value="n"  formControlName="best_hour">
+          <label for="pf">Noite</label>
+        </div>
+      </div>
+      <div *ngIf="isFieldValid('best_hour')">
+          <p class="help has-text-danger">Período Obrigatório</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-5 form-group no__padding-left ">
+      <label>Dia*</label>
+      <div class="flex ">
+        <div class="checkbox box">
+          <input type="checkbox"  id="mon"  value="1" (change)="onCheckChange($event)">
+          <label for="mon">
+            <span>Segunda</span>
+          </label>
+        </div>
+        <div class="checkbox box">
+          <input type="checkbox" value="2"  id="tue"  (change)="onCheckChange($event)" >
+          <label  for="tue">
+            <span>Terça</span>
+          </label>
+        </div>
+        <div class="checkbox box">
+          <input type="checkbox" value="3"   id="wed"  (change)="onCheckChange($event)">
+          <label for="wed">
+            <span>Quarta</span>
+          </label>
+        </div>
+        <div class="checkbox box">
+          <input type="checkbox"  id="thu" value="4" (change)="onCheckChange($event)">
+          <label for="thu">
+            <span>Quinta</span>
+          </label>
+        </div>
+        <div class="checkbox box">
+          <input type="checkbox" id="fri" value="5" (change)="onCheckChange($event)">
+          <label for="fri">
+            <span>Sexta</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="noDays">
+          <p class="help has-text-danger">Dia Obrigatório</p>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="formType === 'exam'">
+        <label>Carregue uma foto do pedido médico (se necessário)</label>
+    </div>
+    <div class="col-12 profile-picture form-group" *ngIf="formType === 'exam'">
+      <div *ngIf="!fileUploaded">
+      <label for="file-upload" class="photo-add">
+      </label>
+      <input type="file"  (change)="fileChange($event)" id="file-upload" accept="image/x-png,image/gif,image/jpeg" />
+        </div>
+      <div *ngIf="fileUploaded" class="fileUploaded">
+          <img  rel=”preload” src="assets/img/icon-picturePic.png" class="pictureIcon" />
+             {{fileCaption}}
+           <img  rel=”preload” src="assets/img/icon-removePic.png" class="pointer img-remove" (click)="removePic()" />
+      </div>
+
+
+    </div>
+    <div *ngIf="formType === 'exam'">
+    <div *ngIf="noFile">
+        <p class="help has-text-danger">Foto do pedido Obrigatório</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-5 kinship no__padding-left">
+      <div class="form-group textarea">
+        <label>Descreva os detalhes de sua solicitação, caso necessário*</label>
+        <textarea formControlName="description">Descreva os detalhes de sua solicitação </textarea>
+        <div *ngIf="isFieldValid('description')">
+            <p class="help has-text-danger">Descrição Obrigatória</p>
+          </div>
+      </div>
+    </div>
+  </div>
+    <div class="buttons__group col-10">
+      <div class="row">
+        <div class="col-lg-6">
+          <a routerLink="/cartao" class="btn btn-stroke btn-gray btn-lg">Voltar</a>
+        </div>
+        <div class="col-lg-6">
+          <button type="submit" class="btn btn-full btn-blue btn-lg" [disabled]='' (click)="submitForm()">Solicitar
+            agendamento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-box-content>

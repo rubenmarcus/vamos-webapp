@@ -1,0 +1,25 @@
+@import "media-queries";
+
+.plans__all {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.plan-off {
+  color: #CACFD9 !important;
+}
+
+.plans {
+  &-title {
+    width: 95%;
+  }
+}
+
+@media (max-width:1023px) {
+  .plans {
+    &-title {
+      width: 90%;
+      margin: auto;
+    }
+  }
+}

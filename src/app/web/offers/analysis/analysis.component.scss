@@ -1,0 +1,32 @@
+@import "mixins";
+@import "media-queries";
+
+.box-analysis {
+  .box__content {
+    width: 90%;
+    margin-bottom: 60px;
+  }
+}
+.analysis_modal {
+  .modal__msg {
+    font-size: 3rem;
+    width: 627px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 140px;
+    .green {
+      color: #7ED321;
+    }
+  }
+  .btn {
+    margin-top: 109px;
+  }
+}
+
+@include mobile {
+  .box-analysis {
+    .btn {
+      width: 100%;
+    }
+  }
+}

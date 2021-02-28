@@ -1,0 +1,7 @@
+@import "media-queries";
+@import "mixins";
+
+
+@include tablet-init {
+    @include tablet-init-content
+}

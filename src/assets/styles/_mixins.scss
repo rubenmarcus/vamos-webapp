@@ -1,0 +1,197 @@
+@mixin size($width,$height) {
+    width: $width;
+    height: $height;
+  }
+
+//to use with ::before or ::after
+  @mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+@mixin tablet-end-content{
+  .show__desktop,
+  .show__mobile,.show__tablet-mid,.show__tablet-init {
+    display: none!important;
+  }
+  .show__tablet-end {
+    display: block!important;
+  }
+  .row__tablet {
+    overflow-x: auto;
+    >.row {
+      width: max-content;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      margin-left: 24px;
+    }
+  }
+  .seven-cols .col-1 {
+    width: 14.285714285714285714285714285714%;
+    max-width: 14.285714285714285714285714285714%;
+    flex: 0 0 14.285714285714285714285714285714%;
+  }
+}
+
+
+@mixin tablet-mid-content{
+  .show__desktop,
+  .show__mobile,.show__tablet-init,.show__tablet-end {
+    display: none!important;
+  }
+  .show__tablet-mid {
+    display: block!important;
+  }
+  .row__tablet {
+    overflow-x: auto;
+    >.row {
+      width: max-content;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      margin-left: 24px;
+    }
+  }
+  .seven-cols .col-1 {
+    width: 14.285714285714285714285714285714%;
+    max-width: 14.285714285714285714285714285714%;
+    flex: 0 0 14.285714285714285714285714285714%;
+  }
+}
+@mixin tablet-init-content{
+  .show__desktop,
+  .show__mobile,.show__tablet-mid,.show__tablet-end {
+    display: none!important;
+  }
+  .show__tablet-init {
+    display: block!important;
+  }
+  .row__tablet {
+    overflow-x: auto;
+    >.row {
+      width: max-content;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      margin-left: 24px;
+    }
+  }
+  .seven-cols .col-1 {
+    width: 14.285714285714285714285714285714%;
+    max-width: 14.285714285714285714285714285714%;
+    flex: 0 0 14.285714285714285714285714285714%;
+  }
+
+}
+
+@mixin tablet-content{
+  .show__desktop,
+  .show__mobile {
+    display: none!important;
+  }
+  .show__tablet,.show__tablet-end,.show__tablet-mid,.show__tablet-init {
+    display: block!important;
+  }
+  .row__tablet {
+    overflow-x: auto;
+    >.row {
+      width: max-content;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      margin-left: 24px;
+    }
+  }
+  .seven-cols .col-1 {
+    width: 14.285714285714285714285714285714%;
+    max-width: 14.285714285714285714285714285714%;
+    flex: 0 0 14.285714285714285714285714285714%;
+  }
+
+}
+
+@mixin mobile-content{
+
+  .show__desktop,
+  .show__tablet,.show__tablet-mid,.show__tablet-end,.show__tablet-init{
+    display: none!important;
+  }
+  .show__mobile {
+    display: block!important;
+  }
+  .row__tablet {
+    overflow-x: auto;
+    >.row {
+      width:max-content;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      margin-left: 24px;
+    }
+  }
+  .seven-cols .col-1 {
+    width: 100%;
+  }
+
+}
+
+@mixin desktop-content {
+
+  .site__container{
+    width:1315px;
+      margin:0 auto;
+  }
+  .show__tablet,.show__mobile,.show__tablet-init,.show__tablet-end,.show__tablet-mid {
+      display: none!important;
+  }
+  .show__desktop {
+      display: block;
+  }
+  .seven-cols .col-1 {
+      width: 14.285714285714285714285714285714%;
+      max-width:14.285714285714285714285714285714% ;
+      flex: 0 0 14.285714285714285714285714285714%;}
+
+}
+
+@function get-vw($object) {
+  $vw: (1024 * 0.01) * 1px;
+  @return ($object / $vw) * 1vw;
+}
+
+@function get-vh($object) {
+  $vw: (1024 * 0.01) * 1px;
+  @return ($object / $vw) * 1vh;
+}
+
+@function pxToEm($px){
+	@return ($px / 16px) * 1rem;
+}

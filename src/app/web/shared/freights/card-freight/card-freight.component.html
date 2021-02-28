@@ -1,0 +1,35 @@
+<div class="freights-card__boxfreight mb-5" routerLink="/fretes/{{freight.id}}">
+  <div class="col-md-12 freights-card__boxfreight--top">
+    <div class="freights-card__boxfreight--line"></div>
+    <div class="freights-card__boxfreight--from">
+      <span>De:</span>
+      <span>{{freight.load_city}}</span>
+    </div>
+    <div class="freights-card__boxfreight--to">
+
+      <span>Para:</span>
+      <span>{{freight.unload_city}}</span>
+    </div>
+  </div>
+  <div class="freights-card__boxfreight--bottom ">
+    <ul class="no__padding no__margin flex flex_wrap">
+      <li class="col-md-6 col-6 freights-card__boxfreight--first">
+        <span>Peso:</span>
+        <span>{{freight.weight}}</span>
+      </li>
+      <li class="col-md-6 col-6  freights-card__boxfreight--sec">
+        <span>Km:</span>
+        <span>{{ freight.distance ? freight.distance : 'Não Informado' }}</span>
+      </li>
+      <!-- <li class="col-md-4 col-4  freights-card__boxfreight--third">
+        <span>Valor por Km:</span>
+        <span>R$ {{freight.price_per_kilometers}} km</span>
+      </li> -->
+      <li class="col-md-12 freights-card__boxfreight--last">
+        <span>Valor:</span>
+        <span class="text-green">{{freight.price}}</span>
+        <!-- <span class="text-green">R$ {{ freight.price | number : '1.2-2' }}</span> -->
+      </li>
+    </ul>
+  </div>
+</div>

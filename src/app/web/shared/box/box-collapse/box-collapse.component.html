@@ -1,0 +1,13 @@
+<div class="box__collapse" [ngbCollapse]="isCollapsed">
+  <div class="collapse__title">
+    <span type="button" class="btn" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseExample">
+      {{Title}}
+      <i><app-icon-arrow></app-icon-arrow></i>
+    </span>
+  </div>
+
+  <div class="collapse__body" id="collapse">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<section class="add-vehicle">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/classificados">Classificados </a>
+    </li>
+    <li>
+      <a> Anunciar </a>
+    </li>
+  </ol>
+  <div class="advert-main" *ngIf="companies.length > 0">
+    <h3>Selecionar empresa</h3>
+    <h4>Para auxiliar na venda selecione qual empresa deseja atribuir a este anúncio.</h4>
+    <div class="advert-companies flex">
+      <div class="company flex" *ngFor="let company of companies; let i = index" (click)="saveCompany(company);">
+        <div class="company-image">
+          <!-- <img  rel=”preload” src="/assets/img/advertise-avatar.png" alt=""> -->
+          <img  rel=”preload” src="{{ company.photo_url ? company.photo_url : '/assets/img/filiais-empresa.png' }}" alt="">
+        </div>
+        <div class="company-content">
+          <p class="company-content-name">{{ company.name }}</p>
+          <p class="company-content-address" *ngIf="company.address">
+            {{ company.address?.line1 }}, {{ company.address?.number }} - {{ company.address?.district }},<br>
+            {{ company.address?.state }} - {{ company.address?.city }}, {{ company.address?.zip }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <app-pagination [pagination]="pagination"
+      [page]="pagination.current_page"
+      [count]="pagination.total_objects"></app-pagination>
+  </div>
+  <div class="align-center" *ngIf="companies.length == 0 && !preload">
+    <img  rel=”preload” src="/assets/img/no-announce.jpg" />
+    <p>Você ainda não anunciou nenhum veículo</p>
+    <span>Aqui você pode vender seu veículo muito mais rápido</span>
+    <a routerLink="/perfil/meus-dados/filiais" class="btn btn-full btn-blue btn-md">Anuncie seu veículo</a>
+  </div>
+</section>

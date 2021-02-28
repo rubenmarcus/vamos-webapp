@@ -1,0 +1,98 @@
+@import "variables";
+@import "media-queries";
+
+.authApp{
+    .hidden-profile{
+    display:none!important;
+  }
+}
+
+.register {
+
+
+  h2 {
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #485166;
+    font-size: 1.8rem;
+  }
+  &__select{ margin-bottom: 0; }
+  @at-root #{&}__buttons {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  &__mobile {
+    form {
+      padding-top: 30px;
+    }
+  }
+  &__date {
+    position: relative;
+    .icon_calendar {
+      position: absolute;
+      width: 22px;
+      top: 23px;
+      right:23%;
+      cursor:pointer;
+    }
+  }
+}
+
+.mobile {
+  &__sms {
+    background: #FBFDFF;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.6rem;
+    p {
+      color: #485166;
+      max-width: 220px;
+    }
+    a{
+      color: #000;
+      padding-top: 30px;
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 300;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}
+@include tablet{
+  .register__buttons{
+    div{
+      text-align: center;
+      margin-bottom:30px;
+    }
+  }
+  .box--shadow{margin-top: 20px;}
+}
+
+@include mobile{
+  .register__buttons{
+    div{
+      text-align: center;
+      margin-bottom:30px;
+    }
+  }
+  .register__select .radio{
+    margin-bottom:20px;
+  }
+  .box--shadow input{ width:100%;}
+  .box--shadow{margin-top: 20px;}
+  .register__date .icon_calendar{right:2%;}
+}
+
+@media (max-width:767px) {
+  .mobile {
+    &__sms {
+      a{
+        padding-top: 0;
+      }
+    }
+  }
+}

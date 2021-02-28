@@ -1,0 +1,72 @@
+<div class="webview-plan" *ngIf="!isExclusive() && !isFree()">
+  <div class="webview-plan-box">
+    <div class="webview-plan-box-custom-header" [ngStyle]="{'background': setColor()}"></div>
+    <div class="webview-plan-box-header">
+      <h1 id="webview_plan_title_{{ plan.id }}">{{ plan.name }}</h1>
+      <h2 [ngStyle]="{'color': plan.color_end}" id="webview_plan_price_{{ plan.id }}">
+        R$ {{ plan.value | number: '1.2-2' }}
+        <small>Plano válido por um mês</small>
+      </h2>
+      <p>{{ plan.details }}</p>
+    </div>
+    <div class="webview-plan-box-description">
+      <span id="webview_plan_offer_{{ plan.id }}"> {{ getOffer() }} </span>
+      <span id="webview_plan_photo_{{ plan.id }}"> {{ getPhotos() }} </span>
+      <!-- <span> Seu anúncio no ar até vender </span> -->
+    </div>
+  </div>
+  <div class="webview-plan-button" *ngIf="isPlan()">
+    <a class="btn btn-full btn-blue btn-lg" routerLink="/webview/plan/terms/{{ plan.id }}" queryParamsHandling="merge" id="webview_plan_button_{{ plan.id }}">Assinar</a>
+  </div>
+  <div class="webview-plan-button" *ngIf="!isPlan()">
+    <!-- <a class="btn btn-full btn-blue btn-lg" routerLink="/webview/terms/{{ plan.id }}" queryParamsHandling="merge" *ngIf="!isUpdate()">Alterar de Plano</a> -->
+    <button class="btn btn-full btn-blue btn-lg" disabled id="webview_plan_button_{{ plan.id }}" *ngIf="!isUpdate()">Assinar</button>
+    <!-- <button class="btn btn-full btn-blue btn-lg" disabled (click)="confirmPlanDeletion()" *ngIf="isUpdate() && !isCancel()">Plano Contratado</button> -->
+    <button class="btn btn-full btn-blue btn-lg" disabled (click)="confirmPlanDeletion()" id="webview_plan_button_{{ plan.id }}" *ngIf="isUpdate() && !isCancel()">Plano Cancelado</button>
+    <a class="btn btn-full btn-blue btn-lg" (click)="confirmPlanDeletion()" queryParamsHandling="merge" id="webview_plan_button_{{ plan.id }}" *ngIf="isUpdate() && isCancel()">Cancelar Plano</a>
+  </div>
+</div>
+
+<div class="webview-plan" *ngIf="isFree()">
+  <div class="webview-plan-box">
+    <div class="webview-plan-box-custom-header" [ngStyle]="{ 'background': 'linear-gradient(-88deg, rgba(66, 147, 33, 1), rgba(180, 236, 81, 1))' }"></div>
+    <div class="webview-plan-box-header">
+      <h1 id="webview_plan_title_{{ plan.id }}">Plano Grátis</h1>
+      <h2 id="webview_plan_price_{{ plan.id }}" [ngStyle]="{'color': 'rgba(66, 147, 33, 1)'}">
+        R$ 0,00
+        <small>Plano válido por um mês</small>
+      </h2>
+      <p>Anuncie por 30 dias, sem custo.</p>
+    </div>
+    <div class="webview-plan-box-description">
+      <span id="webview_plan_offer_{{ plan.id }}">{{ getOffer() }}</span>
+      <span id="webview_plan_photo_{{ plan.id }}">{{ getPhotos() }}</span>
+      <!-- <span>Mais Exposição</span> -->
+    </div>
+  </div>
+  <div class="webview-plan-button">
+    <a class="btn btn-full btn-blue btn-lg" (click)="signFreePlan()" id="webview_plan_button_{{ plan.id }}" *ngIf="!isPlanFree()">Assinar</a>
+    <button class="btn btn-full btn-blue btn-lg" disabled id="webview_plan_button_{{ plan.id }}" *ngIf="isPlanFree()">Plano assinado</button>
+  </div>
+</div>
+
+<div class="webview-plan exclusive" *ngIf="isExclusive()">
+  <div class="webview-plan-box">
+    <div class="webview-plan-box-custom-header" [ngStyle]="{'background': planColors.exclusive.gradient}">
+      <h1 id="webview_plan_title_{{ plan.id }}"><small>Plano Exclusivo</small><br>Solicite um Orçamento</h1>
+    </div>
+    <div class="webview-plan-box-description">
+      <span>Envie sua proposta</span>
+      <span> Você escolhe a melhor opção! </span>
+      <!-- <span> Seu anúncio no ar até vender </span>
+      <span> Vende tão rápido quanto o Gold </span>
+      <span> Prioridade Máxima na lista de busca</span>
+      <span> Até 8 fotos </span>
+      <span> Mais Exposição </span> -->
+    </div>
+  </div>
+  <div class="webview-plan-button">
+    <!-- <button class="btn btn-full btn-blue btn-lg" disabled *ngIf="currentPlan">Solicitar Proposta</button> -->
+    <a class="btn btn-full btn-blue btn-lg" routerLink="/webview/plan/exclusive" id="webview_plan_button_{{ plan.id }}" queryParamsHandling="merge">Solicitar Proposta</a>
+  </div>
+</div>

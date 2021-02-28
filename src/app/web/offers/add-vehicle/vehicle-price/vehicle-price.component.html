@@ -1,0 +1,49 @@
+<section class="add-vehicle">
+  <img  rel=”preload” src="/assets/img/banner-fipe.jpg" class="full" />
+  <app-box-content title="Anunciar" description="Aqui você vende seu veículo muito mais rápido!">
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/classificados">Classificados </a>
+      </li>
+      <li>
+        <a routerLink="/classificados/anuncios"> Anunciar </a>
+      </li>
+      <li>
+          <a routerLink="/classificados/anuncios/adicionar-foto"> Fotos </a>
+      </li>
+      <li>
+        <a href="#"> Ocultar placa </a>
+      </li>
+    </ol>
+    <div class="advert-main">
+      <h3>Qual o preço do seu veículo?</h3>
+      <h4>Selecione marca e modelo para continuar o cadastro.</h4>
+
+      <div class="flex">
+        <div class="col-5">
+          <div class="form--text">
+            <label>Valor</label>
+            <input type="text" placeholder="Valor">
+          </div>
+          <div class="checkbox box">
+            <input type="checkbox" value="true" name="trocas" id="trocas">
+            <label for="trade">
+              <span>Aceito trocas</span>
+            </label>
+          </div>
+          <div class="checkbox box">
+            <input type="checkbox" value="true" name="quitado" id="quitado">
+            <label for="trade">
+              <span>Veículo está quitado</span>
+            </label>
+          </div>
+        </div>
+        <div class="col-6">
+          <p class="green">Foto principal</p>
+          <img  rel=”preload” src="/assets/img/trucks/truck-small.jpg" />
+        </div>
+      </div>
+      <button class="btn btn-full btn-blue btn-lg">Salvar</button>
+    </div>
+  </app-box-content>
+</section>

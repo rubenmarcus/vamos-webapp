@@ -1,0 +1,79 @@
+<div class="webview-main">
+  <div class="webview-main-content" [formGroup]="dataForm" autocomplete="off">
+    <h1>Dados do cartão</h1>
+    <p>Insira os dados do cartão de crédito e titular do cartão.</p>
+
+    <div formGroupName="pre_approval">
+      <div formGroupName="payment_method">
+        <div formGroupName="credit_card">
+          <div formGroupName="holder">
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('name') }">
+              <label for="name">Nome</label>
+              <input type="text" formControlName="name" placeholder="Nome" id="webview_plan_card_name" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('name')">
+                <p class="help has-text-danger">{{ messageError.name }}</p>
+              </div>
+            </div>
+            <div class="webview-form-group" formGroupName="document" [ngClass]="{ 'error' : isFieldValid('value', 'document') }">
+              <label for="value">CPF</label>
+              <input type="tel" formControlName="value" placeholder="CPF" [textMask]="inputMask.cpfMask" id="webview_plan_card_value" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('value', 'document')">
+                <p class="help has-text-danger">{{ messageError.cpf }}</p>
+              </div>
+            </div>
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('birth_date') }">
+              <label for="birth_date">Aniversário</label>
+              <input type="tel" formControlName="birth_date" placeholder="Aniversário" [textMask]="inputMask.birthdayMask" id="webview_plan_card_birth_date" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('birth_date')">
+                <p class="help has-text-danger">{{ messageError.birthdate }}</p>
+              </div>
+            </div>
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('telephone') }">
+              <label for="telephone">Telefone com DDD</label>
+              <input type="tel" formControlName="telephone" placeholder="Telefone com DDD" [textMask]="phoneMask" (keypress)="changeMask($event);" id="webview_plan_card_telephone" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('telephone')">
+                <p class="help has-text-danger">{{ messageError.phone }}</p>
+              </div>
+            </div>
+
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('card_number') }">
+              <label for="card_number">Número do cartão</label>
+              <input type="tel" formControlName="card_number" placeholder="Número do cartão" [textMask]="inputMask.cardNumberMask" id="webview_plan_card_card_number" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('card_number')">
+                <p class="help has-text-danger">{{ messageError.cardNumber }}</p>
+              </div>
+            </div>
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('expiration_date') }">
+              <label for="expiration_date">Data de vencimento (mm/aaaa)</label>
+              <input type="tel" formControlName="expiration_date" placeholder="Data de vencimento (mm/aaaa)" [textMask]="inputMask.expirationDateMask" id="webview_plan_card_expiration_date" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('expiration_date')">
+                <p class="help has-text-danger">{{ messageError.cardExpirationDate }}</p>
+              </div>
+            </div>
+            <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('cvv') }">
+              <label for="cvv">CVV</label>
+              <input type="tel" formControlName="cvv" placeholder="CVV" [textMask]="inputMask.cvvMask" id="webview_plan_card_cvv" autocomplete="nope" autocorrect="off">
+              <div *ngIf="isFieldValid('cvv')">
+                <p class="help has-text-danger">{{ messageError.cardCvv }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="webview-form-button">
+      <button class="btn btn-full btn-blue btn-lg" [disabled]="!dataForm.valid" id="webview_plan_card_button" (click)="submitForm()">Próximo</button>
+    </div>
+  </div>
+</div>
+
+<div class="webview-dialog show" id="webview_plan_card_error" *ngIf="showDialog">
+  <div class="webview-dialog-content">
+    <h3>Ocorreu um erro</h3>
+    <p id="webview_plan_card_error_message">
+      {{ showDialog }}
+    </p>
+    <a href="javascript: history.go(-1)" class="btn btn-full btn-blue btn-lg" id="webview_plan_card_error_button">ok, tentar novamente</a>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- <app-box-content-scroll>
+  <div class="block-cdp" *ngFor="let item of cdp;">
+    <a href="https://clicca.clubecdp.com.br/" target="blank">
+      <div class="align-center block-cdp__img">
+        <img  rel=”preload” src="{{item.imageUrl}}" />
+      </div>
+      <h1>
+        {{item.name}}
+      </h1>
+      <div class="block-cdp--price flex col-12">
+        <span>Valor:</span>
+        <span class="text-green"> {{item.priceText}} </span>
+      </div>
+    </a>
+  </div>
+</app-box-content-scroll> -->
+
+<div class="flex">
+  <div class="col-md-8 block--title">
+    <h1>Compra e venda de peças</h1>
+  </div>
+  <div class="col-md-4 no__padding text-right flex-right">
+    <a (click)="redirect()" class="btn btn-stroke btn-gray btn-xs">Ver Mais</a>
+  </div>
+</div>
+
+<div class="col-12 flex flex_wrap">
+  <div class=" row__tablet">
+    <div class="row">
+      <div class="block-cdp" *ngFor="let item of cdp;">
+        <a href="https://clicca.clubecdp.com.br/" target="blank">
+          <div class="align-center block-cdp__img">
+            <img  rel=”preload” src="{{item.imageUrl}}" />
+          </div>
+          <h1>
+            {{item.name}}
+          </h1>
+          <div class="block-cdp--price flex col-12">
+            <span>Valor:</span>
+            <span class="text-green"> {{item.priceText}} </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.noUi-horizontal{
+  height: 3px;
+  &.noUi-target{
+    background: #c7c7c7;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+}
+.noUi-connect{
+  background: #74ADF2;
+}
+.noUi-horizontal .noUi-handle{
+  top: -15px;
+  // width: 34px;
+  // height: 34px;
+  width: 46px;
+  height: 46px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: none;
+  border: 0;
+  background:url('/assets/img/range.svg');
+  background-position: center -4px;
+  outline: none;
+  &.noUi-active{
+    box-shadow: none;
+  }
+  &:before{
+    display: none;
+  }
+  &:after{
+    display: none;
+    // content: "";
+    // display: block;
+    // width: 20px;
+    // height: 20px;
+  }
+}

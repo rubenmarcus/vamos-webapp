@@ -1,0 +1,45 @@
+<div class="webview-main">
+  <div class="webview-main-content" [formGroup]="dataForm" autocomplete="off">
+    <h1>Dados do titular</h1>
+    <p>Digite os dados do titular do cartão de crédito para realizar o pagamento.</p>
+    <div formGroupName="pre_approval">
+      <div formGroupName="sender">
+        <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('name') }">
+          <label for="name">Nome do titular</label>
+          <input type="text" formControlName="name" placeholder="Nome do titular" id="webview_plan_data_name" autocomplete="nope" autocorrect="off">
+          <div *ngIf="isFieldValid('name')">
+            <p class="help has-text-danger">{{ messageError.name }}</p>
+          </div>
+        </div>
+        <div class="webview-form-group" formGroupName="document" [ngClass]="{ 'error' :  isFieldValid('value', 'document') }">
+          <label for="value">{{ isCompany() ? 'CNPJ' : 'CPF' }}</label>
+          <input type="text" formControlName="value" placeholder="{{ isCompany() ? 'CNPJ' : 'CPF' }}" [textMask]="documentMask" id="webview_plan_data_value" autocomplete="nope" autocorrect="off">
+          <div *ngIf="isCompany() && isFieldValid('value', 'document')">
+            <p class="help has-text-danger">{{ messageError.cnpj }}</p>
+          </div>
+          <div *ngIf="!isCompany() && isFieldValid('value', 'document')">
+            <p class="help has-text-danger">{{ messageError.cpf }}</p>
+          </div>
+        </div>
+        <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('email') }">
+          <label for="email">E-mail</label>
+          <input type="text" formControlName="email" placeholder="E-mail" id="webview_plan_data_email" autocomplete="nope" autocorrect="off">
+          <div *ngIf="isFieldValid('email')">
+            <p class="help has-text-danger">{{ messageError.email }}</p>
+          </div>
+        </div>
+        <div class="webview-form-group" [ngClass]="{ 'error' : isFieldValid('telephone') }">
+          <label for="telephone">Telefone com DDD</label>
+          <input type="text" formControlName="telephone" placeholder="Telefone com DDD" [textMask]="phoneMask" (keypress)="changeMask($event);" id="webview_plan_data_telephone" autocomplete="nope" autocorrect="off">
+          <div *ngIf="isFieldValid('telephone')">
+            <p class="help has-text-danger">{{ messageError.phone }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="webview-form-button">
+      <button class="btn btn-full btn-blue btn-lg" [disabled]="!dataForm.valid" id="webview_plan_data_button" (click)="submitForm()">Próximo</button>
+    </div>
+  </div>
+</div>

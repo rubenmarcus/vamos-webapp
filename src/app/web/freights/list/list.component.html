@@ -1,0 +1,36 @@
+<div class="freights__top">
+  <app-banners type="header"></app-banners>
+</div>
+
+<section class="freights-list flex">
+  <aside class="freights-list-filter" id="freights-filters">
+    <app-sidebar></app-sidebar>
+  </aside>
+  <section class="freights-list-main" *ngIf="!preload">
+    <div class="flex">
+      <div class="col-7 results">
+        <p>{{ total }} {{ total === 0 ? 'frete encontrado' : 'fretes encontrados' }}</p>
+      </div>
+      <div class="col-5">
+        <div class="col-12 d-flex flex-row-reserve">
+          <!-- <a routerLink="/fretes/meus-veiculos" class="btn btn-stroke btn-blue btn-sm ml-auto">Meus Veículos</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="flex_wrap flex">
+      <app-block-freights *ngFor="let freight of freights; let idx = index" [freight]="freight" class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></app-block-freights>
+      <app-pagination [pagination]="pagination"
+      [page]="pagination.current_page"
+      [count]="pagination.total_objects"
+      *ngIf="freights.length > 0"></app-pagination>
+    </div>
+
+    <div class="empty-list" *ngIf="freights.length == 0 && !preload">
+      <img  rel=”preload” src="/assets/img/placeholders/offers.png" alt="Lista de classificado vazio">
+      <p>
+        <strong>Lista vazia</strong><br>
+        Ops...nenhum resultado encontrado, refaça sua busca.
+      </p>
+    </div>
+  </section>
+</section>

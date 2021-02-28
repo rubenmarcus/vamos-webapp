@@ -1,0 +1,65 @@
+@import "media-queries";
+app-card-home {
+  .right-border {
+    border-right: 1px solid #E6E9EE;
+    padding-left: 0px !important;
+    padding-right: 40px;
+  }
+  .card__benefits {
+    font-size: 20px;
+  }
+  .no-padding-right {
+    padding-right: 0px !important;
+    padding-left: 40px;
+  }
+}
+
+@include mobile {
+  .card__details-card.titular {
+    margin: 0 auto;
+  }
+  app-card-home .right-border {
+    border-right: 0px !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:920px) {
+  .card__home-first,
+  .card__home-second {
+    max-width: 60%;
+    border-right: 0px !important;
+    margin: 0 auto;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    flex: 0 0 60%;
+    display: flex;
+  }
+}
+
+@media (max-width:468px) {
+  app-card-home {
+    .card__details-card {
+      transform: scale(0.8);
+    }
+    .card__options li {
+      width: 100% !important
+    }
+    .no-padding-right {
+      padding-left: 0px !important;
+    }
+    .right-border{
+      padding-right:0px!important;
+    }
+    .card-area {
+      width: 273px;
+      height: 168px;
+      background-size: 100% 100%!important;
+      *{
+        font-size:1.5rem!important
+
+      }
+     
+  }
+
+  }
+}

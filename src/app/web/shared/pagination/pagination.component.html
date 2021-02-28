@@ -1,0 +1,28 @@
+<div class="pagination" *ngIf="totalPages() > 1">
+  <a
+    routerLink="{{ endpoint }}"
+    [queryParams]="{page: page - 1}"
+    queryParamsHandling="merge"
+    *ngIf="page !== 1 || loading">&lt;</a>
+
+  <a
+    class="disabled"
+    *ngIf="page === 1 || loading">&lt;</a>
+
+  <a
+    *ngFor="let pageNum of getPages()"
+    [ngClass]="{'active': pageNum === page, 'disabled': loading}"
+    routerLink="{{ endpoint }}"
+    [queryParams]="{page: pageNum}"
+    queryParamsHandling="merge">{{ pageNum }}</a>
+
+  <a
+    routerLink="{{ endpoint }}"
+    [queryParams]="{page: page + 1}"
+    queryParamsHandling="merge"
+    *ngIf="totalPages() !== page">&gt;</a>
+
+  <a
+    class="disabled"
+    *ngIf="totalPages() === page">&gt;</a>
+</div>

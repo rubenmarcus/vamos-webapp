@@ -1,0 +1,49 @@
+
+
+       
+
+
+<div class="search-box">
+ <div class="col-12 hero">
+      <div class="search-box__header " [ngClass]="{'has-local': local}">
+        <div class="search-box__header-in bg-search">
+        <h2>Lista de Redes Credenciadas</h2>
+        <div class="place-change" (click)="local = !local;">Mudar Local</div>
+        <div class="new-place" *ngIf="local">
+          <label>Digite Endereço ou CEP</label>
+        <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
+        </div>
+        <div class="col-12 flex flex_wrap" style="z-index:9999">
+          <button class="bt-net-1" [ngClass]="{active: isClinics}"  (click)="loadType(type='clinics')">Clinicas e laboratórios </button>
+         <button class="bt-net-1" (click)="loadType(type='drugstore')" [ngClass]="{active: isDrugStore}" >Farmácias</button> 
+        </div>
+      </div>
+        <form class="search" [formGroup]="searchForm">
+          <div class="select" *ngIf="isClinics">
+            <select (change)="selectClinics($event.target.value)" formControlName="query">
+                <option value="">Selecione a especialidade</option>
+              <option *ngFor="let specialite of specialites"  [value]="specialite.id">{{ specialite.name }}</option>
+            </select>
+          </div>
+          <input type="text" name="query" formControlName="query" placeholder="Pesquisar" (keyup)="typing($event)" autocomplete="off" id="searchbox" *ngIf="isDrugStore">
+          <button type="submit" class="btn-search" id="bt-search" (click)="submitForm()" [disabled]="!searchForm.valid"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="modal month_modal" *ngIf="modal">
+  <div class="modal__in">
+    <div class="modal__close" (click)="closeModal();"></div>
+    <div class="modal__msg fs-16">
+      <h1>Novo Endereço</h1>
+      <div class="overflow-x-hidden h-300">
+        <ul>
+       <li> 
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->
+  

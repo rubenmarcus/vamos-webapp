@@ -1,0 +1,9 @@
+<app-profile-tab></app-profile-tab>
+
+<div *ngIf="user.profile_type == 'Person'">
+  <user-profile-my-data-person></user-profile-my-data-person>
+</div>
+
+<div *ngIf="user.profile_type == 'Company'">
+  <user-profile-my-data-company></user-profile-my-data-company>
+</div>

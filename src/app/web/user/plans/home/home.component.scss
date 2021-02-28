@@ -1,0 +1,131 @@
+@import "media-queries";
+
+.carouselPlan {
+  padding: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+.modal__head {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  padding-top: 6px;
+  position: relative;
+  margin-bottom: 49px;
+  img {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+  h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: left;
+    font-weight: 300;
+    // padding-left: 60px;
+  }
+  h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: left;
+    font-weight: 300;
+    // padding-left: 60px;
+  }
+}
+
+.modalPlan {
+  text-align: center;
+  color: black;
+  .modal__in {
+    max-width: 700px;
+    width: 90%;
+    height: auto;
+    min-height: 260px;
+    .modal__head {
+      padding-top: 30px;
+      h1 { font-weight: 400; }
+      h1, h2 {
+        color: black;
+        padding-left: 0;
+        text-align: center;
+      }
+    }
+    .modal__buttons {
+      .btn {
+        &:first-child { margin-right: 20px; }
+      }
+    }
+  }
+}
+
+.modalExclusive{
+  .modal__in {
+    text-align: left;
+    max-width: 800px;
+    width: 90%;
+    height: auto;
+    min-height: 260px;
+    .modal__head {
+      height: auto;
+      min-height: 115px;
+      padding-bottom: 10px;
+      background-image: linear-gradient(-88deg, #286FC4 0%, #74ADF2 99%);
+      &-content {
+        padding-left: 60px;
+        h1, h2 { padding-left: 0; }
+      }
+    }
+    .modal__body {
+      padding-left: 60px;
+      width: 90%;
+    }
+  }
+}
+
+@mixin responsive {
+  .modalExclusive {
+    .modal__in {
+      .modal__head {
+        &-content {
+          width: 90%;
+          margin: auto;
+          padding-left: 0;
+          // h1, h2 { padding-left: 0; }
+        }
+      }
+      .modal__body {
+        padding-left: 0;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@include tablet {
+  @include responsive;
+}
+
+@include mobile {
+  @include responsive;
+  .modalExclusive {
+    .modal__in {
+      .modal__body {
+        .btn { width: 100%; }
+      }
+    }
+  }
+
+  .modalPlan {
+    .modal__in {
+      .modal__buttons {
+        padding: 0 30px;
+        flex-direction: column!important;
+        .btn {
+          width: 100%;
+          margin-bottom: 30px;
+          &:first-child { margin-right: 0; }
+        }
+      }
+    }
+  }
+}

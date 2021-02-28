@@ -1,0 +1,47 @@
+app-card {
+  .card__dependents {
+    margin-top: -96px;
+    padding-bottom: 102px;
+    padding-left: 0px;
+    li {
+      font-size: 1.5rem;
+      padding: 10px 0px;
+      width: 150px;
+      font-weight: lighter;
+      color: #909BAF;
+      letter-spacing: -0.34px;
+      text-align: center;
+      cursor: pointer;
+      cursor: pointer;
+      &.active {
+        background-image: linear-gradient(280deg, #0f4876, #2062b1);       
+         border-radius: 100px;
+        color: #fff;
+      }
+    }
+  }
+  .card__options {
+    padding-left: 0px;
+    li {
+      border-bottom: 1px solid #E6E9EE;
+      font-size: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      font-weight: lighter;
+      padding: 16px 14px;
+      width: 342px;
+      margin: 0 auto;
+      div:nth-child(2) {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (max-width:468px) {
+  app-card {
+    .box__content {
+      padding: 20px !important;
+    }
+  }
+}

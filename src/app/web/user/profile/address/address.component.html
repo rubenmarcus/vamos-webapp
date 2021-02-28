@@ -1,0 +1,87 @@
+<app-profile-tab></app-profile-tab>
+
+<form [formGroup]="addressForm" *ngIf="personData" autocomplete="off" novalidate>
+  <fieldset>
+    <h2>Endereço</h2>
+    <h3>Preencha os dados abaixo para ter acesso a conteúdos exclusivos no app clicCA.</h3>
+    <div class="flex flex_wrap profile__data" formGroupName="user">
+      <div class="row">
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form--text" [ngClass]="{ 'error' : isFieldValid('zip', 'address_attributes')}">
+            <label>CEP*</label>
+            <input type="tel" placeholder="CEP" [textMask]="maskCEP" (focusout)="cepService.loadCep($event,addressForm.get('user').get('address_attributes'))"
+              formControlName="zip">
+            <div *ngIf="addressForm.get('user').get('address_attributes').get('zip').touched && addressForm.get('user').get('address_attributes').get('zip').hasError('required')">
+              <p class="help has-text-danger">CEP Obrigatório</p>
+            </div>
+            <div *ngIf="addressForm.get('user').get('address_attributes').get('zip').hasError('incorrect')" class="has-text-danger">
+              CEP Inexistente</div>
+            </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('line1') }">
+            <label>Endereço*</label>
+            <input type="text" placeholder="Endereço" formControlName="line1" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('line1')">
+              <p class="help has-text-danger">{{ messageError.addressLine1 }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group">
+            <label>Complemento</label>
+            <input type="text" placeholder="Complemento" formControlName="complement" autocomplete="new-password1" />
+          </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('number') }">
+            <label>Número*</label>
+            <input type="number" placeholder="Número" formControlName="number" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('number')">
+              <p class="help has-text-danger">{{ messageError.addressNumber }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('district') }">
+            <label>Bairro*</label>
+            <input type="text" placeholder="Bairro" formControlName="district" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('district')">
+              <p class="help has-text-danger">{{ messageError.addressDistrict }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('city') }">
+            <label>Cidade*</label>
+            <input type="text" placeholder="Cidade" formControlName="city" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('city')">
+              <p class="help has-text-danger">{{ messageError.addressCity }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" formGroupName="address_attributes">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('state') }">
+            <label>Estado*</label>
+            <select name="estados-brasil" formControlName="state">
+              <option *ngFor="let state of states" [value]="state.id">
+                {{ state.name }}
+              </option>
+            </select>
+            <div *ngIf="isFieldValid('state')">
+              <p class="help has-text-danger">{{ messageError.addressState }}</p>
+            </div>
+            <i></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons__group">
+      <div class="row">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-full btn-blue btn-lg"  (click)="submitForm()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

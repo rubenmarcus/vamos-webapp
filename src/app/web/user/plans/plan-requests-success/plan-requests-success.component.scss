@@ -1,0 +1,40 @@
+@import 'media-queries';
+
+.box__plan--plan-requests {
+  text-align: center;
+  background: #FFFFFF;
+  box-shadow: 0 0 31px 0 rgba(0, 0, 0, 0.18);
+  text-align: center;
+  border-radius: 9px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  &-content {
+    min-height: 400px;
+    width: 100%;
+    p {
+      color: #C6CCD6;
+      font-size: 1.4rem;
+      strong {
+        color: #485166;
+        font-size: 2.5rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@mixin responsive {
+  .box__plan--payment {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include tablet {
+  @include responsive;
+}
+
+@include mobile {
+  @include responsive;
+}

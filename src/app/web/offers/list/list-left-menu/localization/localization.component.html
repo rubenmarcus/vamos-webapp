@@ -1,0 +1,17 @@
+<div [formGroup]="typeFilter">
+  <div class="form-group">
+    <label> Estado </label>
+    <select name="state" id="state" formControlName="state">
+      <option value="">Todos</option>
+      <option *ngFor="let state of states" [value]="state.uf">
+        {{state.name}}
+      </option>
+    </select>
+    <i></i>
+  </div>
+
+  <div class="form-group">
+    <label>Cidade</label>
+    <input type="text" name="city" id="city" formControlName="city" placeholder="Cidade">
+  </div>
+</div>

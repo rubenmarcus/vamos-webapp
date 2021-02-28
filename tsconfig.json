@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "./src",
+    "paths": {
+      "@clicca-root/*": ["./"],
+      "@clicca-webapp/*": ["app/*"],
+      "@clicca-webapp/shared/*": ["app/shared/*"],
+      "@clicca-webapp/errors/*": ["app/errors/*"],
+      "@clicca-webapp/guards/*": ["app/guards/*"],
+      "@clicca-webapp/helpers/*": ["app/helpers/*"],
+      // "@clicca-webapp/validators/*": ["app/validators/*"],
+      "@clicca-webapp/services/*": ["app/shared/services/*"],
+      "@clicca-webapp/models/*": ["app/models/*"],
+      "@clicca-webapp/views/*": ["app/web/*"],
+      "@clicca-webapp/assets/*": ["assets/*"],
+      "@clicca-webapp/environment/*": ["environment/*"],
+      "@clicca-webapp/webview/*": ["app/webview/*"]
+    },
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
+}

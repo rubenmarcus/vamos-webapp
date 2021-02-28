@@ -1,0 +1,32 @@
+<owl-carousel *ngIf="plans.length > 0" [options]="{nav: false, lazyLoad:true, items: 1, margin: 0, slideBy : 0, startPosition: 0, dots: false}" [items]="plans" [carouselClasses]="['owl-theme', 'slider-home']">
+    <app-webview-plans-free-card *ngIf="freePlanPlaceholder" [expiration]="planExpiration"></app-webview-plans-free-card>
+  <app-webview-plans-home-card *ngFor="let plan of plans; let i = index" (refreshList)="getPlans()" [plan]="plan"></app-webview-plans-home-card>
+</owl-carousel>
+
+<div class="webview-dialog" id="webview_plan_alert_success" *ngIf="dialogPlan">
+  <div class="webview-dialog-content">
+    <h3 id="webview_plan_alert_success_title">Excluir Plano</h3>
+    <p id="webview_plan_alert_success_message">
+      Tem certeza que deseja excluir<br>
+      permanentemente seu plano?
+    </p>
+    <a id="webview_plan_alert_success_button_confirm" class="btn big blue height-50" (click)="deletePlan()">Excluir</a>
+    <a id="webview_plan_alert_success_button_no" href="javascript: history.go(-1)" class="cancel">Não</a>
+  </div>
+</div>
+
+<div class="webview-dialog" id="webview_plan_alert_success" *ngIf="dialogPlanDelete">
+  <div class="webview-dialog-content">
+    <h3 id="webview_plan_alert_success_title">Sucesso</h3>
+    <p id="webview_plan_alert_success_message">{{ dialogPlanDelete }}</p>
+    <a id="webview_plan_alert_success_button" class="btn big blue" href="javascript: history.go(-1)">ok</a>
+  </div>
+</div>
+
+<div class="webview-dialog" id="webview_plan_alert_error" *ngIf="dialogError">
+  <div class="webview-dialog-content">
+    <h3 id="webview_plan_alert_error_title">Ocorreu um erro</h3>
+    <p id="webview_plan_alert_error_message">{{ dialogError }}</p>
+    <a id="webview_plan_alert_error_button" class="btn big blue" href="javascript: history.go(-1)">ok, tentar novamente</a>
+  </div>
+</div>

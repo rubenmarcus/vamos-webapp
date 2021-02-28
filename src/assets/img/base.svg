@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="66px" viewBox="0 0 56 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>base</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Cartão" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="24.0.0_Cartão" transform="translate(-509.000000, -523.000000)" stroke="#5286C7">
+            <g id="Box" transform="translate(269.000000, 297.000000)">
+                <g id="beneficios" transform="translate(72.000000, 226.000000)">
+                    <g id="base">
+                        <g transform="translate(134.000000, 0.000000)">
+                            <path d="M38.7474481,11.2700092 C36.150941,12.5196752 34.5,15.1464527 34.5,18.0280345 L34.5,47.9535707 C34.5,50.844071 36.1610634,53.4773205 38.7697205,54.7222703 L58.8134547,64.2880469 C60.6181671,65.0986064 61.9583857,65.5 62.8017578,65.5 C63.5549925,65.5 64.7556873,65.1156377 66.3617407,64.3418229 L85.372791,54.769953 C87.903393,53.4958207 89.5,50.9043858 89.5,48.0711262 L89.5,17.9050604 C89.5,15.083467 87.916381,12.5006339 85.4017053,11.22087 L66.828399,1.76782039 C64.9236263,0.920052931 63.5076438,0.5 62.6123047,0.5 C61.7565928,0.5 60.3886407,0.911796408 58.5533366,1.73768616 L38.7474481,11.2700092 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

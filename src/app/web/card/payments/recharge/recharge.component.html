@@ -1,0 +1,66 @@
+<app-box-content title="Recarga" *ngIf="loaded" >
+  <div *ngIf="!openBoleto">
+  <ol class="breadcrumb m-46">
+    <li>
+      <a routerLink="/cartao">Cartão Acesso Saúde </a>
+    </li>
+    <li>
+      <span>Recarga </span>
+    </li>
+  </ol>
+
+  <div class="card__main card__recharge-main text-center"  [formGroup]="paymentForm" >
+    <img  rel=”preload” src="/assets/img/card-recharge.jpg" />
+
+    <h1>Fique Tranquilo!</h1>
+    <h3>Essa transação é 100% segura.</h3>
+
+    <div class="select" formGroupName="recharge" [ngClass]="{ 'error' : isFieldValid('card_id') }">
+      <label>Nome do titular/dependente </label>
+
+      <select formControlName="card_id">
+        <option value="">Selecione o beneficiado</option>
+        <option value="{{ownId}}" >{{owner.first_name}} {{owner.last_name}}</option>
+        <option *ngFor="let dependent of dependents" value="{{dependent.id}}" >{{dependent.card_user.first_name}} {{dependent.card_user.last_name}}</option>
+      </select>
+
+      <i></i>
+      <div *ngIf="isFieldValid('card_id')">
+          <p class="help has-text-danger">Campo Obrigatório</p>
+        </div>
+    </div>
+    <div formGroupName="recharge">
+    <div class="form--text" formGroupName="order_attributes" [ngClass]="{ 'error' : isFieldValid('amount','order_attributes') }">
+      <label for="">Valor da recarga</label>
+      <span class="amount-value">Valor tem que ser entre R$1,00 e R$1000,00.</span>
+
+      <input type="text" [(ngModel)]="rechargevalue"  currencyMask [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'  }"  min="1" max="1000"  class=" text-green fs-14 "
+       formControlName="amount" />
+       <div *ngIf="isFieldValid('amount','order_attributes')">
+          <p class="help has-text-danger">Valor Incorreto</p>
+        </div>
+    </div>
+  </div>
+    <div class="buttons__group">
+      <button class="btn btn-stroke btn-blue btn-sm"  (click)="submitForm(type='cc')">Cartão de Crédito</button>
+      <button class="btn btn-stroke btn-blue btn-sm"  (click)="submitForm(type='boleto')">Boleto</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="card__main card__recharge-main" *ngIf="openBoleto">
+  <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(boleto_url)" frameborder="0" width="90%" height="450" style="border:0px;margin:0 auto"> </iframe>
+<div class="col-3">
+  <button class="btn btn-stroke btn-gray btn-lg" (click)="noOpenCard()">
+    Voltar
+  </button>
+</div>
+
+</div>
+
+</app-box-content>
+
+<div class="card__main card__recharge-main" *ngIf="openCard">
+    <card-payment-cc (goRecharge)="noOpenCard()" [RechargeDetails]="PaymentDetails"></card-payment-cc>
+</div>

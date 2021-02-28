@@ -1,0 +1,17 @@
+<div class="search-box network-search">
+  <img  rel=”preload” src="/assets/img/hero-search-box.png" alt="">
+  <div class="col-12 hero">
+    <div class="search-box__header">
+      <h2>Lista de Redes Credenciadas</h2>
+    </div>
+  </div>
+</div>
+
+
+<div class="network-search-input">
+  <form class="search" [formGroup]="searchForm">
+    <input type="text" name="query" formControlName="query" placeholder="Pesquisar" (keyup)="typing($event)" autocomplete="off">
+    <button type="submit" class="btn-search" (click)="submitForm()" [disabled]="!searchForm.valid"></button>
+  </form>
+
+</div>

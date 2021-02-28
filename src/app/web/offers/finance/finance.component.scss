@@ -1,0 +1,121 @@
+@import "mixins";
+@import "media-queries";
+
+.finance {
+  .box__content {
+    width: 90%;
+    margin-bottom: 60px;
+  }
+  &-result {
+    &-value {
+      .col-md-10 {
+        border-bottom: 1px solid #E6E9EE;
+        padding-top: 15px;
+        padding-bottom: 13px;
+        font-weight: 300;
+        color: #909BAF;
+      }
+    }
+    &-installment {
+      .row {
+        border-bottom: 1px solid #E6E9EE;
+        padding-top: 15px;
+        padding-bottom: 13px;
+        // margin-left: 15px;
+        font-weight: 300;
+        color: #909BAF;
+      }
+    }
+    &-partial {
+      .col-md-10 {
+        padding-top: 15px;
+        padding-bottom: 13px;
+        font-weight: 300;
+        color: #909BAF;
+      }
+      .green {
+        background: #7ED321;
+        border: 1px solid #7ED321;
+        border-radius: 5px;
+        text-align: right;
+        margin-top: 23px;
+        margin-bottom: 30px;
+        color: #fff !important;
+        font-weight: 300;
+        .text-right {
+          font-size: 2rem;
+        }
+        .col-12 {
+          padding-bottom: 9px !important;
+          padding-top: 7px !important;
+        }
+        .first {
+          border-bottom: 1px solid #E6E9EE;
+        }
+      }
+    }
+  }
+}
+.finance__result {
+  font-size: 1.6rem;
+}
+
+.min-first {
+  input {
+    margin-top: 28px;
+  }
+  input::placeholder {
+    color: #7ED321;
+  }
+}
+
+.finance__simulation {
+  p {
+    font-size: 1.5rem;
+    font-weight: normal;
+    padding-top: 22px;
+    &.green {
+      color: #7ED321;
+    }
+    &.error {
+      color: red;
+    }
+  }
+}
+
+@include mobile{
+  .finance {
+    &-result {
+      &-value {
+        font-size: 1.4rem;
+      }
+      &-installment {
+        .col-6 {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .box__content {
+      padding: 20px;
+      .btn {
+        width: 100%;
+      }
+      .min-first {
+        margin-top: 0;
+        p {
+          margin-top: 0;
+          padding-top: 0;
+        }
+      }
+      .buttons__group {
+        width: 100%;
+        flex-direction: column;
+        // padding-right: 15px;
+        // padding-left: 15px;
+      }
+      .breadcrumb {
+        padding-left: 10px;
+      }
+    }
+  }
+}

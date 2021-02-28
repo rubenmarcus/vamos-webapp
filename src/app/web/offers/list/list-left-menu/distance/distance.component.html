@@ -1,0 +1,11 @@
+<div class="col-12 col-md-offset-1" [formGroup]="typeFilter">
+  <div class="slider">
+    <div class="slider-text flex">
+      <!-- <div>{{ mileage_start | number }} Km</div> -->
+      <!-- <div class="align-right">{{ mileage_end | number }} Km</div> -->
+      <div class="align-right">Até {{ mileage | number }} Km</div>
+    </div>
+    <!-- <nouislider class="slider-range" [connect]="true" [min]="0" [max]="1000000" [step]="5000" [formControl]="typeFilter.controls.mileage" (ngModelChange)="onChange($event)"></nouislider> -->
+    <nouislider class="slider-range" [connect]="true" [min]="0" [max]="1000000" [step]="5000" [formControl]="typeFilter.controls.mileage" (ngModelChange)="onChange($event)"></nouislider>
+  </div>
+</div>

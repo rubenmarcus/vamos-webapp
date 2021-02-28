@@ -1,0 +1,15 @@
+<div class="gallery" [ngClass]="{ 'empty' : imgs.length === 0 }">
+  <img  rel=”preload” src="/assets/img/placeholders/truck.jpg" *ngIf="imgs.length === 0" />
+  <div class="gallery__thumbs" *ngIf="imgs.length > 0">
+    <!-- <div class="gallery__thumbs-scroll" [ngStyle]="{ 'transform': 'translate(' + xPos + 'px, ' + yPos + 'px)' }"> -->
+    <div class="gallery__thumbs-scroll" [style.left.px]="xPos" [style.top.px]="yPos">
+      <img  rel=”preload” *ngFor="let img of imgs; let i = index" [src]="img.thumb_url" (click)="SelectMenu(menu, i)" [ngClass]="{'active' : clickedItem == i}" />
+    </div>
+    <button class="gallery__thumbs_prev" (click)="prev()" *ngIf="imgs.length > 4">prev</button>
+    <button class="gallery__thumbs_next" (click)="next()" *ngIf="imgs.length > 4">next</button>
+  </div>
+
+  <div class="gallery__photo" *ngIf="imgs.length > 0">
+    <img  rel=”preload”  *ngFor="let img of imgs; let i = index" [src]="img.image_url" [ngClass]="{'active' : clickedItem == i}" />
+  </div>
+</div>

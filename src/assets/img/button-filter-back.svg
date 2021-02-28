@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="20px" viewBox="0 0 11 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Layout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="7.1.1_Servicos_frete" transform="translate(-19.000000, -33.000000)" fill="#1F222A">
+            <g id="back" transform="translate(19.000000, 33.000000)">
+                <g id="Shape">
+                    <path d="M1.35219719,9.99947608 L10.2702843,0.967150417 C10.4896154,0.745009692 10.4896154,0.388746267 10.2702843,0.166605543 C10.0509531,-0.055535181 9.69919561,-0.055535181 9.47986447,0.166605543 L0.164498358,9.60129931 C-0.0548327859,9.82344004 -0.0548327859,10.1797035 0.164498358,10.4018442 L9.47986447,19.8323466 C9.58746088,19.9413213 9.7323022,20 9.8730052,20 C10.0137082,20 10.1585495,19.9455127 10.2661459,19.8323466 C10.4854771,19.6102059 10.4854771,19.2539425 10.2661459,19.0318017 L1.35219719,9.99947608 Z" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

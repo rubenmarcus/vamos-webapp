@@ -1,0 +1,222 @@
+<div [formGroup]="advertiseForm">
+  <div class="flex">
+    <div class="col-md-6" formGroupName="offer">
+      <div class="checkbox box checkbox-trade">
+        <input type="checkbox" value="true" name="trade" id="trade" formControlName="trade" autocomplete="off">
+        <label for="trade">
+          Negociação
+          <span>Aceito trocas</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.condition') }">
+      <div class="form-group">
+        <label for="condition"> Condição do Implemento </label>
+        <select name="condition" id="condition" formControlName="condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let condition of condition" [value]="condition.id">
+            {{ condition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.year') }">
+      <div class="form-group">
+        <label for="year"> Ano* </label>
+        <input type="tel" name="year" id="year" formControlName="year" autocomplete="off" [textMask]="yearMask">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.year')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.harvest') }">
+      <div class="form-group">
+        <label for="harvest"> Tipo de colheita* </label>
+        <select name="harvest" id="harvest" formControlName="harvest">
+          <option value="">Selecione</option>
+          <option *ngFor="let harvest of harvest" [value]="harvest.id">
+            {{ harvest.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.harvest')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.usage_hours') }">
+      <div class="form-group">
+        <label class="usage_hours"> Horas de uso* (4000 h) </label>
+        <input type="tel" name="usage_hours" id="usage_hours" formControlName="usage_hours" maxlength="9" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.usage_hours')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.wheel') }">
+      <div class="form-group">
+        <label class="wheel"> Nº de rodas </label>
+        <input type="tel" name="wheel" id="wheel" formControlName="wheel" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.wheel')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.wheel_type') }">
+      <div class="form-group">
+        <label for="wheel_type"> Tipo de rodado* </label>
+        <select name="wheel_type" id="wheel_type" formControlName="wheel_type">
+          <option value="">Selecione</option>
+          <option *ngFor="let wheelType of wheelTypes" [value]="wheelType.id">
+            {{ wheelType.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.wheel_type')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.tyre_condition') }">
+      <div class="form-group">
+        <label for="tyre_condition"> Condição dos Pneus* </label>
+        <select name="tyre_condition" id="tyre_condition" formControlName="tyre_condition">
+          <option value="">Selecione</option>
+          <option *ngFor="let tyreCondition of tyreConditions" [value]="tyreCondition.id">
+            {{ tyreCondition.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.tyre_condition')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.cabin') }">
+      <div class="form-group">
+        <label for="cabin"> Cabine* </label>
+        <select name="cabin" id="cabin" formControlName="cabin">
+          <option value="">Selecione</option>
+          <option *ngFor="let cabin of cabins" [value]="cabin.id">
+            {{ cabin.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.cabin')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.rated_power') }">
+      <div class="form-group">
+        <label class="rated_power"> Potência nominal* (200 cv) </label>
+        <input type="tel" name="rated_power" id="rated_power" formControlName="rated_power" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.rated_power')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.harvest_speed') }">
+      <div class="form-group">
+        <label class="harvest_speed"> Velocidade de colheita* (1200 m/h) </label>
+        <input type="tel" name="harvest_speed" id="harvest_speed" formControlName="harvest_speed" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.harvest_speed')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.bulk_tank') }">
+      <div class="form-group">
+        <label class="bulk_tank"> Tanque graneleiro* (5500 L) </label>
+        <input type="tel" name="bulk_tank" id="bulk_tank" formControlName="bulk_tank" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.bulk_tank')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.transmission') }">
+      <div class="form-group">
+        <label for="transmission"> Transmissão* </label>
+        <select name="transmission" id="transmission" formControlName="transmission">
+          <option value="">Selecione</option>
+          <option *ngFor="let transmission of transmissions" [value]="transmission.id">
+            {{ transmission.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.transmission')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.pipe') }">
+      <div class="form-group">
+        <label class="pipe"> Tubo* (4m) </label>
+        <input type="tel" name="pipe" id="pipe" formControlName="pipe" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.pipe')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.flow_rate') }">
+      <div class="form-group">
+        <label class="flow_rate"> Vazão* (65 L/s) </label>
+        <input type="tel" name="flow_rate" id="flow_rate" formControlName="flow_rate" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.flow_rate')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.cutting_platform') }">
+      <div class="form-group">
+        <label class="cutting_platform"> Plataforma de corte* (15 pés) </label>
+        <input type="tel" name="cutting_platform" id="cutting_platform" formControlName="cutting_platform" autocomplete="off" currencyMask [options]="options">
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.cutting_platform')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.precision_agriculture') }">
+      <div class="form-group">
+        <label for="precision_agriculture"> Agricultura de precisão* </label>
+        <select name="precision_agriculture" id="precision_agriculture" formControlName="precision_agriculture">
+          <option value="">Selecione</option>
+          <option *ngFor="let precisionAgriculture of precisionAgriculture" [value]="precisionAgriculture.id">
+            {{ precisionAgriculture.name }}
+          </option>
+        </select>
+        <i></i>
+        <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.precision_agriculture')">
+          <p class="help has-text-danger">{{ message.createVehicle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" formGroupName="offer">
+      <div class="form-group textarea">
+        <label class="axes"> Observação </label>
+        <textarea name="description" id="description" formControlName="description" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+</div>

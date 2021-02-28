@@ -1,0 +1,31 @@
+.advert-companies {
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  .company {
+    border-top: 1px solid #E6E9EE;
+    border-bottom: 1px solid #E6E9EE;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+    &-image {
+      margin-right: 20px;
+      img {
+        width: 70px;
+        // height: 70px;
+        border-radius: 50%;
+      }
+    }
+    &-content {
+      p { margin: 0; }
+      &-name {
+        font-size: 18px;
+        color: #1F222A;
+      }
+      &-address {
+        font-size: 14px;
+        color: #909BAF;
+      }
+    }
+  }
+}

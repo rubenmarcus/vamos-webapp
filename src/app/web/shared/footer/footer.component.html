@@ -1,0 +1,50 @@
+
+  <div class="footer__download hide-mobile" animateOnScroll animationName="opacity-show" >
+
+    <img src="/assets/img/footer.gif" />
+</div>
+<div class="footer__download hide-desktop" style="visibility:visible">
+    <div class="col-md-4 no__padding footer__download--hands">
+      <img src="/assets/img/footer-hand.jpg" />
+    </div>
+    <div class="col-md-5 col-12 footer__download--app ">
+      <span>Baixe nosso aplicativo e</span>
+      <span class="green">navegue sem gastar a sua internet</span>
+    </div>
+    <div class="col-md-3 col-12 footer__download--stores">
+      <img src="/assets/img/btn-android.jpg" />
+      <img src="/assets/img/btn-ios.jpg" />
+    </div>
+  </div>
+<footer>
+  <nav class="col-8">
+    <div class="col-2"></div> 
+    <ul class="col-md-3">
+      <li> Institucional</li>
+      <li> <a routerLink="/sobre">Sobre a clicCA</a> </li>
+      <!-- <li> <a href="">Publicidade</a> </li> -->
+      <li> <a routerLink="/politica-de-privacidade">Política de Privacidade</a> </li>
+      <li> <a routerLink="/termos-de-uso">Termos de Uso</a> </li>
+    </ul>
+    <ul class="col-md-3">
+      <li> Mapa do Site</li>
+      <li> <a routerLink="/classificados">Classificados</a> </li>
+      <li> <a routerLink="/classificados/anuncios">Anunciar</a> </li>
+      <li> <a routerLink="/fretes">Fretes</a> </li>
+    </ul>
+
+    <ul class="col-md-3">
+      <li> Atendimento </li>
+      <li> <a routerLink="/fale-conosco">Fale Conosco</a> </li>
+    </ul>
+    <ul class="col-md-3 footer__social">
+      <li>Nossas Redes Sociais</li>
+      <li> <a href="https://facebook.com/clicCAOficial"><img  rel=”preload” src="/assets/img/icon-facebook.svg" />Facebook</a></li>
+      <li> <a href="https://instagram.com/cliccaoficial"><img  rel=”preload” src="/assets/img/icon-instagram.svg" />Instagram</a></li>
+      <li> <a href="https://www.linkedin.com/company/cliccaoficial/"> <app-icon-linkedin></app-icon-linkedin>Linkedin</a></li>
+    </ul>
+  </nav>
+
+ <div *ngIf="loaded"> Version : {{versionOut.version}} <span *ngIf="build">{{versionOut.build}}</span> </div>
+</footer>
+<app-flexcontact></app-flexcontact>

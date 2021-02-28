@@ -1,0 +1,38 @@
+<section class="add-vehicle">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/classificados">Classificados </a>
+    </li>
+    <li>
+      <a> Anunciar </a>
+    </li>
+    <li>
+      <a> Categoria </a>
+    </li>
+    <li>
+      <a routerLink="/classificados/anuncios/sobre/{{ advertiser_id }}/{{ offer_id }}"> Veículo </a>
+    </li>
+    <li>
+      <a> Fotos </a>
+    </li>
+  </ol>
+  <div class="advert-main">
+    <h3 *ngIf="counter.length > 1">As fotos fazem toda a diferença</h3>
+    <h3 *ngIf="counter.length === 1">A foto faz toda a diferença</h3>
+    <h4>Quanto mais fotos de boa qualidade, maiores
+        suas chances de venda<!--, incluir no mínimo 3 fotos-->.</h4>
+    <ul class="photos">
+      <li class="active" *ngFor="let item of counter; let i = index">
+        <label *ngIf="!images[i]?.id" id="offer-upload-photo-{{ i }}">
+          <!-- <p>Foto principal</p> -->
+          <img  rel=”preload” src="/assets/img/photo-upload.svg" class="upload" *ngIf="!images[i]?.preloader" />
+          <img  rel=”preload” src="/assets/img/spinner/spinner-1s-70px.gif" *ngIf="images[i]?.preloader" />
+          <input type="file" (change)="fileChange($event, i)">
+        </label>
+        <img  rel=”preload” src="{{ images[i]?.thumb_url || '/assets/img/photo-truck-small.jpg' }}" *ngIf="images[i]?.id" />
+        <img  rel=”preload” src="/assets/img/close.svg" class="close" (click)="buttonDelete(i, images[i])" *ngIf="images[i]?.id" />
+      </li>
+    </ul>
+    <a routerLink="/classificados/anuncios/opcionais/{{ advertiser_id }}/{{ offer_id }}" id="button-save-offer" class="btn btn-full btn-blue btn-md">Próximo</a>
+  </div>
+</section>

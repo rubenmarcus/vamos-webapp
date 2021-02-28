@@ -1,0 +1,26 @@
+.profile__data--company{
+  .profile-picture {
+    position:relative;
+    img {
+      width:70px;
+      height:70px;
+      border-radius:100%;
+    }
+    input[type="file"] { display:none; }
+    .photo-add {
+      background:url('/assets/img/adicionar.png');
+      display: block;
+      cursor:pointer;
+      position:absolute;
+      width:20px;
+      height:20px;
+      top: 44px;
+      left: 72px;
+    }
+  }
+  .checkbox.box {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 36px;
+  }
+}

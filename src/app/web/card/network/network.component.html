@@ -1,0 +1,93 @@
+<main id="network">
+  <section class="network-container">
+    <div class="network__top">
+      <div class="network__banner full">
+        <img  rel=”preload” src="assets/img/banner-has-interest.jpg" />
+      </div>
+    </div>
+    <div class="container-fluid">
+      <ol class="breadcrumb d-flex">
+        <li><a routerLink="/cartao">Cartão </a></li>
+        <li><a routerLink="/cartao/rede-credenciada"> Rede Credenciada</a></li>
+      </ol>
+    </div>
+
+    <div class="map-container">
+      <!-- (idle)="idle()"
+      (centerChange)="centerChange($event)" -->
+      <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        [gestureHandling]="'coopeative'"
+        [usePanning]="true"
+        [streetViewControl]="false"
+        [mapDraggable]="mapDrag"
+        >
+        <div *ngIf="markers.length > 0">
+          <div *ngIf="!drugstore">
+          <agm-marker
+            *ngFor="let m of markers; let i = index"
+            (markerClick)="clickedMarker(m.label, i)"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [iconUrl]="m.iconUrl"
+            [id]="m.id" 
+           
+       
+          >
+  
+          </agm-marker>
+        </div>
+
+   
+        <div *ngIf="drugstore">
+
+          <div style="z-index:1">
+          <agm-circle   [radius]="15000"  
+          [zIndex]="1"
+           [strokeOpacity]="1"
+          [strokePosition]="0" 
+          [strokeWeight]="2"
+          [strokeColor]="'#0f4876'" 
+          [fillColor]="'#0f4876'"
+          [fillOpacity]="'0.5'" 
+          [latitude]="latCircle"
+          [longitude]="longCircle"	 >
+        </agm-circle>
+      </div>
+      
+      </div>
+       
+    
+        
+        </div>
+<div class="location-info" *ngIf="addressClicked">
+            <h1>{{addDetail.name}}</h1> 
+            <span>
+             {{addDetail.address}}
+             {{addDetail.number}}
+             {{addDetail.neighborhood}}
+             {{addDetail.city}}
+             {{addDetail.state}}
+            </span>
+            <span>
+             {{addDetail.postal_code}}
+             {{addDetail.telephone}}
+            </span>
+        </div>
+        <agm-direction
+          *ngIf="dir"
+          [origin]="dir.origin"
+          [destination]="dir.destination"
+          [visible]="dir.visible"
+        ></agm-direction>
+      </agm-map>
+      <div class="search-box-container">
+        <card-network-search-box (clinicID)="getClinicId($event)" (renew)="removeAddressBox()"  [specialites]="userspecialties" (points)="reciverPoints($event)" (search)="reciverSearch($event)" (listType)="getType($event)" (setMap)="setMap($event)"></card-network-search-box>
+        <card-network-list (center)="centerMap()" [token]="authToken" (address)="receiveAddress($event)" (traceRoute)="reciverRoute($event)" (points)="reciverPoints($event)" (position)="reciverPosition($event)" [type]="listType" [coords]="geolocationPosition" [search]="search" *ngIf="search"></card-network-list>
+      </div>
+    </div>
+    <div id="myPanel"></div>
+  </section>
+</main>

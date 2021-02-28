@@ -1,0 +1,19 @@
+// @import "helpers";
+chat-box-user {
+  position: relative;
+  >div {
+    border-bottom: 1px solid #E6E9EE;
+    height: 60px;
+  }
+  // h1 {
+  //   @extend %chat-h1;
+  // }
+  // span {
+  //   @extend %chat-span;
+  // }
+  .time {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}

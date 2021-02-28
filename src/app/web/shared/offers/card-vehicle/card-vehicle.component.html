@@ -1,0 +1,37 @@
+<div class="card-vehicle-item">
+  <a routerLink="/classificados/detalhes/{{ offer.id }}">
+    <img  rel=”preload” [src]="offer.images[0].thumb_url" *ngIf="offer.images.length > 0" />
+    <img  rel=”preload” src="/assets/img/placeholders/truck.jpg" *ngIf="offer.images.length == 0" />
+  </a>
+  <div class="card-vehicle-item-bottom">
+    <ul class="no__padding no__margin flex flex_wrap">
+      <li class="col-md-12 card-vehicle-item-title">
+        <span>{{ offer.title | truncate : 29 }}</span>
+      </li>
+      <li class="col-md-6 col-6  card-vehicle-item-first">
+        <span>Ano:</span>
+        <span>{{ offer.isVehicular() || offer.isBoth() ? offer.vehicle?.year : offer.implement?.year }}</span>
+      </li>
+      <li class="col-md-6 col-6 card-vehicle-item-sec" *ngIf="offer.isVehicular() || offer.isBoth()">
+        <span>Km:</span>
+        <span>{{ offer.vehicle?.mileage | number }} {{ offer.vehicle?.usage_hours | number }}</span>
+      </li>
+      <li class="col-md-6 col-6 card-vehicle-item-sec" *ngIf="offer.isImplemental()">
+        <span>h:</span>
+        <span>{{ offer.implement?.usage_hours | number }}</span>
+      </li>
+      <li  class="col-md-12 col-12 card-vehicle-item-third" *ngIf="offer.isImplemental()">
+        <span>Local:</span>
+        <span>{{ offer.implement?.city && offer.implement?.state ? offer.implement?.city + '/' + offer.implement?.state : 'Não informado' }}</span>
+      </li>
+      <li  class="col-md-12 col-12 card-vehicle-item-third" *ngIf="offer.isVehicular() || offer.isBoth()">
+        <span>Local:</span>
+        <span>{{ offer.vehicle?.city && offer.vehicle?.state ? offer.vehicle?.city + '/' + offer.vehicle?.state : 'Não informado' }}</span>
+      </li>
+      <li class="col-md-12 col-12 card-vehicle-item-last">
+        <span>Valor:</span>
+        <span class="text-green">R$ {{ offer.value | number: '1.2-2' }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

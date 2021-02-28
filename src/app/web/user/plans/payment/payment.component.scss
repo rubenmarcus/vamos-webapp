@@ -1,0 +1,103 @@
+@import 'media-queries';
+
+.box__plan--payment {
+  text-align: center;
+  background: #FFFFFF;
+  box-shadow: 0 0 31px 0 rgba(0, 0, 0, 0.18);
+  text-align: center;
+  border-radius: 9px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  app-plan-card {
+    width: 300px;
+  }
+  &-form {
+    position: relative;
+    width: 45%;
+    width: calc(100% - 300px);
+    text-align: left;
+    // padding-left: 20px;
+    // padding-top: 17px;
+    padding: 17px 20px 0;
+    border-left: 1px solid #E4E4E4;
+    &-content {
+      flex: 1;
+      &-term {
+        font-size: 1.4rem;
+        color: #909BAF;
+        letter-spacing: -0.29px;
+        margin-top: 0;
+        word-wrap: break-word
+      }
+    }
+    h2 {
+      color: #000;
+      font-weight: 300 !important;
+      font-size: 2.5rem !important;
+      margin-bottom: 20px;
+      margin-top: 0px !important;
+      padding: 0 !important;
+    }
+    h3 {
+      font-size: 1.8rem;
+      color: #5487C5;
+      letter-spacing: 0;
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+    p{
+      font-size: 1.4rem;
+      color: #909BAF;
+      letter-spacing: -0.29px;
+      margin-top: 0;
+    }
+
+    .form-group, .select {
+      margin-bottom: 0;
+      height: inherit;
+      padding-bottom: 13px;
+      select { height: 40px; }
+    }
+    .btn-group {
+      margin: auto 0 25px;
+      .checkbox { width: 100%; }
+      .btn {
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+  }
+  &-success {
+    min-height: 400px;
+    width: 100%;
+    p {
+      color: #C6CCD6;
+      font-size: 1.4rem;
+      strong {
+        color: #485166;
+        font-size: 2.5rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@media (max-width:1250px) {
+  .box__plan--payment {
+    width: 100%;
+    height: auto;
+    app-plan-card {
+      width: 100%;
+      .box__plan-card {
+        min-height: auto;
+      }
+    }
+    &-form {
+      width: 95%;
+      margin: auto;
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+}

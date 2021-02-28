@@ -1,0 +1,16 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [gestureHandling]="'coopeative'" [usePanning]="true" [streetViewControl]="false">
+  <agm-direction [origin]="dir.origin" [destination]="dir.destination" *ngIf="dir"></agm-direction>
+</agm-map>
+<div class="route-info d-flex justify-content-between align-items-end">
+  <div class="pt-2 pr-2 pb-0 pl-0 col-4 from">
+    <span>Origem</span>
+    <p>{{ freight.load_city }} - {{ freight.load_state }}</p>
+    <img  rel=”preload” src="assets/img/icon-placeholder.png" alt="">
+  </div>
+
+  <div class="pt-2 pr-2 pb-0 pl-0 col-4 to text-right">
+    <span>Destino</span>
+    <p>{{freight.unload_city}} - {{ freight.unload_state }}</p>
+    <img  rel=”preload” src="assets/img/icon-placeholder.png" alt="">
+  </div>
+</div>

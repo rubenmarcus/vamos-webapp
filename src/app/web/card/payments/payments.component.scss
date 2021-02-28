@@ -1,0 +1,64 @@
+app-card-recharge {
+  .card__main {
+    text-align: center;
+    padding: 30px 0px;
+  }
+  .select,
+  .form--text {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .form--text {
+    margin-top: 17px;
+  }
+  h3 {
+    color: #909BB0 !important;
+  }
+  h2 {
+    color: #000 !important;
+    margin-bottom: 20px !important;
+  }
+  hr {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #E6E9EE;
+    border: 0px solid #E6E9EE;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    left: 0px;
+  }
+  .breadcrumb {
+    margin-top: -6px !important;
+  }
+  .card__recharge-main {
+    margin-top: 72px;
+  }
+  button {
+    margin-top: 30px;
+  }
+  .recharge-pay {
+    position: absolute;
+    width: 100%;
+    margin-left: -40px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  .mt-108{
+    margin-top: 108px !important;
+  }
+
+
+
+  .pay-after {
+    padding-top: 20px;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

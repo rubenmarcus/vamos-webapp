@@ -1,0 +1,317 @@
+@import "mixins";
+@import "media-queries";
+.imgin{
+  animation-name: slide;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+footer{
+.green{
+  animation-name: greenline;
+  animation-delay: 3s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+}
+
+.opacity-show{
+ visibility: visible!important;
+}
+
+.bt-opacity{
+    animation-name: btopacity;
+    animation-delay: 6s;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+
+
+.bt-opacity-sec{
+  animation-name: btopacity;
+  animation-delay: 6.3s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 3;
+}
+
+.top-line{
+
+  top: 13px;
+}
+.back-line{
+
+  bottom:13px;
+}
+
+footer {
+  background-image: linear-gradient(276deg, #0f4876, #2062b1);
+  box-shadow: 0 2px 8px 0 rgba(116, 173, 242, 0.5);
+  @include size(100%, auto);
+  padding: 30px;
+  nav {
+    display: flex;
+    padding: 9px 0 0 104px;
+    li {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #fff;
+      padding-bottom: 12px;
+      a {
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  app-icon-linkedin svg {
+    color: #fff;
+    fill: currentColor;
+    width: 17.5px;
+    position: relative;
+    top: 4px;
+    left: 2px;
+    margin-right: 13px;
+}
+}
+
+.footer__download--hands {
+  position: relative;
+
+}
+
+.footer-hand {
+  position: absolute;
+  left: -333px;
+
+}
+
+.footer__social{
+  img{
+    position: relative;
+    margin-top: 8px;
+    top: 5px;
+    margin-right: 9px;
+  }
+}
+.footer__download{
+  width: 100%;
+  color: #909BAF;
+  display: -webkit-box;
+  visibility:hidden;
+  display: -ms-flexbox;
+  padding-top:0px;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 300;
+  height: 102px;
+  border-top: 1px solid #C6CCD6;
+
+
+  img{
+    overflow: hidden;
+  }
+  &--app {
+    padding-top: 21px;
+  }
+  &--stores {
+    padding-top: 19px;
+  }
+  .green {
+    color:#7ED321;
+
+  }
+}
+
+.line-green{
+ //width:1px;
+ background: #7ED321;
+ height:1px;
+ margin-left: 211px;
+position:absolute
+}
+
+@include tablet-end {
+  .footer__download span {
+    padding: 15px 0 0 36px;
+    font-size: 1.4rem;
+  }
+}
+
+@include tablet-mid {
+  footer nav { padding: 0px; }
+  .footer__social {
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  footer nav ul:nth-child(1), footer nav ul:nth-child(2), footer nav ul:nth-child(3) {
+    display: none;
+  }
+  .footer__download span {
+    padding: 15px 0 0 36px;
+    font-size: 1.4rem;
+  }
+  .footer__download--hands {
+    display: none;
+  }
+  .footer__download{
+    flex-wrap: wrap;
+    height:142px;
+  }
+  .footer__download--app, .footer__download--stores {
+    padding-top: 26px;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%!important;
+    text-align: center;
+  }
+}
+
+@include tablet-init{
+  footer nav { padding: 0px; }
+  .footer__social {
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  footer nav ul:nth-child(1), footer nav ul:nth-child(2), footer nav ul:nth-child(3)   {
+    display: none;
+  }
+  .footer__download span {
+    padding: 15px 0 0 36px;
+    font-size: 1.4rem;
+  }
+  .footer__download--hands {
+    display: none;
+  }
+  .footer__download{
+    flex-wrap: wrap;
+    height:142px;
+  }
+  .footer__download--app, .footer__download--stores {
+    padding-top: 26px;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%!important;
+    text-align: center;
+  }
+}
+
+@include min1024 {
+  .hide-desktop{display:none!important;}
+}
+
+  @media (max-width: 1023px) {
+    .hide-desktop{display:block!important;}
+    .hide-mobile{display:none!important;}
+  }
+
+
+@include mobile {
+  footer nav ul:nth-child(1), footer nav ul:nth-child(2), footer nav ul:nth-child(3)   {
+    display: none;
+  }
+  .footer__download .green {
+    display: block;
+    margin: 0 auto;
+    margin-top: 16px;
+    width: 85%;
+  }
+  .footer__download span {
+    padding: 15px 0 0 36px;
+    font-size: 1.4rem;
+  }
+  .footer__download--hands {
+    display: none;
+  }
+  .footer__download{
+    flex-wrap: wrap;
+    height:142px;
+  }
+  .footer__download--app, .footer__download--stores {
+    padding-top: 26px;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%!important;
+    text-align: center;
+  }
+  footer nav { padding: 0px;}
+  .footer__social {
+    -webkit-box-flex: 1;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  .footer__download  {
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 17px;
+    height: 220px;
+    button {
+      margin-bottom: 9px;
+      top: 0px;
+    }
+    span{
+      padding: 0px;
+      font-size: 1.6rem;
+    }
+  }
+  footer nav{
+    flex-wrap: wrap;
+    padding: 0;
+  }
+}
+
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes greenline {
+  0%{
+    width:1px;
+  }
+  100% { width: 300px; }
+}
+@-webkit-keyframes greenline {
+  0%{
+    width:1px;
+  }
+  100% { width: 300px; }
+}
+
+
+@keyframes show {
+  0%{
+display:none;
+  }
+  100%{
+   display:block;
+   }
+}
+@-webkit-keyframes  show {
+  0%{
+    display:none;
+      }
+      100%{
+       display:block;
+       }
+}

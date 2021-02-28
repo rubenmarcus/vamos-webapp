@@ -1,0 +1,124 @@
+<section class="finance">
+  <form class="finance__simulation" [formGroup]="financeForm">
+    <fieldset>
+      <img  rel=”preload” src="/assets/img/banner-simulation.jpg" class="full" />
+      <app-box-content class="finance-main-content" title="Simular financiamento" description="Preencha os dados abaixo para simular o valor das parcelas.">
+        <div class="finance__step1" *ngIf="!result">
+          <ol class="breadcrumb">
+            <li>
+              <a routerLink="/classificados">Classificados </a>
+            </li>
+            <li>
+              <a routerLink="/classificados/simular-financiamento"> Simular </a>
+            </li>
+          </ol>
+
+          <h3>Valor do veículo</h3>
+          <div class="row finance__simulation">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('vehicle_value') }">
+                <label>Valor do veículo</label>
+                <input type="tel" placeholder="Valor do veículo" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', align: 'left'  }" formControlName="vehicle_value">
+                <div *ngIf="isFieldValid('vehicle_value')">
+                  <p class="help has-text-danger">{{ messageError.vehicleValue }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('parcels') }">
+                <label>Parcelas</label>
+                <select name="parcels" formControlName="parcels">
+                  <option value=""> Selecione</option>
+                  <option *ngFor="let parcel of parcels;" value="{{this.parcel}}"> {{this.parcel}}x</option>
+                </select>
+                <i></i>
+                <div *ngIf="isFieldValid('parcels')">
+                  <p class="help has-text-danger">{{ messageError.parcel }}</p>
+                </div>
+              </div>
+              <!-- <p *ngIf="parcel_error" class="error"> Selecione o número de parcelas </p> -->
+            </div>
+          </div>
+          <h3>Valor da entrada <small>(mínimo de 20%)</small></h3>
+          <div class="row  finance__simulation">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('entry') || financeForm.hasError('validateFinance') && financeForm.controls.entry.touched }">
+                <label>Desejo incluir meu veículo como entrada</label>
+                <input type="tel" placeholder="R$ 0" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', align: 'left'  }" formControlName="entry">
+
+                <div *ngIf="isFieldValid('entry') || financeForm.hasError('validateFinance') && financeForm.controls.entry.touched">
+                  <p class="help has-text-danger">Valor de entrada menor que 20% ou maior que o veículo</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-md-6 min-first">
+              <div class="form-group">
+                <p *ngIf="!isFieldValid('entry')" class="green">Valor mínimo para entrada: 20% </p>
+                <p *ngIf="isFieldValid('entry')" class="error"> Valor de entrada menor que 20% ou maior que o veículo </p>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="buttons__group">
+            <button class="btn btn-full btn-blue btn-md" (click)="showResult();" [disabled]='!financeForm.valid'>Calcular</button>
+          </div>
+        </div>
+
+        <div class="finance__result" *ngIf="result">
+          <ol class="breadcrumb">
+            <li>
+              <a routerLink="/classificados">Classificados </a>
+            </li>
+            <li>
+              <a routerLink="/classificados/simular-financiamento"> Simular </a>
+            </li>
+            <li>
+              <a href="#"> Resultado </a>
+            </li>
+          </ol>
+          <div class="finance-result-value">
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-6">Valor do veículo</div>
+                <div class="col-6 text-right">R$ {{ this.value_vehicle | number: '1.2-2'}} </div>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-6">Valor da entrada</div>
+                <div class="col-6 text-right">R$ {{ this.value_entry | number: '1.2-2'}} </div>
+              </div>
+            </div>
+          </div>
+          <div class="finance-result-partial">
+            <div class="col-md-10 green">
+              <div class="col-12 no__margin no__padding row first">
+                <div class="col-6 text-left no__padding">Valor total a ser financiado</div>
+                <div class="col-6 text-right no__padding">R$ {{ this.value_finance | number: '1.2-2'}}</div>
+              </div>
+              <div class="col-12 no__margin no__padding row">
+                <div class="col-6 text-left no__padding">{{ this.value_parcel }} parcelas de </div>
+                <div class="col-6 text-right no__padding">R$ {{ parcelsCalc(this.financeForm.value.parcels) | number: '1.2-2'}}</div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Outras formas de parcelamento</h3>
+          <div class="finance-result-installment">
+            <div class="col-md-10" *ngFor="let parcel of parcels;">
+              <div class="row" *ngIf="value_parcel != parcel">
+                <div class="col-6">{{this.parcel}} parcelas de </div>
+                <div class="col-6 text-right">R$ {{ parcelsCalc(parcel) | number: '1.2-2'}}</div>
+              </div>
+            </div>
+            <div class="flex buttons__group">
+              <button class="btn btn-stroke btn-gray btn-md" (click)="goStepOne();">Voltar</button>
+              <button class="btn btn-full btn-blue btn-md" (click)="goAnalysis();">Pré-análise de Crédito</button>
+            </div>
+          </div>
+        </div>
+      </app-box-content>
+    </fieldset>
+  </form>
+</section>

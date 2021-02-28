@@ -1,0 +1,28 @@
+<div class="flex">
+  <div class="col-md-8 block--title">
+    <h1>Redes credenciadas</h1>
+  </div>
+  <div class="col-md-4 no__padding  text-right flex-right">
+    <a routerLink="/network" class="btn btn-stroke btn-gray btn-xs">Ver Mais</a>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="row__tablet">
+    <div class="row">
+      <div class="block-network  no__padding" *ngFor="let item of establ | slice:0:4">
+        <div class="block-network--top flex flex_wrap" (click)="redirect(item)">
+          <i></i>
+          <h1>
+            {{item.company_name}}
+          </h1>
+        </div>
+        <p> {{item.category}} </p>
+        <div class="block-network--address">
+          <span>Endereço</span>
+          <span>{{ item.address ? item.address?.line1 : 'Não informado' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

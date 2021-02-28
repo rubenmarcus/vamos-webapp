@@ -1,0 +1,110 @@
+<div class="flex" [formGroup]="advertiseForm">
+  <div class="col-md-12" *ngIf="offerSelected.type === 'tractorsAndImplements'">
+    <h3>Fale mais sobre a carroceria</h3>
+  </div>
+
+  <div class="col-md-6" *ngIf="offerSelected.type != 'tractorsAndImplements' && offerSelected.type != 'truckBody'" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.type') }">
+    <div class="form-group" formGroupName="implement">
+      <label> Tipo do Implemento*</label>
+      <select name="type" id="type" formControlName="type" (change)="onChangeType($event);">
+        <option value="">Selecione</option>
+        <option *ngFor="let implementsType of implementsTypes" [value]="implementsType.id">
+          {{ implementsType.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.type')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="(offerSelected.type == 'tractorsAndImplements' || offerSelected.type == 'truckBody') && firstAccess" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.body_type_id') }">
+    <div class="form-group" formGroupName="implement">
+      <label> Tipo de Carroceria* </label>
+      <select name="body_type_id" id="body_type_id" formControlName="body_type_id">
+        <option value="">Selecione</option>
+        <option *ngFor="let bodyTipe of bodyTipes" [value]="bodyTipe.id">
+          {{ bodyTipe.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.body_type_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="offerSelected.type == 'truckBody'">
+    <div class="form-group">
+      <label>Carroceria</label>
+      <input type="text" value="Carroceria" disabled>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="offer" *ngIf="offerSelected.type != 'tractorsAndImplements'" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'offer.value') }">
+    <div class="form-group">
+      <label>Valor*</label>
+      <input type="tel" formControlName="value" currencyMask [options]="priceMask">
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'offer.value')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.brand_id') }">
+    <div class="form-group">
+      <label> Marca* </label>
+      <select name="brand_id" id="brand_id" formControlName="brand_id" (change)="changeBrand($event);">
+        <option value="">Selecione</option>
+        <option *ngFor="let brand of brands" [value]="brand.id">
+          {{ brand.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.brand_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" formGroupName="implement" [ngClass]="{ 'error' : validateForm.isFieldValid(advertiseForm, 'implement.model_id') }">
+    <div class="form-group">
+      <label> Modelo* </label>
+      <select name="model_id" id="model_id" formControlName="model_id">
+        <option value="">Selecione</option>
+        <option *ngFor="let model of models" [value]="model.id">
+          {{ model.name }}
+        </option>
+      </select>
+      <i></i>
+      <div *ngIf="validateForm.isFieldValid(advertiseForm, 'implement.model_id')">
+        <p class="help has-text-danger">{{ message.createVehicle }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex" *ngIf="!firstAccess">
+    <app-advertise-implemental-baler [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'baler'"></app-advertise-implemental-baler>
+    <app-advertise-implemental-distributor [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'distributor'"></app-advertise-implemental-distributor>
+    <app-advertise-implemental-driller [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'driller'"></app-advertise-implemental-driller>
+    <app-advertise-implemental-forage [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'forage'"></app-advertise-implemental-forage>
+    <app-advertise-implemental-forage-harvester [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'forageHarvester'"></app-advertise-implemental-forage-harvester>
+    <app-advertise-implemental-forage-wagon [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'forageWagon'"></app-advertise-implemental-forage-wagon>
+    <app-advertise-implemental-grader-grade [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'graderGrade'"></app-advertise-implemental-grader-grade>
+    <app-advertise-implemental-grain-extractor [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'grainExtractor'"></app-advertise-implemental-grain-extractor>
+    <app-advertise-implemental-grain-stuffer [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'grainStuffer'"></app-advertise-implemental-grain-stuffer>
+    <app-advertise-implemental-harvester [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'harvester'"></app-advertise-implemental-harvester>
+    <app-advertise-implemental-mixer-wagon [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'mixerWagon'"></app-advertise-implemental-mixer-wagon>
+    <app-advertise-implemental-planer [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'planer'"></app-advertise-implemental-planer>
+    <app-advertise-implemental-plow [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'plow'"></app-advertise-implemental-plow>
+    <app-advertise-implemental-rake [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'rake'"></app-advertise-implemental-rake>
+    <app-advertise-implemental-seed-drill [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'seedDrill'"></app-advertise-implemental-seed-drill>
+    <app-advertise-implemental-sprayer [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'sprayer'"></app-advertise-implemental-sprayer>
+    <app-advertise-implemental-trimmer [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'trimmer'"></app-advertise-implemental-trimmer>
+    <app-advertise-implemental-truck-body [advertiseForm]="advertiseForm" [offerSelected]="offerSelected" *ngIf="offerSelected.type === 'tractorsAndImplements' || offerSelected.type === 'truckBody'"></app-advertise-implemental-truck-body>
+    <app-advertise-implemental-water-pump [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'waterPump'"></app-advertise-implemental-water-pump>
+    <app-advertise-implemental-winch [advertiseForm]="advertiseForm" *ngIf="offerSelected.type === 'winch'"></app-advertise-implemental-winch>
+  </div>
+</div>
+

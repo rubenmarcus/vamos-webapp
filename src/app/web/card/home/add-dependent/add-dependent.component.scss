@@ -1,0 +1,61 @@
+app-add-dependent {
+
+   select[disabled],input:disabled {
+    background: #f7f7f7;
+}
+
+
+  .card__main {
+    h1 {
+      font-size: 1.8rem;
+      padding: 20px 0px;
+    }
+
+    >h1 {
+      margin-top: -30px;
+    }
+
+    .select label {
+      padding: 0px !important;
+      padding-bottom: 13px !important;
+    }
+  }
+  .col-sm-6 .select {
+    padding-top: 7px;
+}
+  .col-6,
+  .col-5 {
+    max-width: 300px;
+  }
+
+  .col-10 {
+    div:nth-child(1) {
+      padding-left: 0px !important;
+    }
+  }
+
+  .card__main .col-sm-6 {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 468px) {
+  app-add-dependent {
+    .box__content .breadcrumb {
+      padding-left: 21px !important;
+    }
+
+    .breadcrumb li {
+      margin-right: 0px !important
+    }
+
+    .breadcrumb li a::after {
+      position: relative;
+      left: -7px;
+    }
+
+    .kinship {
+      padding-left: 16px !important;
+    }
+  }
+}

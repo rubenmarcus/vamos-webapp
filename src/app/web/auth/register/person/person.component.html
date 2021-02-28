@@ -1,0 +1,141 @@
+<div class="register__person" *ngIf="hidePerson">
+  <form id="registerPF" [formGroup]="personForm" class="row" novalidate>
+    <div class="col-md-12">
+      <h2>Meus Dados</h2>
+    </div>
+
+    <div class="col-md-6" formGroupName="person">
+      <div class="form-group" [ngClass]="{ 'error' : isFieldValid('person', 'first_name') }">
+        <label>Nome*</label>
+        <input type="text" formControlName="first_name" minlength="3" autocomplete="new-password">
+        <div *ngIf="isFieldValid('person', 'first_name')">
+          <p class="help has-text-danger">{{messageError.first_name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="person">
+      <div class="form-group" [ngClass]="{ 'error' : isFieldValid('person', 'last_name') }">
+        <label>Sobrenome*</label>
+        <input type="text" formControlName="last_name" autocomplete="new-password">
+        <div *ngIf="isFieldValid('person', 'last_name')">
+          <p class="help has-text-danger">{{messageError.last_name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="person">
+      <div class="form-group" [ngClass]="{ 'error' : isFieldValid('person', 'cpf') }">
+        <label>CPF*</label>
+        <input type="tel" [textMask]="cpfMask" formControlName="cpf" autocomplete="new-password">
+        <div *ngIf="isFieldValid('person', 'cpf')">
+          <p class="help has-text-danger">{{messageError.cpf}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="user">
+      <div class="form-group" [ngClass]="{ 'error' : isFieldValid('user', 'phone') }">
+        <label>Celular*</label>
+        <input type="tel" [textMask]="cellMask" formControlName="phone" autocomplete="new-password">
+        <div *ngIf="isFieldValid('user', 'phone')">
+          <p class="help has-text-danger">{{messageError.cel}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="user">
+      <div class="form-group" [ngClass]="{ 'error' : isFieldValid('user', 'second_phone') }">
+        <label>Telefone</label>
+        <input type="tel" [textMask]="maskPhone" formControlName="second_phone" autocomplete="new-password" (keypress)="changeMask($event);">
+        <div *ngIf="isFieldValid('user', 'second_phone')">
+          <p class="help has-text-danger">{{messageError.phone}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" formGroupName="user">
+      <div class="form-group" [ngClass]="{ 'error' : personForm.controls.user.controls.email.hasError('error') }">
+        <label>E-mail</label>
+        <input type="email" formControlName="email" autocomplete="new-password">
+        <div *ngIf="personForm.controls.user.controls.email.hasError('error')">
+          <p class="help has-text-danger">{{messageError.email}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <h2>Sua Senha</h2>
+    </div>
+    <div class="col-md-6" formGroupName="user">
+      <div class="form-group pos__relative" [ngClass]="{ 'error' : isFieldValid('user', 'password') }">
+        <label>Digite sua senha*</label>
+        <input type="password" formControlName="password" id="PasFir"  (keyup)="checkPasswordPattern()" autocomplete="new-password">
+       
+        <div *ngIf="isFieldValid('user', 'password')">
+          <p class="help has-text-danger">{{messageError.password}}</p>
+        </div>
+        <div class="show-password pos__absolute">
+
+        <i (click)="showPassword('PasFir')">
+            <icon-eye></icon-eye>
+          </i>
+        </div>
+  </div>  
+</div>
+  <div class="col-md-6" formGroupName="user">
+      <div class="form-group pos__relative" [ngClass]="{ 'error' : isFieldValid('user', 'confirmPassword') }">
+        <label>Repetir senha*</label>
+        <input type="password" formControlName="confirmPassword" (keyup)="MatchPassword()"  id="PasSec" autocomplete="new-password">
+     
+        <div class="show-password pos__absolute">
+
+        <i (click)="showPassword('PasSec')">
+            <icon-eye></icon-eye>
+          </i>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-md-8   forgot-validation">
+      <span>Sua senha precisa conter:</span>
+      <ul>
+          <li  class={{pasLim}}>
+              Minimo 6 caracteres
+          </li>
+
+          <li class="{{pasUpp}}">
+              Letra Maíuscula
+
+          </li>
+          <li class="{{pasLow}}">
+              Minúscula
+
+          </li>
+
+          <li class="{{pasNum}}">
+              Número
+          </li>
+
+
+          <li class="{{pasChar}}">
+              Caractere Especial
+          </li>
+          <li  class={{pasEqu}}>
+              Senhas Iguais
+          </li>
+      </ul>
+
+
+      </div>
+
+    <div class="flex register__buttons">
+      <div class="col-md-6">
+        <a routerLink="/account/login" class="btn btn-stroke btn-gray btn-lg">Voltar</a>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" id="nextStep" class="btn btn-full btn-blue btn-md" [disabled]='!this.personForm.valid'  (click)="submit()">Próximo</button>
+      </div>
+    </div>
+  </form>
+</div>

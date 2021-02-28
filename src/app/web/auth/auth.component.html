@@ -1,0 +1,8 @@
+<div class="authApp">
+  <div *ngIf="router.url != '/account/login'"><app-header typeHeader="auth"></app-header></div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+</div>
+

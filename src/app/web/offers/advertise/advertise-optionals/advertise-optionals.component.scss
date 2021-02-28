@@ -1,0 +1,76 @@
+app-advertise-optionals {
+  button.btn {
+    margin-top: 40px;
+    display: inline-block;
+  }
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #909BAF;
+  letter-spacing: 0;
+}
+
+.advertise {
+  &-optionals {
+    width: 80%;
+    form {
+      width: 100%;
+    }
+    .flex {
+      flex-flow: row wrap;
+      -ms-flex-pack: center;
+    }
+    .checkbox.box {
+      &.checkbox-optionals {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 12px 0 20px 40px;
+        margin-left: -2px;
+        input { border-radius: 100px; }
+        label {
+          width: 90%;
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          direction: ltr;
+          &:before, &:after {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .radio.box{ width: 100%; }
+  }
+}
+
+@media (max-width:1023px) {
+  .add-vehicle .box__content .advertise-optionals .btn {
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  .advertise-optionals {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    .col-md-6 {
+      &:nth-child(even) {
+        padding-right: 0;
+      }
+      &:nth-child(odd) {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width:767px) {
+  .advertise-optionals {
+    .col-md-6, .col-md-12, .col-12 {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

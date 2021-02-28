@@ -1,0 +1,283 @@
+
+@function get-vh($object) {
+  $vw: (1024 * 0.01) * 1px;
+  @return ($object / $vw) * 1vh;
+}
+@function get-vw($object) {
+  $vw: (1024 * 0.01) * 1px;
+  @return ($object / $vw) * 1vw;
+}
+
+.webview {
+  .spinner{
+    transform: scale(0.5);
+}
+.btn-webview {
+  border-radius: 100px;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(46, 148, 252, 0.5);
+  box-shadow: 0 3px 10px 0 rgba(46, 148, 252, 0.5);
+  background-image: linear-gradient(280deg, #0f4876, #2062b1);
+  -webkit-transition: background 2000ms linear;
+  transition: background 2000ms linear;
+  height: 40px;
+  line-height: inherit;
+  font-size: 1.4rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  padding: 0.25rem 0.5rem;
+}
+  &-main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px;
+    overflow: auto;
+    &-content {
+      padding-bottom: 80px;
+      &.webview-bottom {
+        padding-bottom: 110px;
+      }
+      h1 {
+        font-size: 2.0rem;
+        font-weight: 400;
+        color: #1F222A;
+        margin: 0 0 15px;
+      }
+      p {
+        font-size: 1.4rem;
+        color: #9B9B9B;
+      }
+      &-term {
+        font-size: 1.4rem;
+        color: #9B9B9B;
+        p, a {
+          font-size: 1.4rem;
+          color: #9B9B9B;
+        }
+      }
+    }
+    .error{
+      input, textarea{
+        border: 0!important;
+        border-bottom: #ff7474 1px solid!important;
+      }
+      .has-text-danger{
+        position: absolute;
+        bottom: -15px;
+        font-size: 1rem;
+        margin: 0;
+        color: red;
+      }
+    }
+  }
+  &-form-group {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 20px;
+    label {
+      color: #909BAF;
+      font-size: 1.2rem;
+      padding: 0 16px;
+    }
+    input[type=text], input[type=number], input[type=tel], select {
+      color: #1F222A;
+      font-size: 1.5rem;
+      font-weight: 300;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid #C6CCD6;
+      padding: 0 16px;
+      height: 35px;
+      width: 100%;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      background-color: white;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          /* display: none; <- Crashes Chrome on hover */
+          -webkit-appearance: none;
+          margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+    }
+    i {
+      width: 17px;
+      height: 11px;
+      position: absolute;
+      right: 10px;
+      top: 30px;
+      background: transparent url('/assets/img/select_Arrow.png') no-repeat;
+    }
+    &-checkbox {
+      input {
+        visibility: hidden;
+        &:checked + label {
+          color: #7ED321;
+          border-color: #7ED321;
+          &:after {
+            border-color: #7ED321;
+            opacity: 1;
+          }
+        }
+      }
+      label {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 0 0 0 50px;
+        font-size: 1.4rem;
+        border: 1px solid #C6CCD6;
+        border-radius: 30px;
+        span {
+          margin: 3px 0;
+        }
+        &:before, &:after {
+          content: "";
+          position: absolute;
+          left: 16px;
+          top: 50%;
+          width: 20px;
+          height: 20px;
+          margin-top: -10px;
+          background: transparent;
+          border: solid 1px #E6E9EE;
+          border-radius: 50%;
+        }
+        &:after {
+          opacity: 0;
+          background: url('/assets/img/check.svg');
+          -webkit-transition: opacity 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+          transition: opacity 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+          transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+          transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+        }
+      }
+
+      z-index: 2;
+      width: 100%;
+      margin: 0 0 0;
+      // label { font-size: 1.2rem!important; }
+      input[type="radio"]:checked ~ label {
+        color: #7ED321;
+      }
+    }
+  }
+  &-form-button {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0 16px 16px;
+    background-color: white;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -21px;
+      z-index: 1;
+      width: 100%;
+      height: 80px;
+      -webkit-filter: blur(6px);
+      filter: blur(20px);
+      background: white;
+    }
+    .btn {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .checkbox {
+      z-index: 2;
+      width: 100%;
+      margin: 0 0 10px;
+      background-color: white!important;
+      input[type="radio"]:checked, input[type="checkbox"]:checked {
+        background-color: transparent;
+      }
+    }
+  }
+  &-spinner {
+    background-color: rgba(255,255,255, .8);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;;
+    font-size: 13px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.webview-dialog {
+  background-color: rgba(255,255,255,.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // opacity: 0;
+  // visibility: hidden;
+  // &.show {
+  //   opacity: 1;
+  //   visibility: visible;
+  // }
+  &-content {
+    width: 90%;
+    padding: get-vh(40px) get-vw(90px);
+    background-color: white;
+    box-shadow: 0 0 31px 0 rgba(0, 0, 0, 0.18);
+    text-align: center;
+    border-radius: 10px;
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #485166;
+      margin: 0;
+    }
+    p {
+      font-size: 1.4rem;
+      color: #909BAF;
+      margin: get-vh(20px) 0;
+    }
+    .btn { width: 100%; }
+    .cancel {
+      display: block;
+      margin: get-vh(40px) 0 0 0;
+      color: #485166;
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+  }
+}

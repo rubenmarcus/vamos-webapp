@@ -1,0 +1,48 @@
+
+<div class="item__head flex">
+  <div class="col-8 item__head-gallery no__margin no__padding">
+    <img-gallery [imgs]="offer.images"></img-gallery>
+  </div>
+
+  <div class="col-4 item__head-details">
+    <div class="col-12">
+      <div class="row first item__head-details-favorite">
+        <div class="col-3"> <img  rel=”preload” src="/assets/img/icon-eye-views.svg" /> {{ offer.viewers }} </div>
+        <div class="col-4 item-total-fav">
+          <img  rel=”preload” src="/assets/img/icon_favorito_off.png" /> {{ offer.favorites }}
+        </div>
+        <div class="col-4 item-my-fav align-right" (click)="buttonFavorite();" [ngClass]="{ 'active' : offer.favorited, 'nofavoritedetail': this.isLogged() }"> {{ offer.created_at | date:'shortDate' }} <img  rel=”preload” src="{{ offer.favorited ? '/assets/img/icon_favorito_on.png' : '/assets/img/icon_favorito_off.png' }}" /> </div>
+      </div>
+      <div class="row">
+        <div class="col-12 item__head-details-title">
+          <h1> {{ offer.title | truncate : 30 }} </h1>
+        </div>
+
+        <div class="col-12 price-code flex">
+          <p class="text-green"> R$ {{ offer.value | number : '1.2-2' }}</p>
+          <p class="code"> código: 45677CD</p>
+        </div>
+        <div class="col-12 item__buttons">
+          <button (click)="simulator()" class="btn btn-stroke btn-gray btn-lg" [disabled]="isLogged()">Simular Financiamento</button>
+        </div>
+
+        <div class="item__tags">
+          <app-tag-small name="Aceito troca" *ngIf="offer.trade"></app-tag-small>
+          <app-tag-small name="Veículo Agregado" *ngIf="offer.aggregate"></app-tag-small>
+        </div>
+        <div class="col-12 item__has-interest">
+          <button routerLink="/classificados/tenho-interesse/{{ offer.id }}" class="btn btn-full btn-blue btn-lg" [disabled]="isLogged()">Tenho interesse</button>
+        </div>
+      </div>
+      <div class="item__share"> <a (click)="showSocial = !showSocial"> COMPARTILHAR</a>
+      <div class="share_buttons"  [ngClass]="showSocial ? 'show-div' : 'hide-div'">
+        <share-buttons [theme]="'default'"
+        [include]="['facebook','twitter','whatsapp','messenger','email','print']"
+        [show]="7"
+        [autoSetMeta]="false"
+       ></share-buttons>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

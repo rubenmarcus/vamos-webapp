@@ -1,0 +1,69 @@
+//bootstrap
+@import "bootstrap.scss";
+@import "~nouislider/distribute/nouislider.min.css";
+@import '~@ngx-share/button/styles/share-buttons';
+@import '~@ngx-share/button/styles/themes/default/default-theme';
+
+@import "owl.carousel/owl.carousel.scss";
+@import "owl.carousel/owl.theme.default.scss";
+
+@import "mixins";
+@import "backgrounds";
+@import "form";
+@import "variables";
+@import "carousel";
+@import "buttons";
+@import "helpers";
+@import "animations";
+@import "toastr";
+@import "tabs";
+@import "responsive";
+@import "empty-list";
+@import "alert";
+@import "spinner";
+@import "nouislider";
+
+*{outline:none;}
+html{
+  font-size: 10px;
+  font-family: $font;
+  // -webkit-overflow-scrolling: touch;
+  // touch-action:none;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+a,
+a[routerlink] {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.flex-right {
+  margin-left: auto;
+}
+
+.has-text-danger {
+  color: red;
+}
+
+.is-warning {
+  p{
+    color: red!important;
+    animation: fade .2s linear;
+  }
+}
+
+.offset-md-33 {
+  margin-left: 3.33333333%;
+}
+
+.wrapper {
+  min-height: calc(100vh - 362px);
+}

@@ -1,0 +1,49 @@
+app-offers-item-table {
+  .item__detail--fipe {
+    padding: 20px;
+  }
+  h1 {
+    padding: 0px !important;
+    font-size: 1.6rem !important;
+    line-height: 2.7rem;
+  }
+  h2 {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 1.2rem;
+    color: #1F222A;
+    letter-spacing: -0.34px;
+    font-weight: 400;
+    padding-bottom: 5px;
+  }
+  span {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: #485166;
+    letter-spacing: -0.34px;
+    margin-left: auto;
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #909BAF;
+    letter-spacing: -0.34px;
+    line-height: 0.2rem;
+  }
+  label {
+    font-size: 1.2rem;
+    color: #909BAF;
+    letter-spacing: -0.34px;
+    font-weight:300;
+    line-height: 2rem;
+  }
+  .item__detail--table {
+    border-bottom: 1px solid #E6E9EE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #E6E9EE;
+    div {
+      display: flex;
+    }
+  }
+}

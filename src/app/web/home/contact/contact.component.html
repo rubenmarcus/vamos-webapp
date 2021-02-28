@@ -1,0 +1,86 @@
+<section class="contact">
+  <img  rel=”preload” src="/assets/img/banner-contact-us.jpg" class="full" />
+  <app-box-content title="Fale Conosco">
+<div class="user__content--center" *ngIf="loaded">
+<form novalidate>
+  <fieldset>
+    <h2>Com o que podemos ajudar?</h2>
+    <div class="flex col-12 flex_wrap profile__data no__padding" [formGroup]="contactForm">
+      <div class="row col-12  no__padding">
+        <div class="col-6">
+          <div class="form-group"  [ngClass]="{ 'error' : isFieldValid( 'name') }">
+            <label>Nome*</label>
+            <input type="text" formControlName="cpf" formControlName="name"  placeholder="Nome" />
+          </div>
+          <div *ngIf="isFieldValid('name')">
+            <p class="help has-text-danger">{{messageError.first_name}}</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid( 'email') }">
+            <label>Email*</label>
+            <input type="text"  formControlName="email" placeholder="Email" />
+          </div>
+          <div *ngIf="isFieldValid( 'email')">
+            <p class="help has-text-danger">{{messageError.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row  col-12  no__padding">
+        <div class="col-6">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('second_phone') }">
+            <label>Telefone*</label>
+            <input type="text" formControlName="second_phone" [textMask]="maskPhone"   placeholder="Telefone" />
+          </div>
+          <div *ngIf="isFieldValid('second_phone')">
+            <p class="help has-text-danger">{{messageError.phone}}</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('phone') }">
+            <label>Celular*</label>
+            <input type="text" formControlName="phone" [textMask]="inputMask.cellMask" placeholder="Celular" />
+
+            <div *ngIf="isFieldValid('phone')">
+              <p class="help has-text-danger">Celular deve ser preenchido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row  col-12 no__padding">
+        <div class="col-6">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid( 'subject_id') }">
+            <label>Assunto</label>
+            <select name="subject" formControlName="subject_id">
+              <option value="">Escolha</option>
+              <option *ngFor="let subject of subjects" [value]="subject.id">{{ subject.description }}</option>
+            </select>
+            <div *ngIf="isFieldValid('subject_id')">
+              <p class="help has-text-danger">Selecione Assunto</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="formgroup form-ta" [ngClass]="{ 'error' : isFieldValid( 'body') }">
+            <label>Mensagem (máximo de 300 caracteres)</label>
+            <textarea formControlName="body" maxlength="300">Mensagem</textarea>
+            <div *ngIf="isFieldValid('body')">
+              <p class="help has-text-danger">Digite Mensagem</p>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    <div class="buttons__group">
+      <div class="row">
+        <div class="col-md-6">
+          <button type="submit"    (click)="submitForm()" class="btn btn-full btn-blue btn-md">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</div>
+</app-box-content>
+</section>

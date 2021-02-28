@@ -1,0 +1,39 @@
+<div class="webview-main">
+  <div [formGroup]="planRequestsForm" autocomplete="off">
+    <h1>Plano Exclusivo</h1>
+    <div class="webview-form-group" formGroupName="request" [ngClass]="{ 'error' : isFieldValid('offers') }">
+      <label for="quantidade">Quantidade de veículos</label>
+      <input type="tel" id="quantidade" placeholder="Quantidade de veículos" autocomplete="nope" autocorrect="off" formControlName="offers" maxlength="9" currencyMask [options]="inputMask.number">
+      <div *ngIf="isFieldValid('offers')">
+        <p class="help has-text-danger">{{ error.requestOffers }}</p>
+      </div>
+    </div>
+    <div class="webview-form-group" formGroupName="request" [ngClass]="{ 'error' : isFieldValid('observation') }">
+      <label for="observacoes">Observações</label>
+      <input type="text" id="observacoes" placeholder="Observações" autocomplete="nope" autocorrect="off" formControlName="observation">
+      <div *ngIf="isFieldValid('observation')">
+        <p class="help has-text-danger">{{ error.requestObservation }}</p>
+      </div>
+    </div>
+
+    <div class="webview-form-button">
+      <button class="btn btn-full btn-blue btn-lg" (click)="planRequests()" [disabled]="!planRequestsForm.valid">Solicitar proposta</button>
+    </div>
+  </div>
+</div>
+
+<div class="webview-dialog" *ngIf="dialogSuccess">
+  <div class="webview-dialog-content">
+    <h3>Proposta enviada</h3>
+    <p>Em breve retornaremos</p>
+    <a class="btn btn-full btn-blue btn-lg" routerLink="/webview/plan" queryParamsHandling="merge">ok</a>
+  </div>
+</div>
+
+<div class="webview-dialog" *ngIf="dialogError">
+  <div class="webview-dialog-content">
+    <h3>Ocorreu um erro</h3>
+    <p>{{ dialogError }}</p>
+    <a class="btn btn-full btn-blue btn-lg" (click)="dialogClose()">ok, tentar novamente</a>
+  </div>
+</div>

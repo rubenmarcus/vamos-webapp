@@ -1,0 +1,65 @@
+<div class="btn-mobile-filter show__mobile show__tablet-init show__tablet-mid">
+  <img  rel=”preload” src="/assets/img/button-filter.svg" (click)="showFilters()">
+</div>
+
+<form [formGroup]="filterForm" [ngClass]="{ 'active' : openFilter }">
+  <div class="offers__filter-header">
+    <div class="btn-mobile-filter-back show__mobile show__tablet-init show__tablet-mid">
+      <img  rel=”preload” src="/assets/img/button-filter-back.svg" (click)="showFilters()">
+    </div>
+    <h3>Filtrar {{ titlePage }}</h3>
+    <div class="btn-mobile-filter show__mobile show__tablet-init show__tablet-mid">
+      <img  rel=”preload” src="/assets/img/button-filter-close.svg" (click)="reset()">
+    </div>
+  </div>
+  <!-- menos maquina -->
+  <!-- não exibir quando for carroceria -->
+  <app-box-collapse Title="{{type == 'agros' ? 'Selecione a Máquina' : 'Selecione o Veículo'}}" *ngIf="type !== 'truck_bodies'">
+    <app-offers-left-menu-vehicle-select [type]="type" [typeFilter]="filterForm"></app-offers-left-menu-vehicle-select>
+  </app-box-collapse>
+
+  <!-- menos maquina -->
+  <app-box-collapse Title="Selecione a Carroceria" *ngIf="type == 'trucks' || type == 'tractors_and_implements' || type == 'truck_bodies'">
+    <app-menu-body-type [typeFilter]="filterForm" [type]="type"></app-menu-body-type>
+  </app-box-collapse>
+
+  <!-- todos -->
+  <app-box-collapse Title="Localização">
+    <app-offers-left-menu-localization [typeFilter]="filterForm"></app-offers-left-menu-localization>
+  </app-box-collapse>
+
+  <!-- todos -->
+  <app-box-collapse Title="Novo ou Usado">
+    <app-offers-left-menu-condition [typeFilter]="filterForm"></app-offers-left-menu-condition>
+  </app-box-collapse>
+
+  <!-- todos -->
+  <app-box-collapse Title="Ano de fabricação">
+    <app-menu-year [typeFilter]="filterForm"></app-menu-year>
+  </app-box-collapse>
+
+  <!-- só vai exibir para caminhao, cavalo, conjuto e onibus -->
+  <app-box-collapse Title="Quilometragem" *ngIf="type == 'trucks' || type == 'tractor_units' || type == 'tractors_and_implements' || type == 'buses'">
+    <app-distance [typeFilter]="filterForm"></app-distance>
+  </app-box-collapse>
+
+  <!-- todos -->
+  <app-box-collapse Title="Preço">
+    <app-offers-left-menu-price [typeFilter]="filterForm"></app-offers-left-menu-price>
+  </app-box-collapse>
+
+  <!-- todos -->
+  <app-box-collapse Title="Aceita Troca">
+    <app-menu-negotiation [typeFilter]="filterForm"></app-menu-negotiation>
+  </app-box-collapse>
+
+  <!-- exibir caminha/cavalo/conjuto/trator -->
+  <app-box-collapse Title="Cor" *ngIf="type == 'trucks' || type == 'tractor_units' || type == 'tractors_and_implements' || type == 'tractor_agriculturals'">
+    <app-menu-color [typeFilter]="filterForm"></app-menu-color>
+  </app-box-collapse>
+
+  <div class="offers__filter-button">
+    <button (click)="reset()" class="btn btn-stroke btn-gray btn-lg button-reset">Limpar Filtro</button>
+    <button (click)="clickEventHandler($event)" class="btn btn-full btn-blue btn-lg">Filtrar</button>
+  </div>
+</form>

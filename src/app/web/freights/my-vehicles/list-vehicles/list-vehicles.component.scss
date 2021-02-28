@@ -1,0 +1,22 @@
+.list-vehicles {
+  .list-group {
+    .list-group-item {
+      .item {
+        .vehicle-info {
+          font-size: 2em;
+          line-height: 1em;
+          p {
+            small {
+              display: block;
+              color: #909BAF;
+              font-size: 0.8em;
+            }
+          }
+        }
+        .actions {
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+}

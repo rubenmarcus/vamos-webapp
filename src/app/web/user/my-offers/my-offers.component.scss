@@ -1,0 +1,58 @@
+@import "media-queries";
+
+
+// @include mobile{
+//   .seven-cols .col-1 {
+//     width: 100%;
+//     flex: 0 0 100%;
+//     max-width: 100%;
+//   }
+
+//   .item__image img {
+//     width: 100%;
+//   }
+// }
+
+// .box__profile {
+//   &-main{
+//     .button-right { text-align: right; }
+//   }
+// }
+
+// .profile {
+//   &-my-offers{
+//     .item__category {
+//       margin-bottom: 30px;
+//       ul {
+//         margin-top: 0px;
+//         margin-left: 0px;
+//         padding-left: 0px !important;
+//         li {
+//           border: 1px solid #E6E9EE;
+//           border-left: 0px;
+//           font-size: 1.4rem;
+//           color: #909BAF;
+//           text-align: center;
+//           font-weight: 300;
+//           height: 66px;
+//           padding-top: 23px;
+//           &:first-child{ border-left: 1px solid #E6E9EE; }
+//           // cursor: pointer;
+//           &.active{
+//             a{ color: #5487C5; }
+//           }
+//           a{
+//             display: block;
+//             height: 66px;
+//             padding-top: 0;
+//             color: #909BAF;
+//             text-decoration: none;
+//             &:hover {
+//                 color: #5487C5;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

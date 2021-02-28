@@ -1,0 +1,12 @@
+<div *ngIf="user.isPerson()" routerLink="/perfil">
+  <div class="header-main-profile flex flex_wrap">
+    <img  rel=”preload” src="{{ user.picture_profile ?  user.picture_profile : '/assets/img/user-profile-pic.png' }}" />
+    <h1>{{ user.profile.first_name | truncate : 17 }} <img  rel=”preload” src="/assets/img/arrow-left.svg" /></h1>
+  </div>
+</div>
+<div *ngIf="!user.isPerson()" routerLink="/perfil">
+  <div class="header-main-profile flex flex_wrap">
+    <img  rel=”preload” src="{{ user.picture_profile ?  user.picture_profile : '/assets/img/foto-cnpj.png' }} " />
+    <h1>{{ user.profile.company_name | truncate : 17 }} <img  rel=”preload” src="/assets/img/arrow-left.svg" /> </h1>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="user__content--center">
+  <h1>Planos</h1>
+  <!-- <div class="box__profile-main"> -->
+    <ngb-tabset>
+      <ngb-tab>
+        <ng-template ngbTabTitle>Anúncios de veículos</ng-template>
+        <ng-template ngbTabContent>
+          <div class="box__plan--payment" *ngIf="loaded && boxPayment !== 4">
+            <app-plan-card [plan]="plan" [show]="true"></app-plan-card>
+
+            <form action="" class="box__plan--payment-form d-flex flex-column" [formGroup]="dataForm" autocomplete="off">
+              <fieldset>
+                <h2>Forma de Pagamento</h2>
+
+                <div class="box__plan--payment-form-content d-flex flex-column" *ngIf="boxPayment === 1">
+                  <div class="box__plan--payment-form-content-term" innerHTML="{{ term }}"></div>
+
+                  <div class="btn-group d-flex flex-column">
+                    <div class="checkbox box">
+                      <input type="checkbox" value="term" name="term" id="term" autocomplete="nope" autocorrect="off" formControlName="term">
+                      <label for="trade">Aceitar o termo</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a routerLink="/perfil/planos" class="btn big grey">Voltar</a>
+                      </div>
+                      <div class="col-md-6">
+                        <button class="btn btn-full btn-blue btn-lg" [disabled]="!dataForm.get('term').value" (click)="nextStep(2)">Salvar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="box__plan--payment-form-content d-flex flex-column" *ngIf="boxPayment === 2">
+                  <app-plan-payment-data (page)="reciverPage($event)" [dataForm]="dataForm"></app-plan-payment-data>
+                </div>
+
+                <div class="box__plan--payment-form-content d-flex flex-column" *ngIf="boxPayment === 3">
+                  <app-plan-payment-card (page)="reciverPage($event)" [dataForm]="dataForm"></app-plan-payment-card>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="box__plan--payment" *ngIf="boxPayment === 4">
+            <div class="box__plan--payment-success d-flex flex-column align-center">
+              <div>
+                <img  rel=”preload” src="/assets/img/placeholders/payment-method.png" alt="Pagamento realizado com sucesso">
+                <p>
+                  <strong>Pagamento realizado<br> com sucesso</strong>
+                </p>
+                <p>
+                  Seu pedido já foi processado e aprovado.<br> Agora é só utilizar o app!
+                </p>
+                <a routerLink="/perfil/planos" class="btn btn-full btn-blue btn-lg">OK</a>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  <!-- </div> -->
+</div>

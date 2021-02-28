@@ -1,0 +1,41 @@
+<main id="home" class="cli-home" [ngStyle]="{'min-height': contentHeight}">
+  <section id="banner">
+    <app-banners type="home_header"></app-banners>
+  </section>
+
+  <!-- <section id="offers">
+    <app-home-block-offers blockTitle="Classificados"></app-home-block-offers>
+  </section> -->
+
+  <!-- <section id="freights">
+    <app-home-block-freights></app-home-block-freights>
+  </section> -->
+
+  <div class="cli-home-content">
+    <div class="cli-home-content-title flex flex_wrap align-items-center">
+      <h1>Classificados</h1>
+      <a routerLink="/classificados" class="fl-right btn btn-stroke btn-gray btn-xs">Ver Mais</a>
+    </div>
+    <div class="row__tablet" *ngIf="offers.length > 0">
+      <div class="cli-home-content-overflow row no__margin">
+        <app-card-vehicle *ngFor="let offer of offers; let idx = index" [offer]="offer"></app-card-vehicle>
+      </div>
+    </div>
+  </div>
+
+  <div class="cli-home-content">
+    <div class="cli-home-content-title flex flex_wrap align-items-center">
+      <h1>Fretes</h1>
+      <a routerLink="/fretes" class="fl-right btn btn-stroke btn-gray btn-xs">Ver Mais</a>
+    </div>
+    <div class="row__tablet" *ngIf="freights.length > 0">
+      <div class="cli-home-content-overflow row no__margin">
+        <app-card-freight *ngFor="let item of freights; let idx = index" [freight]="item"></app-card-freight>
+      </div>
+    </div>
+  </div>
+
+  <section id="ads" class="cli-home-ads">
+    <app-home-block-ads></app-home-block-ads>
+  </section>
+</main>

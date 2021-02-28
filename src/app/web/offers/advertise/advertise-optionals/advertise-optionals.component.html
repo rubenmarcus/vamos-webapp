@@ -1,0 +1,39 @@
+<section class="add-vehicle">
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/classificados">Classificados </a>
+    </li>
+    <li>
+      <a> Anunciar </a>
+    </li>
+    <li>
+      <a> Categoria </a>
+    </li>
+    <li>
+      <a routerLink="/classificados/anuncios/sobre/{{ advertiser_id }}/{{ offer_id }}"> Veículo </a>
+    </li>
+    <li>
+      <a routerLink="/classificados/anuncios/fotos/{{ advertiser_id }}/{{ offer_id }}"> Fotos </a>
+    </li>
+    <li>
+      <a> Opcionais </a>
+    </li>
+  </ol>
+  <div class="advert-main">
+    <h3>Tem opcionais?</h3>
+    <h4>Selecionar todos os itens opcionais para valorizar o seu anúncio.</h4>
+    <div class="advertise-optionals row">
+      <div class="flex" *ngIf="optionals.length > 0 && offer">
+        <div class="col-md-6" *ngFor="let optional of optionals; let i = index">
+          <div class="checkbox box checkbox-optionals">
+            <input type="checkbox" name="{{optional.id}}" id="{{optional.id}}" [checked]="isSelected(optional.id) ? 'checked' : ''" value="{{optional.id}}" (change)="onChange($event, optional);">
+            <label for="{{optional.id}}">{{optional.name}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <a routerLink="/perfil/meus-anuncios" id="button-save-offer" class="btn btn-full btn-blue btn-md">Salvar</a>
+      </div>
+    </div>
+  </div>
+</section>

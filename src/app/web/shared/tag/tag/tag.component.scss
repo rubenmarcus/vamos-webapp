@@ -1,0 +1,36 @@
+.tag.big {
+  border: 1px solid #E6E9EE;
+  border-radius: 6.5px;
+  font-size: 16px;
+  color: #485166;
+  letter-spacing: -0.39px;
+  // width: 172px;
+  width: auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  // padding-top: 6px;
+  padding-right: 10px;
+  margin-right: 10px;
+  i {
+      margin-left: 12px;
+      margin-right: 10px;
+      margin-top: 1px;
+  }
+  .road {
+      background-image: url('/assets/img/small-road.svg');
+      width: 15px;
+      height: 13px;
+      margin-top: 2px;
+  }
+  .calendar {
+      background-image: url('/assets/img/small-calendar.svg');
+      width: 15px;
+      height: 15px;
+  }
+  .location {
+      background-image: url('/assets/img/location.svg');
+      width: 11px;
+      height: 15px;
+  }
+}

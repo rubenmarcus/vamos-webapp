@@ -1,0 +1,162 @@
+<div [formGroup]="dataForm">
+  <div formGroupName="pre_approval">
+    <div formGroupName="payment_method">
+      <div formGroupName="credit_card">
+        <div formGroupName="holder">
+          <h3>Dados do titular</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('name') }">
+                <label> Nome do Titular: </label>
+                <input type="text" placeholder="Nome do Titular" autocomplete="nope" autocorrect="off" formControlName="name">
+                <div *ngIf="isFieldValid('name')">
+                  <p class="help has-text-danger">{{ error.name }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6" formGroupName="document">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('value', 'document') }">
+                <label> CPF: </label>
+                <input type="tel" placeholder="CPF" autocomplete="nope" autocorrect="off" formControlName="value" [textMask]="documentMask">
+                <div *ngIf="isFieldValid('value', 'document')">
+                  <p class="help has-text-danger">{{ error.cpf }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('birth_date') }">
+                <label> Aniversário: </label>
+                <input type="tel" placeholder="00/00/0000" autocomplete="nope" autocorrect="off" formControlName="birth_date" [textMask]="inputMask.birthdayMask">
+                <div *ngIf="isFieldValid('birth_date')">
+                  <p class="help has-text-danger">{{ error.birthdate }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('telephone') }">
+                <label> Telefone com DDD: </label>
+                <input type="tel" placeholder="(00) 00000-0000" autocomplete="nope" autocorrect="off" formControlName="telephone" [textMask]="phoneSenderMask" (keypress)="changeMask($event);">
+                <div *ngIf="isFieldValid('telephone')">
+                  <p class="help has-text-danger">{{ error.phone }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('card_number') }">
+                <label> Número do cartão: </label>
+                <input type="tel" placeholder="Número do cartão" autocomplete="nope" autocorrect="off" formControlName="card_number" [textMask]="inputMask.cardNumberMask">
+                <div *ngIf="isFieldValid('card_number')">
+                  <p class="help has-text-danger">{{ error.cardNumber }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('expiration_date') }">
+                <label> Data de vencimento: </label>
+                <input type="tel" placeholder="00/0000" autocomplete="nope" autocorrect="off" formControlName="expiration_date" [textMask]="inputMask.expirationDateMask">
+                <div *ngIf="isFieldValid('expiration_date')">
+                  <p class="help has-text-danger">{{ error.cardExpirationDate }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('cvv') }">
+                <label> CVV: </label>
+                <input type="tel" placeholder="CVV" autocomplete="nope" autocorrect="off" formControlName="cvv" [textMask]="inputMask.cvvMask">
+                <div *ngIf="isFieldValid('cvv')">
+                  <p class="help has-text-danger">{{ error.cardCvv }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3>Endereço</h3>
+
+          <div class="row" formGroupName="address">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('postal_code', 'address') }">
+                <label> CEP: </label>
+                <input type="tel" placeholder="CEP" autocomplete="nope" autocorrect="off" formControlName="postal_code" [textMask]="inputMask.cepMask" (focusout)="focusCep($event)">
+                <div *ngIf="isFieldValid('postal_code', 'address')">
+                  <p class="help has-text-danger">{{ error.addressZip }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('street', 'address') }">
+                <label> Endereço: </label>
+                <input type="text" placeholder="Endereço" autocomplete="nope" autocorrect="off" formControlName="street">
+                <div *ngIf="isFieldValid('street', 'address')">
+                  <p class="help has-text-danger">{{ error.addressLine1 }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('number', 'address') }">
+                <label> Número: </label>
+                <input type="tel" placeholder="Número" autocomplete="nope" autocorrect="off" formControlName="number">
+                <div *ngIf="isFieldValid('number', 'address')">
+                  <p class="help has-text-danger">{{ error.addressNumber }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('district', 'address') }">
+                <label> Bairro: </label>
+                <input type="text" placeholder="Bairro" autocomplete="nope" autocorrect="off" formControlName="district">
+                <div *ngIf="isFieldValid('district', 'address')">
+                  <p class="help has-text-danger">{{ error.addressDistrict }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('city', 'address') }">
+                <label> Cidade: </label>
+                <input type="text" placeholder="Cidade" autocomplete="nope" autocorrect="off" formControlName="city">
+                <div *ngIf="isFieldValid('city', 'address')">
+                  <p class="help has-text-danger">{{ error.addressCity }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'error' : isFieldValid('state', 'address') }">
+                <label> Estado: </label>
+                <select name="state" id="state" formControlName="state">
+                  <option value="">Selecione</option>
+                  <option *ngFor="let state of states" [value]="state.id">
+                    {{ state.name }}
+                  </option>
+                </select>
+                <div *ngIf="isFieldValid('state', 'address')">
+                  <p class="help has-text-danger">{{ error.addressState }}</p>
+                </div>
+                <i></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group d-flex flex-column">
+    <div class="row">
+      <div class="col-md-6">
+        <a class="btn big grey" (click)="nextStep(2)">Voltar</a>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-full btn-blue btn-lg" [disabled]="!dataForm.valid" (click)="submit()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

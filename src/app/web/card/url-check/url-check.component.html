@@ -1,0 +1,4 @@
+<app-card-dependent *ngIf="userInfo.cardShow === 'dependent'" [DependentData]="userInfo.dependent"></app-card-dependent>
+<app-card-home *ngIf="userInfo.cardShow === 'card'" [userCard]="userInfo.card"></app-card-home>
+<app-card-benefits *ngIf="userInfo.cardShow === 'benefits'" [userType]="userInfo.type"></app-card-benefits>
+<card-payment-waiting-payment *ngIf="userInfo.cardShow === 'waiting'"></card-payment-waiting-payment>

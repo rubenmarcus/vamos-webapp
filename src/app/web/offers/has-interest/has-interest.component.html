@@ -1,0 +1,30 @@
+<img  rel=”preload” src="/assets/img/banner-has-interest.jpg" class="full" />
+  <app-box-content title="Tenho interesse" description="Preencha os dados abaixo para entrar em contato com o anunciante">
+    <ol class="breadcrumb">
+      <li>
+        <a href="javascript: history.go(-2)">Classificados </a>
+      </li>
+      <li>
+        <a href="javascript: history.go(-1)">Detalhe</a>
+      </li>
+      <li>
+        <a>Tenho Interesse</a>
+      </li>
+    </ol>
+  <h3>Mensagem para o vendedor</h3>
+  <form [formGroup]="hasInterestForm">
+    <div class="row has__interest">
+      <div class="col-6" formGroupName="message">
+        <div class="form-group" [ngClass]="{ 'error' : isFieldValid('message', 'message') }">
+          <label>Mensagem</label>
+          <textarea name="" id="" cols="30" rows="10" placeholder="Digite sua mensagem" formControlName="message"></textarea>
+          <div *ngIf="isFieldValid('message', 'message')">
+            <p class="help has-text-danger">{{messageError.message}}</p>
+          </div>
+        </div>
+
+        <button (click)="submitForm()" class="btn btn-full btn-blue btn-md" [disabled]='!hasInterestForm.valid'>Enviar</button>
+      </div>
+    </div>
+  </form>
+</app-box-content>

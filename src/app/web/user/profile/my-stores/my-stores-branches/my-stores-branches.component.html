@@ -1,0 +1,36 @@
+<div class="branch__title row flex">
+  <div class="col-md-8">
+    <h2>Colaboradores</h2>
+    <h3>Mantenha seus dados atualizados para facilitar o contato com o comprador.</h3>
+  </div>
+  <div class="branch__title-button col-md-4 flex">
+    <button type="button" class="btn btn-full btn-blue btn-md"  routerLink="/perfil/meus-dados/anunciante/cadastrar">Criar Anunciante </button>
+  </div>
+</div>
+
+<div class="flex_wrap flex">
+  <div class="col-12 flex_wrap branch__name flex" *ngFor="let element of objects; let i = index">
+    <div class="branch__name-image">
+      <img  rel=”preload” src="{{ element.thumb_url ? element.thumb_url : '/assets/img/filiais-empresa.png' }}" *ngIf="user.profile_type == 'Company'" />
+      <img  rel=”preload” src="{{ element.thumb_url ? element.thumb_url : '/assets/img/user-profile-pic.png' }}" *ngIf="user.profile_type == 'Person'" />
+    </div>
+    <div class="branch__name-address flex">
+      <h1 routerLink="/perfil/meus-dados/anunciante/editar/{{element.id}}">{{ element.name }}</h1>
+      <p  *ngIf="user.profile_type == 'Person'">{{ element.about }}</p>
+      <div *ngIf="user.profile_type == 'Company' && element.address">
+        <p>{{ element.address.line1 }}, {{ element.address.number }}<br>
+        {{ element.address.city }} , {{ element.address.state }} - {{ element.address.zip }}</p>
+      </div>
+    </div>
+    <div class="branch__name-status text-right flex_wrap flex vertical-center">
+      <!-- <p class="align-right">Status da Filial :</p>
+      <ui-switch [checked]="element.status == 'active'" (change)="setStatus($event,element)"></ui-switch> -->
+      <button type="button" class="btn btn-full btn-blue btn-sm flex-right" routerLink="/perfil/meus-dados/anunciante/editar/{{ element.id }}"> Editar</button>
+    </div>
+  </div>
+</div>
+
+<app-pagination [pagination]="pagination"
+[page]="pagination.current_page"
+[count]="pagination.total_objects"
+*ngIf="objects.length > 0"></app-pagination>

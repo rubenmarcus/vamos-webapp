@@ -1,0 +1,32 @@
+.msg-card {
+  box-shadow: 0 0 8px 0 #E6E9EE;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 28px;
+  h1 {
+    font-size: 2rem;
+    color: #20649a;
+    letter-spacing: -0.48px;
+    font-weight: normal;
+    margin-top: 0px;
+  }
+  &--title {
+      border-bottom:1px solid #E6E9EE;
+    span {
+      font-size: 1.4rem;
+      color: #909BAF;
+      letter-spacing: -0.34px;
+      text-align: right;
+    }
+  }
+  &--body {
+    font-size: 1.6rem;
+    color: #909BAF;
+    letter-spacing: -0.28px;
+    span{
+        padding-top:25px;
+        padding-bottom:18px;
+        display:block;
+    }
+  }
+}

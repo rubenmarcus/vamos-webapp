@@ -1,0 +1,70 @@
+h4 {
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #909BAF;
+  letter-spacing: 0;
+}
+
+.photos {
+  display: flex;
+  flex-flow: row wrap;
+  -ms-flex-pack: center;
+  // justify-content: center;
+  padding: 40px 0px 0;
+  input[type=file]{ display: none; }
+  .active p {
+    color: #7ED321;
+    position: relative;
+    top: -36px;
+    font-size: 1.2rem;
+  }
+  li {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 20px 20px 0;
+    border: 1px dashed #C6CCD6;
+    border-radius: 6px;
+    label {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: auto;
+      }
+    }
+    img{
+      width: 100%;
+      border-radius: 6px;
+      &.close{
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        right: 12px;
+        top: 11px;
+        cursor: pointer;
+        border-radius: 0;
+      }
+      &.upload{
+        position: absolute;
+        width: 41px;
+        height: 30px;
+        top: 50%;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -20px;
+        cursor: pointer;
+        border-radius: 0;
+      }
+    }
+  }
+  .photo {
+    border: 0px;
+  }
+}
+.photo-crop{
+  margin-bottom:30px;
+}

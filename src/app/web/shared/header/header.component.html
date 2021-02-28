@@ -1,0 +1,73 @@
+<header  [ngClass]="[typeHeader == 'auth' ? 'header-auth' : 'header-main']">
+    <div class="header-auth" *ngIf="typeHeader == 'auth'">
+        <div class="logo"><img  rel=”preload” src="/assets/img/logo.png" /></div>
+    </div>
+  <div class="header-content" *ngIf="typeHeader == 'home'">
+    <div class="logo"><a routerLink="/"><img  rel=”preload” src="/assets/img/logo.png" /></a></div>
+
+    <div class="header-content-btn-mobile show__mobile show__tablet-init show__tablet-mid" *ngIf="typeHeader == 'home'">
+      <img  rel=”preload” src="/assets/img/menu.svg" (click)="showNav()"/>
+    </div>
+    <nav id="header-nav" class="header-content-nav" *ngIf="typeHeader == 'home'" [ngClass]="{ 'active' : showMenu }">
+      <ul class="no__margin no__padding" (click)="closeMenu()">
+        <li *ngIf="!session" class="offset-md-1 show__mobile show__tablet-init show__tablet-mid"><a routerLink="/login">Acessar</a></li>
+        <li *ngIf="!session" class="offset-md-1 show__mobile show__tablet-init show__tablet-mid"><a routerLink="/cadastro">Cadastre-se</a></li>
+        <li *ngIf="session" class="offset-md-1 show__mobile  show__tablet-init show__tablet-mid">
+          <app-header-profile id="header-profile-mobile"></app-header-profile>
+        </li>
+        <li  *ngIf="session" class="offset-md-1 show__mobile show__tablet-init show__tablet-mid"><a routerLink="/perfil">Meu Perfil</a></li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a></li>
+        <li><a routerLink="/classificados" routerLinkActive="active">Classificados</a></li>
+        <li><a routerLink="/fretes" routerLinkActive="active">Fretes</a></li>
+        <li><a routerLink="/cartao" routerLinkActive="active" >Cartão</a></li>
+        <!-- <li><a routerLink="/noticias" routerLinkActive="active" >Notícias</a></li> -->
+        <li><a routerLink="/servicos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Serviços</a></li>
+        <li><a routerLink="/sobre" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sobre a clicCA</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-content-logged flex-right align-center col-auto flex no__margin no__padding" *ngIf="typeHeader == 'home'">
+      <div *ngIf="session">
+        <app-header-profile id="header-profile-web"></app-header-profile>
+      </div>
+
+      <div *ngIf="!session" class="flex-right align-center">
+        <a routerLink="/login" class="btn btn-stroke btn-gray btn-xs">Acessar</a>
+        <a routerLink="/cadastro" class="btn btn-stroke btn-gray btn-xs">Cadastrar-se</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-content" [ngClass]="{ 'hidden-profile' : typeHeader !== 'home' }" *ngIf=" typeHeader !== 'home' && session">
+    <div class="logo"><a routerLink="/"><img  rel=”preload” src="/assets/img/logo.png" /></a></div>
+
+    <div class="header-content-btn-mobile show__mobile show__tablet-init show__tablet-mid">
+      <img  rel=”preload” src="/assets/img/menu.svg" (click)="showNav()"/>
+    </div>
+
+    <nav id="header-nav" class="header-content-nav" [ngClass]="{ 'active' : showMenu }">
+      <ul class="no__margin no__padding" (click)="closeMenu()">
+        <li class="offset-md-1 show__mobile  show__tablet-init show__tablet-mid">
+          <app-header-profile></app-header-profile>
+        </li>
+        <li><a routerLinkActive="active" routerLink="/perfil/meus-dados">Meu perfil</a></li>
+        <li><a routerLinkActive="active" routerLink="/perfil/favoritos">Favoritos</a></li>
+        <li><a routerLinkActive="active" routerLink="/perfil/meus-anuncios">Meus anúncios</a></li>
+        <!-- <li><a routerLinkActive="active" routerLink="/perfil/vagas">Minhas vagas </a></li> -->
+        <li><a routerLinkActive="active" routerLink="/perfil/planos">Planos</a></li>
+        <li><a routerLinkActive="active" routerLink="/perfil/mensagens">Minhas mensagens</a></li>
+        <li><a routerLinkActive="active" routerLink="/perfil/chat">Chat</a></li>
+        <li><a routerLinkActive="active" (click)="logout();">Sair</a></li>
+        <li><a routerLinkActive="active" routerLink="/">Voltar para o site clicCA</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <nav class="flex" *ngIf="typeHeader == 'my-advert'">
+    <ul class="flex-right">
+      <li> <a class="small btn transparent">Editar anúncio</a> </li>
+      <li> <a class="small btn transparent">Remover anúncio</a> </li>
+      <li> <a class="small btn blue">Publicar anúncio</a> </li>
+    </ul>
+  </nav>
+</header>

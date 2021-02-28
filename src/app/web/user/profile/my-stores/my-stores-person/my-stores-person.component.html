@@ -1,0 +1,161 @@
+<div class="profile__data">
+  <h2>Dados do anunciante</h2>
+  <h3>Mantenha seus dados atualizados para facilitar o contato com o comprador.</h3>
+
+  <form class="flex_wrap flex" [formGroup]="personForm">
+    <fieldset>
+      <div class="row">
+        <div class="col-12 flex_wrap flex">
+          <div class="col-6 profile-picture" >
+            <img  rel=”preload” src="{{ profilePicture ? profilePicture  : '/assets/img/user-profile-pic.png'  }}" />
+            <label for="file-upload" class="photo-add"></label>
+            <input type="file" id="file-upload" (change)="fileChange($event)" accept="image/x-png,image/gif,image/jpeg" >
+          </div>
+        </div>
+        <div class="col-lg-6"  formGroupName="advertiser">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('name') }">
+            <label>Nome*</label>
+            <input type="text" placeholder="Nome" formControlName="name" />
+            <div *ngIf="isFieldValid('name')">
+              <p class="help has-text-danger">{{messageError.first_name}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6"  formGroupName="advertiser">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('about') }">
+            <label>Descrição*</label>
+            <input type="text" formControlName="about"/>
+            <div *ngIf="isFieldValid('about')">
+              <p class="help has-text-danger">{{messageError.first_name}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6"  formGroupName="advertiser">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('operating_hours') }">
+            <label>Horário para atendimento*</label>
+            <input type="text" placeholder="Ex: seg a sexta das 8:00 - 18:00" formControlName="operating_hours" />
+            <div *ngIf="isFieldValid('operating_hours')">
+              <p class="help has-text-danger">{{messageError.first_name}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" [ngClass]="{ 'error' : isFieldValid('phone') }">
+            <label> Telefone para contato*</label>
+            <input type="text" [textMask]="maskPhone" formControlName="phone" (keypress)="changeMask($event.target.value);"/>
+            <div *ngIf="isFieldValid('phone')">
+              <p class="help has-text-danger">{{messageError.first_name}}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-6" formGroupName="advertiser">
+          <div class="checkbox box">
+            <input type="checkbox" name="hide" id="hide" value="" autocomplete="new-password1" />
+            <label for="hide">Ocultar meu endereço na plataforma</label>
+          </div>
+        </div>
+
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('zip', 'address_attributes') }">
+            <label>CEP*</label>
+            <input type="tel" placeholder="CEP" [textMask]="inputMask.cepMask" formControlName="zip" (focusout)="loadCep($event)" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('zip', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressZip}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group"  formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('line1', 'address_attributes') }">
+            <label>Endereço*</label>
+            <input type="text" formControlName="line1" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('line1', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressLine1}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('number', 'address_attributes') }">
+            <label>Número*</label>
+            <input type="number" placeholder="Número" formControlName="number" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('number', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressNumber}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes">
+            <label>Complemento</label>
+            <input type="text" placeholder="Complemento" formControlName="complement" autocomplete="new-password1" />
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('district', 'address_attributes') }">
+            <label>Bairro*</label>
+            <input type="text" placeholder="Bairro" formControlName="district" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('district', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressDistrict}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('city', 'address_attributes') }">
+            <label>Cidade*</label>
+            <input type="text" placeholder="Cidade" formControlName="city" autocomplete="new-password1" />
+            <div *ngIf="isFieldValid('city', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressCity}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" formGroupName="advertiser">
+          <div class="form-group" formGroupName="address_attributes" [ngClass]="{ 'error' : isFieldValid('state', 'address_attributes') }">
+            <label>Estado*</label>
+            <select name="estados-brasil" formControlName="state">
+              <option value="">selecionar</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+            <div *ngIf="isFieldValid('state', 'address_attributes')">
+              <p class="help has-text-danger">{{messageError.addressState}}</p>
+            </div>
+            <i></i>
+          </div>
+        </div> -->
+
+      </div>
+
+      <div class="buttons__group">
+        <div class="row">
+          <div class="col-lg-6">
+            <button type="submit" class="btn btn-full btn-blue btn-lg" [disabled]='!personForm.valid' (click)="submitForm()" >Salvar</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

@@ -1,0 +1,76 @@
+<div  *ngIf="!userawaiting"  class="login">
+  <div class="row no__margin height__100">
+    <div class="col-sm-12 col-md-12 col-lg-5 col-xl-4 no__padding">
+      <div class="login__box">
+        <div class="logo-login">
+          <a routerLink="/">
+            <img  rel=”preload” src="/assets/img/logo.png" />
+          </a>
+        </div>
+        <h1>BEM-VINDO</h1>
+        <p class="login-subtitle">Faça parte do maior ecossistema<br> de pesados do Brasil</p>
+        <form [formGroup]="signIn" autocomplete="off">
+          <div class="login__fields" formGroupName="user">
+            <div class="form-group" [ngClass]="{ 'error' : isFieldValid('user', 'login') }">
+              <label>CPF ou E-Mail</label>
+              <div class="login__fields--user">
+                <input type="email" class="input--login" placeholder="Digite seu e-mail*" [class.input-error]="isFieldValid('user', 'login')"
+                  formControlName="login" autocomplete="new-password1">
+                <div class="login__fields--user-icon">
+                  <app-icon-user></app-icon-user>
+                </div>
+              </div>
+              <div *ngIf="isFieldValid('user', 'login')">
+                <p class="help has-text-danger">Digite seu E-mail ou CPF.</p>
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="{ 'error' : isFieldValid('user', 'password') }">
+              <label>Senha</label>
+              <div class="login__fields--user">
+                <input type="{{type}}" class="input--login" placeholder="Digite sua senha*" [class.input-error]="isFieldValid('user', 'password')"
+                  formControlName="password" autocomplete="new-password">
+                <div class="login__fields--user-icon">
+                  <app-icon-key></app-icon-key>
+                </div>
+                <div class="show-password pos__absolute">
+                  <div class="login__fields--user-icon" (click)="showPassword()">
+                    <icon-eye></icon-eye>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="isFieldValid('user', 'password')">
+                <p class="help has-text-danger">Preencha sua senha com no mínimo 6 caracteres.</p>
+              </div>
+            </div>
+          </div>
+          <div class="login__box--text login__box--textspaced">
+            <div class="checkbox box">
+              <input type="checkbox" name="registerButton" id="pf" value="pf" formControlName="logged_in">
+              <label for="pf">Guardar minha senha</label>
+            </div>
+            <a routerLink="/esqueci-senha">Esqueci minha senha</a>
+          </div>
+          <button type="submit" class="btn btn-full btn-blue btn-md" [disabled]='!signIn.valid' [class.is-loading]="submited == true" (click)="submitForm()">Entrar</button>
+          <div class="login__box--text login__box--textspaced">Você ainda não tem cadastro ?
+            <a routerLink="/cadastro" class="link__blue">Cadastre-se Agora</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-7 col-xl-8 bg--login height__100 pos__relative no__padding">
+      <div class="login__shadow pos__absolute">
+        <div class="login__text pos__relative">
+          <h1>Tudo em um só lugar!</h1>
+          <p>Caminhões, Fretes, Vagas e muito mais para o caminhoneiro que está buscando uma vida com mais facilidade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="validate-recover" *ngIf="userawaiting">
+    <app-auth-validate-recover (backLogin)="loginPage()" [user]="userInfo">
+        <app-header  typeHeader="auth"></app-header>
+      </app-auth-validate-recover>
+</div>

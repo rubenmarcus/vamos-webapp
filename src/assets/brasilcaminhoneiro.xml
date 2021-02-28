@@ -1,0 +1,458 @@
+
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/"
+xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd"
+>
+
+<channel>
+	<title>Brasil Caminhoneiro</title>
+	<atom:link href="http://brasilcaminhoneiro.com.br/feed/" rel="self" type="application/rss+xml" />
+	<link>http://brasilcaminhoneiro.com.br</link>
+	<description>O portal dos caminhoneiros brasileiros</description>
+	<lastBuildDate>Wed, 04 Jul 2018 14:54:00 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+<!-- podcast_generator="Blubrry PowerPress/7.0.4 beta" mode="advanced" feedslug="feed" -->
+	<itunes:summary>No nosso programa, Sérgio Reis apresenta informações, notícias e boa música para o amigo caminhoneiro e simpatizantes mundo afora. Disponível em rádios em todo país e também em podcast, o programa vai ao todos os dias, você pode acompanhar e comentar as publicações em www.brasilcaminhoneiro.com.br</itunes:summary>
+	<itunes:author>Brasil Caminhoneiro</itunes:author>
+	<itunes:explicit>clean</itunes:explicit>
+	<itunes:image href="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2017/06/radio-brc.jpg" />
+	<itunes:owner>
+		<itunes:name>Brasil Caminhoneiro</itunes:name>
+		<itunes:email>contato@brasilcaminhoneiro.com.br</itunes:email>
+	</itunes:owner>
+	<managingEditor>contato@brasilcaminhoneiro.com.br (Brasil Caminhoneiro)</managingEditor>
+	<itunes:subtitle>Notícias, informação e música para o caminhoneiro. Com Sérgio Reis</itunes:subtitle>
+	<image>
+		<title>Brasil Caminhoneiro</title>
+		<url>http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2017/06/radio-brc.jpg</url>
+		<link>http://brasilcaminhoneiro.com.br</link>
+	</image>
+	<itunes:category text="Society &amp; Culture" />
+	<rawvoice:frequency>Daily</rawvoice:frequency>
+	<item>
+		<title>Fundo de Quintal &#124; Música Na Estrada</title>
+		<link>http://brasilcaminhoneiro.com.br/fundo-de-quintal-musica-na-estrada/</link>
+		<comments>http://brasilcaminhoneiro.com.br/fundo-de-quintal-musica-na-estrada/#respond</comments>
+		<pubDate>Wed, 04 Jul 2018 14:54:00 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Música na Estrada]]></category>
+		<category><![CDATA[A Amizade]]></category>
+		<category><![CDATA[Batucada dos nossos Tantã]]></category>
+		<category><![CDATA[Brasil Caminhoneiro]]></category>
+		<category><![CDATA[estrada]]></category>
+		<category><![CDATA[Fundo de Quintal]]></category>
+		<category><![CDATA[música]]></category>
+		<category><![CDATA[Nosso Grito]]></category>
+		<category><![CDATA[O Show Tem Que Continuar]]></category>
+		<category><![CDATA[SBT]]></category>
+		<category><![CDATA[Siga Bem]]></category>
+		<category><![CDATA[Só Felicidade]]></category>
+		<category><![CDATA[Yassir Chediak]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134623</guid>
+		<description><![CDATA[<p>O quadro Música na Estrada teve a presença de um grupo mais do que especial. Yassir Chediak recebeu o Fundo de Quintal. Ao som dos sucessos Batucada dos nossos Tantã, Nosso Grito, A Amizade, O Show Tem Que Continuar e Só Felicidade, o grupo conversou sobre a trajetória no samba. Veja! Assista o Brasil Caminhoneiro! [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/fundo-de-quintal-musica-na-estrada/">Fundo de Quintal | Música Na Estrada</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>O quadro Música na Estrada teve a presença de um grupo mais do que especial. Yassir Chediak recebeu o Fundo de Quintal.</h2>
+<p>Ao som dos sucessos Batucada dos nossos Tantã, Nosso Grito, A Amizade, O Show Tem Que Continuar e Só Felicidade, o grupo conversou sobre a trajetória no samba. Veja!</p>
+<p>Assista o Brasil Caminhoneiro! Todos os domingos, às 7h, no SBT!</p>
+<p>Veja também o Brasil Caminhoneiro na TV Aparecida, todos os domingos, às 16h!</p>
+<p>Visite o canal do Brasil Caminhoneiro no YouTube:<br />
+<a href="https://goo.gl/ucdkEQ" target="_blank" rel="noopener">https://goo.gl/ucdkEQ</a></p>
+<p>Siga o BRC nas redes:<br />
+Site: <a href="https://goo.gl/BzgX6V" target="_blank" rel="noopener">https://goo.gl/BzgX6V</a><br />
+Facebook: <a href="https://goo.gl/cgeY7D" target="_blank" rel="noopener">https://goo.gl/cgeY7D</a><br />
+Instagram: <a href="https://goo.gl/qWo2i6" target="_blank" rel="noopener">https://goo.gl/qWo2i6</a><br />
+Twitter: <a href="https://goo.gl/2R2UUr" target="_blank" rel="noopener">https://goo.gl/2R2UUr</a></p>
+<p>WhatsApp: Mande uma mensagem para o número 11 94455-7765 com seu nome e sua cidade para receber notícias e vídeos. Cadastre-se!</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/fundo-de-quintal-musica-na-estrada/">Fundo de Quintal | Música Na Estrada</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/fundo-de-quintal-musica-na-estrada/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Entenda a nova legislação para o tamanho de cegonheiros &#124; Rádio Brasil Caminhoneiro – 04/07/2018</title>
+		<link>http://brasilcaminhoneiro.com.br/entenda-a-nova-legislacao-para-o-tamanho-de-cegonheiros/</link>
+		<comments>http://brasilcaminhoneiro.com.br/entenda-a-nova-legislacao-para-o-tamanho-de-cegonheiros/#respond</comments>
+		<pubDate>Wed, 04 Jul 2018 09:00:03 +0000</pubDate>
+		<dc:creator><![CDATA[Fernando Rosa]]></dc:creator>
+				<category><![CDATA[Rádio Brasil Caminhoneiro]]></category>
+		<category><![CDATA[caminhões cegonha]]></category>
+		<category><![CDATA[Cegonheiro]]></category>
+		<category><![CDATA[giro de notícias]]></category>
+		<category><![CDATA[Itacoatiara]]></category>
+		<category><![CDATA[legislação]]></category>
+		<category><![CDATA[papo estradeiro]]></category>
+		<category><![CDATA[portos]]></category>
+		<category><![CDATA[Rodovia Castello Branco]]></category>
+		<category><![CDATA[Segurança]]></category>
+		<category><![CDATA[simulação de acidentes]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134614</guid>
+		<description><![CDATA[<p>Rádio Brasil Caminhoneiro – 04/07/2018 Hoje no Brasil Caminhoneiro tem papo sobre a nova legislação que muda o tamanho dos cegonheiros. Tem também muita informação e música boa. Legislação. O repórter Wellington Hokama fala sobre as mudanças na legislação para o tamanho dos caminhões cegonha. Ele traz informações dos principais motivos da mudança e o [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/entenda-a-nova-legislacao-para-o-tamanho-de-cegonheiros/">Entenda a nova legislação para o tamanho de cegonheiros | Rádio Brasil Caminhoneiro – 04/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Rádio Brasil Caminhoneiro – 04/07/2018</h2>
+<p>Hoje no Brasil Caminhoneiro tem papo sobre a nova legislação que muda o tamanho dos cegonheiros. Tem também muita informação e música boa.</p>
+<p>Legislação. O repórter Wellington Hokama fala sobre as mudanças na legislação para o tamanho dos caminhões cegonha. Ele traz informações dos principais motivos da mudança e o que isso irá afetar no trabalho desses motoristas.</p>
+<p>Segurança. O repórter Fernando Richeti acompanhou uma simulação de acidente com produtos perigosos na rodovia Castello Branco. O treinamento reuniu 90 pessoas para simular o salvamento de motoristas envolvidos no acidente.</p>
+<p>Giro de notícias. O repórter Fernando Rosa traz informações sobre a inauguração de um porto no Rio Amazonas, na cidade de Itacoatiara.</p>
+<p>Papo estradeiro. O repórter Wellington Hokama bate um papo com o caminhoneiro Josélio Ferreira, de Diadema (SP). Ele está há 32 anos na rodagem e conta um pouco sobre sua rotina na estrada.</p>
+<p>Fechando nosso programa tem os recados dos nossos parceiros da rodagem.</p>
+<p><strong>NOSSAS REDES SOCIAIS E FEEDS</strong><br />
+Facebook | <a href="https://www.facebook.com/brasilcaminhoneiro" target="_blank" rel="noopener">facebook.com/brasilcaminhoneiro</a><br />
+Twitter | <a href="https://twitter.com/brcaminhoneiro" target="_blank" rel="noopener">twitter.com/brcaminhoneiro</a><br />
+Instagram | <a href="https://www.instagram.com/brasilcaminhoneiro/" target="_blank" rel="noopener">instagram.com/brasilcaminhoneiro</a><br />
+Youtube | <a href="https://www.youtube.com/BrasilCaminhoneiroOficial" target="_blank" rel="noopener">www.youtube.com/BrasilCaminhoneiroOficial</a></p>
+<p><strong>EMAIL</strong><br />
+Envie seu email com dúvidas, críticas, elogios e sugestões para <a href="mailto:contato@brasilcaminhoneiro.com.br">contato@brasilcaminhoneiro.com.br</a></p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/entenda-a-nova-legislacao-para-o-tamanho-de-cegonheiros/">Entenda a nova legislação para o tamanho de cegonheiros | Rádio Brasil Caminhoneiro – 04/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/entenda-a-nova-legislacao-para-o-tamanho-de-cegonheiros/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<enclosure url="http://media.blubrry.com/brasil_caminhoneiro/content.blubrry.com/brasil_caminhoneiro/20180704.mp3" length="24017923" type="audio/mpeg" />
+		<itunes:subtitle>Rádio Brasil Caminhoneiro – 04/07/2018 Hoje no Brasil Caminhoneiro tem papo sobre a nova legislação que muda o tamanho dos cegonheiros. Tem também muita informação e música boa. Legislação. O repórter Wellington Hokama fala sobre as mudanças na legisla...</itunes:subtitle>
+		<itunes:summary>Rádio Brasil Caminhoneiro – 04/07/2018 Hoje no Brasil Caminhoneiro tem papo sobre a nova legislação que muda o tamanho dos cegonheiros. Tem também muita informação e música boa. Legislação. O repórter Wellington Hokama fala sobre as mudanças na legislação para o tamanho dos caminhões cegonha. Ele traz informações dos principais motivos da mudança e o […]</itunes:summary>
+		<itunes:author>Brasil Caminhoneiro</itunes:author>
+		<itunes:explicit>clean</itunes:explicit>
+		<itunes:duration>25:01</itunes:duration>
+	</item>
+		<item>
+		<title>Reajuste de tarifas de até 10,13% no transporte rodoviário é autorizado</title>
+		<link>http://brasilcaminhoneiro.com.br/reajuste-de-tarifas-no-transporte-rodoviario/</link>
+		<comments>http://brasilcaminhoneiro.com.br/reajuste-de-tarifas-no-transporte-rodoviario/#respond</comments>
+		<pubDate>Tue, 03 Jul 2018 17:12:24 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Destaque]]></category>
+		<category><![CDATA[Notícias]]></category>
+		<category><![CDATA[ônibus]]></category>
+		<category><![CDATA[passageiros]]></category>
+		<category><![CDATA[rodoviário]]></category>
+		<category><![CDATA[Transporte]]></category>
+		<category><![CDATA[viagem]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134618</guid>
+		<description><![CDATA[<p>A ANTT (Agência Nacional de Transportes Terrestres) publicou, nesta segunda-feira (2), no Diário Oficial da União, a resolução que autoriza o reajuste de tarifas no transporte rodoviário interestadual e internacional de passageiros. Conforme a resolução nº 5.826/2018, as empresas que operam o serviço regular poderão reajustar o coeficiente tarifário em 10,13%. Os coeficientes máximos a [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/reajuste-de-tarifas-no-transporte-rodoviario/">Reajuste de tarifas de até 10,13% no transporte rodoviário é autorizado</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>A ANTT (Agência Nacional de Transportes Terrestres) publicou, nesta segunda-feira (2), no Diário Oficial da União, a resolução que autoriza o reajuste de tarifas no transporte rodoviário interestadual e internacional de passageiros.</h2>
+<p>Conforme a resolução nº 5.826/2018, as empresas que operam o serviço regular poderão reajustar o coeficiente tarifário em 10,13%.</p>
+<p>Os coeficientes máximos a serem aplicados, expressos em R$/passageiro x km, variam de R$ 0,18, para o serviço convencional com sanitário, a R$ 0,63, no serviço leito natural.</p>
+<p>Segundo a resolução, o reajuste não se aplica ao transporte terrestre coletivo interestadual e internacional semiurbano de passageiros. </p>
+<h2>Como funciona o cálculo da tarifa</h2>
+<p>Para calcular a tarifa máxima a ser cobrada para uma viagem, é necessário multiplicar a distância, em quilômetros, entre a origem e o destino, pelo valor do coeficiente tarifário máximo. </p>
+<p>A distância entre a origem e o destino é estabelecida no momento do cadastro do itinerário da linha na ANTT. Já os coeficientes tarifários máximos variam de acordo com o serviço (rodoviário ou semiurbano), tipo de serviço (convencional sem sanitário, convencional com sanitário, executivo, semileito ou leito), tipo de pavimento da rodovia (pavimentada, implantada ou leito natural) e são estabelecidos periodicamente por Resoluções da ANTT publicadas no Diário Oficial da União.</p>
+<p>Segundo a ANTT, as tarifas máximas para o transporte rodoviário interestadual e internacional rodoviário de passageiros são definidas, basicamente, pela composição dos custos e das despesas de transporte, acrescidos da remuneração do serviço do transportador. Entram na conta, por exemplo, pedágios, taxas de embarque e impostos. </p>
+<p><em><a href="http://www.cnt.org.br/imprensa/noticia/antt-autoriza-reajuste-passagens-interestaduais-internacionais-brasilia">Fonte: Agência CNT de Notícias</a></em><br />
+<em>Foto: Valter Campanato/Agência Brasil</em></p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/reajuste-de-tarifas-no-transporte-rodoviario/">Reajuste de tarifas de até 10,13% no transporte rodoviário é autorizado</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/reajuste-de-tarifas-no-transporte-rodoviario/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Caminhoneiros testam óculos que simulam embriaguez &#124; Segurança É Aqui</title>
+		<link>http://brasilcaminhoneiro.com.br/caminhoneiros-testam-oculos-que-simulam-embriaguez/</link>
+		<comments>http://brasilcaminhoneiro.com.br/caminhoneiros-testam-oculos-que-simulam-embriaguez/#respond</comments>
+		<pubDate>Tue, 03 Jul 2018 15:14:38 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Na TV]]></category>
+		<category><![CDATA[Álcool]]></category>
+		<category><![CDATA[Bebida]]></category>
+		<category><![CDATA[Brasil Caminhoneiro]]></category>
+		<category><![CDATA[caminhão]]></category>
+		<category><![CDATA[Caminhoneiro]]></category>
+		<category><![CDATA[direção]]></category>
+		<category><![CDATA[embriaguez]]></category>
+		<category><![CDATA[estrada]]></category>
+		<category><![CDATA[logística]]></category>
+		<category><![CDATA[óculos]]></category>
+		<category><![CDATA[SBT]]></category>
+		<category><![CDATA[Segurança É Aqui]]></category>
+		<category><![CDATA[Siga Bem]]></category>
+		<category><![CDATA[teste]]></category>
+		<category><![CDATA[Transporte]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134616</guid>
+		<description><![CDATA[<p>O quadro Segurança É Aqui conta com um dispositivo que já é conhecido de quem acompanha o canal do Brasil Caminhoneiro no YouTube: os óculos que simulam embriaguez. Francisco Garonce levou os óculos para um pátio de posto para fazer uma série de testes com os caminhoneiros. Veja! Assista o Brasil Caminhoneiro! Todos os domingos, [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/caminhoneiros-testam-oculos-que-simulam-embriaguez/">Caminhoneiros testam óculos que simulam embriaguez | Segurança É Aqui</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>O quadro Segurança É Aqui conta com um dispositivo que já é conhecido de quem acompanha o canal do Brasil Caminhoneiro no YouTube: os óculos que simulam embriaguez.</h2>
+<p>Francisco Garonce levou os óculos para um pátio de posto para fazer uma série de testes com os caminhoneiros. Veja!</p>
+<p>Assista o Brasil Caminhoneiro! Todos os domingos, às 7h, no SBT!</p>
+<p>Veja também o Brasil Caminhoneiro na TV Aparecida, todos os domingos, às 16h!</p>
+<p>Visite o canal do Brasil Caminhoneiro no YouTube:<br />
+<a href="https://goo.gl/ucdkEQ" target="_blank" rel="noopener">https://goo.gl/ucdkEQ</a></p>
+<p>Siga o BRC nas redes:<br />
+Site: <a href="https://goo.gl/BzgX6V" target="_blank" rel="noopener">https://goo.gl/BzgX6V</a><br />
+Facebook: <a href="https://goo.gl/cgeY7D" target="_blank" rel="noopener">https://goo.gl/cgeY7D</a><br />
+Instagram: <a href="https://goo.gl/qWo2i6" target="_blank" rel="noopener">https://goo.gl/qWo2i6</a><br />
+Twitter: <a href="https://goo.gl/2R2UUr" target="_blank" rel="noopener">https://goo.gl/2R2UUr</a></p>
+<p>WhatsApp: Mande uma mensagem para o número 11 94455-7765 com seu nome e sua cidade para receber notícias e vídeos. Cadastre-se!</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/caminhoneiros-testam-oculos-que-simulam-embriaguez/">Caminhoneiros testam óculos que simulam embriaguez | Segurança É Aqui</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/caminhoneiros-testam-oculos-que-simulam-embriaguez/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Dicas de segurança para rodar com as crianças na boléia durante as férias &#124; Rádio Brasil Caminhoneiro &#8211; 03/07/2018</title>
+		<link>http://brasilcaminhoneiro.com.br/dicas-seguranca-criancas-ferias/</link>
+		<comments>http://brasilcaminhoneiro.com.br/dicas-seguranca-criancas-ferias/#respond</comments>
+		<pubDate>Tue, 03 Jul 2018 09:00:48 +0000</pubDate>
+		<dc:creator><![CDATA[Fernando Rosa]]></dc:creator>
+				<category><![CDATA[Rádio Brasil Caminhoneiro]]></category>
+		<category><![CDATA[artrite]]></category>
+		<category><![CDATA[dores]]></category>
+		<category><![CDATA[Férias escolares]]></category>
+		<category><![CDATA[Frete]]></category>
+		<category><![CDATA[Lucro]]></category>
+		<category><![CDATA[manutenção]]></category>
+		<category><![CDATA[papo estradeiro]]></category>
+		<category><![CDATA[parafuso da roda]]></category>
+		<category><![CDATA[Pneus]]></category>
+		<category><![CDATA[Saúde]]></category>
+		<category><![CDATA[Segurança É Aqui]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134610</guid>
+		<description><![CDATA[<p>Rádio Brasil Caminhoneiro &#8211; 03/07/2018 Hoje no Brasil Caminhoneiro tem dicas de segurança para rodar com as crianças nas férias escolares. Tem também muita informação e música boa. Papo estradeiro. O repórter Wellington Hokama bate um papo com os caminhoneiros sobre o custo do transporte. Ele fala sobre o lucro dos caminhoneiros com o transporte [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/dicas-seguranca-criancas-ferias/">Dicas de segurança para rodar com as crianças na boléia durante as férias | Rádio Brasil Caminhoneiro &#8211; 03/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Rádio Brasil Caminhoneiro &#8211; 03/07/2018</h2>
+<p>Hoje no Brasil Caminhoneiro tem dicas de segurança para rodar com as crianças nas férias escolares. Tem também muita informação e música boa.</p>
+<p>Papo estradeiro. O repórter Wellington Hokama bate um papo com os caminhoneiros sobre o custo do transporte. Ele fala sobre o lucro dos caminhoneiros com o transporte e mostra a avaliação deles sobre o valor do frete.</p>
+<p>Segurança é Aqui. O especialista em educação viária Francisco Garonce fala sobre os cuidados na época de férias escolares. Ele fala sobre a importância de manter a segurança das crianças dentro da boleia.</p>
+<p>Manutenção. O repórter Fernando Richeti traz informações de segurança para a sua rodagem. Ele fala sobre a importância de estar atento às condições do parafuso de roda do seu caminhão, para não sofrer um acidente.</p>
+<p>Saúde. A repórter Juliana Nogueira traz informações para quem sofre de problemas como artrite e dores nas articulações, que se intensificam durante o inverno. Ela traz dicas de como diminuir essas dores durante esse período.</p>
+<p>Fechando nosso programa tem os recados dos nossos parceiros da rodagem.</p>
+<p><strong>NOSSAS REDES SOCIAIS E FEEDS</strong><br />
+Facebook | <a href="https://www.facebook.com/brasilcaminhoneiro" target="_blank" rel="noopener">facebook.com/brasilcaminhoneiro</a><br />
+Twitter | <a href="https://twitter.com/brcaminhoneiro" target="_blank" rel="noopener">twitter.com/brcaminhoneiro</a><br />
+Instagram | <a href="https://www.instagram.com/brasilcaminhoneiro/" target="_blank" rel="noopener">instagram.com/brasilcaminhoneiro</a><br />
+Youtube | <a href="https://www.youtube.com/BrasilCaminhoneiroOficial" target="_blank" rel="noopener">www.youtube.com/BrasilCaminhoneiroOficial</a></p>
+<p><strong>EMAIL</strong><br />
+Envie seu email com dúvidas, críticas, elogios e sugestões para <a href="mailto:contato@brasilcaminhoneiro.com.br">contato@brasilcaminhoneiro.com.br</a></p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/dicas-seguranca-criancas-ferias/">Dicas de segurança para rodar com as crianças na boléia durante as férias | Rádio Brasil Caminhoneiro &#8211; 03/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/dicas-seguranca-criancas-ferias/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<enclosure url="http://media.blubrry.com/brasil_caminhoneiro/content.blubrry.com/brasil_caminhoneiro/20180703.mp3" length="24026282" type="audio/mpeg" />
+		<itunes:subtitle>Rádio Brasil Caminhoneiro – 03/07/2018 Hoje no Brasil Caminhoneiro tem dicas de segurança para rodar com as crianças nas férias escolares. Tem também muita informação e música boa. Papo estradeiro. O repórter Wellington Hokama bate um papo com os camin...</itunes:subtitle>
+		<itunes:summary>Rádio Brasil Caminhoneiro – 03/07/2018 Hoje no Brasil Caminhoneiro tem dicas de segurança para rodar com as crianças nas férias escolares. Tem também muita informação e música boa. Papo estradeiro. O repórter Wellington Hokama bate um papo com os caminhoneiros sobre o custo do transporte. Ele fala sobre o lucro dos caminhoneiros com o transporte […]</itunes:summary>
+		<itunes:author>Brasil Caminhoneiro</itunes:author>
+		<itunes:explicit>clean</itunes:explicit>
+		<itunes:duration>25:02</itunes:duration>
+	</item>
+		<item>
+		<title>Número de motos é maior que o de carros em 45% das cidades</title>
+		<link>http://brasilcaminhoneiro.com.br/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades/</link>
+		<comments>http://brasilcaminhoneiro.com.br/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades/#respond</comments>
+		<pubDate>Mon, 02 Jul 2018 20:41:23 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Comportamento]]></category>
+		<category><![CDATA[Destaque]]></category>
+		<category><![CDATA[Vida na Estrada]]></category>
+		<category><![CDATA[Caminhões]]></category>
+		<category><![CDATA[carros]]></category>
+		<category><![CDATA[motocicletas]]></category>
+		<category><![CDATA[motos]]></category>
+		<category><![CDATA[ônibus]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134599</guid>
+		<description><![CDATA[<p>Proporção é de uma moto para 7,86 habitantes; o Brasil ainda conta com quase 14 milhões de caminhões O número de motocicletas é maior que o de carros em 45% das cidades, segundo levantamento divulgado nesta segunda-feira (2) pela Confederação Nacional dos Municípios (CNM) sobre a frota de veículos no Brasil. De acordo com a [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades/">Número de motos é maior que o de carros em 45% das cidades</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Proporção é de uma moto para 7,86 habitantes; o Brasil ainda conta com quase 14 milhões de caminhões</h2>
+<p>O número de motocicletas é maior que o de carros em 45% das cidades, segundo levantamento divulgado nesta segunda-feira (2) pela Confederação Nacional dos Municípios (CNM) sobre a frota de veículos no Brasil.</p>
+<p>De acordo com a pesquisa, havia em abril deste ano mais motos do que carros circulando em 2.487 do total de 5.568 municípios brasileiros.</p>
+<p>Em todo o país, foram contabilizadas 26,4 milhões de motos, uma frota 3,44% maior do que a registrada em abril do ano passado. A proporção é de uma moto para 7,86 habitantes.</p>
+<p><strong>Regiões</strong></p>
+<p>A região que lidera essa proporção é o Nordeste, onde a frota de motos chega a 7,49 milhões contra 6,67 milhões de carros. No Norte, são 2,49 milhões de motos contra 1,67 milhão de automóveis.</p>
+<p>No Acre, todas as cidades têm mais motos do que carros. No Maranhão e no Pará, 99% das cidades seguem essa configuração. Em Pedreiro, no Ceará, quase 54% da população têm moto, seguido de Tocantinópolis (TO) e Água Branca, com 53,07% e 49,34%, respectivamente.</p>
+<p><strong>Motivos</strong></p>
+<p>Segundo a CNM, o aumento expressivo de motos no país se deve à facilidade do crédito, ao baixo preço das prestações deste tipo de veículo, aos incentivos e isenções do governo federal ao mercado, além da deficiência do transporte público.</p>
+<p>No caso do Nordeste, o estudo aponta que há claros sinais de substituição dos animais de tração, como cavalo, jumento e burro, pela moto.</p>
+<p>Outro fator apontado pelo CNM são os congestionamentos e complicações do trânsito que incentivaram a população a investirem em motos para se locomoverem em menor tempo e com o custo reduzido em relação ao consumo de combustível dos carros.</p>
+<p><strong>Automóveis</strong></p>
+<p>Apesar do aumento da frota de ciclomotores, motocicletas e motonetas, o levantamento aponta que os carros ainda lideram os meios de locomoção.</p>
+<p>Em abril deste ano, o Brasil tinha 53,4 milhões de carros, o que representa um carro para cada 3,89 habitantes, número 3,3% maior do que o registrado em abril do ano passado.</p>
+<p>A frota de carros, no entanto, está concentrada nas regiões Sudeste e Sul. Só o estado de São Paulo tem 17,8 milhões de automóveis, volume que representa 33,47% da frota do país. Dos dez municípios com mais carros, nove são capitais.</p>
+<p>Já as cidades que tem menos carros no país situam-se na Região Norte, onde em muitos casos a locomoção é feito pelo meio fluvial. As cidades de Itamarati e Tonantins, no Amazonas, têm dois carros para uma população de 8,1mil e 18,7mil habitantes, respectivamente. O município de Afuá, no Pará, possui três carros para uma população de pouco mais de 38 mil habitantes.</p>
+<p><strong>Transporte coletivo e transporte de cargas</strong></p>
+<p>O levantamento também traz informações sobre o transporte coletivo. Segundo o estudo, o Brasil tem 616 mil ônibus, a maioria circulando em cidade de mais de 60 mil habitantes. As maiores taxas de ônibus a cada mil habitantes novamente se concentra nas regiões Sudeste, Sul e Centro-Oeste, onde há maior demanda por transporte de massa.</p>
+<p>Com relação ao transporte de cargas, o Brasil tem quase 14 milhões de caminhões, caminhonetes ou caminhonetas. Apesar da frota dos veículos de carga ser mais alta nos estados do Sudeste, onde o Produto Interno Bruto(PIB) – a soma de todos os bens e serviços produzidos no país – é maior, quando comparado ao número de outros veículos, as regiões Norte e Nordeste apresentam maior número de caminhões do que de carros.</p>
+<p>A CNM explica que a maior presença de caminhões no Norte do país se deve à transferência de parte do escoamento para os portos do Norte, além de melhorias na estrutura rodoviária, principalmente em áreas de produção de grãos.</p>
+<p>O estudo é baseado em dados do Departamento Nacional de Trânsito (Denatran), de abril de 2018, com o objetivo de analisar crescimento da frota de automóveis, motos, ônibus e caminhões.</p>
+<p><em>Com informações da <a href="http://agenciabrasil.ebc.com.br/geral/noticia/2018-07/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades" target="_blank" rel="noopener">Agência Brasil</a></em></p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades/">Número de motos é maior que o de carros em 45% das cidades</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/numero-de-motos-e-maior-que-o-de-carros-em-45-das-cidades/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Equipe da Estônia vence competição mundial entre mecânicos da Volvo</title>
+		<link>http://brasilcaminhoneiro.com.br/equipe-da-estonia-vence-competicao-mundial-entre-mecanicos-da-volvo/</link>
+		<comments>http://brasilcaminhoneiro.com.br/equipe-da-estonia-vence-competicao-mundial-entre-mecanicos-da-volvo/#respond</comments>
+		<pubDate>Mon, 02 Jul 2018 19:03:52 +0000</pubDate>
+		<dc:creator><![CDATA[Wellington Hokama]]></dc:creator>
+				<category><![CDATA[Destaque]]></category>
+		<category><![CDATA[Feiras e Eventos]]></category>
+		<category><![CDATA[Caminhões]]></category>
+		<category><![CDATA[Curitiba]]></category>
+		<category><![CDATA[ônibus]]></category>
+		<category><![CDATA[VISTA]]></category>
+		<category><![CDATA[Volvo]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134593</guid>
+		<description><![CDATA[<p>A competição Vista começou em 1957, na Suécia, sede do Grupo Volvo A fábrica da Volvo, em Curitiba, recebeu pela primeira vez a fase decisiva do Vista – Volvo International Service Training Award, competição mundial de profissionais de caminhões e ônibus da montadora. A equipe “Viies Ratas”, da Estônia, conquistou o título da temporada 2017-2018. [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/equipe-da-estonia-vence-competicao-mundial-entre-mecanicos-da-volvo/">Equipe da Estônia vence competição mundial entre mecânicos da Volvo</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>A competição Vista começou em 1957, na Suécia, sede do Grupo Volvo</h2>
+<figure id="attachment_134594" style="width: 800px" class="wp-caption aligncenter"><img class="size-full wp-image-134594" src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x534_Grupo_VISTA.jpg" alt="" width="800" height="534" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x534_Grupo_VISTA.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x534_Grupo_VISTA-300x200.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x534_Grupo_VISTA-768x513.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Equipe da Estônia vence competição mundial entre mecânicos da Volvo (Foto: Divulgação)</figcaption></figure>
+<p>A fábrica da Volvo, em Curitiba, recebeu pela primeira vez a fase decisiva do Vista – Volvo International Service Training Award, competição mundial de profissionais de caminhões e ônibus da montadora.</p>
+<p>A equipe “Viies Ratas”, da Estônia, conquistou o título da temporada 2017-2018. A segunda posição, ficou com a “Derma X-Power”, da Bélgica, e a terceira colocação com o time americano “Mobile Fleet Service”.</p>
+<figure id="attachment_134604" style="width: 800px" class="wp-caption aligncenter"><img src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo.jpg" alt="" width="800" height="533" class="size-full wp-image-134604" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo-300x200.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo-768x512.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Equipe “Viies Ratas”, da Estônia, conquistou o título da temporada 2017-2018 (Foto: Divulgação)</figcaption></figure>
+<p>“A preparação das pessoas que trabalham na nossa rede é muito importante. O Vista é uma grande oportunidade para incentivarmos mais aprendizado e principalmente para reconhecer os maiores talentos que nós temos na rede de serviços. Todos eles se desenvolveram e mostraram conhecimento”, explica Wilson Lirmann, presidente da Volvo do Brasil.</p>
+<p><strong>Veja também:</strong> <a href="http://brasilcaminhoneiro.com.br/serie-especial-volvo-fh/" target="_blank" rel="noopener">Série Especial global comemora os 25 anos do FH</a></p>
+<figure id="attachment_134608" style="width: 800px" class="wp-caption aligncenter"><img src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo5.jpg" alt="" width="800" height="533" class="size-full wp-image-134608" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo5.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo5-300x200.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo5-768x512.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Equipe “Viies Ratas”, da Estônia, conquistou o título da temporada 2017-2018 (Foto: Divulgação)</figcaption></figure>
+<p>A competição envolveu mais de 19,7 mil profissionais de todos os continentes. Depois de etapas eliminatórias, quatro equipes brasileiras se classificaram para a grande final, que contou com atividades teóricas e práticas.</p>
+<figure id="attachment_134605" style="width: 800px" class="wp-caption aligncenter"><img src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo2.jpg" alt="" width="800" height="533" class="size-full wp-image-134605" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo2.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo2-300x200.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo2-768x512.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Competição envolveu mais de 19,7 mil profissionais de todos os continentes (Foto: Divulgação)</figcaption></figure>
+<p>“O sentimento é muito bom. A sensação é de dever cumprido. Chegar na final com tantas equipes participando e a gente poder estar entre as melhores equipes do mundo”, disse Hugo Henrique.</p>
+<p>Mendes Pepetuo, de Governador Valadares, Minas Gerais. No desafio prático, as equipes recebem informações sobre o serviço durante cinco minutos, depois são mais vinte e cinco minutos para procurar e solucionar os problemas, que são comuns no dia a dia na rede de concessionárias. O time deve aliar mão na graxa e tecnologia.</p>
+<p><strong>Veja também:</strong> <a href="http://brasilcaminhoneiro.com.br/volvo-e-fedex-testam-tecnologia-de-comboio-de-caminhoes/" target="_blank" rel="noopener">Montadora e FedEx testam tecnologia de comboio de caminhões</a></p>
+<p>“Fundamental hoje são as ferramentas eletrônicas. Através dos diagnósticos eletrônicos você tem capacidade de chegar na peça com defeito de forma mais rápida e ter a certeza de que ela está com problema”, explica Daniel Silvestre Saccol, de Governador Valadares, Minas Gerais.</p>
+<p>O Vista começou em 1957, na Suécia, sede do Grupo Volvo. Em 1977, passou a ser uma maratona global. A ideia é promover o trabalho em equipe e ressaltar a importância da qualificação dos profissionais de serviços.</p>
+<figure id="attachment_134607" style="width: 800px" class="wp-caption aligncenter"><img src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo4.jpg" alt="" width="800" height="533" class="size-full wp-image-134607" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo4.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo4-300x200.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x533_volvo4-768x512.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Objetivo do evento é promover o trabalho em equipe e ressaltar a importância da qualificação dos profissionais de serviços (Foto: Divulgação)</figcaption></figure>
+<p>“A gente vê a evolução não só do profissional, mas também a evolução como pessoa, que é o primeiro valor que a gente tem. Nós temos uma equipe de São Paulo que começou como marido e mulher na mesma equipe e hoje já tem até um ‘fruto’ do Vista que é a filhinha deles. Tem casos também de pessoas que começaram a faculdade só pela inspiração de ter treinado e estudado dentro do Vista. Isso não tem preço. Quando você vê que toca a vida das pessoas de uma forma diferente”, conta Karen Wasman, gerente de desenvolvimento de competências do Grupo Volvo na América Latina.</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/equipe-da-estonia-vence-competicao-mundial-entre-mecanicos-da-volvo/">Equipe da Estônia vence competição mundial entre mecânicos da Volvo</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/equipe-da-estonia-vence-competicao-mundial-entre-mecanicos-da-volvo/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Iveco inaugura concessionária no Paraná</title>
+		<link>http://brasilcaminhoneiro.com.br/iveco-inaugura-concessionaria-no-parana/</link>
+		<comments>http://brasilcaminhoneiro.com.br/iveco-inaugura-concessionaria-no-parana/#respond</comments>
+		<pubDate>Mon, 02 Jul 2018 18:06:51 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Mercado]]></category>
+		<category><![CDATA[Cia Verde]]></category>
+		<category><![CDATA[concessionária]]></category>
+		<category><![CDATA[Iveco]]></category>
+		<category><![CDATA[Paraná]]></category>
+		<category><![CDATA[Ponta Grossa]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134589</guid>
+		<description><![CDATA[<p>Com a inauguração da concessionária Cia Verde, Iveco mantém o foco na prestação de serviços A Iveco anuncia a inauguração da concessionária Cia Verde, em Ponta Grossa (PR). A unidade tem área de 16 mil m² e uma equipe de 16 profissionais treinados no complexo industrial da marca em Sete Lagoas (MG). &#8220;Nosso objetivo é [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/iveco-inaugura-concessionaria-no-parana/">Iveco inaugura concessionária no Paraná</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Com a inauguração da concessionária Cia Verde, Iveco mantém o foco na prestação de serviços</h2>
+<figure id="attachment_134590" style="width: 800px" class="wp-caption aligncenter"><img src="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x450_iveco_CiaVerde.jpg" alt="" width="800" height="450" class="size-full wp-image-134590" srcset="http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x450_iveco_CiaVerde.jpg 800w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x450_iveco_CiaVerde-300x169.jpg 300w, http://brasilcaminhoneiro.com.br/novo/wp-content/uploads/2018/07/800x450_iveco_CiaVerde-768x432.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-caption-text">Iveco inaugura concessionária no Paraná (Foto: Divulgação)</figcaption></figure>
+<p>A Iveco anuncia a inauguração da concessionária Cia Verde, em Ponta Grossa (PR). A unidade tem área de 16 mil m² e uma equipe de 16 profissionais treinados no complexo industrial da marca em Sete Lagoas (MG).</p>
+<p>&#8220;Nosso objetivo é que os clientes, de todas as regiões do país, possam contar com atendimento padronizado&#8221;, afirma Marcelo Assis, responsável pela rede da Iveco na América Latina. No total, a IVECO tem 68 pontos de venda e serviços espalhados pelo Brasil.</p>
+<p><strong>Marcas </strong></p>
+<p>No portfólio da marca, destaque para a <a href="http://brasilcaminhoneiro.com.br/daily-city-busca-espaco-entre-urbanos-para-ganhar-mercado-brc/" target="_blank" rel="noopener">linha Daily</a>. A nova versão, recém-lançada, possui foco em cargas fracionadas. Já a família Tector é reconhecida pelo custo/benefício que proporciona ao cliente, e tem no Tector Auto-Shift seu topo de linha, com transmissão automatizada. Nos pesados, o Hi-Way proporciona ao operador economia de combustível, com potência de até 560cv.</p>
+<p><strong>Pós-venda</strong></p>
+<p>No pós-venda, a marca conta com a Revisão com Preço Fixo, estratégia para fidelizar os clientes que têm modelos das linhas Daily, Tector, Stralis e Hi-Way, com uma tabela de preços para as revisões que devem ser executadas quando os veículos atingem entre 10 e 120 mil Km.</p>
+<p><strong>Cia Verde</strong></p>
+<p>Para Michele Rudek, sócia-diretora da Cia Verde, a posição estratégica de Ponta Grossa garante a proximidade do transporte para portos, como Paranaguá e Santos, aeroportos, de Curitiba e o projetado nos Campos Gerais, além de países vizinhos, como Argentina e Paraguai.</p>
+<p>&#8220;A região tem como principal atividade o transporte de grãos, produtos industrializados, como bebidas, e está próxima à maior bacia leiteira do país, com algumas das principais industrias de produtos derivados do leite.&#8221;</p>
+<p>&#8220;O início do grupo econômico aconteceu com a abertura de uma revenda de caminhões usados e seminovos, EPV Veículos, em Curitiba em 1991, pelo sócio-proprietário do grupo, Eliseu Prado. Em 2005, o grupo aumenta o ramo de logística nas suas atividades, fundando a Cia Verde Logística&#8221;, finaliza a executiva. A empresa também expandiu as atividades para o transporte de alimentos e bens de consumo em 2009.</p>
+<p>A Cia Verde tem sede em Curitiba, opera por meio de uma transportadora, com filiais em Araucária (PR), Barra Mansa (RJ), Estiva (MG), Joinville (SC), Planalto (BA), Ponta Grossa (PR), Rio Claro (SP) e Vitória de Santo Antão (PE), que contam com uma frota própria de 350 veículos.</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/iveco-inaugura-concessionaria-no-parana/">Iveco inaugura concessionária no Paraná</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/iveco-inaugura-concessionaria-no-parana/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Caminhoneiros opinam sobre a rodagem pela Anhanguera &#124; BRC</title>
+		<link>http://brasilcaminhoneiro.com.br/caminhoneiros-opinam-sobre-a-rodagem-pela-anhanguera-brc/</link>
+		<comments>http://brasilcaminhoneiro.com.br/caminhoneiros-opinam-sobre-a-rodagem-pela-anhanguera-brc/#respond</comments>
+		<pubDate>Mon, 02 Jul 2018 13:13:43 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Na TV]]></category>
+		<category><![CDATA[Anhanguera]]></category>
+		<category><![CDATA[Brasil Caminhoneiro]]></category>
+		<category><![CDATA[caminhão]]></category>
+		<category><![CDATA[Caminhoneiro]]></category>
+		<category><![CDATA[estrada]]></category>
+		<category><![CDATA[logística]]></category>
+		<category><![CDATA[pedágio]]></category>
+		<category><![CDATA[privatização]]></category>
+		<category><![CDATA[rodovia]]></category>
+		<category><![CDATA[são paulo]]></category>
+		<category><![CDATA[SBT]]></category>
+		<category><![CDATA[Siga Bem]]></category>
+		<category><![CDATA[Transporte]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134586</guid>
+		<description><![CDATA[<p>Neste domingo o Brasil Caminhoneiro apresentou a segunda parte da série de reportagens que comemoram os 70 anos da Anhanguera, uma das principais rodovias do estado de São Paulo. Desta vez ouvimos a opinião dos caminhoneiros sobre o trecho após tantos anos de administração da iniciativa privada. Assista o Brasil Caminhoneiro! Todos os domingos, às [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/caminhoneiros-opinam-sobre-a-rodagem-pela-anhanguera-brc/">Caminhoneiros opinam sobre a rodagem pela Anhanguera | BRC</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Neste domingo o Brasil Caminhoneiro apresentou a segunda parte da série de reportagens que comemoram os 70 anos da Anhanguera, uma das principais rodovias do estado de São Paulo. Desta vez ouvimos a opinião dos caminhoneiros sobre o trecho após tantos anos de administração da iniciativa privada.</h2>
+<p>Assista o Brasil Caminhoneiro! Todos os domingos, às 7h, no SBT!</p>
+<p>Veja também o Brasil Caminhoneiro na TV Aparecida, todos os domingos, às 16h!</p>
+<p>Visite o canal do Brasil Caminhoneiro no YouTube:<br />
+<a href="https://goo.gl/ucdkEQ" target="_blank" rel="noopener">https://goo.gl/ucdkEQ</a></p>
+<p>Siga o BRC nas redes:<br />
+Site: <a href="https://goo.gl/BzgX6V" target="_blank" rel="noopener">https://goo.gl/BzgX6V</a><br />
+Facebook: <a href="https://goo.gl/cgeY7D" target="_blank" rel="noopener">https://goo.gl/cgeY7D</a><br />
+Instagram: <a href="https://goo.gl/qWo2i6" target="_blank" rel="noopener">https://goo.gl/qWo2i6</a><br />
+Twitter: <a href="https://goo.gl/2R2UUr" target="_blank" rel="noopener">https://goo.gl/2R2UUr</a></p>
+<p>WhatsApp: Mande uma mensagem para o número 11 94455-7765 com seu nome e sua cidade para receber notícias e vídeos. Cadastre-se!</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/caminhoneiros-opinam-sobre-a-rodagem-pela-anhanguera-brc/">Caminhoneiros opinam sobre a rodagem pela Anhanguera | BRC</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/caminhoneiros-opinam-sobre-a-rodagem-pela-anhanguera-brc/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>A voz do caminhoneiro na Anhanguera e simulador de embriaguez &#124; BRC 01/07/2018</title>
+		<link>http://brasilcaminhoneiro.com.br/a-voz-do-caminhoneiro-na-anhanguera-e-simulador-de-embriaguez-brc-01072018/</link>
+		<comments>http://brasilcaminhoneiro.com.br/a-voz-do-caminhoneiro-na-anhanguera-e-simulador-de-embriaguez-brc-01072018/#respond</comments>
+		<pubDate>Mon, 02 Jul 2018 13:02:06 +0000</pubDate>
+		<dc:creator><![CDATA[Brasil Caminhoneiro]]></dc:creator>
+				<category><![CDATA[Destaque]]></category>
+		<category><![CDATA[Na íntegra]]></category>
+		<category><![CDATA[Álcool]]></category>
+		<category><![CDATA[Anhanguera]]></category>
+		<category><![CDATA[Bebida]]></category>
+		<category><![CDATA[Caminhoneiro]]></category>
+		<category><![CDATA[desabafo]]></category>
+		<category><![CDATA[direção]]></category>
+		<category><![CDATA[embriaguez]]></category>
+		<category><![CDATA[realidade]]></category>
+		<category><![CDATA[volante]]></category>
+
+		<guid isPermaLink="false">http://brasilcaminhoneiro.com.br/?p=134583</guid>
+		<description><![CDATA[<p>Neste domingo o Brasil Caminhoneiro apresentou a segunda parte da série de reportagens que comemoram os 70 anos da Anhanguera, uma das principais rodovias do estado de São Paulo. Desta vez ouvimos a opinião dos caminhoneiros sobre o trecho após tantos anos de administração da iniciativa privada. Já o quadro Segurança É Aqui conta com [&#8230;]</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/a-voz-do-caminhoneiro-na-anhanguera-e-simulador-de-embriaguez-brc-01072018/">A voz do caminhoneiro na Anhanguera e simulador de embriaguez | BRC 01/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Neste domingo o Brasil Caminhoneiro apresentou a segunda parte da série de reportagens que comemoram os 70 anos da Anhanguera, uma das principais rodovias do estado de São Paulo.</h2>
+<p>Desta vez ouvimos a opinião dos caminhoneiros sobre o trecho após tantos anos de administração da iniciativa privada.</p>
+<p>Já o quadro Segurança É Aqui conta com um dispositivo que já é conhecido de quem acompanha o canal do Brasil Caminhoneiro no YouTube: os óculos que simulam embriaguez. Francisco Garonce levou os óculos para um pátio de posto para fazer uma série de testes com os caminhoneiros. Veja!</p>
+<p>Assista o Brasil Caminhoneiro! Todos os domingos, às 7h, no SBT!</p>
+<p>Veja também o Brasil Caminhoneiro na TV Aparecida, todos os domingos, às 16h!</p>
+<p>Visite o canal do Brasil Caminhoneiro no YouTube:<br />
+<a href="https://goo.gl/ucdkEQ" target="_blank" rel="noopener">https://goo.gl/ucdkEQ</a></p>
+<p>Siga o BRC nas redes:<br />
+Site: <a href="https://goo.gl/BzgX6V" target="_blank" rel="noopener">https://goo.gl/BzgX6V</a><br />
+Facebook: <a href="https://goo.gl/cgeY7D" target="_blank" rel="noopener">https://goo.gl/cgeY7D</a><br />
+Instagram: <a href="https://goo.gl/qWo2i6" target="_blank" rel="noopener">https://goo.gl/qWo2i6</a><br />
+Twitter: <a href="https://goo.gl/2R2UUr" target="_blank" rel="noopener">https://goo.gl/2R2UUr</a></p>
+<p>WhatsApp: Mande uma mensagem para o número 11 94455-7765 com seu nome e sua cidade para receber notícias e vídeos. Cadastre-se!</p>
+<p>O post <a rel="nofollow" href="http://brasilcaminhoneiro.com.br/a-voz-do-caminhoneiro-na-anhanguera-e-simulador-de-embriaguez-brc-01072018/">A voz do caminhoneiro na Anhanguera e simulador de embriaguez | BRC 01/07/2018</a> apareceu primeiro em <a rel="nofollow" href="http://brasilcaminhoneiro.com.br">Brasil Caminhoneiro</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://brasilcaminhoneiro.com.br/a-voz-do-caminhoneiro-na-anhanguera-e-simulador-de-embriaguez-brc-01072018/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
